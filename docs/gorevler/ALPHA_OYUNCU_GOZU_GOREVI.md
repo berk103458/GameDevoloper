@@ -36,7 +36,7 @@ Bunları yeniden keşfetmiş gibi davranma. Oku, çalıştır, ancak kod satır�
 - Test kitabı: `docs/tester/TESTER_REHBERI.md`, kod kapısı `docs/tester/TESTX_KOD_REHBERI.md`, Ahmet'in elle listesi `docs/OYUN_TESTI_KONTROL_LISTESI.md`.
 - Cilalama ve 60.000 üçgen kuralı: `docs/CILALAMA_PLANI.md` satır 755. Ayrı bir optimizasyon planı dosyası yoktur.
 - İnceltme raporu: `docs/meshy/TOPLULUK_INCELEME.md` bölüm F. Araç: `tools/varlik/meshy_incelt.py`. PR #31 birleşimi `2c968ec4`, iş `652d96c3`: 70 model, 1501,9 MB → 83,8 MB. Mesafe kesmesi `84c33da2`, `src/koy/gorsel/topluluk_dekoru.gd` (`GORUNUR_METRE` 120). Bu kesme mesh LOD zinciri değildir. Meshy `.import` dosyalarında `meshes/generate_lods=true` içe aktarıcı varsayılanıdır. Ayrı bir doku sıkıştırma kampanyası belgesi yoktur.
-- Admin: `src/debug/admin_hud.gd`. Açılış `Godot.exe --path . -- --debug-arac`. Pencerede F1 veya tire. Oyuncu sürümünde bu bayrak yoksa panel kurulmaz.
+- Admin: `src/debug/admin_hud.gd`. Açılış `Godot.exe --path . -- --debug-arac`. Pencerede F1 veya ters tırnak. Oyuncu sürümünde bu bayrak yoksa panel kurulmaz.
 - Akış testleri: `tests/oto/*_kontrol.tscn`, otomatik oyuncu `tests/oto/otomatik_oyuncu.tscn`. Performans günlüğü testi `tests/oto/performans_gunlugu_kontrol.tscn`. Tam kapı `tools/sanity_check.py`.
 - Ölçüm eksiği: `docs/tester/TESTER_GELISIM_PLANI.md` `tests/oto/olcum/performans_izi.gd` ister. Bu dosya yoktur. `src/debug/performans_gunlugu.gd` ve `src/debug/performans_seridi.gd` vardır.
 - Instancing: `MultiMeshInstance3D` zemin, yıldız ve yağmurda vardır (`src/koy/gorsel/koy_arazisi.gd`, `src/dunya/kapi_manzarasi.gd`). Köy prop'larında yoktur.
@@ -109,7 +109,7 @@ Canlı tıklama ve oyun içi kare ancak Ahmet bir MCP kurarsa gelir. Kurulum ad�
 
 ## Bölüm sırası
 
-1. **Ana menü ve başlangıç.** `ana.gd`, `menu_ekrani.gd`, `menu_sahnesi.gd`, `yeni_oyun_ekrani.gd`, `src/sistemler/acilis_senaryosu.gd`. Çift tıklama burada kapanır. Test: `tests/oto/giris_yukleme_kontrol.tscn`, `tests/oto/acilis_menu_kontrol.tscn` varsa o, yoksa menü foto sahnesi.
+1. **Ana menü ve başlangıç.** `ana.gd`, `menu_ekrani.gd`, `menu_sahnesi.gd`, `yeni_oyun_ekrani.gd`, `src/sistemler/acilis_senaryosu.gd`. Çift tıklama burada kapanır. Test: `tests/oto/giris_yukleme_kontrol.tscn` ve `tests/oto/acilis_menu_kontrol.tscn`.
 2. **İlk gün kapı.** `src/arayuz/kapi_ekrani.gd`, `src/kapi/`. Bir ziyaretçi, en çok iki soru, karar, sonuç köye veya ret. Test: `docs/OYUN_TESTI_KONTROL_LISTESI.md` ilk anı ve ilgili `tests/oto` kapı sahnesi.
 3. **Köy gündüz.** `src/arayuz/koy_ekrani.gd`, `src/dunya/koy_yonetim_sahnesi.gd`, HUD `src/arayuz/koy_hud/`. Kurma, seçme, yürüme. Dekor listesine yeni oyun kuralı ekleme.
 4. **Gece ve rapor.** Gece kapanışı, rapor ekranı, ertesi sabah kapıya dönüş. Kaynak ve huzur bir gece ilerler, çökme yok.
