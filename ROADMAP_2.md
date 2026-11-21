@@ -8,6 +8,10 @@ Bu dosya ROADMAP 2’nin tek ve geçerli kopyasıdır (11 Ekim 2026, Muharrir bi
 
 Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde açılmadı. Mevcut `[x]` ve `[/]` satırlarına dokunulmadı. Ayrıntı ve ölçüm: `docs/EKLENTI_BAGLANTI.md`. (Cursor)
 
+## Codex denetimi (Kalfa, 22 Kasım 2026)
+
+- [x] Bölüm 0 — Godot 4.7.2 importu, MCP ile oyun başlatma, ekran görüntüsü ve loglar. [Kanıtlar](docs/CODEX_DENETIM_RAPORU.md) (Kalfa)
+
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 
 - **Sahiplik:** Bir maddeye başlamadan önce `git pull`, sonra maddeyi `[/] (AjanAdı)` yap, commit + push et. Başka ajanın `[/]` işaretlediği maddeye DOKUNMA. Bitince `[x] (AjanAdı)`.

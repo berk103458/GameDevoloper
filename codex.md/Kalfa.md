@@ -1982,3 +1982,9 @@ SVS-06.b ile SVS-11.a arasındaki bağımlılık döngüsü kaldırıldı. SVS-1
 Masaüstü kopyasında başka çalışmanın assets/meshy_manifest.json çakışması var. Fast-forward uygulanamadı. ds çalışma ve ayna yolları bulunamadı, önceki izinli istisna geçerli. kota görünmüyor.
 
 TAMAMLANDI
+
+## 22 Kasım 2026 — Codex denetimi, Bölüm 0 (Kalfa)
+
+Festive tam pull ile `d0e3f89f` oldu. D: sürücüsündeki commitli test kopyasında Godot 4.7.2 temiz önbellek importu `0` ile bitti. Godot AI 4.4.2, `project_run`, `editor_screenshot` ve `logs_read` doğrulandı. Editör bir test betiğinde tür çıkarımı hatası, oyun beş söylenti olayında on eksik metin anahtarı bildirdi. [Denetim ve kanıt yolları](../docs/CODEX_DENETIM_RAPORU.md).
+
+Sonraki adım `fdcfa645` ile gelen Alpha değişikliklerini esas alarak köy eklentilerini doğrulamak. `ds` çalışma ve ayna yolları bu makinede erişilemiyor. Ajan Masası #11, GitHub CLI oturumu olmadığı için okunamadı. Asset gerekmedi. Kota görünmüyor.
