@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Instagram reel — 21 Kasım 2026
+
+Yalnız belge: `docs/arastirma/INSTAGRAM_REEL_DgAJ1x8hwd_.md`. Reel `@neyapiyoruzburak`, Türkticaret.net öğrenci hosting ilanı. Godot aracı değil; oyuna bağlanmaz. Kod, satın alma ve asset yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Çerçeve altı parçası — 21 Kasım 2026
 
 Ahmet Nano Banana yolunu seçti. Altı dosya adı `GeceKapisiCerceve.BEKLENEN` içindedir. Dosya yoksa eski tahta kalır. Prompt `docs/arayuz/NANO_BANANA_PROMPTLARI.md`, yeşil ayırma `tools/art/gece_kapisi_hazirla.py` ve `docs/arayuz/gece_kapisi_cerceve_alti.json`. Üretim yok. Test: `gece_kapisi_cerceve_test.gd`. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
