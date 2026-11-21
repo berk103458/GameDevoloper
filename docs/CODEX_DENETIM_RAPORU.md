@@ -32,6 +32,8 @@ Festive yayını `5eaa84f7`.
 
 ## Bölüm 2 — 3–5. gün döngüsü ve kayıt
 
+Festive yayını `cf0efca3`.
+
 Tohum 11 ile gerçek kapı ve köy düğmelerinden ilerlenip 3, 4 ve 5. gece raporları tamamlandı. İlk koşu 5. gün kapı kararlarında süre sınırına ulaştı. Beşinci gün, 4. gece sonu dosyasını ana menüden yükleyen ayrı bir süreçte tamamlandı. 3. günde 13 sorgu, bir kabul, iki ret ve bir köy eylemi kaydedildi. 4. günde harç, rüşvet, kabul ve dört köy eylemi, 5. günde kışlaya alma, iki kabul ve iki köy eylemi kaydedildi. İş gücü debuff'ı ve sıradaki köylüye bağ ayrıca Bölüm 1 eklenti testinde doğrulandı.
 
 | Gece | Oyun raporundan örnek |
@@ -48,8 +50,43 @@ Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/` içindeki `02-oyun-dongusu
 
 ## Bölüm 3 — Çerçeve ve arka plan
 
+Festive yayını `6cea9ca3`.
+
 Altı çerçeve eski çerçeve ya da süssüz durumla açıldı. On arka plan için ortak yükleyici etiketli kutuya, yükleme ekranı ise `loading_bg.png` dosyasına döndü. İzole kopyaya geçici renkli PNG'ler konup tek import yapıldığında altı çerçeve dokuya bağlandı ve on arka plan ortak yükleyiciden `TextureRect` olarak açıldı. Çerçeve sınamaları diyalog şeridi, seçenek satırı, portre, genel panel, mühür ve dört rumi köşenin bağlantılarını kapsadı.
 
 Oyun içinde üç yükleme adayı, ayarlar ve heybe gerçekten çağrılıyor. `kapi_gece.png`, `koy_gunduz.png`, `koy_gece.png`, `gun_sonu.png` ve `kayit.png` için oyun ekranında çağrı bulunmadı. Bu beş yol dosya konunca kendiliğinden ilgili ekranda görünmez. Kapı ve köydeki 3B görünümün üzerine hangi bölgede yer alacağı da oyun içi bağ aşamasında netleştirilmeli.
 
 Başarılı koşular `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/03-dosyasiz.log`, `03-png-ile.log` ve aynı dizindeki `03-import.log`. İlk dosyasız deneme betiği `SceneTree` açılışında heybe sınıfını Ses autoload'undan önce çözmeye çalıştı. Denetim betiği heybe betiğini çalışma anında yükleyince dosyasız ve PNG'li koşular sıfır hatayla tamamlandı. Geçici 16 PNG ve bunların `.import` yan dosyaları izole kopyadan kaldırıldı.
+
+## Bölüm 4 — Açık bulgular ve oynama kontrolü
+
+### Açık bulgular
+
+- **Eklentiler ve performans.** Eklentiler sekmesinin güvenilir ekran görüntüsü, hayvan ve tüccarın uzun rota gözlemi ve Instanced Renderer'ın ayrı FPS etkisi açık. ProtonScatter ölçümü 30 FPS sınırının altında kaldı. O sırada açık başka oyun ve düşük işlem önceliği sonucu etkileyebilir. Terrain3D ayrıca çalışma anında kurulan `Assets` kaynağı için `free_editor_textures` uyarısı veriyor.
+- **Arka planlar.** Kapı gecesi, köy gündüz/gece, gün sonu ve kayıt ekranı için beş PNG yolunun ekran bağlantısı yok. Kapı ve köy için 3B sahnenin hangi alanının görselle kaplanacağı yerleşim kararı gerektiriyor.
+- **Açılış uyarıları.** Parley'nin üç kayıt deposu ile HDR başlık uyarıları açık. Beş söylenti olayının eksik sonuç anahtarları ve oyun köprüsü testindeki tür çıkarımı hatası Bölüm 2'de giderildi.
+- **Yerel ayna.** Bu makinedeki erişilebilir kopya Ahmet'in çalışma dizini. `C:/Users/ds/Documents/GitHub/GameDevoloper` erişilebilir olmadığı için yerel eşitleme yapılamadı. Bölüm commit'leri festive'e gönderildi.
+
+### Eksik asset ve animasyonlar
+
+| Tür | Açık ihtiyaç |
+|---|---|
+| 2D çerçeve | Diyalog şeridi, seçenek satırı, portre, genel panel, mühür, rumi köşe. |
+| 2D arka plan | Yükleme kapı/köy/ocak, kapı gece, köy gündüz/gece, ayarlar, heybe, gün sonu, kayıt. Nihai ad ve ölçüler envanterde. |
+| 3D karakter rig ve klip | Kıpçak savaşçısı `k02`, kapüşonlu köylü `b092`, gezgin tüccar `k14`, sepetli tüccar `k15`, Kangal `b019`. İskelet, yürüyüş ve sakin bekleme. **Alpha'da da var.** |
+| 3D hayvan klibi | Öküz yürüyüşü ve koyun otlaması. Envanterde `ANI-HAYVAN-SURU`. |
+
+[Eksik Asset Envanteri](EKSIK_ASSET_ENVANTERI.md) ve [Alpha günlüğü](../codex.md/Antigravity.md).
+
+### Ahmet'in oynarken kontrol edeceği 10 madde
+
+1. Godot 4.7.2 ile oyunu aç. Yükleme sonunda ana menüye geçişi ve editörün kırmızı hata satırlarını kontrol et.
+2. Proje Ayarları → Eklentiler'de beş editör eklentisini, köyde LimboAI ve Instanced Renderer'ın çalışma çıktısını kontrol et.
+3. Köyde şafak, gündüz, akşam ve geceyi aynı kamera açısından izle. Gündüz gölgesine ve gece meydan ateşine bak.
+4. Bir köylüyü, bir hayvanı ve bir tüccarı duvar ve kapı çevresinde izle. Ayağın zemine oturmasına ve rota takılmasına bak.
+5. Başka oyun kapalıyken köyde aynı kamera ve grafik profiliyle 30 FPS ortanca ve 100 ms en uzun kare sınırını ölç.
+6. 3. günde bir kişiyi sorgula, birini kabul et, birini geri çevir. Köydeki yeni kişiyi, iş etkisini ve sonraki ziyaretçiyi kontrol et.
+7. 2. yuvada köyde F5'e bas, oyunu kapat ve Devam Et ile aç. Kaynaklar, iş atamaları ve yuvanın aynı kaldığını kontrol et.
+8. 4. ve 5. gece raporunda üretim, tüketim, zarar ve olay seçimini kontrol et. 5. gece sonu kaydını oyunu kapatıp yeni süreçte aç.
+9. Kapı sorgusunu ve tüccar diyaloğunu birer kez aç. Ret ve harç sonuçlarının ilgili karaktere ve köy durumuna işlendiğini kontrol et.
+10. Nihai PNG'ler geldiğinde diyalog, düğme, portre, mühür, rumi köşe, yükleme, ayarlar ve heybeyi aç. Beş eksik ekran bağı eklendiğinde aynı koşuyu bu ekranlarda da yap.

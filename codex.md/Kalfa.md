@@ -2000,3 +2000,7 @@ Altı çerçeve ve on arka plan dosyasız ve geçici renk PNG'leriyle tek import
 ## 22 Kasım 2026 — Codex denetimi, Bölüm 2 (Kalfa)
 
 3–5. gece raporları kapandı. F5 etkin yuvayı kullanıyor ve açık raporu atlamıyor. Eş hafızalı eski kayıt açıldı. 2. yuva köy kaydı ve 5. gece sonrası yeniden yazılan 3. yuva yeni süreçte eşleşti. Beş olayın TR/EN sonuç anahtarları ve köprü uyarısı düzeltildi. Tek istek testi 45/0. [Kanıtlar](../docs/CODEX_DENETIM_RAPORU.md). Sonraki adım sonuç raporunu ve oyuncu kontrol listesini kapatmak. Asset gerekmedi. Kota görünmüyor.
+
+## 22 Kasım 2026 — Codex denetimi, Bölüm 4 (Kalfa)
+
+Bölüm commit'leri `4155bd5a`, `5eaa84f7`, `cf0efca3` ve `6cea9ca3`. Açık görsel ve performans kontrolleri, 2D/3D ihtiyaçları, Alpha ile örtüşen klipler ve on oynama kontrolü [rapora](../docs/CODEX_DENETIM_RAPORU.md) eklendi. `ds` aynası bu makinede bulunamadı. Yeni asset gerekmedi. Kota görünmüyor.
