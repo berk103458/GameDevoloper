@@ -33,10 +33,13 @@ static func _tara(n: Node, sayac: Array) -> void:
 			etiket.name = "harf"
 			etiket.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			n.add_child(etiket)
-		etiket.add_theme_font_size_override("font_size", 11)
+		etiket.add_theme_font_size_override("font_size", 12)
+		etiket.add_theme_color_override("font_color", Renkler.KUL)
+		etiket.add_theme_color_override("font_outline_color", Kabuk.LEVHA)
+		etiket.add_theme_constant_override("outline_size", 2)
 		etiket.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		etiket.set_anchors_and_offsets_preset(Control.PRESET_LEFT_WIDE)
-		etiket.offset_left = 4
+		etiket.offset_left = 5
 		etiket.text = yazi
 	for cocuk in n.get_children():
 		_tara(cocuk, sayac)

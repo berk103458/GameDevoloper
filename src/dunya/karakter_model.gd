@@ -68,6 +68,7 @@ func kur(model: Node3D, ad: String = "") -> void:
 		_duzeltici = DurusDuzeltici.new()
 		_duzeltici.faz = randf() * 20.0
 		_duzeltici.bekleme = 1.0
+		_duzeltici.influence = 1.0
 		iskelet.add_child(_duzeltici)
 		AyakZemini.kur(self, model, iskelet)
 	if ad != "":
@@ -269,11 +270,20 @@ func _klipleri_yukle(ad: String) -> void:
 			if anim == null or not _izler_cozulur(anim, kok):
 				continue
 			anim = anim.duplicate()
+			_uzuv_konumlarini_temizle(anim)
 			if h == "bekle":
 				_sakin_bekle_yatistir(anim)
 			anim.loop_mode = Animation.LOOP_LINEAR if h in DONGULU else Animation.LOOP_NONE
 			kitap.add_animation(adi, anim)
 		_klipler[h] = adi
+
+
+static func _uzuv_konumlarini_temizle(anim: Animation) -> void:
+	for i in range(anim.get_track_count() - 1, -1, -1):
+		if anim.track_get_type(i) == Animation.TYPE_POSITION_3D:
+			var sub := String(anim.track_get_path(i).get_concatenated_subnames())
+			if not sub in ["Hips", "Pelvis", "Root"]:
+				anim.remove_track(i)
 
 
 ## CIL-23: Boşta kalça/kök salınımını bastırır (`<= 2 cm / sn`), canlı nefes ve yavaş bakışı DurusDuzeltici'ya bırakır.
@@ -324,13 +334,41 @@ static func _klip_al(yol: String) -> Animation:
 func _izler_cozulur(anim: Animation, kok: Node) -> bool:
 	var toplam := 0
 	var cozulen := 0
+	var skler := kok.find_children("*", "Skeleton3D", true, false)
+	var sk: Skeleton3D = skler[0] as Skeleton3D if not skler.is_empty() else (kok as Skeleton3D)
+	var sk_olcek := 1.0
+	if sk != null:
+		var kalca_idx := sk.find_bone("Hips")
+		if kalca_idx < 0:
+			kalca_idx = sk.find_bone("Pelvis")
+		if kalca_idx >= 0:
+			sk_olcek = maxf(0.5, absf(sk.get_bone_rest(kalca_idx).origin.y))
 	for i in anim.get_track_count():
 		var yol := anim.track_get_path(i)
 		toplam += 1
 		var dugum := kok.get_node_or_null(NodePath(String(yol.get_concatenated_names())))
 		if dugum is Skeleton3D:
-			if (dugum as Skeleton3D).find_bone(String(yol.get_concatenated_subnames())) >= 0:
-				cozulen += 1
+			var iskelet := dugum as Skeleton3D
+			var kemik_ad := String(yol.get_concatenated_subnames())
+			var kemik := iskelet.find_bone(kemik_ad)
+			if kemik < 0:
+				continue
+			if anim.track_get_key_count(i) > 0:
+				var tur := anim.track_get_type(i)
+				var dinlenme := iskelet.get_bone_rest(kemik)
+				if tur == Animation.TYPE_POSITION_3D and not kemik_ad in ["Hips", "Pelvis", "Root"]:
+					var p0: Vector3 = anim.track_get_key_value(i, 0)
+					if p0.distance_to(dinlenme.origin) > maxf(0.025 * sk_olcek, dinlenme.origin.length() * 0.25):
+						return false
+				elif tur == Animation.TYPE_ROTATION_3D:
+					var q0 := (anim.track_get_key_value(i, 0) as Quaternion).normalized()
+					var qr := dinlenme.basis.orthonormalized().get_rotation_quaternion()
+					var aci := q0.angle_to(qr)
+					if kemik_ad in ["Hips", "Spine", "Spine01", "Spine02", "neck", "Head"] and aci > deg_to_rad(25.0):
+						return false
+					if kemik_ad in ["LeftShoulder", "RightShoulder"] and aci > deg_to_rad(35.0):
+						return false
+			cozulen += 1
 		elif dugum != null:
 			cozulen += 1
 	return toplam > 0 and float(cozulen) / toplam >= IZ_ESIGI

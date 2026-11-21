@@ -18,6 +18,8 @@ const KIRPILAN := [
 	"settings_panel",
 	"tooltip_panel",
 	"hud_strip",
+	"loading_track",
+	"loading_fill",
 ]
 
 ## texture_margin sol, üst, sağ, alt. İçerik payı yazının tahtaya binmemesi içindir.
@@ -30,9 +32,9 @@ const DILIM := {
 	"focus_ring": [18, 14, 18, 14, 10],
 	"settings_panel": [192, 192, 192, 192, 40],
 	"tooltip_panel": [72, 72, 72, 72, 20],
-	"hud_strip": [36, 32, 36, 32, 8],
-	"loading_track": [32, 24, 32, 24, 4],
-	"loading_fill": [32, 24, 32, 24, 4],
+	"hud_strip": [44, 32, 44, 32, 8],
+	"loading_track": [16, 4, 16, 4, 2],
+	"loading_fill": [16, 4, 16, 4, 2],
 }
 
 
@@ -78,8 +80,10 @@ static func kutu(ad: String) -> StyleBoxTexture:
 		s.content_margin_left = 18
 		s.content_margin_right = 18
 	elif ad == "hud_strip":
-		s.content_margin_left = 24
-		s.content_margin_right = 40
+		s.content_margin_left = 30
+		s.content_margin_right = 64
+		s.content_margin_top = 10
+		s.content_margin_bottom = 10
 	s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
 	s.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
 	return s

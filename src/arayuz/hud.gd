@@ -49,20 +49,24 @@ func bagla(oturum: Oturum) -> void:
 
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(0, 108)
+	custom_minimum_size = Vector2(0, 118)
 	theme_type_variation = &"HudPanel"
 	var kutu := HBoxContainer.new()
-	kutu.add_theme_constant_override("separation", 14)
+	kutu.add_theme_constant_override("separation", 16)
 	var kaynak_kaydir := ScrollContainer.new()
 	kaynak_kaydir.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	kaynak_kaydir.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	kaynak_kaydir.custom_minimum_size.y = 84
 	kaynak_kaydir.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	kaynak_kaydir.follow_focus = true
 	kutu.add_child(kaynak_kaydir)
 	_kese = KeseGostergesi.new()
+	_kese.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	kutu.add_child(_kese)
 	_katman.izle(_kese, "kese_gostergesi.gd")
 	var kaynaklar := HBoxContainer.new()
 	kaynaklar.add_theme_constant_override("separation", 8)
+	kaynaklar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	kaynak_kaydir.add_child(kaynaklar)
 	_akce = _kaynak(kaynaklar, "akce")
 	for t in STOKLAR:
@@ -71,27 +75,39 @@ func _ready() -> void:
 	orta.custom_minimum_size.x = 4
 	kutu.add_child(orta)
 	var huzur := VBoxContainer.new()
-	huzur.add_theme_constant_override("separation", 2)
-	_huzur_etiket = _etiket(huzur, 17)
+	huzur.add_theme_constant_override("separation", 4)
+	huzur.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_huzur_etiket = _etiket(huzur, 19)
 	_huzur_bar = _bar(huzur)
 	kutu.add_child(huzur)
 	_katman.izle(huzur, "hud.gd", "huzur")
 	var gosterge := VBoxContainer.new()
-	gosterge.add_theme_constant_override("separation", 2)
-	_adalet = _etiket(gosterge, 17)
+	gosterge.add_theme_constant_override("separation", 3)
+	gosterge.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_adalet = _etiket(gosterge, 19)
 	_adalet_bar = _bar(gosterge)
-	_asayis = _etiket(gosterge, 17)
+	_asayis = _etiket(gosterge, 18)
 	kutu.add_child(gosterge)
 	_katman.izle(gosterge, "hud.gd", "adalet_asayis")
-	var sag := VBoxContainer.new()
-	sag.add_theme_constant_override("separation", 1)
-	_gun = _etiket(sag, 22)
+	var sag := HBoxContainer.new()
+	sag.add_theme_constant_override("separation", 18)
+	sag.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	var nufus_sutun := VBoxContainer.new()
+	nufus_sutun.add_theme_constant_override("separation", 3)
+	nufus_sutun.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_nufus = _etiket(nufus_sutun, 18)
+	_nufus.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	_ambar_bar = _bar(nufus_sutun)
+	_ambar_bar.custom_minimum_size = Vector2(180, 18)
+	sag.add_child(nufus_sutun)
+	var tarih_sutun := VBoxContainer.new()
+	tarih_sutun.add_theme_constant_override("separation", 2)
+	tarih_sutun.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_gun = _etiket(tarih_sutun, 23)
 	_gun.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_mevsim = _etiket(sag, 15)
+	_mevsim = _etiket(tarih_sutun, 18)
 	_mevsim.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_nufus = _etiket(sag, 15)
-	_nufus.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_ambar_bar = _bar(sag)
+	sag.add_child(tarih_sutun)
 	kutu.add_child(sag)
 	_katman.izle(sag, "hud.gd", "takvim")
 	_katman.guncelle()
@@ -191,7 +207,7 @@ func guncelle() -> void:
 
 func _bar(ust: Control) -> ProgressBar:
 	var bar := ProgressBar.new()
-	bar.custom_minimum_size = Vector2(150, 16)
+	bar.custom_minimum_size = Vector2(150, 18)
 	bar.show_percentage = false
 	bar.mouse_filter = Control.MOUSE_FILTER_PASS
 	ust.add_child(bar)

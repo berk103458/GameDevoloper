@@ -4,11 +4,16 @@ extends VBoxContainer
 var _miktar: Label
 func _ready() -> void:
 	focus_mode = Control.FOCUS_ALL
+	add_theme_constant_override("separation", 2)
+	var baslik_boyut := Kabuk.KUCUK - 3
+	var miktar_boyut := Kabuk.KUCUK - 1
 	var ad := Label.new()
 	ad.text = "Kişisel kese"
+	ad.add_theme_font_size_override("font_size", baslik_boyut)
 	ad.add_theme_color_override("font_color", KaynakGostergesi.BRONZ)
 	add_child(ad)
 	_miktar = Label.new()
+	_miktar.add_theme_font_size_override("font_size", miktar_boyut)
 	add_child(_miktar)
 ## Kişisel para ve eşya toplamını gösterir; kamu ekonomisine yazmaz.
 func guncelle(o: Oturum) -> void:

@@ -112,6 +112,13 @@ const PORTRE_MODEL := {
 	"zanaat_ustasi": "usta", "tohum_ustasi": "usta", "bitki_ustasi": "usta", "su_ustasi": "usta",
 }
 const SINIF_MODEL := {&"asker": "asker", &"esnaf": "esnaf", &"ciftci": "ciftci"}
+## Düzeltilemez ham mesh/oran taşıyan karakterlerin merkezî yönlendirmesi.
+const BOZUK_KARAKTER_YEDEK := {
+	"ciftci": "usta",
+	"chr_006": "cocuk",
+	"chr_011": "esnaf",
+	"haberci": "turkmen_bey_adami",
+}
 
 static var _onbellek: Dictionary = {}
 const EL_ESYALARI := "res://data/el_esyalari.json"
@@ -312,19 +319,28 @@ static func boyut(n: Node3D) -> Vector3:
 	return _kutu(n).size
 
 
-## Karakter modeli adı: adlı karakter id'si, portre kökü ya da sınıf.
+## Karakter modeli adı: adlı karakter id'si, portre kökü ya da sınıf (CIL-24 uyumlu yedeklemelerle).
 static func karakter_adi(adli_id: StringName, portre: String, sinif: StringName) -> String:
-	if adli_id == &"chr_006":
-		return String(adli_id)
-	if adli_id != &"" and _yol(String(adli_id) + "_yuru", "karakter") != "":
-		return String(adli_id)
-	if adli_id != &"" and PORTRE_MODEL.has(String(adli_id)):
-		return PORTRE_MODEL[String(adli_id)]
-	if PORTRE_MODEL.has(portre):
-		return PORTRE_MODEL[portre]
-	if not portre.is_empty() and model_var_mi(portre + "_yuru", "karakter"):
-		return portre
-	return SINIF_MODEL.get(sinif, "ciftci")
+	var secilen := ""
+	if adli_id == &"haberci" or portre == "haberci":
+		secilen = "haberci"
+	elif adli_id != &"" and _yol(String(adli_id) + "_yuru", "karakter") != "":
+		secilen = String(adli_id)
+	elif adli_id != &"" and PORTRE_MODEL.has(String(adli_id)):
+		secilen = PORTRE_MODEL[String(adli_id)]
+	elif PORTRE_MODEL.has(portre):
+		secilen = PORTRE_MODEL[portre]
+	elif not portre.is_empty() and model_var_mi(portre + "_yuru", "karakter"):
+		secilen = portre
+	else:
+		secilen = SINIF_MODEL.get(sinif, "ciftci")
+	var yedek: String = BOZUK_KARAKTER_YEDEK.get(secilen, "")
+	if not yedek.is_empty():
+		if model_var_mi(yedek + "_yuru", "karakter"):
+			return yedek
+		if secilen == "haberci":
+			return "asker"
+	return secilen
 
 
 static func _yol(ad: String, tur: String) -> String:
@@ -417,6 +433,9 @@ static func _kutu(n: Node) -> AABB:
 static func karakter(ad: String, esya_kaynagi: String = "") -> KarakterModel:
 	# Görsel model değişebilir. Verilen kapı kaynağı aynı eşya ve el satırını seçer.
 	var esya_adi := ad if esya_kaynagi.is_empty() else esya_kaynagi
+	var yedek: String = BOZUK_KARAKTER_YEDEK.get(ad, "")
+	if not yedek.is_empty() and model_var_mi(yedek + "_yuru", "karakter"):
+		ad = yedek
 	var hazir := HazirKarakterler.olustur(ad)
 	if hazir != null:
 		hazir.name = ad
