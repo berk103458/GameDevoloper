@@ -1992,3 +1992,7 @@ Sonraki adım `fdcfa645` ile gelen Alpha değişikliklerini esas alarak köy ekl
 ## 22 Kasım 2026 — Codex denetimi, Bölüm 1 (Kalfa)
 
 Dört Sky3D fazı, Terrain3D zemin yüksekliği, ProtonScatter örnekleri, native sınıflar, planlayıcı ve iki diyalog doğrulandı. Altı zemin dokusu mipmap aldı. Kısa ProtonScatter ölçümü 30 FPS bütçesinin altında kaldı. Eklentiler sekmesi görüntüsü, hayvan/tüccar rota gözlemi ve tek başına Instanced Renderer ölçümü açık. [Kanıtlar](../docs/CODEX_DENETIM_RAPORU.md). Sonraki adım 3–5. gün ve aktif yuva kaydı. Yeni asset gerekmedi. Kota görünmüyor.
+
+## 22 Kasım 2026 — Codex denetimi, Bölüm 3 (Kalfa)
+
+Altı çerçeve ve on arka plan dosyasız ve geçici renk PNG'leriyle tek import sonrası doğrulandı. Üç yükleme adayı, ayarlar ve heybenin ekran bağlantısı var. Kalan beş arka planın ekran bağlantısı raporda. Test PNG'leri ve yan dosyaları kaldırıldı. Yeni gerçek asset eklenmedi. [Kanıtlar](../docs/CODEX_DENETIM_RAPORU.md). Kota görünmüyor.

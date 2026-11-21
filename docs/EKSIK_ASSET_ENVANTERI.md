@@ -924,6 +924,8 @@ Ahmet Nano Banana yolunu seçti. Üretilmedi. Ham yeşil `work/ui_yesil_ham/` al
 | ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_muhur.png` | 256×256 | RGBA; düz #00FF00 | aynı |
 | ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_rumi_kose.png` | 256×256 | RGBA; düz #00FF00 | aynı |
 
+22 Kasım denetimi (Kalfa): Yukarıdaki 2D listesinde altı çerçeve ve on arka planın nihai PNG dosyaları bekleniyor. Çerçeveler, üç yükleme adayı, ayarlar ve heybe dosya geldiğinde bağlanıyor. `kapi_gece`, `koy_gunduz`, `koy_gece`, `gun_sonu` ve `kayit` için ekran bağlantısı da bekliyor. [Denetim sonucu](CODEX_DENETIM_RAPORU.md).
+
 KAP-17 notu (2 Kasım 2026, Kalfa): KAP17-COCUK/YASLI ihtiyaçları yukarıdaki mevcut 3D satırlarında güncellendi; yeni asset üretilmedi/indirilmedi. Kapıdaki refakatçiler isimli BoxMesh, köyde çocuk mevcut LOWPO, yaşlı mevcut yetişkin yer tutucusudur. Boy hedefleri mevcut 1,15 m / 1,65 m. Yaşlı modeli tamamlandı sayılmaz; yeni 2D ihtiyacı yok.
 
 CIL-11 notu (17 Kasım 2026, Antigravity): `CIL11-RIG-BEKLEYEN` — `k02_kipcak_kuman_savascisi`, `b092`, `k14`, `k15` (ve `b019_kangal`) için iskelet + yürüme/sakin bekleme klibi bekleniyor; `k02` kışla sabit nöbeti (`CIL-11`) dışında `b092`/`k14`/`k15` rigleme sırasını bekler.

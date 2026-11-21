@@ -16,6 +16,8 @@ Festive yayını `4155bd5a`.
 
 ## Bölüm 1 — Köy eklentileri
 
+Festive yayını `5eaa84f7`.
+
 `fdcfa645` üzerindeki çalışma sonuçları [Eklenti bağları](EKLENTI_BAGLANTI.md) belgesinde. Altı Terrain3D dokusu mipmap aldı. Headless eklenti testindeki GPU karesi okuması artık yalnız pencereli çalışmada, çıktı yolu verilirse yapılıyor. Bölüm 1 importu `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-import.log`.
 
 | Kanıt | Dosya |
@@ -27,3 +29,11 @@ Festive yayını `4155bd5a`.
 | Eklenti testi | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-eklenti-testi.log` |
 | Görsel sahne ve fazlar | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-koy-gorsel.log` |
 | Mipmap ve performans | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-koy-performans.log` |
+
+## Bölüm 3 — Çerçeve ve arka plan
+
+Altı çerçeve eski çerçeve ya da süssüz durumla açıldı. On arka plan için ortak yükleyici etiketli kutuya, yükleme ekranı ise `loading_bg.png` dosyasına döndü. İzole kopyaya geçici renkli PNG'ler konup tek import yapıldığında altı çerçeve dokuya bağlandı ve on arka plan ortak yükleyiciden `TextureRect` olarak açıldı. Çerçeve sınamaları diyalog şeridi, seçenek satırı, portre, genel panel, mühür ve dört rumi köşenin bağlantılarını kapsadı.
+
+Oyun içinde üç yükleme adayı, ayarlar ve heybe gerçekten çağrılıyor. `kapi_gece.png`, `koy_gunduz.png`, `koy_gece.png`, `gun_sonu.png` ve `kayit.png` için oyun ekranında çağrı bulunmadı. Bu beş yol dosya konunca kendiliğinden ilgili ekranda görünmez. Kapı ve köydeki 3B görünümün üzerine hangi bölgede yer alacağı da oyun içi bağ aşamasında netleştirilmeli.
+
+Başarılı koşular `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/03-dosyasiz.log`, `03-png-ile.log` ve aynı dizindeki `03-import.log`. İlk dosyasız deneme betiği `SceneTree` açılışında heybe sınıfını Ses autoload'undan önce çözmeye çalıştı. Denetim betiği heybe betiğini çalışma anında yükleyince dosyasız ve PNG'li koşular sıfır hatayla tamamlandı. Geçici 16 PNG ve bunların `.import` yan dosyaları izole kopyadan kaldırıldı.

@@ -12,6 +12,7 @@ Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde 
 
 - [x] Bölüm 0 — Godot 4.7.2 importu, MCP ile oyun başlatma, ekran görüntüsü ve loglar. [Kanıtlar](docs/CODEX_DENETIM_RAPORU.md) (Kalfa)
 - [/] (Kalfa) Bölüm 1 — Köy eklentilerinin çalışma kanıtı ve ilk performans ölçümü alındı. Eklentiler sekmesi görüntüsü, hareket gözlemi ve ayrıştırılmış Instanced Renderer ölçümü açık.
+- [x] Bölüm 3 — Altı çerçeve ve on arka plan dosyasız ve test PNG'li denetlendi. Beş ekranın eksik bağlantısı rapora yazıldı. (Kalfa)
 
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 
