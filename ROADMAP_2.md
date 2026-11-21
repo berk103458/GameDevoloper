@@ -11,6 +11,7 @@ Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde 
 ## Codex denetimi (Kalfa, 22 Kasım 2026)
 
 - [x] Bölüm 0 — Godot 4.7.2 importu, MCP ile oyun başlatma, ekran görüntüsü ve loglar. [Kanıtlar](docs/CODEX_DENETIM_RAPORU.md) (Kalfa)
+- [/] (Kalfa) Bölüm 1 — Köy eklentilerinin çalışma kanıtı ve ilk performans ölçümü alındı. Eklentiler sekmesi görüntüsü, hareket gözlemi ve ayrıştırılmış Instanced Renderer ölçümü açık.
 
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 

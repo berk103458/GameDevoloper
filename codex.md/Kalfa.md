@@ -1988,3 +1988,7 @@ TAMAMLANDI
 Festive tam pull ile `d0e3f89f` oldu. D: sürücüsündeki commitli test kopyasında Godot 4.7.2 temiz önbellek importu `0` ile bitti. Godot AI 4.4.2, `project_run`, `editor_screenshot` ve `logs_read` doğrulandı. Editör bir test betiğinde tür çıkarımı hatası, oyun beş söylenti olayında on eksik metin anahtarı bildirdi. [Denetim ve kanıt yolları](../docs/CODEX_DENETIM_RAPORU.md).
 
 Sonraki adım `fdcfa645` ile gelen Alpha değişikliklerini esas alarak köy eklentilerini doğrulamak. `ds` çalışma ve ayna yolları bu makinede erişilemiyor. Ajan Masası #11, GitHub CLI oturumu olmadığı için okunamadı. Asset gerekmedi. Kota görünmüyor.
+
+## 22 Kasım 2026 — Codex denetimi, Bölüm 1 (Kalfa)
+
+Dört Sky3D fazı, Terrain3D zemin yüksekliği, ProtonScatter örnekleri, native sınıflar, planlayıcı ve iki diyalog doğrulandı. Altı zemin dokusu mipmap aldı. Kısa ProtonScatter ölçümü 30 FPS bütçesinin altında kaldı. Eklentiler sekmesi görüntüsü, hayvan/tüccar rota gözlemi ve tek başına Instanced Renderer ölçümü açık. [Kanıtlar](../docs/CODEX_DENETIM_RAPORU.md). Sonraki adım 3–5. gün ve aktif yuva kaydı. Yeni asset gerekmedi. Kota görünmüyor.

@@ -99,10 +99,11 @@ func _kos() -> void:
 	await DmKopru.muhabbet_sec(dy, "harc")
 	_kontrol(String(y.get_meta(&"dm_is", "")) == "harc", "tüccar bacı kararı")
 
-	var img := s.get_viewport().get_texture().get_image()
-	if img != null:
-		img.save_png("/opt/cursor/artifacts/koy_eklentiler.png")
-		print("GORUNTU ", img.get_width(), " ", img.get_height())
+	var cikti := OS.get_environment("EKLENTI_EKRAN_GORUNTUSU")
+	if DisplayServer.get_name() != "headless" and not cikti.is_empty():
+		await RenderingServer.frame_post_draw
+		var img := s.get_viewport().get_texture().get_image()
+		_kontrol(img != null and img.save_png(cikti) == OK, "ekran görüntüsü yazıldı")
 	print("EKLENTI BAG: %s" % ("GEÇTİ" if _hata == 0 else "KALDI (%d)" % _hata))
 	quit(_hata)
 

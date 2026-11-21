@@ -43,3 +43,25 @@ Sur seviyesi 0 olduğu için çit dönüşümü bu testte çalışmaz. Sürü ha
 - Statik InstancedMesh3D sahnede durmaz; görüntü eklentinin iç yığınındadır. Hareketli sürü düğümü durur.
 - Planlayıcı ağırlaşırsa `data/ayarlar/eklenti_bag.json` içinde `ihtiyac_plani` false yapılır. Bu turda açık kaldı; test köyünde esnaf `ekmek` seçti.
 - GdPlanningAI `gdpai_agent.gd` tek satır: zamanlayıcı genel ad yerine `/root/GdPAIAutoload`. Genel ad, autoload yazılmadan derlenen betikte yoktu ve JSON sözlüklerini boşaltıyordu.
+
+## 22 Kasım 2026 — Windows çalışma denetimi (Kalfa)
+
+MCP, `editor_plugins/enabled` içinde Dialogue Manager, Sky3D, Terrain3D, GdPlanningAI ve ProtonScatter'ı doğruladı. LimboAI ve Instanced Renderer, `.gdextension` ile yükleniyor. Pencereli oyunda `BTPlayer` ve `InstancedMesh3D` sınıfları mevcut. Açık başka bir oyun nedeniyle Eklentiler sekmesinin güvenilir penceresi yakalanamadı.
+
+- **Sky3D.** Şafak 5,4, gündüz 9,5, akşam 18,85 ve gece 22,6. Dört çekimde açık gündüz, turuncu alacakaranlık ve gece meydan ateşi ayrıldı. Güneş gölgesi gündüz açık, diğer örneklerde kapalı.
+- **Terrain3D.** Köy bölgesi ve zemin dokuları mevcut. Test köyündeki 12 karakter gövdesinin kök yüksekliği araziyle 0,001 m çözünürlükte eşleşti. Altı albedo/normal doku için mipmap açıldı. Forward+ doğrulamasında altı doku da mipmap döndürdü.
+- **ProtonScatter.** Dört çıktı 140 ot, 28 taş, 18 çalı ve 12 ağaç örneği verdi. Altı yığın ve dört durağan dönüşüm headless testiyle görüldü.
+- **LimboAI ve GdPlanningAI.** Köylüde BT düğümü ve esnafta `ekmek` planı görüldü. Pencereli köyde `pazar` planı tamamlandı. Hayvan ve tüccar rotalarının duvar etrafındaki davranışı uzun süreli izlenmedi.
+- **Dialogue Manager.** `eklenti_bag_test.gd` kapı sorgusu, ret sonrası iş gücü düşüşü ve sıradaki köylü bağı ile tüccar diyaloğunu ve harcı doğruladı. Balon konumu Alpha'nın alanı.
+
+### Kısa performans ölçümü
+
+RTX 3050 Laptop GPU, Forward+, 640×360, 45 FPS üst sınırı. Aynı kamera ve köyde ProtonScatter açık → gizli → açık, her durumda 48 kare. Instanced Renderer üç durumda da etkin.
+
+| ProtonScatter | Ortanca FPS | En uzun kare | Görünen çizim çağrısı |
+|---|---:|---:|---:|
+| Açık | 25,8 | 67,0 ms | 83 |
+| Gizli | 27,1 | 60,7 ms | 71 |
+| Açık | 26,6 | 41,6 ms | 83 |
+
+Üç örnek de [performans bütçesindeki](gorevler/PERFORMANS_BUTCESI.md) 30 FPS ortanca sınırının altında, 100 ms kare süresi sınırının içinde. Ölçüm düşük işlem önceliğinde ve başka bir oyun açıkken alındı. Temiz performans koşusuyla yeniden doğrulama ve Instanced Renderer için tek başına ölçüm gerekli. [Log ve ekran görüntüsü yolları](CODEX_DENETIM_RAPORU.md).
