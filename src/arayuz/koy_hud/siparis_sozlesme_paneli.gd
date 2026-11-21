@@ -1,6 +1,9 @@
 ## TUC-05: mevcut kart altyapısında tek sözleşme defteri.
 class_name SiparisSozlesmePaneli
 extends RefCounted
+
+const IKON_SOZLESME := "res://assets/art/icons/icon_trade_contract.png"
+
 ## Pazar başındaki durum satırını genişletir; kartı uzatan ikinci HUD yoktur.
 static func kapi(e: KoyEkrani, ust: VBoxContainer, etiket: Label) -> void:
  var h := HBoxContainer.new()
@@ -8,6 +11,15 @@ static func kapi(e: KoyEkrani, ust: VBoxContainer, etiket: Label) -> void:
  ust.add_child(h)
  ust.move_child(h, etiket.get_index())
  etiket.reparent(h)
+ if ResourceLoader.exists(IKON_SOZLESME):
+  var tr := TextureRect.new()
+  tr.texture = load(IKON_SOZLESME)
+  tr.modulate = Kabuk.BAR_DOLU
+  tr.custom_minimum_size = Vector2(20, 20)
+  tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  tr.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  h.add_child(tr)
  var d := LinkButton.new()
  d.text = "Sözleşmeler"
  d.add_theme_font_size_override("font_size", e.ayarlar.boyut(Tema.KUCUK_PX))

@@ -385,7 +385,8 @@ func _heybe_dugmesi() -> Button:
 	if chr_dugme != null:
 		return chr_dugme
 	var b := _dugme(tr("arayuz.sohbet.heybe_ara"), _eylemler)
-	b.doku = Sanat.doku("ui", "icon_bribe_pouch_full_48")
+	var heybe_bos := _gelen == null or _gelen.heybe == null or (_gelen.heybe.beyan_akce() <= 0 and _gelen.heybe.beyan_edilenler().is_empty())
+	b.doku = Sanat.doku("ui", "icon_bribe_pouch_empty_48" if heybe_bos else "icon_bribe_pouch_full_48")
 	b.pressed.connect(_heybe_ac)
 	return b
 
@@ -590,6 +591,7 @@ func _karar_goster() -> void:
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kilit(b, oturum, _gelen, StringName(anahtar))
 		if anahtar == "rusvet" and _rusvet_hakki_doldu_mu():
 			b.disabled = true
+			b.doku = Sanat.doku("ui", "icon_bribe_pouch_empty_48")
 			if b.tooltip_text.is_empty():
 				b.tooltip_text = "Rüşvet hakkı doldu"
 		b.pressed.connect(_karar_bas.bind(anahtar))

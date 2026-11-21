@@ -20,7 +20,8 @@ static func kur(sutun: Control, kayit: IpucuKaydi, dugmeler: Dictionary) -> void
 			satir = Label.new()
 			satir.name = "yeni_dugme_satiri_%s" % id
 			satir.text = String(sonuc.metin)
-			satir.add_theme_font_size_override("font_size", 13)
+			var ipucu_px := maxi(13, Tema.KUCUK_PX - 5)
+			satir.add_theme_font_size_override("font_size", ipucu_px)
 			satir.autowrap_mode = TextServer.AUTOWRAP_OFF
 			satir.clip_text = true
 			satir.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS

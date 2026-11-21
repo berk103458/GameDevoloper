@@ -8,6 +8,8 @@ var _bilgi: Label
 var _baslik: Label
 var _noktalar: Dictionary={}
 var _yollar: Array[ColorRect]=[]
+const IKON_HISAR := "res://assets/art/icons/icon_map_hisar.png"
+const IKON_YOL := "res://assets/art/icons/icon_map_yol.png"
 func _ready() -> void:
  process_mode=Node.PROCESS_MODE_ALWAYS
  set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -67,6 +69,10 @@ func _ready() -> void:
   dugme.add_theme_stylebox_override("normal",stil)
   dugme.text=String(b.ad)
   dugme.name="sec_"+String(b.id)
+  var iy := IKON_HISAR if String(b.id) == "hisar" else IKON_YOL
+  if ResourceLoader.exists(iy):
+   dugme.icon = load(iy)
+   dugme.expand_icon = true
   dugme.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
   dugme.add_theme_font_size_override("font_size",ayarlar.boyut(Kabuk.KUCUK))
   dugme.pressed.connect(func() -> void: bolge_sec(String(b.id)))

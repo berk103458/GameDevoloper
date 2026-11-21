@@ -1,16 +1,32 @@
 ## ODA-04: aynı oda listesinde salt okunur kişisel terazi; köy adalet HUD'ı çoğaltılmaz.
 class_name OdaTerazisiPaneli
 extends RefCounted
+
+const IKON_TERAZI := "res://assets/art/icons/icon_oda_terazi.png"
+
 ## Güncel makbuzlar okunur; ekran gösterimi oyun state'ine yazmaz.
 static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
  var n:=VBoxContainer.new()
  n.name="oda_terazisi"
  n.add_theme_constant_override("separation",8)
  v.add_child(n)
+ var ust_satir:=HBoxContainer.new()
+ ust_satir.add_theme_constant_override("separation",8)
+ n.add_child(ust_satir)
+ if ResourceLoader.exists(IKON_TERAZI):
+  var tr:=TextureRect.new()
+  tr.texture=load(IKON_TERAZI)
+  tr.modulate=Kabuk.BAR_DOLU
+  tr.custom_minimum_size=Vector2(28,28)
+  tr.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+  tr.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  tr.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  ust_satir.add_child(tr)
  var l:=Label.new()
  l.name="terazi_unvan"
  l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
- n.add_child(l)
+ l.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ ust_satir.add_child(l)
  var p:=ProgressBar.new()
  p.name="terazi_denge"
  p.max_value=100

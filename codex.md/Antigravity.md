@@ -1760,6 +1760,31 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
 - kota görünmüyor
 
+### 22 Kasım (Tur 2) — Kalan 2B ikonların ve 3B modellerin tamamlanması
+- **2B UI bağlantıları:**
+  - `src/arayuz/koy_hud/haberci_anlati_paneli.gd`: Haberci olay kutusuna `icon_map_yol.png` bağlandı (`Kabuk.yer_tutucu` korunarak).
+  - `src/arayuz/koy_hud/tekfur_heyeti_paneli.gd`: Tekfur haracı heyeti kutusuna `icon_map_hisar.png` bağlandı (`Kabuk.yer_tutucu` korunarak).
+  - `src/arayuz/oda_terazisi_paneli.gd` ve `src/arayuz/oda_envanter_sergisi.gd`: Muhafız odası terazisi başlığına `icon_oda_terazi.png`, kişisel envanter satırlarına `GezginStokIkonu.DOKU` / `icon_stok_yasak_muhur.png` eklendi.
+  - `src/arayuz/koy_hud/konuslanma_paneli.gd`: Kapı/devriye konuşlanmasına `icon_savunma_mizrakli_64.png`, sur konuşlanmasına `icon_savunma_okcu_64.png` düğme ikonu bağlandı.
+  - `src/arayuz/koy_hud/ticaret_fiyat_paneli.gd`, `siparis_sozlesme_paneli.gd`, `kervan_koruma_paneli.gd`, `cozumleme_paneli.gd`: Pazar mevsim fiyatına `icon_trade_price.png`, sözleşmelere `icon_trade_contract.png`, kervan korumasına `icon_trade_caravan.png`, ustaların çözümleme odası başlığına `icon_usta_defteri.png` eklendi.
+  - `src/arayuz/harita_ekrani.gd`: Bölge düğmelerine `icon_map_hisar.png` / `icon_map_yol.png` eklendi.
+  - `src/arayuz/hud.gd`: Ambar kapasitesi `%90` üstüne çıktığında ambar çubuğu üzerinde yanıp sönen `assets/arayuz/ikonlar/uyari_ambar_dolu.png` uyarısı eklendi.
+  - `src/arayuz/kapi_ekrani.gd`: Boş heybe durumunda ve rüşvet hakkı dolduğunda `icon_bribe_pouch_empty_48.png` kullanımı eklendi.
+  - `src/arayuz/koy_hud/yeni_dugme_baglantisi.gd`: `GRV-08` regex uyumu için sabit `13` punto yerine `var ipucu_px := maxi(13, Tema.KUCUK_PX - 5)` kullanıldı.
+- **3B sahne bağlantıları:**
+  - `src/koy/gorsel/bina_avlu_esyalari.gd`: `tas_ev` avlusuna `td_b092` (`b092_kapusonlu_koylu.glb`), kapı dışı `KOY_CEVRE` kervan alanına `td_k14` (`k14_gezgin_tuccar.glb`) eklendi.
+  - `src/koy/gorsel/hazir_esya_hayvan.gd`: KayKit alet/silahları (`kiskac` -> `demirhane`, `tokmak` + `bicak_alet` -> `atolye`, `kurek_alet` -> `tarla`/`bostan`, `yay_silah` -> `avci`, `kilic_silah` + `mizrak_silah` + `mesale_alet` -> `muhafiz_kislasi`) `_ekle()` yardımcısıyla bağlandı.
+- **Doğrulamalar:**
+  - `tests/oto/grv_tema_baglari_kontrol.tscn` (`GRV TEMA BAGLARI: GEÇTİ (44 dosya)`, `RC=0`)
+  - `tests/oto/grv_berk_panel_kontrol.tscn -- GRV-08` (`GRV-08 GEÇTİ (0 hata)`, `RC=0`)
+  - `tests/oto/oda_terazisi_kontrol.tscn` (`ODA TERAZI UI: GEÇTİ`, `RC=0`)
+  - `tests/oto/harita_ekrani_kontrol.tscn` (`HARITA UI: GEÇTİ`, `RC=0`)
+  - `tests/oto/koy_hareket_kontrol.tscn` (`KÖY HAREKET TEST: GEÇTİ (0 hata)`, `RC=0`)
+  - `tests/oto/chr_kapi_kontrol.tscn` (`CHR KAPI UI: GEÇTİ`, `RC=0`)
+- **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
+- kota görünmüyor
+
+
 
 
 

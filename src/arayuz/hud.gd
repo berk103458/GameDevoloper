@@ -8,6 +8,7 @@ const STOKLAR: Array[String] = ["gida", "odun", "tas", "kereste", "alet", "tomru
 const UYARI := Renkler.MESALE
 ## Asayiş riski bu değerin üstündeyse kritik sayılır.
 const ASAYIS_KRITIK := 60
+const UYARI_AMBAR_IKON := "res://assets/arayuz/ikonlar/uyari_ambar_dolu.png"
 
 var _oturum: Oturum
 var _akce: KaynakGostergesi
@@ -19,6 +20,7 @@ var _nufus: Label
 var _huzur_bar: ProgressBar
 var _adalet_bar: ProgressBar
 var _ambar_bar: ProgressBar
+var _ambar_uyari_ikon: TextureRect
 var _huzur_etiket: Label
 var _adalet: Label
 var _asayis: Label
@@ -99,6 +101,21 @@ func _ready() -> void:
 	_nufus.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	_ambar_bar = _bar(nufus_sutun)
 	_ambar_bar.custom_minimum_size = Vector2(180, 18)
+	if ResourceLoader.exists(UYARI_AMBAR_IKON):
+		_ambar_uyari_ikon = TextureRect.new()
+		_ambar_uyari_ikon.name = "AmbarDoluUyariIkon"
+		_ambar_uyari_ikon.texture = load(UYARI_AMBAR_IKON)
+		_ambar_uyari_ikon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		_ambar_uyari_ikon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		_ambar_uyari_ikon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_ambar_uyari_ikon.anchor_left = 1.0
+		_ambar_uyari_ikon.anchor_right = 1.0
+		_ambar_uyari_ikon.offset_left = -18
+		_ambar_uyari_ikon.offset_right = -2
+		_ambar_uyari_ikon.offset_top = 1
+		_ambar_uyari_ikon.offset_bottom = 17
+		_ambar_uyari_ikon.visible = false
+		_ambar_bar.add_child(_ambar_uyari_ikon)
 	sag.add_child(nufus_sutun)
 	var tarih_sutun := VBoxContainer.new()
 	tarih_sutun.add_theme_constant_override("separation", 2)
@@ -137,6 +154,8 @@ func _process(delta: float) -> void:
 	(_stok_etiketleri["gida"] as KaynakGostergesi).modulate.a = yanip if y.gida_gunu() < 2.0 and y.nufus() > 0 else 1.0
 	_asayis.modulate.a = yanip if y.asayis_riski >= ASAYIS_KRITIK else 1.0
 	_huzur_etiket.modulate.a = yanip if y.isyan_kalan >= 0 else 1.0
+	if _ambar_uyari_ikon != null and _ambar_uyari_ikon.visible:
+		_ambar_uyari_ikon.modulate.a = yanip
 
 
 ## Tüm göstergeleri oturumdan yeniden çizer.
@@ -178,6 +197,8 @@ func guncelle() -> void:
 	_adalet_bar.value = y.adalet
 	_ambar_bar.max_value = maxi(1, k.kapasite)
 	_ambar_bar.value = k.toplam()
+	if _ambar_uyari_ikon != null:
+		_ambar_uyari_ikon.visible = k.kapasite > 0 and k.toplam() >= int(k.kapasite * 0.9)
 	_ambar_bar.tooltip_text = (tr("koy.hud.ambar") % [k.toplam(), k.kapasite]) + "\n" + AmbarBakimi.tip()
 	if _katman.acik("ambar_kapisi_paneli.gd", "ana", KitlikIsyani.durum(y).kapi_kirik):
 		AmbarKapisiPaneli.hud(self, y)

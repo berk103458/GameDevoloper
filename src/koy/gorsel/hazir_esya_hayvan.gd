@@ -102,10 +102,15 @@ static func bina(n: Node3D, tur: String, en: float, derin: float) -> void:
 			if e != null:
 				e.position = Vector3(-en * 0.32, 0.0, derin * 0.35 + (0.3 if ad == "cekic" else 0.0))
 				n.add_child(e)
-		if tur == "atolye" and Dunya3B.model_var_mi("dokuma_tezgahi"):
-			var dt := Dunya3B.nesne("dokuma_tezgahi", 1.55)
-			dt.position = Vector3(en * 0.28, 0.0, derin * 0.28)
-			n.add_child(dt)
+		if tur == "demirhane":
+			_ekle(n, "kiskac", Vector3(-en * 0.25, 0.0, -derin * 0.32))
+		if tur == "atolye":
+			if Dunya3B.model_var_mi("dokuma_tezgahi"):
+				var dt := Dunya3B.nesne("dokuma_tezgahi", 1.55)
+				dt.position = Vector3(en * 0.28, 0.0, derin * 0.28)
+				n.add_child(dt)
+			_ekle(n, "tokmak", Vector3(-en * 0.24, 0.0, -derin * 0.30))
+			_ekle(n, "bicak_alet", Vector3(-en * 0.14, 0.0, -derin * 0.30))
 	if tur in ["hizarhane", "odunluk"]:
 		for i in 2:
 			var e := esya("odun")
@@ -113,21 +118,22 @@ static func bina(n: Node3D, tur: String, en: float, derin: float) -> void:
 				e.position = Vector3(i * 0.3, 0, derin * 0.35)
 				n.add_child(e)
 		if tur == "hizarhane":
-			var ts := esya("testere")
-			if ts != null:
-				ts.position = Vector3(-en * 0.28, 0.0, derin * 0.32)
-				n.add_child(ts)
+			_ekle(n, "testere", Vector3(-en * 0.28, 0.0, derin * 0.32))
 	if tur == "tas_ocagi":
 		for ad_ozel in ["kazma", "keski"]:
-			var e := esya(ad_ozel)
-			if e != null:
-				e.position = Vector3(en * 0.28 + (0.22 if ad_ozel == "keski" else 0.0), 0.0, derin * 0.32)
-				n.add_child(e)
+			_ekle(n, ad_ozel, Vector3(en * 0.28 + (0.22 if ad_ozel == "keski" else 0.0), 0.0, derin * 0.32))
+	if tur in ["tarla", "bostan"]:
+		_ekle(n, "kurek_alet", Vector3(-en * 0.36, 0.0, derin * 0.36))
+	if tur == "avci":
+		_ekle(n, "yay_silah", Vector3(-en * 0.30, 0.0, derin * 0.32))
 	if tur == "muhafiz_kislasi":
-		var ks := esya("kalkan_silah")
-		if ks != null:
-			ks.position = Vector3(en * 0.30, 0.0, -derin * 0.32)
-			n.add_child(ks)
+		for k_ad in [
+			["kalkan_silah", Vector3(en * 0.30, 0.0, -derin * 0.32)],
+			["kilic_silah", Vector3(en * 0.18, 0.0, -derin * 0.32)],
+			["mizrak_silah", Vector3(-en * 0.26, 0.0, -derin * 0.32)],
+			["mesale_alet", Vector3(-en * 0.36, 0.0, derin * 0.34)],
+		]:
+			_ekle(n, k_ad[0], k_ad[1])
 	if tur == "sifahane" and Dunya3B.model_var_mi("hasta_cadiri"):
 		var hc := Dunya3B.nesne("hasta_cadiri", 1.8)
 		hc.position = Vector3(en * 0.35, 0.0, derin * 0.3)
@@ -144,6 +150,13 @@ static func bina(n: Node3D, tur: String, en: float, derin: float) -> void:
 		var bh := Dunya3B.nesne("blok_ham", 0.32)
 		bh.position = Vector3(en * 0.25, 0.0, derin * 0.32)
 		n.add_child(bh)
+
+static func _ekle(n: Node3D, ad: String, konum: Vector3) -> void:
+	var e := esya(ad)
+	if e != null:
+		e.position = konum
+		n.add_child(e)
+
 
 static func kopek_kur(kok: Node3D, yer: Vector3) -> void:
 	var n := hayvan("kopek")

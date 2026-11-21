@@ -1,6 +1,9 @@
 ## ODA-03: kişisel envanter tek Oturum kaydından salt okunur oda sergisi.
 class_name OdaEnvanterSergisi
 extends RefCounted
+
+const MUHUR_IKON := "res://assets/art/icons/icon_stok_yasak_muhur.png"
+
 ## Her pozitif kayıt bir satır; miktar başına model üretilmez, 3B önizleme veri ayarlı üst sınırdadır.
 static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
  var baslik:=Label.new()
@@ -26,6 +29,18 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
   ikon.color=Color(String(MuhafizOdasi.AYAR.sergi_renk))
   ikon.custom_minimum_size=Vector2(28,28)
   ikon.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  var id_k:=String(kayit.get("id",kayit.get("tur","")))
+  var yol:=String(GezginStokIkonu.DOKU.get(id_k,MUHUR_IKON))
+  if not yol.is_empty() and ResourceLoader.exists(yol):
+   ikon.self_modulate.a=0.0
+   var tr:=TextureRect.new()
+   tr.texture=load(yol)
+   tr.modulate=Kabuk.BAR_DOLU
+   tr.set_anchors_preset(Control.PRESET_FULL_RECT)
+   tr.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+   tr.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+   tr.mouse_filter=Control.MOUSE_FILTER_IGNORE
+   ikon.add_child(tr)
   h.add_child(ikon)
   var l:=Label.new()
   l.name="esya_adi"

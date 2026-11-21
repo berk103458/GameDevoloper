@@ -72,6 +72,7 @@ const ESYA_HARITASI := {
 	"tas_ev": [
 		{"ad": "td_o20", "boy": 0.48, "ofset": Vector3(-0.36, 0.0, 0.38), "don": 0.0},
 		{"ad": "td_o07", "boy": 0.42, "ofset": Vector3(0.36, 0.0, 0.38), "don": 12.0},
+		{"ad": "td_b092", "boy": 1.70, "ofset": Vector3(0.38, 0.0, -0.36), "don": -35.0},
 		{"ad": "td_o19", "boy": 0.35, "ofset": Vector3(0.0, 2.05, 0.38), "don": 0.0, "isik": true},
 	],
 	"kulube": [
@@ -109,6 +110,7 @@ const KOY_CEVRE := [
 	{"ad": "td_o32", "boy": 0.22, "yer": Vector3(-2.6, 0.46, 2.4), "don": 0.0, "isik": true},
 	{"ad": "td_b117", "boy": 1.65, "yer": Vector3(2.8, 0.0, 2.5), "don": -20.0},
 	{"ad": "td_o49", "boy": 1.40, "yer": Vector3(4.6, 0.0, 28.5), "don": -30.0},
+	{"ad": "td_k14", "boy": 1.72, "yer": Vector3(3.6, 0.0, 27.8), "don": -145.0},
 ]
 
 
