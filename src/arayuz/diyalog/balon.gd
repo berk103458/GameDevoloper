@@ -9,6 +9,7 @@ func _ready() -> void:
 	var cerceve := GeceKapisiCerceve.panel()
 	if p is PanelContainer and cerceve != null:
 		(p as PanelContainer).add_theme_stylebox_override("panel", cerceve)
+		GeceKapisiCerceve.rumi_koseleri(p)
 	var ornek := get_node_or_null("Balloon/CenterContainer/ResponsesMenu/ResponseExample")
 	var dugme := GeceKapisiCerceve.dugme()
 	if ornek is Button and dugme != null:

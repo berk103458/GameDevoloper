@@ -46,6 +46,7 @@ func _ready() -> void:
 	portre.tooltip_text = "Portrede fiziksel izi incele"
 	portre.pressed.connect(func() -> void: _aciklama.text = sorgu.gorsel_incele())
 	kutu.add_child(portre)
+	GeceKapisiCerceve.portre_giydir(portre)
 	var iz_etiketi := Label.new()
 	iz_etiketi.text = "Fiziksel izi incelemek için portreye tıkla"
 	kutu.add_child(iz_etiketi)

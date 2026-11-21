@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Çerçeve altı parçası — 21 Kasım 2026
+
+Ahmet Nano Banana yolunu seçti. Altı dosya adı `GeceKapisiCerceve.BEKLENEN` içindedir. Dosya yoksa eski tahta kalır. Prompt `docs/arayuz/NANO_BANANA_PROMPTLARI.md`, yeşil ayırma `tools/art/gece_kapisi_hazirla.py` ve `docs/arayuz/gece_kapisi_cerceve_alti.json`. Üretim yok. Test: `gece_kapisi_cerceve_test.gd`. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## UI kit taraması — 20 Kasım 2026
 
 Yalnız belge: `docs/arayuz/UI_KIT_TARAMASI.md`. Ücretli kitler dahil tarandı. Kod, satın alma ve repoya asset yok. Açık depo, Unity / Fab / GameDev Market / CraftPix ham dosyasını kabul etmez. Önerilen üç yol: Lamoot (ücretsiz, repoya girebilir, kalite tavanı düşük), Medieval Kingdom UI (en dolu hazır set, Avrupa arması), Nano Banana çerçevesi (dönem ve depo). Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
