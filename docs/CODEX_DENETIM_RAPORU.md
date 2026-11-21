@@ -27,6 +27,7 @@ Festive yayını `5eaa84f7`.
 | Akşam | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-koy-aksam.png` |
 | Gece | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-koy-gece.png` |
 | Eklenti testi | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-eklenti-testi.log` |
+| Son eklenti testi derleme kontrolü | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-eklenti-parse.log` |
 | Görsel sahne ve fazlar | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-koy-gorsel.log` |
 | Mipmap ve performans | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-koy-performans.log` |
 
@@ -64,7 +65,7 @@ Başarılı koşular `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/03-dosyasiz.log`,
 
 - **Eklentiler ve performans.** Eklentiler sekmesinin güvenilir ekran görüntüsü, hayvan ve tüccarın uzun rota gözlemi ve Instanced Renderer'ın ayrı FPS etkisi açık. ProtonScatter ölçümü 30 FPS sınırının altında kaldı. O sırada açık başka oyun ve düşük işlem önceliği sonucu etkileyebilir. Terrain3D ayrıca çalışma anında kurulan `Assets` kaynağı için `free_editor_textures` uyarısı veriyor.
 - **Arka planlar.** Kapı gecesi, köy gündüz/gece, gün sonu ve kayıt ekranı için beş PNG yolunun ekran bağlantısı yok. Kapı ve köy için 3B sahnenin hangi alanının görselle kaplanacağı yerleşim kararı gerektiriyor.
-- **Açılış uyarıları.** Parley'nin üç kayıt deposu ile HDR başlık uyarıları açık. Beş söylenti olayının eksik sonuç anahtarları ve oyun köprüsü testindeki tür çıkarımı hatası Bölüm 2'de giderildi.
+- **Godot uyarıları.** Parley'nin üç kayıt deposu ile HDR başlık uyarıları açık. Editör kapatılırken Theatre, tarama arayüzüne artık erişemediği için `TheatrePlugin.gd:178` satırında hata yazdı. Beş söylenti olayının eksik sonuç anahtarları ve oyun köprüsü testindeki tür çıkarımı hatası Bölüm 2'de giderildi.
 - **Yerel ayna.** Bu makinedeki erişilebilir kopya Ahmet'in çalışma dizini. `C:/Users/ds/Documents/GitHub/GameDevoloper` erişilebilir olmadığı için yerel eşitleme yapılamadı. Bölüm commit'leri festive'e gönderildi.
 
 ### Eksik asset ve animasyonlar

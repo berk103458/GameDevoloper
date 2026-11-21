@@ -2004,3 +2004,5 @@ Altı çerçeve ve on arka plan dosyasız ve geçici renk PNG'leriyle tek import
 ## 22 Kasım 2026 — Codex denetimi, Bölüm 4 (Kalfa)
 
 Bölüm commit'leri `4155bd5a`, `5eaa84f7`, `cf0efca3` ve `6cea9ca3`. Açık görsel ve performans kontrolleri, 2D/3D ihtiyaçları, Alpha ile örtüşen klipler ve on oynama kontrolü [rapora](../docs/CODEX_DENETIM_RAPORU.md) eklendi. `ds` aynası bu makinede bulunamadı. Yeni asset gerekmedi. Kota görünmüyor.
+
+Kapanışta eklenti testindeki görüntü yolu değişkeninin aynı işlevdeki adla çakıştığı görüldü. Ad düzeltildi ve Godot `--check-only` çıkışı 0 oldu. Theatre kapanış hatası rapora kaydedildi. Kota görünmüyor.
