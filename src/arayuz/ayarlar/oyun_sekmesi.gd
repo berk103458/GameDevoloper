@@ -12,10 +12,13 @@ const ANAHTARLAR: Array[StringName] = [
 
 
 func _ready() -> void:
+	add_theme_constant_override("separation", 8)
 	for anahtar in ANAHTARLAR:
 		preload("res://src/arayuz/ayarlar/ayar_satiri.gd").ekle(self, ayarlar, anahtar, aciklama)
 	var sifir := Button.new()
 	sifir.text = tr("arayuz.ayarlar.ipuclari_sifirla")
+	sifir.custom_minimum_size = Vector2(280, 46)
+	sifir.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	sifir.pressed.connect(func() -> void:
 		preload("res://src/sistemler/ipucu_anahtari.gd").sifirla(ipucu_kaydi)
 	)

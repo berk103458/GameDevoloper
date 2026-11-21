@@ -1793,3 +1793,16 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulamalar:** `tests/oto/ayarlar_kontrol.tscn`, `tests/oto/acilis_menu_kontrol.tscn`, `tests/oto/ilk_saat_kontrol.tscn`, `tests/oto/chr_kapi_kontrol.tscn` (`RC=0`, `0 SCRIPT ERROR`) ve `tests/oto/koy_foto.tscn` (`GUN=0`, `KIP=bos`) görsel kontrolü temiz.
 - **İhtiyaç:** Kod dışı eksik asset/animasyonlar Ahmet raporuna eklendi; kod tarafında yeni dosya üretilmedi (`asset gerekmedi`).
 - kota görünmüyor
+
+### 22 Kasım (Tur 4) — Ayarlar ekranı tüm 6 sekmenin tamamlanması ve görsel onarım
+- **Kök nedenler ve yapılanlar:**
+  - `src/arayuz/ayarlar/ayar_sekmeleri.gd`: `DilSekmesiDugmesi` dahil eski `CanvasItem` çocukları gizlendi (`TemaZemini` korundu); `AYARLAR` başlığına `Tema.koy_baslik_fontu()` + `Kabuk.BAR_DOLU` eklendi; dış `ScrollContainer` kaldırılıp `cerceve.clip_contents = true` açıldı; etkin sekme `▸` + altın renk vurgusu aldı; `_aciklama` alt kutu içine alınıp sekme başlangıcında varsayılan metinle dolduruldu; `&"kontroller"` ve `&"dil"` sıfırlaması ile anlık dil değişimi bağlandı.
+  - `src/arayuz/ayarlar/ayar_satiri.gd`: `‹` / `›` düğmeleri `76×42` boyutuna çıkarıldı; değer etiketi `260×42` + `Kabuk.BAR_DOLU` yapıldı; fare `mouse_entered` açıklaması ve başlık tıklama eklendi; ham anahtarlar (`olagan`, `her_gece`, `tam_ekran`, `400`, `100`, `0`, `1`, `normal`, `kalin`) tam Türkçe/İngilizce metinlere (`Olağan`, `Her gece`, `Tam ekran`, `Normal (400)`, `%100`, `Sınırsız`, `1x`, `Geniş`, `Kalın`) çevrildi.
+  - `src/arayuz/ayarlar/ses_sekmesi.gd`: Ses kanalı adları düz `Button` (`360×42`) oldu; sürgü + `x / 10` bloğu `260 px` sabitlenerek alt satırın `‹` / `›` sütunlarıyla piksel hizasına getirildi ve `mouse_entered` eklendi.
+  - `src/arayuz/kontroller_sekmesi.gd`: `yenile()` içindeki bozuk `"Kenar/Liste/Satirlar"` yolu `find_child("Satirlar", true, false)` ile düzeltilerek 21 tuş eşleme satırının görünmeme sorunu çözüldü; `[Eylem (360×42)] [Tuş (260×42)] [Yeni Tuş Ata (160×42)]` düzenine geçirildi (`GomuluKontroller` yüksekliği `560 px`, iç `ScrollContainer` etkin).
+  - `src/arayuz/ayarlar/oyun_sekmesi.gd` ve `grv_sekme_koprusu.gd`: `"İpuçlarını sıfırla"` (`280×46`) ve `"Dil_tr"/"Dil_en"` (`320×50`, etkin dil `▸` + altın) düğmelerinin tam ekran genişliğine uzaması kaldırıldı.
+- **Doğrulamalar:**
+  - `tests/oto/ayarlar_kontrol.tscn` (`AYARLAR KONTROL: GEÇTİ (0 hata)`, `RC=0`), `tests/oto/grv_ayar_sekmeleri_kontrol.tscn` (`GRV-25 GEÇTİ (0 hata)`, `RC=0`), `tests/oto/ayarlar_is_atamaz_kontrol.tscn` (`AYARLAR İŞ ATAMAZ: GEÇTİ`, `RC=0`), `tests/unit/arayuz/girdi_test.gd` (`GIRDI: GEÇTİ (0 hata)`, `RC=0`).
+  - 6 sekmenin tamamı (`Oyun`, `Görüntü`, `Okuma`, `Ses`, `Kontroller`, `Dil`) canlı pencerede yakalanıp görsel olarak doğrulandı (`0 SCRIPT ERROR`).
+- **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
+- kota görünmüyor

@@ -9,35 +9,48 @@ var _dugmeler: Array[Button] = []
 
 
 func _ready() -> void:
+	var gomulu := (name == "GomuluKontroller")
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	size_flags_vertical = Control.SIZE_EXPAND_FILL
+	if gomulu:
+		custom_minimum_size = Vector2(0, 560)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	var zemin := ColorRect.new()
 	zemin.color = Renkler.GECE
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	zemin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	zemin.visible = not gomulu
 	add_child(zemin)
 	var kenar := MarginContainer.new()
 	kenar.name = "Kenar"
 	kenar.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	kenar.add_theme_constant_override("margin_left", 80)
-	kenar.add_theme_constant_override("margin_top", 48)
-	kenar.add_theme_constant_override("margin_right", 80)
-	kenar.add_theme_constant_override("margin_bottom", 48)
+	kenar.add_theme_constant_override("margin_left", 12 if gomulu else 80)
+	kenar.add_theme_constant_override("margin_top", 6 if gomulu else 48)
+	kenar.add_theme_constant_override("margin_right", 12 if gomulu else 80)
+	kenar.add_theme_constant_override("margin_bottom", 6 if gomulu else 48)
 	add_child(kenar)
 	var dikey := VBoxContainer.new()
 	dikey.name = "Liste"
-	dikey.add_theme_constant_override("separation", 8)
+	dikey.add_theme_constant_override("separation", 10)
 	kenar.add_child(dikey)
 	var baslik := Label.new()
 	baslik.text = tr("arayuz.girdi.sekme")
-	baslik.add_theme_font_size_override("font_size", 36)
+	var baslik_px := ayarlar.boyut(Tema.GOVDE_PX) if ayarlar != null else Tema.GOVDE_PX
+	baslik.add_theme_font_size_override("font_size", baslik_px if gomulu else 36)
+	if gomulu:
+		baslik.add_theme_color_override("font_color", Kabuk.BAR_DOLU)
 	dikey.add_child(baslik)
 	var kaydir := ScrollContainer.new()
+	kaydir.name = "Kaydir"
+	kaydir.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	kaydir.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	kaydir.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	dikey.add_child(kaydir)
 	var liste := VBoxContainer.new()
 	liste.name = "Satirlar"
-	liste.add_theme_constant_override("separation", 6)
+	liste.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	liste.add_theme_constant_override("separation", 8)
 	kaydir.add_child(liste)
 	var bekleyen := Label.new()
 	bekleyen.name = "Bekleyen"
@@ -83,7 +96,7 @@ func olay_al(olay: InputEvent) -> bool:
 
 
 func yenile() -> void:
-	var liste := get_node_or_null("Kenar/Liste/Satirlar") as VBoxContainer
+	var liste := find_child("Satirlar", true, false) as VBoxContainer
 	if liste == null:
 		return
 	for cocuk in liste.get_children():
@@ -92,14 +105,28 @@ func yenile() -> void:
 	_dugmeler.clear()
 	for id in GirdiEylemleri.eylem_kimlikleri():
 		var yatay := HBoxContainer.new()
-		yatay.add_theme_constant_override("separation", 12)
+		yatay.add_theme_constant_override("separation", 14)
 		var etiket := Label.new()
 		etiket.name = "Ad"
-		etiket.custom_minimum_size = Vector2(420, 0)
-		etiket.text = satir_metni(id)
+		etiket.custom_minimum_size = Vector2(360, 42)
+		etiket.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		etiket.text = tr("arayuz.girdi." + id)
 		yatay.add_child(etiket)
+		var tus_lbl := Label.new()
+		tus_lbl.name = "Tus"
+		tus_lbl.custom_minimum_size = Vector2(260, 42)
+		tus_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		tus_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		var cakisma := GirdiEylemleri.cakisiyor(id)
+		var tus_metin := GirdiEylemleri.tus_adi(id)
+		if cakisma:
+			tus_metin += "  " + tr("arayuz.girdi.cakisma")
+		tus_lbl.text = tus_metin
+		tus_lbl.add_theme_color_override("font_color", Kabuk.BAR_DOLU)
+		yatay.add_child(tus_lbl)
 		var ata := Button.new()
 		ata.text = tr("arayuz.girdi.ata")
+		ata.custom_minimum_size = Vector2(160, 42)
 		ata.focus_mode = Control.FOCUS_ALL
 		ata.pressed.connect(dinle.bind(id))
 		yatay.add_child(ata)
