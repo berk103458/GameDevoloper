@@ -30,6 +30,22 @@ Festive yayını `5eaa84f7`.
 | Görsel sahne ve fazlar | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-koy-gorsel.log` |
 | Mipmap ve performans | `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/01-koy-performans.log` |
 
+## Bölüm 2 — 3–5. gün döngüsü ve kayıt
+
+Tohum 11 ile gerçek kapı ve köy düğmelerinden ilerlenip 3, 4 ve 5. gece raporları tamamlandı. İlk koşu 5. gün kapı kararlarında süre sınırına ulaştı. Beşinci gün, 4. gece sonu dosyasını ana menüden yükleyen ayrı bir süreçte tamamlandı. 3. günde 13 sorgu, bir kabul, iki ret ve bir köy eylemi kaydedildi. 4. günde harç, rüşvet, kabul ve dört köy eylemi, 5. günde kışlaya alma, iki kabul ve iki köy eylemi kaydedildi. İş gücü debuff'ı ve sıradaki köylüye bağ ayrıca Bölüm 1 eklenti testinde doğrulandı.
+
+| Gece | Oyun raporundan örnek |
+|---|---|
+| 3 | Thessra köye kaldı, ambar 30 → 34, tahsildar olayı açıldı. |
+| 4 | +17 gıda üretimi, 7 gıda tüketimi ve 1 gıda bozulması. İmzasız pusula açıldı. |
+| 5 | +21 gıda üretimi, 10 gıda tüketimi, 1 gıda bozulması ve akçe 13 → 12. |
+
+Köyde F5 mevcut etkin yuvanın yazım yoluna bağlandı. Rapor ve olay kartı açıkken F5 bu geçişi kaydetmiyor. 2. yuvada yedek yazıldı ve 1. yuvanın SHA-256 özeti korundu. Köy kaydı yeni Godot sürecinde `koy` fazıyla açıldı ve karşılaştırılan oturum sözlüğü eşleşti. 5. gece sonu kaydı yeni süreçte `kapi` fazıyla açıldı. Önceki yapıda oluşturulmuş kayıttaki eski tek istek alanı dönüşümü ilk açılışta görüldü. Yeni biçimde yazılıp süreç kapatıldıktan sonra tekrar açılan 5. gece sonu kaydında fark listesi boştu.
+
+Eş hafızası hem eski hem yeni kayıttan yükleniyor. Etkin kayıt yalnızca mevcut oyun ekranında yazılıyor. Yeni ziyaret kaydındaki boş tek istek durumu eski eksik alandan ayrıldı. Beş söylenti olayının mevcut seçeneklerine Türkçe ve İngilizce sonuç satırları eklendi. Oyuncu köprüsü, akşam sohbeti gibi karar kartının açılışını kilit diye raporlamıyor. Köprü testindeki `beklenen_soru` türü açık verildi. `tek_istek_oyun_test.tscn` 45 kontrolde hata vermedi.
+
+Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/` içindeki `02-oyun-dongusu.jsonl`, `02-besinci-gun.jsonl`, `02-kalici-yaz.log`, `02-kalici-orta.log`, `02-besinci-gece-son_yaz.log`, `02-besinci-gece-son.log`, `02-tek-istek.log` ve `02-import.log`. Bölüm 2 koşuları headless. İlk durumda yanlış yuvaya kopyalanan test kaydının içindeki yuva kimliği fixture'da düzeltildi.
+
 ## Bölüm 3 — Çerçeve ve arka plan
 
 Altı çerçeve eski çerçeve ya da süssüz durumla açıldı. On arka plan için ortak yükleyici etiketli kutuya, yükleme ekranı ise `loading_bg.png` dosyasına döndü. İzole kopyaya geçici renkli PNG'ler konup tek import yapıldığında altı çerçeve dokuya bağlandı ve on arka plan ortak yükleyiciden `TextureRect` olarak açıldı. Çerçeve sınamaları diyalog şeridi, seçenek satırı, portre, genel panel, mühür ve dört rumi köşenin bağlantılarını kapsadı.

@@ -2223,22 +2223,32 @@ olay.soylenti_degirmen_kapanis.baslik,Değirmenci Hesabı ve Kırık Oluk,Miller
 olay.soylenti_degirmen_kapanis.metin,Değirmenci Mihali'nin un aşırdığı fısıltısı köylüyü Çınaraltına topladı; lakin muayenede oluğun çatlak olduğu anlaşıldı.,Whispers of Miller Mihali stealing flour brought the village to the Plane Tree; yet inspection revealed the trough was merely cracked.
 olay.soylenti_degirmen_kapanis.secenek1,"Oluğu Karaca Usta'ya tamir ettir, günah alma (Moral +1, Adalet +1)","Have Karaca Usta repair the trough, cast no blame (Morale +1, Justice +1)"
 olay.soylenti_degirmen_kapanis.secenek2,"Mihali'ye ambar kefareti kestir (Akçe +1, Adalet -1)","Impose a granary penalty upon Mihali (Coin +1, Justice -1)"
+olay.soylenti_degirmen_kapanis.sonuc1,Oluk onarımı Karaca Usta'ya verildi.,Karaca Usta was asked to repair the trough.
+olay.soylenti_degirmen_kapanis.sonuc2,Mihali'ye ambar kefareti kesildi.,Mihali was given a granary penalty.
 olay.soylenti_kuyu_kapanis.baslik,Kuyu Zehri Vesvesesi,The Well Poison Rumor Dispelled
 olay.soylenti_kuyu_kapanis.metin,Kuyu suyuna harami zehir attı korkusu yayıldı. Tabip Miraen suyun palamut yaprağından acıdığını kanıtladı.,Fear spread that brigands poisoned the well. Healer Miraen proved the water was only bitter from oak leaves.
 olay.soylenti_kuyu_kapanis.secenek1,"Meydanda suyu ilk içen ol, temizlik emret (Asayiş +2, Moral +2)","Drink the water first in the square, order it cleansed (Security +2, Morale +2)"
 olay.soylenti_kuyu_kapanis.secenek2,"Kuyuyu tedbiren mühürle (Asayiş -1, Moral -1)","Seal the well as a precaution (Security -1, Morale -1)"
+olay.soylenti_kuyu_kapanis.sonuc1,Meydanda suyu içtin ve kuyunun temizlenmesini emrettin.,You drank the water in the square and ordered the well cleaned.
+olay.soylenti_kuyu_kapanis.sonuc2,Kuyu tedbiren mühürlendi.,The well was sealed as a precaution.
 olay.soylenti_tekfur_araba_kapanis.baslik,Tekfur'un Devrilen Arabası,The Tekfur's Overturned Cart
 olay.soylenti_tekfur_araba_kapanis.metin,Vadide altın yüklü araba devrildi söylentisiyle köylüler dağa koştu; devrilen araba yaşlı Rum katırcının tuz yükü çıktı.,Villagers rushed the hills on rumors of a gold cart overturned; the wreck was only an old Greek muleteer's salt shipment.
 olay.soylenti_tekfur_araba_kapanis.secenek1,"Köylüyü durdur, katırcıya 2 akçe tazminat ver (Adalet +2, Akçe -2)","Restrain villagers, pay 2 coins restitution (Justice +2, Coin -2)"
 olay.soylenti_tekfur_araba_kapanis.secenek2,"Katırcıyı sınır dışına sür (Adalet -1, Asayiş -1)","Banish the muleteer beyond borders (Justice -1, Security -1)"
+olay.soylenti_tekfur_araba_kapanis.sonuc1,Köylüleri durdurdun ve katırcıya tazminat verilmesini emrettin.,You stopped the villagers and ordered restitution for the muleteer.
+olay.soylenti_tekfur_araba_kapanis.sonuc2,Katırcı sınır dışına sürüldü.,The muleteer was banished beyond the border.
 olay.soylenti_mogol_casus_kapanis.baslik,Samanlıktaki Göçmen,The Fugitive in the Hayloft
 olay.soylenti_mogol_casus_kapanis.metin,Geceleri ocakları gözetleyen Moğol casusu fısıltısı korku salmıştı; yakalanan kişi Sivas borcundan kaçan zavallı bir rençper çıktı.,Whispers of a Mongol spy scouting hearths spread panic; the captive proved to be a poor peasant fleeing Sivas debts.
 olay.soylenti_mogol_casus_kapanis.secenek1,"Ahilik kefaletine ver, demirhaneye çırak yap (Nüfus +1, Asayiş +1)","Grant Ahi bond, apprentice him to the forge (Population +1, Security +1)"
 olay.soylenti_mogol_casus_kapanis.secenek2,"Köyden kov, tedbiri elden bırakma (Moral -1, Asayiş +1)","Expel him from the village, take no risks (Morale -1, Security +1)"
+olay.soylenti_mogol_casus_kapanis.sonuc1,Rençperi Ahilerin kefaletine verdin ve demirhaneye gönderdin.,You placed the farmhand under the Ahis' bond and sent him to the forge.
+olay.soylenti_mogol_casus_kapanis.sonuc2,Rençper köyden çıkarıldı.,The farmhand was expelled from the village.
 olay.soylenti_vebali_kumas_kapanis.baslik,Tezgâhtaki Çivit ve Yün,Indigo and Wool on the Loom
 olay.soylenti_vebali_kumas_kapanis.metin,Çuhacının getirdiği kumaşlarda veba olduğu iftirası çıktı. Ayşe Bacı kazanlarda yünleri kaynatıp tertemiz olduğunu gösterdi.,"Rumors claimed the draper's cloth bore plague. Sister Ayse boiled the fleeces, proving them spotless."
 olay.soylenti_vebali_kumas_kapanis.secenek1,"İftirayı çarşıda teşhir et, pazar nizamını sağla (Adalet +2, Moral +1)","Denounce the slanderer, uphold market order (Justice +2, Morale +1)"
 olay.soylenti_vebali_kumas_kapanis.secenek2,"Kumaşları ihtiyat için ambarda beklet (Adalet -1, Moral -1)","Hold fabrics in storage for caution (Justice -1, Morale -1)"
+olay.soylenti_vebali_kumas_kapanis.sonuc1,İftirayı çarşıda açıkladın ve pazarın düzenini korumalarını emrettin.,You exposed the slander and ordered the market kept in good order.
+olay.soylenti_vebali_kumas_kapanis.sonuc2,Kumaşlar ihtiyat için ambarda bekletildi.,The fabrics were held in storage as a precaution.
 epilog.genel.baslik,Kış Sonu Akıbet Raporu,End of Winter Fate Report
 epilog.kart.dursun_turna,Turna ve Dursun,Turna and Dursun
 epilog.kart.lokman,Cerrah Lokman,Surgeon Lokman

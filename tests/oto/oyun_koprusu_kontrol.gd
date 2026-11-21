@@ -68,7 +68,7 @@ func _ready() -> void:
 	_dene(ana.oturum.gece_sonu().get("engellendi", false), "oyun_koprusu_kontrol.gd:66")
 	ana._kapi._tumunu_goster()
 	var ilk := kopru.get_state()
-	var beklenen_soru := 1 + preload("res://src/sistemler/kapi_acilis_olayi.gd").AYAR.ek_sorular.size()
+	var beklenen_soru: int = 1 + preload("res://src/sistemler/kapi_acilis_olayi.gd").AYAR.ek_sorular.size()
 	if ilk.eylemler.size() != 1 or ilk.eylemler[0].metin != tr("arayuz.sohbet.karar_ver") or ilk.kisi.sorular.size() != beklenen_soru:
 		push_error("OGR-02: ilk ailede yalnız soru ve karar görünür. Eylemler: %s, sorular: %s" % [str(ilk.eylemler), str(ilk.kisi.sorular)])
 		get_tree().quit(1)

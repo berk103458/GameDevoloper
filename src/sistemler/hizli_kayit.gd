@@ -27,9 +27,10 @@ static func girdi(ekran: Node, olay: InputEvent) -> bool:
 		return true
 	if ekran.get_script().resource_path != "res://src/arayuz/koy_ekrani.gd":
 		return true
-	var oturum: Variant = ekran.get("oturum")
-	if oturum == null or not oturum.has_method("kaydet"):
+	# Rapor veya olay çözülmeden yazılan kayıt yeniden açılışta o adımı kaybeder.
+	if ekran.get("oturum") == null or ekran.call("_ust_panel_var"):
 		return true
-	var yuvalar := KayitYuvalari.new()
-	dene(&"koy", yuvalar, oturum.kaydet())
+	var ana := ekran.get_parent()
+	if ana != null and ana.has_method("_kayit_yaz") and ana.get("_ekran") == ekran and ana.get("_ust") == null:
+		ana.call("_kayit_yaz")
 	return true

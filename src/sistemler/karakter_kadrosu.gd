@@ -3,6 +3,8 @@
 class_name KarakterKadrosu
 extends RefCounted
 
+const ES_HAFIZA_KIMLIGI := &"es"
+
 const _OPSIYONEL_HAFIZA_ALANLARI := [
 	"ates_son_gun",
 	"kisisel_iz",
@@ -128,17 +130,30 @@ func kaydet() -> Dictionary:
 			if d.has(alan):
 				var val: Variant = d[alan]
 				giris[alan] = val.duplicate(true) if (val is Dictionary or val is Array) else val
+		# Boş sözlük yeni kayıtta henüz istek yok demektir. Eksik alan eski kaydı belirtir.
+		if id != ES_HAFIZA_KIMLIGI and not giris.has("tek_istek") and (giris.durum != "gelmedi" or giris.ziyaret > 0 or giris.son_karar != ""):
+			giris["tek_istek"] = {}
 		veri[String(id)] = giris
 	return veri
 
 
 func yukle(veri: Dictionary) -> bool:
 	for id in veri:
-		if not durumlar.has(StringName(id)):
+		var satir: Variant = veri[id]
+		if not satir is Dictionary:
+			return false
+		if StringName(id) == ES_HAFIZA_KIMLIGI:
+			if not satir.get("es") is Dictionary:
+				return false
+		elif not durumlar.has(StringName(id)):
 			push_error("Kayıtta bilinmeyen karakter: %s" % id)
 			return false
 	for id in veri:
 		var v: Dictionary = veri[id]
+		# Akşam sohbeti eşin hafızasını kadroda tutar. Eş kapı ziyaretçisi değildir.
+		if StringName(id) == ES_HAFIZA_KIMLIGI:
+			durumlar[ES_HAFIZA_KIMLIGI] = {"es": (v["es"] as Dictionary).duplicate(true)}
+			continue
 		var giris := {
 			"durum": StringName(v.get("durum", "gelmedi")),
 			"ziyaret": int(v.get("ziyaret", 0)),
@@ -150,9 +165,11 @@ func yukle(veri: Dictionary) -> bool:
 		for alan in _OPSIYONEL_HAFIZA_ALANLARI:
 			if v.has(alan):
 				var val: Variant = v[alan]
+				if alan == "tek_istek" and val is Dictionary and val.is_empty():
+					continue
 				giris[alan] = val.duplicate(true) if (val is Dictionary or val is Array) else val
 		# SEV-04: eski kayıtta bilinmeyen geçmiş yeniden ilk istek sayılmaz.
-		if not giris.has("tek_istek") and (giris.durum != &"gelmedi" or giris.ziyaret > 0 or giris.son_karar != &""):
+		if not v.has("tek_istek") and (giris.durum != &"gelmedi" or giris.ziyaret > 0 or giris.son_karar != &""):
 			giris["tek_istek"] = {"durum": "eski_kayit"}
 		durumlar[StringName(id)] = giris
 	return true

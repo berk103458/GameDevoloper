@@ -251,6 +251,8 @@ func _gece_bitir() -> Dictionary:
 	var gun := k.oturum.gun
 	k._gece_dugmesi.pressed.emit()
 	if k.has_node("KapiAcilisSunumu"): return {"ok": true, "acilis": true}
+	if k._ust_kart != null and k.oturum.gun == gun:
+		return {"ok": true, "karar_bekliyor": true}
 	return {"ok": true} if k.oturum.gun == gun + 1 else hata("Gece geçişi bekleyen meclis/cenaze nedeniyle kilitli.")
 
 func _koy_eylem(args: Dictionary) -> Dictionary:

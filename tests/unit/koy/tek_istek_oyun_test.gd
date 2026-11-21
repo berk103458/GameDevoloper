@@ -77,8 +77,15 @@ func oyun() -> bool:
 	await get_tree().process_frame
 	dene(e.find_child("tek_istek", true, false) == null and I.durum(o, k2).konusma == 0, "Başka kişi aynı anda ikinci istek söylemez")
 	dene(kapi._karar_dugmeleri.is_empty() and kapi.evre == kapi_evre, "İstek gerçek kapının kabul/ret düğmesini açmaz")
+	var bekleyen := &"chr_001"
+	o.kadro.ziyaret_basladi(bekleyen, o.gun)
+	o.kadro.durumlar[&"es"] = {"es": {"son_konu": "rusvet_almak", "gun": o.gun}}
 	var veri := o.kaydet()
 	var yuklenen := Oturum.kayittan(kat, veri)
+	dene(yuklenen != null, "Eş hafızası bulunan kadro açılır")
+	if yuklenen == null: return false
+	dene(KisiHafizasi.es_hafizasi_oku(yuklenen.kadro, &"es") == {"son_konu": "rusvet_almak", "gun": o.gun}, "Eş hafızası korunur")
+	dene(not yuklenen.kadro.durumlar[bekleyen].has("tek_istek") and yuklenen.kadro.kaydet() == veri.kadro, "Henüz isteği olmayan ziyaretçi aynı durumla yüklenir")
 	var yk := yuklenen.yonetim.koylu(k.id)
 	dene(I.konus(yuklenen, yk).konusma == 1, "Yükleme aynı konuşmayı çoğaltmaz")
 	veri.kadro["chr_002"].erase("tek_istek")

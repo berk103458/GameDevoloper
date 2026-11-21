@@ -1,3 +1,7 @@
+## 2026-11-22 — 3–5. gün ve kayıt denetimi (Kalfa)
+
+3–5. gece raporları gerçek kapı ve köy düğmeleriyle tamamlandı. F5 etkin yuvaya yazıyor. Eş hafızası kaydı ve yeni süreçte yükleme düzeltildi. Beş söylenti olayının TR/EN sonuç metinleri eklendi. Altı Terrain3D dokusu mipmap aldı. Ayrıntı ve açık görsel kontroller [Codex denetim raporunda](docs/CODEX_DENETIM_RAPORU.md).
+
 ## 2026-11-15 — SEV-04 tek istek (Codex, Berk)
 
 Gerçek kabulden sonra çiftçinin tek isteği mevcut köylü kartına bağlandı: hazır ambar, yerleşme sonrası 1–3 gün ve 2 buğday bedeli JSON'da. Süre dolunca tek satır değişir; çocuk, ölüm/ayrılış/veda ve eksik kaynak kapatır. Kadro kaydı ve eski kayıt koruması ikinci istek açmaz; kapı kararı, görev listesi, borç veya hediye takvimi eklenmez. Ret mevcut husumet kaydına nötr iz bırakır. Yeni oyun testi 42/0, SEV-01/02/03 regresyonları 17/35/25 kontrol ve 0 hata; birim, import, parse ve metin doğrulaması geçti. SEV-04 `[/] (Codex)` ve Usta doğrulamasını bekliyor. Uzak Usta a09f2545 SEV-03 `[x]` onayı korundu. Görsel insan doğrulaması yapılmadı. Asset gerekmedi; kota görünmüyor.

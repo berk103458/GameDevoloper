@@ -1996,3 +1996,7 @@ Dört Sky3D fazı, Terrain3D zemin yüksekliği, ProtonScatter örnekleri, nativ
 ## 22 Kasım 2026 — Codex denetimi, Bölüm 3 (Kalfa)
 
 Altı çerçeve ve on arka plan dosyasız ve geçici renk PNG'leriyle tek import sonrası doğrulandı. Üç yükleme adayı, ayarlar ve heybenin ekran bağlantısı var. Kalan beş arka planın ekran bağlantısı raporda. Test PNG'leri ve yan dosyaları kaldırıldı. Yeni gerçek asset eklenmedi. [Kanıtlar](../docs/CODEX_DENETIM_RAPORU.md). Kota görünmüyor.
+
+## 22 Kasım 2026 — Codex denetimi, Bölüm 2 (Kalfa)
+
+3–5. gece raporları kapandı. F5 etkin yuvayı kullanıyor ve açık raporu atlamıyor. Eş hafızalı eski kayıt açıldı. 2. yuva köy kaydı ve 5. gece sonrası yeniden yazılan 3. yuva yeni süreçte eşleşti. Beş olayın TR/EN sonuç anahtarları ve köprü uyarısı düzeltildi. Tek istek testi 45/0. [Kanıtlar](../docs/CODEX_DENETIM_RAPORU.md). Sonraki adım sonuç raporunu ve oyuncu kontrol listesini kapatmak. Asset gerekmedi. Kota görünmüyor.
