@@ -23,6 +23,8 @@ static func kur(ekran: KapiEkrani) -> void:
 	GORUNUM.kur(model, es)
 	var etiket := model.get_node_or_null("acilis_hane_etiketi") as Label3D
 	if etiket != null:
+		etiket.pixel_size = 0.0025
+		etiket.position.y = 1.92
 		EtiketEkranSiniri.bagla(etiket, sahne.kamera)
 	model.bak(sahne.kamera.position)
 	ekran.gece_bitti.connect(func(_rapor: Dictionary) -> void:

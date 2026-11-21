@@ -20,8 +20,8 @@ func _init() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
 	offset_left = 24
-	offset_bottom = -24
-	offset_top = -68
+	offset_bottom = -276
+	offset_top = -324
 	offset_right = 760
 	var kutu := StyleBoxFlat.new()
 	kutu.bg_color = Color(0.06, 0.05, 0.04, 0.88)

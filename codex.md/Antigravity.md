@@ -1726,4 +1726,18 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Kabul:** Ulak ekranı düğmeyle veya zamanlayıcıyla temizce ilk aile kapısına geçer; görünür soru/karar satırına ilk sol tıklama yutulmaz; defter soruları ve eylem düğmeleri ekran içine sığar; kabul/ret kararı sorunsuz uygulanır. `--perf-log` açıkken `user://performans_izi_*.jsonl` oluşur, bayraksız oyuncu sürümünde oluşmaz.
 - **Ret:** Ulak ekranında yer tutucu yazısı çıkarsa, soru satırına basınca tıklama yutulup ikinci tıklama isterse, defter sağa taşıp yazılar ekran dışına çıkarsa veya konsolda `SCRIPT ERROR` görülürse bölüm geri çevrilir.
 
+### 21 Kasım — Bölüm 2 yenileme (`godot-ai` görsel doğrulama + köy/HUD çakışma ve düğme genişliği düzeltmesi)
+- **Canlı görsel inceleme (`godot-ai`):** `project_run` + `game_manage` + `editor_screenshot` + `logs_read` ile Ana Menü -> Yeni Oyun -> Köy (Gündüz 0) -> Ulak -> İlk Aile Kapı (Soru + Karar) akışı canlı oynanıp ekran görüntüleriyle incelendi.
+- **Kök nedenler ve yapılanlar:**
+  1. `src/arayuz/gece_kapisi_cerceve.gd`: `assets/ui/atmosfer/gece_kapisi/*.png` dosyalarındaki 16 px saydam dış boşluk tüm düğmeleri/panelleri incelttiği için `KIRPMA := 16` ile `region_rect` kırpıldı; düğme/panel 9-dilim payları (`button_*` [18,14,18,14,10], `content_margin_left/right=18`, `hud_strip` [36,32,36,32,8] + `content_margin_left=24, right=40`) ve `src/arayuz/menu_satiri.gd` ikon/metin girintileri düzeltildi. Ayrıca `MenuSatiri._draw()` içinde sıfır boyutlu ilk kare üçgenleme hatası (`menu_satiri.gd:51`) `w > 36` / `h > 10` korumasıyla giderildi.
+  2. `src/arayuz/hud.gd`, `src/arayuz/kapi/bar_bicimi.gd`, `src/arayuz/koy_hud/bosta_gostergesi.gd`, `src/arayuz/koy_hud/acilis_kapi_bilgisi.gd`: Üst HUD bar yüksekliği `16 px` yapıldı, `H`/`A`/`M` harfi `11 px` olarak bar içine ortalanıp alt satırlarla (`Asayiş riski`, `Boşta`, `Kapı açık/kapalı`) çakışma kaldırıldı, sağ HUD sütunu kompaktlaştırıldı.
+  3. `src/arayuz/koy_ekrani.gd`, `src/arayuz/koy_hud/yeni_dugme_baglantisi.gd`, `src/arayuz/ipucu_seridi.gd`: Alt köy panelindeki (`_alt`) sağ eylem sütunu taşması yatay `ust_eylem` satırı, tek satır kırpılmış `yeni_dugme_satiri_*` ipucu ve kompakt hız (`54×40`) / `"Geceye geç"` (`220×140`) düzeniyle giderildi; `IpucuSeridi` alt panelin üstüne (`offset_top=-324, offset_bottom=-276`) alındı.
+  4. `src/arayuz/kapi_ekrani.gd`, `src/arayuz/kapi_acilis_ogretici.gd`, `src/dunya/ilk_aile_es_kadraji.gd`, `src/soz/yemin_adaptoru.gd`, `src/kapi/hastalik_teshis_adaptoru.gd`: Kapı defteri (`DEFTER = Rect2(1188, 188, 704, 872)`) ve düğme yükseklikleri (`60`/`52`/`46`) genişletilip üst HUD altına indirildi; `AcilisOgretici` `(32, 192)` konumunda okunaklı koyu kutu aldı ve `"Eş"` `Label3D` (`pixel_size=0.0025`, `y=1.92`) öğreticinin arkasında devleşmeyecek şekilde küçültüldü.
+- **Doğrulamalar:**
+  - Canlı `godot-ai` oyunu (`logs_read(source="game")`): `0` GDScript/çalışma hatası; Ana Menü, Yeni Oyun, Köy, Ulak, Kapı Soru ve Karar ekranlarında çakışma/taşma yok.
+  - Hedefli 3 test (`Godot.exe --headless`): `tests/unit/arayuz/gece_kapisi_cerceve_test.gd` (`GEÇTİ (0 hata)`, `RC=0`), `tests/oto/yeni_dugme_kontrol.tscn` (`OGR-24 YENİ DÜĞME: GEÇTİ (0 hata)`, `RC=0`), `tests/oto/ilk_aile_kapi_kontrol.tscn` (`GEÇTİ`, `RC=0`).
+- **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
+- kota görünmüyor
+
+
 

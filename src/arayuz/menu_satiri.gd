@@ -43,33 +43,36 @@ func _ready() -> void:
 func _draw() -> void:
 	var w := size.x
 	var h := size.y
+	if w <= 0.0 or h <= 0.0:
+		return
 	var cy := h / 2.0
 	var odak := not disabled and has_focus()
 	if odak:
-		var u := 14.0
-		var dis := PackedVector2Array([Vector2(u, 0), Vector2(w - u, 0), Vector2(w, cy), Vector2(w - u, h), Vector2(u, h), Vector2(0, cy)])
-		draw_colored_polygon(dis, LEVHA)
-		_cokgen(dis, ALTIN, 2.0)
-		var ic := PackedVector2Array([Vector2(u + 4, 5), Vector2(w - u - 4, 5), Vector2(w - 7, cy), Vector2(w - u - 4, h - 5), Vector2(u + 4, h - 5), Vector2(7, cy)])
-		_cokgen(ic, Color(ALTIN, 0.55), 1.0)
-		# Uçlardaki küçük sivri çıkıntılar.
-		for x in [-6.0, w + 6.0]:
-			var y := 1.0 if x < 0 else -1.0
-			draw_polyline(PackedVector2Array([Vector2(x + 6.0 * y, cy - 9), Vector2(x, cy), Vector2(x + 6.0 * y, cy + 9)]), ALTIN, 1.5, true)
-		# Sağda ok.
-		draw_polyline(PackedVector2Array([Vector2(w - 52, cy - 7), Vector2(w - 45, cy), Vector2(w - 52, cy + 7)]), KREM, 2.0, true)
+		if w > 36.0 and h > 10.0:
+			var u := 14.0
+			var dis := PackedVector2Array([Vector2(u, 0), Vector2(w - u, 0), Vector2(w, cy), Vector2(w - u, h), Vector2(u, h), Vector2(0, cy)])
+			draw_colored_polygon(dis, LEVHA)
+			_cokgen(dis, ALTIN, 2.0)
+			var ic := PackedVector2Array([Vector2(u + 4, 5), Vector2(w - u - 4, 5), Vector2(w - 7, cy), Vector2(w - u - 4, h - 5), Vector2(u + 4, h - 5), Vector2(7, cy)])
+			_cokgen(ic, Color(ALTIN, 0.55), 1.0)
+			# Uçlardaki küçük sivri çıkıntılar.
+			for x in [-6.0, w + 6.0]:
+				var y := 1.0 if x < 0 else -1.0
+				draw_polyline(PackedVector2Array([Vector2(x + 6.0 * y, cy - 9), Vector2(x, cy), Vector2(x + 6.0 * y, cy + 9)]), ALTIN, 1.5, true)
+			# Sağda ok.
+			draw_polyline(PackedVector2Array([Vector2(w - 52, cy - 7), Vector2(w - 45, cy), Vector2(w - 52, cy + 7)]), KREM, 2.0, true)
 	else:
 		draw_line(Vector2(0, h - 1), Vector2(w - 30, h - 1), Color(ALTIN, 0.32), 1.0, true)
 		MenuSusu.elmas(self, Vector2(w - 26, h - 1), 3.0, Color(ALTIN, 0.55), true)
 	var renk := KREM if odak else (Color(SOLUK, 0.45) if disabled else SOLUK)
-	var x := 104.0 + girinti
+	var x := 110.0 + girinti
 	if doku != null:
 		var b := minf(h - 18.0, 44.0)
-		draw_texture_rect(doku, Rect2(Vector2(48 + girinti - b / 2.0, cy - b / 2.0), Vector2(b, b)), false, renk)
+		draw_texture_rect(doku, Rect2(Vector2(56 + girinti - b / 2.0, cy - b / 2.0), Vector2(b, b)), false, renk)
 	elif ikon == Ikon.YOK:
-		x = 34.0 + girinti
+		x = 40.0 + girinti
 	else:
-		_ikon_ciz(Vector2(48 + girinti, cy), 13.0, renk)
+		_ikon_ciz(Vector2(56 + girinti, cy), 13.0, renk)
 	if font_ != null:
 		var asc := font_.get_ascent(punto)
 		var yuk := font_.get_height(punto)

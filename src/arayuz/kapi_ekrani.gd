@@ -10,8 +10,8 @@ signal oturum_bitti(kirilan: int)
 signal duraklat_istendi
 
 ## Sağdaki kapı defteri paneli ve sol alttaki konuşma kutusu (ekran px, 1080p; HUD altını ve orta kadrajı açar).
-const DEFTER := Rect2(1240, 198, 652, 856)
-const KONUSMA := Rect2(36, 792, 1168, 264)
+const DEFTER := Rect2(1188, 188, 704, 872)
+const KONUSMA := Rect2(36, 792, 1128, 268)
 ## Kamerayı yana kaydırır: gelen kişi sol-orta açık kadrajda durur, defter ve konuşma kutusu altında kalmaz.
 const KAMERA_KAYMA := 0.78
 const KARAR_SIMGE := {"kabul": "accept", "harc": "bribe", "ret": "reject", "rusvet": "bribe", "kisla": "barracks", "elkoy": "reject"}
@@ -183,7 +183,7 @@ func _defter_kur() -> void:
 	_bolum.add_theme_color_override("font_color", MenuSatiri.ALTIN)
 	dikey.add_child(_bolum)
 	var kaydir := ScrollContainer.new()
-	kaydir.custom_minimum_size.y = 180
+	kaydir.custom_minimum_size.y = 200
 	kaydir.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	kaydir.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	kaydir.follow_focus = true
@@ -194,7 +194,7 @@ func _defter_kur() -> void:
 	kaydir.add_child(_secenekler)
 	dikey.add_child(_ayrac(MenuSusu.Tur.UST))
 	_eylemler = VBoxContainer.new()
-	_eylemler.add_theme_constant_override("separation", 4)
+	_eylemler.add_theme_constant_override("separation", 6)
 	dikey.add_child(_eylemler)
 	var ipucu := Label.new()
 	ipucu.text = tr("arayuz.sohbet.ipucu")
@@ -207,7 +207,7 @@ func _defter_kur() -> void:
 func _ayrac(tur: MenuSusu.Tur) -> Control:
 	var s := MenuSusu.new()
 	s.tur = tur
-	s.konum = 332.0
+	s.konum = 352.0
 	s.custom_minimum_size = Vector2(0, 16)
 	s.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	s.resized.connect(s.queue_redraw)
@@ -834,7 +834,7 @@ func _dugme(yazi: String, kap: Container = null) -> MenuSatiri:
 	b.font_ = Tema.font(500)
 	b.punto = ayarlar.boyut(26)
 	b.alt_punto = ayarlar.boyut(Kabuk.KUCUK)
-	b.custom_minimum_size = Vector2(0, 46 if kap == _eylemler else 54)
+	b.custom_minimum_size = Vector2(0, 52 if kap == _eylemler else 60)
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	b.focus_entered.connect(func() -> void: Ses.cal(&"sfx_secim", -8.0))
 	(kap if kap != null else _secenekler).add_child(b)

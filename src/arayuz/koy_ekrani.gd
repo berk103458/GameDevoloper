@@ -84,7 +84,7 @@ func _ready() -> void:
 	add_child(_atama_alani)
 	_bant = PanelContainer.new()
 	_bant.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
-	_bant.position.y = 110
+	_bant.position.y = 166
 	add_child(_bant)
 	_ipucu = Label.new()
 	_ipucu.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
@@ -117,21 +117,24 @@ func _alt_panel_kur() -> void:
 	_alt.offset_top = -ayarlar.boyut(260)
 	add_child(_alt)
 	var kenar := MarginContainer.new()
-	for y in ["margin_left", "margin_right", "margin_top", "margin_bottom"]:
-		kenar.add_theme_constant_override(y, 18)
+	kenar.add_theme_constant_override("margin_left", 12)
+	kenar.add_theme_constant_override("margin_right", 12)
+	kenar.add_theme_constant_override("margin_top", 6)
+	kenar.add_theme_constant_override("margin_bottom", 6)
 	_alt.add_child(kenar)
 	var yatay := HBoxContainer.new()
-	yatay.add_theme_constant_override("separation", 24)
+	yatay.add_theme_constant_override("separation", 16)
 	kenar.add_child(yatay)
 	var sol := VBoxContainer.new()
 	sol.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	sol.add_theme_constant_override("separation", 10)
+	sol.add_theme_constant_override("separation", 6)
 	yatay.add_child(sol)
 	_kategori_satiri = HBoxContainer.new()
 	_kategori_satiri.add_theme_constant_override("separation", 8)
 	sol.add_child(_kategori_satiri)
 	for k in KATEGORILER:
 		var b := _dugme(tr("koy.kategori." + k), _kategori_satiri)
+		b.custom_minimum_size.y = 42
 		b.toggle_mode = true
 		b.pressed.connect(func() -> void:
 			_kategori = k
@@ -140,22 +143,28 @@ func _alt_panel_kur() -> void:
 	var araclar := ["yol", "yik"]
 	for a in araclar:
 		var b := _dugme(tr("koy.arac." + a), _kategori_satiri)
+		b.custom_minimum_size.y = 42
 		b.pressed.connect(func() -> void: _kip_sec(a))
 	_yapi_satiri = HBoxContainer.new()
 	_yapi_satiri.add_theme_constant_override("separation", 8)
 	var kaydir := ScrollContainer.new()
-	kaydir.custom_minimum_size.y = ayarlar.boyut(160)
+	kaydir.custom_minimum_size.y = ayarlar.boyut(148)
 	kaydir.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	kaydir.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	kaydir.follow_focus = true
 	sol.add_child(kaydir)
 	kaydir.add_child(_yapi_satiri)
 	var sag := VBoxContainer.new()
-	sag.add_theme_constant_override("separation", 8)
+	sag.add_theme_constant_override("separation", 4)
 	yatay.add_child(sag)
-	var pazar := _dugme(tr("koy.eylem.pazar"), sag)
+	var ust_eylem := HBoxContainer.new()
+	ust_eylem.add_theme_constant_override("separation", 6)
+	sag.add_child(ust_eylem)
+	var pazar := _dugme(tr("koy.eylem.pazar"), ust_eylem)
+	pazar.custom_minimum_size.y = 42
 	pazar.pressed.connect(_pazar_ac)
-	var nufus := _dugme(tr("koy.eylem.nufus"), sag)
+	var nufus := _dugme(tr("koy.eylem.nufus"), ust_eylem)
+	nufus.custom_minimum_size.y = 42
 	nufus.pressed.connect(_nufus_ac)
 	DivanBaglantisi.kur(self, sag)
 	YeniDugmeBaglantisi.kur(sag, oturum.ipucu_kaydi if oturum != null else null, {"pazar": pazar, "divan": sag.get_node_or_null("divan_ac")})
@@ -163,12 +172,16 @@ func _alt_panel_kur() -> void:
 	MuhafizOdasiBaglantisi.kur(self, sag)
 	HaritaBaglantisi.kur(self, sag)
 	AyarlarBaglantisi.kur(self, sag)  # AYR-06: oyun içinden aynı ayar ekranı
-	HafizaDefteriBaglantisi.kur(self, sag)
+	var defter_btn := HafizaDefteriBaglantisi.kur(self, sag)
+	if defter_btn != null and defter_btn.get_parent() == sag:
+		sag.remove_child(defter_btn)
+		ust_eylem.add_child(defter_btn)
 	var hizlar := HBoxContainer.new()
 	hizlar.add_theme_constant_override("separation", 4)
 	sag.add_child(hizlar)
 	for kat in [0, 1, 2, 3]:
 		var b := _dugme("Ⅱ" if kat == 0 else "%dx" % kat, hizlar)
+		b.custom_minimum_size = Vector2(54, 40)
 		b.add_theme_font_size_override("font_size", ayarlar.boyut(Kabuk.KUCUK))
 		b.toggle_mode = true
 		b.set_pressed_no_signal(kat == 1)
@@ -176,7 +189,8 @@ func _alt_panel_kur() -> void:
 		b.pressed.connect(func() -> void: _oyuncu_hiz_sec(kat))
 		_hiz_dugmeleri[kat] = b
 	_gece_dugmesi = _dugme(tr("koy.eylem.gece"), yatay)
-	_gece_dugmesi.custom_minimum_size = Vector2(260, 150)
+	_gece_dugmesi.custom_minimum_size = Vector2(220, 140)
+	_gece_dugmesi.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	_gece_dugmesi.pressed.connect(_geceye_gec)
 
 

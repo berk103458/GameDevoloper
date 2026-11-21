@@ -109,7 +109,7 @@ static func _bakis_dugmesi_ekle(e: Node, g: Gelen, kap: Container, ad: String, y
 	var b := Button.new()
 	b.name = ad
 	b.text = yazi
-	b.custom_minimum_size.y = 38
+	b.custom_minimum_size.y = 46
 	kap.add_child(b)
 	b.pressed.connect(func() -> void:
 		if e.get("_gelen") != g: return

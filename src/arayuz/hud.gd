@@ -71,23 +71,25 @@ func _ready() -> void:
 	orta.custom_minimum_size.x = 4
 	kutu.add_child(orta)
 	var huzur := VBoxContainer.new()
-	huzur.add_theme_constant_override("separation", 4)
-	_huzur_etiket = _etiket(huzur, Tema.KUCUK_PX)
+	huzur.add_theme_constant_override("separation", 2)
+	_huzur_etiket = _etiket(huzur, 17)
 	_huzur_bar = _bar(huzur)
 	kutu.add_child(huzur)
 	_katman.izle(huzur, "hud.gd", "huzur")
 	var gosterge := VBoxContainer.new()
-	_adalet = _etiket(gosterge, Tema.KUCUK_PX)
+	gosterge.add_theme_constant_override("separation", 2)
+	_adalet = _etiket(gosterge, 17)
 	_adalet_bar = _bar(gosterge)
-	_asayis = _etiket(gosterge, Tema.KUCUK_PX)
+	_asayis = _etiket(gosterge, 17)
 	kutu.add_child(gosterge)
 	_katman.izle(gosterge, "hud.gd", "adalet_asayis")
 	var sag := VBoxContainer.new()
-	_gun = _etiket(sag, Tema.BASLIK_PX)
+	sag.add_theme_constant_override("separation", 1)
+	_gun = _etiket(sag, 22)
 	_gun.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_mevsim = _etiket(sag, Tema.KUCUK_PX)
+	_mevsim = _etiket(sag, 15)
 	_mevsim.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_nufus = _etiket(sag, Tema.KUCUK_PX)
+	_nufus = _etiket(sag, 15)
 	_nufus.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_ambar_bar = _bar(sag)
 	kutu.add_child(sag)
@@ -189,7 +191,7 @@ func guncelle() -> void:
 
 func _bar(ust: Control) -> ProgressBar:
 	var bar := ProgressBar.new()
-	bar.custom_minimum_size = Vector2(150, 8)
+	bar.custom_minimum_size = Vector2(150, 16)
 	bar.show_percentage = false
 	bar.mouse_filter = Control.MOUSE_FILTER_PASS
 	ust.add_child(bar)

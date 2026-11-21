@@ -7,17 +7,30 @@ const KOK := "res://assets/ui/atmosfer/gece_kapisi/"
 const ARKA := "res://assets/ui/arkaplan/"
 const TEMA := "res://src/arayuz/gece_kapisi_tema.tres"
 
+const KIRPMA := 16
+const KIRPILAN := [
+	"dialogue_panel",
+	"button_normal",
+	"button_hover",
+	"button_pressed",
+	"button_disabled",
+	"focus_ring",
+	"settings_panel",
+	"tooltip_panel",
+	"hud_strip",
+]
+
 ## texture_margin sol, üst, sağ, alt. İçerik payı yazının tahtaya binmemesi içindir.
 const DILIM := {
-	"dialogue_panel": [112, 112, 112, 112, 36],
-	"button_normal": [28, 28, 28, 28, 14],
-	"button_hover": [28, 28, 28, 28, 14],
-	"button_pressed": [28, 28, 28, 28, 14],
-	"button_disabled": [28, 28, 28, 28, 14],
-	"focus_ring": [28, 28, 28, 28, 14],
+	"dialogue_panel": [112, 112, 112, 112, 24],
+	"button_normal": [18, 14, 18, 14, 10],
+	"button_hover": [18, 14, 18, 14, 10],
+	"button_pressed": [18, 14, 18, 14, 10],
+	"button_disabled": [18, 14, 18, 14, 10],
+	"focus_ring": [18, 14, 18, 14, 10],
 	"settings_panel": [192, 192, 192, 192, 40],
 	"tooltip_panel": [72, 72, 72, 72, 20],
-	"hud_strip": [80, 48, 80, 48, 12],
+	"hud_strip": [36, 32, 36, 32, 8],
 	"loading_track": [32, 24, 32, 24, 4],
 	"loading_fill": [32, 24, 32, 24, 4],
 }
@@ -51,6 +64,8 @@ static func kutu(ad: String) -> StyleBoxTexture:
 		return null
 	var s := StyleBoxTexture.new()
 	s.texture = doku
+	if ad in KIRPILAN and doku.get_width() > KIRPMA * 2 and doku.get_height() > KIRPMA * 2:
+		s.region_rect = Rect2(KIRPMA, KIRPMA, doku.get_width() - KIRPMA * 2, doku.get_height() - KIRPMA * 2)
 	s.texture_margin_left = pay[0]
 	s.texture_margin_top = pay[1]
 	s.texture_margin_right = pay[2]
@@ -59,6 +74,12 @@ static func kutu(ad: String) -> StyleBoxTexture:
 	s.content_margin_right = pay[4]
 	s.content_margin_top = pay[4]
 	s.content_margin_bottom = pay[4]
+	if ad in ["button_normal", "button_hover", "button_pressed", "button_disabled", "focus_ring"]:
+		s.content_margin_left = 18
+		s.content_margin_right = 18
+	elif ad == "hud_strip":
+		s.content_margin_left = 24
+		s.content_margin_right = 40
 	s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
 	s.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
 	return s

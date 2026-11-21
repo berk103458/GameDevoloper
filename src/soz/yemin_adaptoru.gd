@@ -78,7 +78,7 @@ static func eylem(e: Node, g: Gelen, kap: Container) -> void:
 	var b := Button.new()
 	b.name = "YeminEt"
 	b.text = TranslationServer.translate("arayuz.kapi.yemin_et")
-	b.custom_minimum_size.y = 38
+	b.custom_minimum_size.y = 46
 	kap.add_child(b)
 	b.pressed.connect(func() -> void:
 		if e.get("_gelen") != g: return

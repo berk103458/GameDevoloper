@@ -20,9 +20,16 @@ static func kur(sutun: Control, kayit: IpucuKaydi, dugmeler: Dictionary) -> void
 			satir = Label.new()
 			satir.name = "yeni_dugme_satiri_%s" % id
 			satir.text = String(sonuc.metin)
-			satir.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			satir.add_theme_font_size_override("font_size", 13)
+			satir.autowrap_mode = TextServer.AUTOWRAP_OFF
+			satir.clip_text = true
+			satir.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+			satir.tooltip_text = String(sonuc.metin)
 			sutun.add_child(satir)
-			sutun.move_child(satir, b.get_index() + 1)
+			if b.get_parent() == sutun:
+				sutun.move_child(satir, b.get_index() + 1)
+			elif b.get_parent() != null and b.get_parent().get_parent() == sutun:
+				sutun.move_child(satir, b.get_parent().get_index() + 1)
 			if isaret.is_inside_tree():
 				var tw := isaret.create_tween()
 				tw.tween_property(isaret, "modulate:a", 0.2, 0.4)
