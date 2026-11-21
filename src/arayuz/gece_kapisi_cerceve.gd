@@ -33,7 +33,24 @@ const DILIM := {
 	"hud_strip": [36, 32, 36, 32, 8],
 	"loading_track": [32, 24, 32, 24, 4],
 	"loading_fill": [32, 24, 32, 24, 4],
+	## Ahmet'in altı parçası. Dosya yoksa bu satırlar kullanılmaz; eski PNG durur.
+	"cerceve_diyalog_seridi": [112, 96, 112, 96, 28],
+	"cerceve_secenek_satiri": [28, 18, 28, 18, 10],
+	"cerceve_portre": [96, 96, 96, 96, 12],
+	"cerceve_panel": [96, 96, 96, 96, 32],
+	"cerceve_muhur": [0, 0, 0, 0, 0],
+	"cerceve_rumi_kose": [0, 0, 0, 0, 0],
 }
+
+## Nihai adlar. Ham yeşil kopya work/ui_yesil_ham/ altına konur; araç bunu üretir.
+const BEKLENEN := [
+	"cerceve_diyalog_seridi",
+	"cerceve_secenek_satiri",
+	"cerceve_portre",
+	"cerceve_panel",
+	"cerceve_muhur",
+	"cerceve_rumi_kose",
+]
 
 
 static func yol(ad: String) -> String:
@@ -55,16 +72,30 @@ static func _doku(ad: String) -> Texture2D:
 	return ImageTexture.create_from_image(img)
 
 
-static func kutu(ad: String) -> StyleBoxTexture:
-	if not DILIM.has(ad) or not var_mi(ad):
+## Yeni parça varsa o doku ve kendi payı. Yoksa istenen eski ad.
+static func _kaynak(ad: String) -> String:
+	if ad == "dialogue_panel" and var_mi("cerceve_diyalog_seridi"):
+		return "cerceve_diyalog_seridi"
+	if (ad.begins_with("button_") or ad == "focus_ring") and var_mi("cerceve_secenek_satiri"):
+		return "cerceve_secenek_satiri"
+	if ad == "settings_panel" and var_mi("cerceve_panel"):
+		return "cerceve_panel"
+	return ad
+
+
+static func kutu(ad: String, eskiyi_koru: bool = false) -> StyleBoxTexture:
+	if not DILIM.has(ad):
 		return null
-	var pay: Array = DILIM[ad]
-	var doku := _doku(ad)
+	var kaynak := ad if eskiyi_koru else _kaynak(ad)
+	if not var_mi(kaynak):
+		return null
+	var pay: Array = DILIM[kaynak]
+	var doku := _doku(kaynak)
 	if doku == null:
 		return null
 	var s := StyleBoxTexture.new()
 	s.texture = doku
-	if ad in KIRPILAN and doku.get_width() > KIRPMA * 2 and doku.get_height() > KIRPMA * 2:
+	if kaynak in KIRPILAN and doku.get_width() > KIRPMA * 2 and doku.get_height() > KIRPMA * 2:
 		s.region_rect = Rect2(KIRPMA, KIRPMA, doku.get_width() - KIRPMA * 2, doku.get_height() - KIRPMA * 2)
 	s.texture_margin_left = pay[0]
 	s.texture_margin_top = pay[1]
@@ -74,10 +105,10 @@ static func kutu(ad: String) -> StyleBoxTexture:
 	s.content_margin_right = pay[4]
 	s.content_margin_top = pay[4]
 	s.content_margin_bottom = pay[4]
-	if ad in ["button_normal", "button_hover", "button_pressed", "button_disabled", "focus_ring"]:
+	if kaynak in ["button_normal", "button_hover", "button_pressed", "button_disabled", "focus_ring"]:
 		s.content_margin_left = 18
 		s.content_margin_right = 18
-	elif ad == "hud_strip":
+	elif kaynak == "hud_strip":
 		s.content_margin_left = 24
 		s.content_margin_right = 40
 	s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
@@ -95,12 +126,94 @@ static func panel() -> StyleBox:
 	return kutu("dialogue_panel")
 
 
+## Balon paneline rumi köşe. Dosya yoksa hiçbir düğüm eklenmez.
+static func rumi_koseleri(panel: Control) -> void:
+	if panel == null or not var_mi("cerceve_rumi_kose"):
+		return
+	var doku := _doku("cerceve_rumi_kose")
+	if doku == null:
+		return
+	var cevir: Array[Dictionary] = [
+		{"ad": "RumiSolUst", "yer": Control.PRESET_TOP_LEFT, "yatay": false, "dikey": false},
+		{"ad": "RumiSagUst", "yer": Control.PRESET_TOP_RIGHT, "yatay": true, "dikey": false},
+		{"ad": "RumiSagAlt", "yer": Control.PRESET_BOTTOM_RIGHT, "yatay": true, "dikey": true},
+		{"ad": "RumiSolAlt", "yer": Control.PRESET_BOTTOM_LEFT, "yatay": false, "dikey": true},
+	]
+	for bilgi in cevir:
+		if panel.get_node_or_null(String(bilgi["ad"])) != null:
+			continue
+		var kose := TextureRect.new()
+		kose.name = String(bilgi["ad"])
+		kose.texture = doku
+		kose.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		kose.flip_h = bool(bilgi["yatay"])
+		kose.flip_v = bool(bilgi["dikey"])
+		kose.custom_minimum_size = Vector2(72, 72)
+		kose.set_anchors_preset(int(bilgi["yer"]))
+		if int(bilgi["yer"]) == Control.PRESET_TOP_LEFT:
+			kose.offset_right = 72
+			kose.offset_bottom = 72
+		elif int(bilgi["yer"]) == Control.PRESET_TOP_RIGHT:
+			kose.offset_left = -72
+			kose.offset_bottom = 72
+		elif int(bilgi["yer"]) == Control.PRESET_BOTTOM_RIGHT:
+			kose.offset_left = -72
+			kose.offset_top = -72
+		else:
+			kose.offset_right = 72
+			kose.offset_top = -72
+		panel.add_child(kose)
+
+
+## Portre düğmesinin arkasına delikli çerçeve. Dosya yoksa düğüm aynı kalır.
+static func portre_giydir(hedef: Control) -> void:
+	var cerceve := kutu("cerceve_portre")
+	if cerceve == null or hedef == null or hedef.get_parent() == null:
+		return
+	var ebeveyn := hedef.get_parent()
+	var sira := hedef.get_index()
+	var kap := Panel.new()
+	kap.name = "PortreCercevesi"
+	kap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	kap.add_theme_stylebox_override("panel", cerceve)
+	kap.size_flags_horizontal = hedef.size_flags_horizontal
+	kap.size_flags_vertical = hedef.size_flags_vertical
+	ebeveyn.remove_child(hedef)
+	kap.add_child(hedef)
+	hedef.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	ebeveyn.add_child(kap)
+	ebeveyn.move_child(kap, sira)
+
+
+## Defter veya divan sayfasının köşesine mühür. Dosya yoksa eklenmez.
+static func muhur_ekle(zemin: Control) -> void:
+	if zemin == null or zemin.get_node_or_null("Muhur") != null or not var_mi("cerceve_muhur"):
+		return
+	var doku := _doku("cerceve_muhur")
+	if doku == null:
+		return
+	var damga := TextureRect.new()
+	damga.name = "Muhur"
+	damga.texture = doku
+	damga.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	damga.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	damga.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	damga.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+	damga.offset_left = -136
+	damga.offset_top = -136
+	damga.offset_right = -28
+	damga.offset_bottom = -28
+	zemin.add_child(damga)
+
+
 static func uygula(t: Theme) -> bool:
-	var p := panel()
-	if p == null:
+	## Genel panel yeni dosyayı bekler. Yoksa eski diyalog tahtası kalır; şerit balona aittir.
+	var ozel := kutu("cerceve_panel")
+	var govde := ozel if ozel != null else kutu("dialogue_panel", true)
+	if govde == null:
 		return false
-	t.set_stylebox("panel", "Panel", p)
-	t.set_stylebox("panel", "PanelContainer", p.duplicate())
+	t.set_stylebox("panel", "Panel", govde)
+	t.set_stylebox("panel", "PanelContainer", govde.duplicate())
 	var normal := dugme("button_normal")
 	var hover := dugme("button_hover")
 	var basili := dugme("button_pressed")

@@ -1,0 +1,38 @@
+[
+  {
+    "source": "work/ui_yesil_ham/cerceve_diyalog_seridi.png",
+    "name": "cerceve_diyalog_seridi.png",
+    "size": [1536, 512],
+    "method": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/cerceve_secenek_satiri.png",
+    "name": "cerceve_secenek_satiri.png",
+    "size": [768, 192],
+    "method": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/cerceve_portre.png",
+    "name": "cerceve_portre.png",
+    "size": [768, 1024],
+    "method": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/cerceve_panel.png",
+    "name": "cerceve_panel.png",
+    "size": [1280, 768],
+    "method": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/cerceve_muhur.png",
+    "name": "cerceve_muhur.png",
+    "size": [256, 256],
+    "method": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/cerceve_rumi_kose.png",
+    "name": "cerceve_rumi_kose.png",
+    "size": [256, 256],
+    "method": "green"
+  }
+]

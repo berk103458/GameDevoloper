@@ -75,3 +75,4 @@ static func _sayfayi_giydir(ekran: Control, kimlik: String) -> void:
 	kutu.texture = doku
 	zemin.add_theme_stylebox_override("panel", kutu)
 	zemin.set_meta(&"defter_aday", kimlik)
+	GeceKapisiCerceve.muhur_ekle(zemin)

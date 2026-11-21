@@ -911,6 +911,19 @@ Kod bekler. Dosya yoksa isim etiketli koyu kutu. Promptlar `docs/arayuz/NANO_BAN
 | ARY-ARKA | `assets/ui/arkaplan/gun_sonu.png` | 1920×1080 | opak | aynı |
 | ARY-ARKA | `assets/ui/arkaplan/kayit.png` | 1920×1080 | opak | aynı |
 
+## 21 Kasım 2026 — çerçeve seti, 6 parça (Cursor)
+
+Ahmet Nano Banana yolunu seçti. Üretilmedi. Ham yeşil `work/ui_yesil_ham/` altına, aynı adla. Araç: `python -B tools/art/gece_kapisi_hazirla.py docs/arayuz/gece_kapisi_cerceve_alti.json assets/ui/atmosfer/gece_kapisi`. Dosya yoksa eski çerçeve kalır. Prompt: `docs/arayuz/NANO_BANANA_PROMPTLARI.md`.
+
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Hazır prompt |
+|---|---|---|---|---|
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_diyalog_seridi.png` | 1536×512 | RGBA; düz #00FF00 | [Çerçeve seti](arayuz/NANO_BANANA_PROMPTLARI.md) |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_secenek_satiri.png` | 768×192 | RGBA; düz #00FF00 | aynı |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_portre.png` | 768×1024 | RGBA; düz #00FF00, ortası delik | aynı |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_panel.png` | 1280×768 | RGBA; düz #00FF00 | aynı |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_muhur.png` | 256×256 | RGBA; düz #00FF00 | aynı |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_rumi_kose.png` | 256×256 | RGBA; düz #00FF00 | aynı |
+
 KAP-17 notu (2 Kasım 2026, Kalfa): KAP17-COCUK/YASLI ihtiyaçları yukarıdaki mevcut 3D satırlarında güncellendi; yeni asset üretilmedi/indirilmedi. Kapıdaki refakatçiler isimli BoxMesh, köyde çocuk mevcut LOWPO, yaşlı mevcut yetişkin yer tutucusudur. Boy hedefleri mevcut 1,15 m / 1,65 m. Yaşlı modeli tamamlandı sayılmaz; yeni 2D ihtiyacı yok.
 
 CIL-11 notu (17 Kasım 2026, Antigravity): `CIL11-RIG-BEKLEYEN` — `k02_kipcak_kuman_savascisi`, `b092`, `k14`, `k15` (ve `b019_kangal`) için iskelet + yürüme/sakin bekleme klibi bekleniyor; `k02` kışla sabit nöbeti (`CIL-11`) dışında `b092`/`k14`/`k15` rigleme sırasını bekler.
