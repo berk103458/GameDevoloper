@@ -16,10 +16,10 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	tooltip_text = MeslekYapilari.aciklama(tur)
 	var v := VBoxContainer.new()
 	v.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	v.offset_left = 14
-	v.offset_right = -14
-	v.offset_top = 10
-	v.offset_bottom = -10
+	v.offset_left = 22
+	v.offset_right = -22
+	v.offset_top = 12
+	v.offset_bottom = -12
 	v.add_theme_constant_override("separation", 6)
 	add_child(v)
 	var baslik := HBoxContainer.new()
@@ -54,7 +54,7 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	bilgi.text = "K%d · %s" % [y.katalog.kademe(tur), bilgi.text]
 	_girdiyi_gecir(v)
 	# Çocuk içerik font ölçeğiyle büyür; yatay liste taşanı kaydırır.
-	custom_minimum_size = v.get_combined_minimum_size() + Vector2(28, 20)
+	custom_minimum_size = v.get_combined_minimum_size() + Vector2(44, 24)
 
 func _etiket(yazi: String, punto: int) -> Label:
 	var l := Label.new()

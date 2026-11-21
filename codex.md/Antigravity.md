@@ -1739,5 +1739,27 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
 - kota görünmüyor
 
+### 22 Kasım — Bölüm 3 köy arayüzü ve kullanılmayan 2B/3B asset entegrasyonu
+- **UI düzeni (`Bölüm 3`):**
+  - `src/arayuz/koy_hud/yapi_karti.gd`: İç boşluklar `22/-22/12/-12`, `custom_minimum_size` payı `+ Vector2(44, 24)` yapılarak metal köşe braketlerine çarpma giderildi.
+  - `src/arayuz/koy_hud/pazar_kart_kaydirma.gd`: Kaydırma yüksekliği `maxf(180.0, e.size.y - ust_pay - alt_pay - 230.0)` ile sınırlandı; Pazar penceresinin üst HUD ve alt çubuğa taşması kaldırıldı.
+  - `src/arayuz/koy_ekrani.gd` ve `src/koy/koylu_karti_verisi.gd`: `_bilgi` paneli dinamik olarak HUD altına alındı (`offset_top >= hud.size.y + 8.0`), modal açıkken `_bilgi` gizlendi, `Nüfus (P)` kaydırması ve `_ust_kart` dikey ortalaması HUD–alt panel arasına kilitlendi, `"kap17_aile"` -> `"Aile"` çevrildi ve `[KEY_NOT_FOUND]` iç bayrak sızıntıları filtrelendi.
+- **2B UI & 3B sahne asset bağlantıları:**
+  - `src/arayuz/koy_hud/gezgin_stok_ikonu.gd`: `su`, `saman`, `balta`, `civi`, `tirpan`, `sargi`, `afyon`, `kumas`, `kece`, `zirh`, `yay`, `kalkan`, `ilac` stok ikonları `assets/art/icons/icon_stok_*.png`, `icon_esya_*_64.png` ve `assets/ui/atmosfer/gece_kapisi/icon_bez.png` dokularına bağlandı (`Kabuk.yer_tutucu` child `0` ve `c.color` test/GRV uyumu için korunup `self_modulate.a = 0.0` ile saydamlaştırıldı).
+  - `src/koy/gorsel/gozcu_kulesi_gorseli.gd`: `YapiKarti` içindeki düz kahverengi `ColorRect` yerine `assets/art/icons/icon_stok_gozcu_kulesi.png` bağlandı.
+  - `src/arayuz/koy_hud/yasam_barlari_paneli.gd`: Köylü kartındaki açlık, yorgunluk ve moral barlarına `icon_erzak.png`, `icon_yatak.png` ve `icon_yasam_moral.png` bağlandı (`GRV-08` uyumlu).
+  - `src/arayuz/esya_simgesi.gd` ve `src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd`: Heybe eşyalarına `icon_esya_*_64.png` (`arpa`, `bakir`, `hancer`, `ilac`, `kumas`, `ok`, `tohum`) çizimi eklendi; muhafız odası kişisel envanter listesine `icon_stok_yasak_muhur.png` / stok ikonu bağlandı (`String(...)` açık tür dönüşümüyle `Variant` uyarısı sıfır).
+  - `src/koy/gorsel/koy_serpintisi.gd`: 28 `"taş (yer tutucu)"` kutusu `Dunya3B.nesne("kaya", 0.36)` (yedek `Pbr.model("boulder_01")`) ve 18 `"çalı (yer tutucu)"` kutusu `Pbr.model("dry_branches_medium_01")` (yedek `Dunya3B.nesne("agac_02", 0.75)`) ile değiştirildi; sahnedeki uçan `(yer tutucu)` yazıları kaldırıldı.
+  - `src/dunya/dunya3b.gd`, `src/koy/gorsel/bina_avlu_esyalari.gd`, `src/koy/gorsel/hazir_esya_hayvan.gd`: `TOPLULUK_YER` içine `td_k04`, `td_k14`, `td_k15`, `td_b092` eklendi (`td_k04` için `CIL-10` tekilleştirme kararı korundu), `han` avlusuna `td_k15` sepetli gezgin tüccar eklendi; `HazirEsyaHayvan.MODELLER` içine 11 kullanılmayan KayKit alet/silah modeli (`shovel`, `saw`, `tongs`, `mallet`, `chisel`, `knife`, `torch`, `sword_A`, `shield_A`, `spear_A`, `bow_A_withString`) eklendi ve `hizarhane` / `tas_ocagi` / `muhafiz_kislasi` binalarına bağlandı.
+- **Doğrulamalar:**
+  - `tests/oto/hekim_ilac_kontrol.tscn` (`RC=0`)
+  - `tests/oto/koy_hareket_kontrol.tscn` (`RC=0`)
+  - `tests/oto/grv_tema_baglari_kontrol.tscn` (`GRV TEMA BAGLARI: GEÇTİ (44 dosya)`, `RC=0`, `SCRIPT ERROR=0`)
+  - `tests/unit/koy/hayvan_surusu_cilalama_test.gd` (`CIL-10 HAYVAN SÜRÜSÜ: GEÇTİ`, `RC=0`)
+  - Canlı pencereli Vulkan köy çekimi (`tests/oto/koy_foto.tscn`, `GUN=6`, `FAZ=gunduz`): gerçek zemin taş/çalı modelleri, uçan yer tutucu metni `0`, temiz `Buğday tarlası` / `YapiKarti` kadrajı.
+- **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
+- kota görünmüyor
+
+
 
 

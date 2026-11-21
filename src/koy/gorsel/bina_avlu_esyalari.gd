@@ -97,6 +97,7 @@ const ESYA_HARITASI := {
 		{"ad": "td_o65", "boy": 1.95, "ofset": Vector3(-0.36, 0.0, -0.34), "don": 25.0},
 		{"ad": "td_o19", "boy": 0.35, "ofset": Vector3(0.0, 2.05, 0.38), "don": 0.0, "isik": true},
 		{"ad": "td_k12", "boy": 1.70, "ofset": Vector3(0.0, 0.0, 0.42), "don": 0.0},
+		{"ad": "td_k15", "boy": 1.72, "ofset": Vector3(-0.38, 0.0, -0.36), "don": 35.0},
 		{"ad": "td_k05", "boy": 1.60, "ofset": Vector3(0.40, 0.0, -0.36), "don": -90.0},
 	],
 }
@@ -189,7 +190,7 @@ static func _yurume_engelli_mi(s: KoyYonetimSahnesi, rota: KoyRotasi, konum: Vec
 static func _sicak_isik_ekle(ust: Node3D, konum: Vector3, etiket: String) -> void:
 	var isik := OmniLight3D.new()
 	isik.name = "sicak_kandil_isigi_" + etiket
-	isik.light_color = Color("#ff9c42")
+	isik.light_color = Color("#FF9A40")
 	isik.light_energy = 1.4
 	isik.omni_range = 5.5
 	isik.omni_attenuation = 1.4

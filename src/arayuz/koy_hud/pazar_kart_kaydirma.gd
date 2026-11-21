@@ -3,9 +3,12 @@ class_name PazarKartKaydirma
 extends RefCounted
 ## Başlık mevcut üst kutuda kalır; yalnız içerik kaydırılır, ikinci panel oluşmaz.
 static func kur(e: KoyEkrani, ust: VBoxContainer) -> VBoxContainer:
+ var ust_pay := e.hud.size.y if e.hud != null else 156.0
+ var alt_pay := e._alt.size.y if e._alt != null else 260.0
+ var limit := maxf(180.0, e.size.y - ust_pay - alt_pay - 230.0)
  var sc := ScrollContainer.new()
  sc.name = "pazar_kart_kaydirma"
- sc.custom_minimum_size = Vector2(maxf(180, minf(720, e.size.x - 100)), maxf(120, e.size.y - 220))
+ sc.custom_minimum_size = Vector2(maxf(180, minf(720, e.size.x - 100)), limit)
  sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  sc.follow_focus = true
  ust.add_child(sc)
@@ -14,7 +17,6 @@ static func kur(e: KoyEkrani, ust: VBoxContainer) -> VBoxContainer:
  v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  sc.add_child(v)
  v.set_meta("kart_ust", ust)
- var limit := maxf(120, e.size.y - 220)
  var boyutla := func() -> void:
   if is_instance_valid(sc) and is_instance_valid(v):
    sc.custom_minimum_size.y = minf(limit, maxf(120, v.get_combined_minimum_size().y))

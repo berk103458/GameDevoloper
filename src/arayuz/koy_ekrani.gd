@@ -439,7 +439,7 @@ func _bilgi_kur() -> void:
 	_bilgi = PanelContainer.new()
 	_bilgi.set_anchors_and_offsets_preset(Control.PRESET_RIGHT_WIDE)
 	_bilgi.offset_left = -520
-	_bilgi.offset_top = 150
+	_bilgi.offset_top = 160
 	_bilgi.offset_bottom = -ayarlar.boyut(260) - 20
 	_bilgi.visible = false
 	add_child(_bilgi)
@@ -457,6 +457,7 @@ func _bilgi_kur() -> void:
 
 
 func _bilgi_goster() -> void:
+	_bilgi.offset_top = maxf(158.0, (hud.size.y + 8.0) if hud != null else 158.0)
 	for c in _bilgi_icerik.get_children():
 		_bilgi_icerik.remove_child(c) # Yenilenen bilgi düğmelerinin adları aynı karede serbest kalır.
 		c.queue_free()
@@ -543,7 +544,9 @@ func _koylu_satiri(k: Koylu, b: KoyBinasi) -> void:
 	_bilgi_icerik.add_child(v)
 	var bayrak: PackedStringArray = []
 	for f in k.bayraklar:
-		bayrak.append(tr("koy.bayrak." + f))
+		var yazi := _bayrak_etiketi(String(f))
+		if not yazi.is_empty():
+			bayrak.append(yazi)
 	_etiket(v, "%s  ·  %s %d  ·  %s %d  ·  %s %d" % [k.ad, tr("koy.bilgi.stat"), k.stat, tr("koy.bilgi.moral"), k.moral,
 		tr("koy.bilgi.saglik"), k.saglik], Tema.KUCUK_PX)
 	if not bayrak.is_empty():
@@ -598,7 +601,7 @@ func _nufus_ac() -> void:
 		return a.moral < b.moral
 	)
 	var kaydir := ScrollContainer.new()
-	kaydir.custom_minimum_size = Vector2(1100, 520)
+	kaydir.custom_minimum_size = Vector2(1100, minf(360.0, maxf(180.0, size.y - 680.0)))
 	v.add_child(kaydir)
 	var ic := VBoxContainer.new()
 	kaydir.add_child(ic)
@@ -618,7 +621,9 @@ func _nufus_ac() -> void:
 	for k: Koylu in diger_liste:
 		var bayrak: PackedStringArray = []
 		for f in k.bayraklar:
-			bayrak.append(tr("koy.bayrak." + f))
+			var yazi := _bayrak_etiketi(String(f))
+			if not yazi.is_empty():
+				bayrak.append(yazi)
 		var kisi_karti := _dugme(k.ad + " · Köylü kartı", ic)
 		kisi_karti.pressed.connect(func() -> void: KoyluKarti.ac(self, k.id))
 		_etiket(ic, "%-22s %-18s %s %3d   %s %3d   %s %d   %s" % [k.ad, _is_adi(k), tr("koy.bilgi.moral"), k.moral,
@@ -886,6 +891,8 @@ func _yenile() -> void:
 
 func _kart_ac(baslik: String) -> VBoxContainer:
 	_kart_kapat()
+	if _bilgi != null:
+		_bilgi.visible = false
 	_ust_kart = PanelContainer.new()
 	_ust_kart.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	add_child(_ust_kart)
@@ -900,7 +907,11 @@ func _kart_ac(baslik: String) -> VBoxContainer:
 	_etiket(v, baslik, Tema.BASLIK_PX)
 	_ust_kart.resized.connect(func() -> void:
 		if is_instance_valid(_ust_kart):
-			_ust_kart.position = (size - _ust_kart.size) / 2.0
+			var ust_sinir := (hud.size.y + 8.0) if hud != null else 158.0
+			var alt_sinir := (_alt.position.y - 8.0) if _alt != null else (size.y - 268.0)
+			var merkez_y := ust_sinir + maxf(0.0, (alt_sinir - ust_sinir - _ust_kart.size.y) * 0.5)
+			var azami_y := maxf(ust_sinir, alt_sinir - _ust_kart.size.y)
+			_ust_kart.position = Vector2((size.x - _ust_kart.size.x) * 0.5, clampf(merkez_y, ust_sinir, azami_y))
 	)
 	return v
 
@@ -910,7 +921,19 @@ func _kart_kapat() -> void:
 	if _ust_kart != null and is_instance_valid(_ust_kart):
 		_ust_kart.queue_free()
 	_ust_kart = null
+	if _secili_bina >= 0 and _y != null and _y.bina(_secili_bina) != null and _bilgi != null:
+		_bilgi.visible = true
 	AmbarKapisiPaneli.kart_durumu(self)
+
+
+func _bayrak_etiketi(f: String) -> String:
+	if f == "kap17_aile":
+		return "Aile"
+	var anahtar := "koy.bayrak." + f
+	var yazi := tr(anahtar)
+	if yazi.is_empty() or yazi == anahtar or yazi.begins_with("[KEY_NOT_FOUND]"):
+		return ""
+	return yazi
 
 
 func _etiket(ust: Control, metin: String, punto: int) -> Label:

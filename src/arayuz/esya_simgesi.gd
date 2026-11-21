@@ -16,9 +16,25 @@ const AHSAP := Color("#7a5634")
 const DEMIR := Color("#9aa3ad")
 const CAM := Color("#7fa3b8")
 const ALTIN_TAS := Color("#c4843a")
+const DOKULAR := {
+	"arpa": "res://assets/art/icons/icon_esya_arpa_64.png",
+	"bakir": "res://assets/art/icons/icon_esya_bakir_64.png",
+	"hancer": "res://assets/art/icons/icon_esya_hancer_64.png",
+	"ilac": "res://assets/art/icons/icon_esya_ilac_64.png",
+	"kumas": "res://assets/art/icons/icon_esya_kumas_64.png",
+	"ok": "res://assets/art/icons/icon_esya_ok_64.png",
+	"tohum": "res://assets/art/icons/icon_esya_tohum_64.png",
+}
 
 
 static func ciz(ci: CanvasItem, id: String, m: Vector2, r: float, adet: int = 1) -> void:
+	if DOKULAR.has(id):
+		var yol := String(DOKULAR[id])
+		if ResourceLoader.exists(yol):
+			var doku: Texture2D = load(yol)
+			if doku != null:
+				ci.draw_texture_rect(doku, Rect2(m - Vector2(r, r), Vector2(r * 2.0, r * 2.0)), false)
+				return
 	match id:
 		"akce":
 			_akce(ci, m, r, adet)

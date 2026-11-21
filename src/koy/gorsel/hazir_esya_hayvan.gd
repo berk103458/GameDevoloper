@@ -11,6 +11,17 @@ const MODELLER := {
 	"yatak": ["kaykit_mobilya/bed_single_A.gltf", Vector3(1.7, 0.6, 2.6)],
 	"odun": ["kaykit_kaynak/Wood_Log_A.gltf", Vector3(0.2, 0.2, 0.7)],
 	"demir_cubuk": ["kaykit_kaynak/Iron_Bar.gltf", Vector3(0.2, 0.12, 0.4)],
+	"kurek_alet": ["kaykit_alet/shovel.gltf", Vector3(0.25, 0.9, 0.15)],
+	"testere": ["kaykit_alet/saw.gltf", Vector3(0.2, 0.55, 0.12)],
+	"kiskac": ["kaykit_alet/tongs.gltf", Vector3(0.18, 0.45, 0.12)],
+	"tokmak": ["kaykit_alet/mallet.gltf", Vector3(0.22, 0.4, 0.15)],
+	"keski": ["kaykit_alet/chisel.gltf", Vector3(0.12, 0.3, 0.12)],
+	"bicak_alet": ["kaykit_alet/knife.gltf", Vector3(0.12, 0.3, 0.08)],
+	"mesale_alet": ["kaykit_alet/torch.gltf", Vector3(0.15, 0.55, 0.15)],
+	"kilic_silah": ["kaykit_silah/sword_A.gltf", Vector3(0.2, 0.85, 0.12)],
+	"kalkan_silah": ["kaykit_silah/shield_A.gltf", Vector3(0.55, 0.65, 0.15)],
+	"mizrak_silah": ["kaykit_silah/spear_A.gltf", Vector3(0.15, 1.5, 0.15)],
+	"yay_silah": ["kaykit_silah/bow_A_withString.gltf", Vector3(0.25, 0.95, 0.15)],
 }
 
 static func esya(ad: String, boy: Vector3 = Vector3.ZERO) -> Node3D:
@@ -101,6 +112,22 @@ static func bina(n: Node3D, tur: String, en: float, derin: float) -> void:
 			if e != null:
 				e.position = Vector3(i * 0.3, 0, derin * 0.35)
 				n.add_child(e)
+		if tur == "hizarhane":
+			var ts := esya("testere")
+			if ts != null:
+				ts.position = Vector3(-en * 0.28, 0.0, derin * 0.32)
+				n.add_child(ts)
+	if tur == "tas_ocagi":
+		for ad_ozel in ["kazma", "keski"]:
+			var e := esya(ad_ozel)
+			if e != null:
+				e.position = Vector3(en * 0.28 + (0.22 if ad_ozel == "keski" else 0.0), 0.0, derin * 0.32)
+				n.add_child(e)
+	if tur == "muhafiz_kislasi":
+		var ks := esya("kalkan_silah")
+		if ks != null:
+			ks.position = Vector3(en * 0.30, 0.0, -derin * 0.32)
+			n.add_child(ks)
 	if tur == "sifahane" and Dunya3B.model_var_mi("hasta_cadiri"):
 		var hc := Dunya3B.nesne("hasta_cadiri", 1.8)
 		hc.position = Vector3(en * 0.35, 0.0, derin * 0.3)

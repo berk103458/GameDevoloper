@@ -282,6 +282,7 @@ Yapay zekâ ajanları (Claude, Antigravity, Codex ve diğerleri) için kalıcı 
 ## Antigravity sorusu
 - Tarih ve dönem çelişkisi: görev belgesindeki 14. yüzyıl Osmanlı uç beyliği mi, yoksa repodaki mevcut 13. yüzyıl Anadolu / Selçuklu ucu metinleri mi esas alınacak?
 - Kural farkı notu: `AGENTS.md` içindeki "ONAY BEKLEME YOK" kuralı ile `docs/gorevler/ALPHA_OYUNCU_GOZU_GOREVI.md` içindeki "Ahmet onay yazmadan N+1 koduna girme" kuralı çeliştiği için görev belgesinin kuralı gereği bu farkı buraya yazıp Bölüm 2 koduna girmeden Bölüm 1 onayını bekliyorum.
-- Bölüm 2 (İlk gün kapı + düğme/panel genişletme ve köy/HUD çakışma düzeltmeleri) `godot-ai` ile canlı oynanıp görsel olarak doğrulandı, oynanmayı bekliyor. Adımlar: Köyde üst HUD ve alt çubuğun taşmadığını ve düğmelerin genişlediğini gör -> `"Geceye geç"` -> `"Berat teslim edildi"` -> kapıda soru/karar satırlarının ve öğreticinin üst üste binmeden durduğunu gör, ilk sol tıkla soruları sorup `"Kararını ver"` ile kabul/ret kararı ver. Kabul: Düğmeler dolgun ve okunaklı, köy/kapı arayüzünde çakışma/taşma yok, ilk tıklama yutulmuyor, konsolda `SCRIPT ERROR` yok. Ret: Çakışan HUD/ipucu/kart yazısı, dar/kırpılmış düğme, tıklama yutulması veya `SCRIPT ERROR` çıkması.
+- Bölüm 2 (İlk gün kapı + düğme/panel genişletme ve köy/HUD çakışma düzeltmeleri) `godot-ai` ile canlı oynanıp görsel olarak doğrulandı ve push edildi (`92867050`).
+- Bölüm 3 (Köy HUD/kart çakışma düzeltmeleri + kullanılmayan 2B UI ikonları ve 3B köy/avlu/alet modellerinin oyuna bağlanması) hedefli 4 test + canlı Vulkan `koy_foto` görüntüsü ile doğrulandı (`asset gerekmedi`).
 - Bölüm 1 (tamamlandı ve Ahmet tarafından onaylandı).
 

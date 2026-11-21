@@ -49,9 +49,26 @@ static func cirak_atamasi(y: KoyYonetimi, k: Koylu) -> Dictionary:
 					break
 	var hedef := usta_bina if usta_bina >= 0 else ilk_bos
 	return {"acik": true, "hedef": hedef, "ad": String(ad_harita.get(hedef, ""))}
+static func _bayrak_metni(f: String) -> String:
+	if f == DivanHukmu.FLAG:
+		return "Zindanda"
+	if f == KisHastaligi.FLAG:
+		return "Kış hastası"
+	if f == "kap17_aile":
+		return "Aile"
+	var anahtar := "koy.bayrak." + f
+	var yazi := TranslationServer.translate(anahtar)
+	if yazi.is_empty() or yazi == anahtar or yazi.begins_with("[KEY_NOT_FOUND]"):
+		return ""
+	return yazi
+
+
 static func ozet(y: KoyYonetimi, k: Koylu) -> String:
 	var acik: Array[String] = []
-	for f in k.bayraklar: acik.append("Zindanda" if f == DivanHukmu.FLAG else "Kış hastası" if f == KisHastaligi.FLAG else TranslationServer.translate("koy.bayrak." + f))
+	for f in k.bayraklar:
+		var yazi := _bayrak_metni(String(f))
+		if not yazi.is_empty():
+			acik.append(yazi)
 	return TranslationServer.translate("koy.kart.ozet") % [ZanaatTuru.ad(k.zanaat_turu), k.stat, k.moral, k.saglik, k.sadakat, k.refah, k.giris_gunu + 1, maxi(0, y.gun - k.giris_gunu), PasifOzellikler.metin(k.pasif_ozellikler, true), PasifOzellikler.metin(k.pasif_ozellikler, false), YasRolleri.metin(k, y), CirakEgitimi.metin(k), ", ".join(acik) if not acik.is_empty() else "Henüz yok", GizliEgilimler.oyuncu_metin(k)] + "\n" + YasamBarlari.metin(k, y)
 ## SOY-08: söz güvenilirliği kartta bir kelimedir (ağzı sıkı / konuşkan / uyduruyor); sayı gösterilmez.
 static func soz_guvenilirligi(o: Object, k: Koylu) -> String:

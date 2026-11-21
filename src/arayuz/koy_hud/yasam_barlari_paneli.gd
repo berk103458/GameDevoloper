@@ -5,6 +5,11 @@ extends RefCounted
 
 const ADLAR := {"aclik": "koy.yasam.aclik", "yorgunluk": "koy.yasam.yorgunluk", "moral": "koy.yasam.moral"}
 const IKON_RENK := {"aclik": Renkler.MESALE, "yorgunluk": Kabuk.YORGUNLUK, "moral": Kabuk.MORAL}
+const IKON_DOKU := {
+	"aclik": "res://assets/ui/atmosfer/gece_kapisi/icon_erzak.png",
+	"yorgunluk": "res://assets/ui/atmosfer/gece_kapisi/icon_yatak.png",
+	"moral": "res://assets/art/icons/icon_yasam_moral.png",
+}
 
 ## Yaşayan köylü için üç satırı karta ekler; ölü/geçersiz kişide hiçbir şey çizmez.
 static func ekle(y: KoyYonetimi, ebeveyn: Control, k: Koylu) -> void:
@@ -19,13 +24,24 @@ static func ekle(y: KoyYonetimi, ebeveyn: Control, k: Koylu) -> void:
 		if d.has(anahtar):
 			ebeveyn.add_child(_satir(anahtar, d))
 
-## İkon (yer tutucu), ad ve bar tek satırda; her değer kendi barında okunur.
+## İkon (hazır doku + yer tutucu kapsayıcı), ad ve bar tek satırda; her değer kendi barında okunur.
 static func _satir(anahtar: String, d: Dictionary) -> Control:
 	var satir := HBoxContainer.new()
 	satir.name = "yasam_" + anahtar
 	satir.add_theme_constant_override("separation", 8)
 	var renk: Color = IKON_RENK.get(anahtar, Kabuk.SOLUK)
-	var ikon := Kabuk.yer_tutucu(anahtar, renk.to_html(), Vector2(14, 14))
+	var ikon := Kabuk.yer_tutucu(anahtar, renk.to_html(), Vector2(18, 18))
+	var yol := String(IKON_DOKU.get(anahtar, ""))
+	if not yol.is_empty() and ResourceLoader.exists(yol):
+		ikon.self_modulate.a = 0.0
+		var tr := TextureRect.new()
+		tr.texture = load(yol)
+		tr.modulate = renk
+		tr.set_anchors_preset(Control.PRESET_FULL_RECT)
+		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		tr.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		ikon.add_child(tr)
 	satir.add_child(ikon)
 	var ad := Label.new()
 	ad.text = TranslationServer.translate(ADLAR.get(anahtar, anahtar))

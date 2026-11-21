@@ -30,10 +30,23 @@ static func _model_adi(seviye: int) -> String:
 	if seviye == 2 and Dunya3B.model_var_mi("td_o72"):
 		return "td_o72"
 	return "gozetleme_kulesi"
-## Aynı yapı kartı için ColorRect ikon; yeni doku/model yolu açılmaz.
+const IKON_YOL := "res://assets/art/icons/icon_stok_gozcu_kulesi.png"
+
+
+## Yapı kartı için ColorRect kapsayıcı; gerçek kule ikonu çocuk TextureRect olarak konur.
 static func ikon(boy: int) -> ColorRect:
 	var n:=ColorRect.new()
 	n.color=Color(String(GozcuKulesi.AYAR.renk))
 	n.custom_minimum_size=Vector2(boy,boy)
 	n.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	if ResourceLoader.exists(IKON_YOL):
+		n.self_modulate.a = 0.0
+		var tr := TextureRect.new()
+		tr.texture = load(IKON_YOL)
+		tr.modulate = Kabuk.BAR_DOLU
+		tr.set_anchors_preset(Control.PRESET_FULL_RECT)
+		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		tr.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		n.add_child(tr)
 	return n

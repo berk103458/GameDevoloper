@@ -37,9 +37,9 @@ static func _scatter(arazi: KoyArazisi, tur: String, adet: int) -> ProtonScatter
 		"ot":
 			_kalip(s, tur, _ot(arazi))
 		"tas":
-			_kalip(s, tur, _kutu(Color(0.45, 0.43, 0.4), Vector3(0.35, 0.22, 0.28), "taş"))
+			_kalip(s, tur, _tas())
 		"cali":
-			_kalip(s, tur, _kutu(Color(0.28, 0.36, 0.18), Vector3(0.7, 0.45, 0.7), "çalı"))
+			_kalip(s, tur, _cali())
 		_:
 			_kalip(s, tur, _agac())
 	return s
@@ -142,6 +142,25 @@ static func _kutu(renk: Color, boy: Vector3, etiket: String) -> Node3D:
 	n.material_override = Dunya3B.duz_malzeme(renk)
 	HazirSahneModeli.etiket(n, etiket, boy.y + 0.15)
 	return n
+
+
+static func _tas() -> Node3D:
+	if Dunya3B.model_var_mi("kaya"):
+		return Dunya3B.nesne("kaya", 0.36)
+	var m := Pbr.model("boulder_01")
+	if m != null:
+		m.scale = Vector3.ONE * 0.35
+		return m
+	return _kutu(Color(0.45, 0.43, 0.4), Vector3(0.35, 0.22, 0.28), "taş")
+
+
+static func _cali() -> Node3D:
+	var m := Pbr.model("dry_branches_medium_01")
+	if m != null:
+		return m
+	if Dunya3B.model_var_mi("agac_02"):
+		return Dunya3B.nesne("agac_02", 0.75)
+	return _kutu(Color(0.28, 0.36, 0.18), Vector3(0.7, 0.45, 0.7), "çalı")
 
 
 static func _agac() -> Node3D:
