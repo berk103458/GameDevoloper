@@ -17,11 +17,22 @@ static func ac(koy: KoyEkrani) -> bool:
 	var renk := Panel.new()
 	renk.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	kat.add_child(renk)
+	var merkez := CenterContainer.new()
+	merkez.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	renk.add_child(merkez)
+	var cerceve := PanelContainer.new()
+	cerceve.custom_minimum_size = Vector2(1140, 0)
+	merkez.add_child(cerceve)
+	var kenar := MarginContainer.new()
+	kenar.add_theme_constant_override("margin_left", 36)
+	kenar.add_theme_constant_override("margin_top", 28)
+	kenar.add_theme_constant_override("margin_right", 36)
+	kenar.add_theme_constant_override("margin_bottom", 28)
+	cerceve.add_child(kenar)
 	var kutu := VBoxContainer.new()
-	kutu.position = Vector2(180, 240)
-	kutu.size = Vector2(1500, 580)
+	kutu.custom_minimum_size = Vector2(1040, 0)
 	kutu.add_theme_constant_override("separation", 18)
-	kat.add_child(kutu)
+	kenar.add_child(kutu)
 	var yer := Label.new()
 	yer.text = String(AK.AYAR.yer_tutucu)
 	yer.visible = OyuncuSurumu.debug_acik()
@@ -31,10 +42,22 @@ static func ac(koy: KoyEkrani) -> bool:
 	baslik.add_theme_font_size_override("font_size", Kabuk.BASLIK)
 	kutu.add_child(baslik)
 	var olay := load("res://data/olaylar/kapi_acilisi.tres") as OlayVerisi
+	var asama := Label.new()
+	asama.text = "1. Akşam · Sancak Ulağı Ayrılıyor"
+	var alt_px := Tema.KUCUK_PX
+	asama.add_theme_font_size_override("font_size", alt_px)
+	asama.add_theme_color_override("font_color", Kabuk.BAR_DOLU)
+	kutu.add_child(asama)
 	var metin := Label.new()
 	metin.text = TranslationServer.translate(olay.metin_anahtari)
 	metin.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	kutu.add_child(metin)
+	var gecis := Label.new()
+	gecis.text = "Ulak gözden yitince kapı ilk kez açılır. Bu geceki tercihlerin 2. günün düzenini ve 2. gecenin yükünü belirleyecek."
+	gecis.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	gecis.add_theme_font_size_override("font_size", alt_px)
+	gecis.add_theme_color_override("font_color", Kabuk.SOLUK)
+	kutu.add_child(gecis)
 	var saat := Timer.new()
 	saat.one_shot = true
 	kat.add_child(saat)

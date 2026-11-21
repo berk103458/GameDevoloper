@@ -11,7 +11,12 @@ var _kapat_butonu: Button
 
 
 static func ac(ekran: Control, y: KoyDiyalogYoneticisi) -> KoyDiyalogPaneli:
+	var eski := ekran.get_node_or_null("KoyDiyalogPaneli")
+	if eski != null and is_instance_valid(eski):
+		ekran.remove_child(eski)
+		eski.queue_free()
 	var panel := KoyDiyalogPaneli.new()
+	panel.name = "KoyDiyalogPaneli"
 	panel.yonetici = y
 	ekran.add_child(panel)
 	panel._kur()
@@ -20,11 +25,11 @@ static func ac(ekran: Control, y: KoyDiyalogYoneticisi) -> KoyDiyalogPaneli:
 
 func _kur() -> void:
 	# Ekranın alt ortasına yerleşir
-	anchors_preset = Control.PRESET_BOTTOM_WIDE
-	offset_left = 120.0
-	offset_right = -120.0
-	offset_top = -240.0
-	offset_bottom = -30.0
+	set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	offset_left = 240.0
+	offset_right = -240.0
+	offset_top = -530.0
+	offset_bottom = -276.0
 	z_index = 120
 	
 	var margin := MarginContainer.new()
@@ -39,13 +44,13 @@ func _kur() -> void:
 	margin.add_child(ana_kutu)
 	
 	_konusan_label = Label.new()
-	_konusan_label.add_theme_color_override("font_color", Color("#e8b86d"))
-	_konusan_label.add_theme_font_size_override("font_size", 18)
+	_konusan_label.add_theme_color_override("font_color", Kabuk.BAR_DOLU)
+	_konusan_label.add_theme_font_size_override("font_size", Tema.GOVDE_PX)
 	ana_kutu.add_child(_konusan_label)
 	
 	_metin_label = Label.new()
 	_metin_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_metin_label.add_theme_font_size_override("font_size", 15)
+	_metin_label.add_theme_font_size_override("font_size", Tema.KUCUK_PX)
 	ana_kutu.add_child(_metin_label)
 	
 	_secenekler_kutusu = VBoxContainer.new()
@@ -54,6 +59,7 @@ func _kur() -> void:
 	
 	_kapat_butonu = Button.new()
 	_kapat_butonu.text = "Ayrıl / Kapat"
+	_kapat_butonu.custom_minimum_size = Vector2(180, 42)
 	_kapat_butonu.pressed.connect(_kapat)
 	_kapat_butonu.hide()
 	ana_kutu.add_child(_kapat_butonu)
@@ -79,6 +85,7 @@ func _replik_goster(konusan: String, metin: String, secenekler: Array) -> void:
 				var btn := Button.new()
 				btn.text = "▸ " + (opt as ParleyDialogueOptionNodeAst).text
 				btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
+				btn.custom_minimum_size = Vector2(0, 44)
 				btn.pressed.connect(func() -> void:
 					if yonetici:
 						yonetici.secenek_sec(opt)
@@ -88,6 +95,7 @@ func _replik_goster(konusan: String, metin: String, secenekler: Array) -> void:
 				var btn := Button.new()
 				btn.text = "▸ " + String(opt.get("metin", ""))
 				btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
+				btn.custom_minimum_size = Vector2(0, 44)
 				var kimlik := String(opt.get("id", ""))
 				btn.pressed.connect(func() -> void:
 					if yonetici:

@@ -5,26 +5,31 @@ extends RefCounted
 static func ekle(kutu: VBoxContainer, a: Ayarlar, anahtar: StringName, aciklama: Label) -> void:
 	var yatay := HBoxContainer.new()
 	yatay.set_meta(&"anahtar", anahtar)
-	yatay.add_theme_constant_override("separation", 8)
+	yatay.add_theme_constant_override("separation", 14)
 	kutu.add_child(yatay)
 	var ad := Button.new()
 	ad.text = TranslationServer.translate("arayuz.ayarlar." + String(anahtar)) if _ceviri_var("arayuz.ayarlar." + String(anahtar)) else String(anahtar)
+	ad.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	ad.focus_mode = Control.FOCUS_ALL
 	ad.flat = true
-	ad.custom_minimum_size = Vector2(280, 36)
+	ad.custom_minimum_size = Vector2(360, 44)
 	ad.focus_entered.connect(func() -> void: _acikla(aciklama, anahtar))
 	yatay.add_child(ad)
 	var deger := Label.new()
-	deger.custom_minimum_size = Vector2(180, 0)
+	deger.custom_minimum_size = Vector2(220, 44)
+	deger.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	deger.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	deger.name = "deger_%s" % anahtar
-	yatay.add_child(deger)
 	var geri := Button.new()
 	geri.text = "‹"
+	geri.custom_minimum_size = Vector2(56, 44)
 	geri.focus_entered.connect(func() -> void: _acikla(aciklama, anahtar))
 	geri.pressed.connect(func() -> void: _degistir(a, anahtar, -1, deger))
 	yatay.add_child(geri)
+	yatay.add_child(deger)
 	var ileri := Button.new()
 	ileri.text = "›"
+	ileri.custom_minimum_size = Vector2(56, 44)
 	ileri.focus_entered.connect(func() -> void: _acikla(aciklama, anahtar))
 	ileri.pressed.connect(func() -> void: _degistir(a, anahtar, 1, deger))
 	yatay.add_child(ileri)

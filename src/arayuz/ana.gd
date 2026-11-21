@@ -279,12 +279,25 @@ func _gecmis_secildi(tohum: int, gecmis: String) -> void:
 	var satirlar := PackedStringArray()
 	for konu in ["muhafiz", "koy", "kapi"]:
 		satirlar.append(tr("acilis.kadraj." + konu))
-	var e := _bilgi("", "\n".join(satirlar), [tr("arayuz.menu.devam")], -1, "")
+	satirlar.append("")
+	satirlar.append(_giris_hikayesi_ozeti(gecmis))
+	var e := _bilgi(tr("arayuz.menu.baslik"), "\n".join(satirlar), [tr("arayuz.menu.devam")], -1, "3d_kapi")
 	e.name = "IlkSaatKadraci"
 	e.secildi.connect(func(_indeks: int) -> void:
 		if _ekran == e: yeni_oyun(tohum, gecmis)
 	)
 	_goster(e)
+
+
+func _giris_hikayesi_ozeti(gecmis: String) -> String:
+	var rol := "Sancak tarafından uç kapısına tayin edildin; geçmişinin gölgesi bu taş duvarların ardında da seninle."
+	if gecmis.contains("nefer") or gecmis.contains("asker"):
+		rol = "Eski bir sınır neferi olarak dağılmış garnizonun son kılıç artığı sorumluluğu senin omuzlarında."
+	elif gecmis.contains("katip"):
+		rol = "Eski bir sancak kâtibi olarak mühürleri ve defterleri iyi tanırsın; fakat burada yazılmamış hesaplar hüküm sürer."
+	elif gecmis.contains("subasi") or gecmis.contains("bey"):
+		rol = "Sert düzenin içinden geldin; dağılmak üzere olan bir uç köyünü yeniden ayağa kaldırman bekleniyor."
+	return rol + "\n\nİlk gün günbatımına dek köylüleri Taş Yatağı'na ve üretime yerleştir. Akşam sancak ulağı atını sürüp uzaklaşınca kapı ilk kez Ali ile Zeynep'e aralanacak; vereceğin kararların bedeli 2. günün şafağında ve 2. gecenin kapısında karşına çıkacak."
 
 
 func _kayit_yaz() -> void:

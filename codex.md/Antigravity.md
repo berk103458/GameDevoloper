@@ -1784,7 +1784,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
 - kota görünmüyor
 
-
-
-
-
+### 22 Kasım (Tur 3) — Ayarlar ekranı, giriş–2. gece hikaye akışı, köy diyalog konumu, köy rehberi ve karakter animasyon denetimi
+- **Ayarlar ekranı:** `src/arayuz/ayarlar/ayar_satiri.gd` (`[Ad (360×44)] [‹ (56×44)] [Değer (220×44)] [› (56×44)]` düzeni), `src/arayuz/ayarlar/ayar_sekmeleri.gd` (`PanelContainer` + `ScrollContainer` çerçevesi, etkin sekme düğme vurgusu), `src/arayuz/ayarlar/ses_sekmesi.gd` (`[Ad][‹][HSlider][x / 10][›]` satırları), `src/arayuz/ayarlar/grv_sekme_koprusu.gd` (dil düğme yüksekliği `48 px`).
+- **Köy diyalog paneli:** `src/arayuz/koy_diyalog_paneli.gd` (`set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)` + `-530..-276` alt-orta yerleşimi, yineleme temizliği, `Kabuk`/`Tema` uyumlu boyut ve renkler) ve `src/arayuz/koy_ekrani.gd` (`KoyDiyalogPaneli` için `Esc` kapanışı ve `_ust_panel_var()` kontrolü).
+- **Köy Rehberi paneli:** `src/arayuz/koy_hud/koy_rehberi_paneli.gd` (`GRV-08` ve `OGR-53` uyumlu, sol üst `y=176` konumunda küçültülebilir canlı 1. gün → 1. akşam → 2. gün/gece kontrol listesi + açılır `Mekanikler` özeti) ve `src/arayuz/koy_ekrani.gd` bağlantısı.
+- **Giriş–2. gece hikaye akışı:** `src/arayuz/ana.gd` (`IlkSaatKadraci` için başlık, `3d_kapi` arka planı ve geçmişe göre 2. geceye kadar giriş öyküsü), `src/arayuz/koy_hud/kapi_acilis_paneli.gd` (merkezli `PanelContainer` kartı + 1. akşam ulak/2. gece geçiş başlıkları), `src/arayuz/koy_hud/aksam_sohbeti_paneli.gd` (`[Ocak Başı — Yer Tutucu]` yalnızca `OyuncuSurumu.debug_acik()` iken görünür).
+- **Karakter yürüyüş ve klip denetimi:** `src/dunya/karakter_model.gd` içine `_skelet_olcegi` ve `_yuru_animasyonu_temizle` eklendi (`muhafiz_sinsi` ve `muhafiz_yagmur` kök XZ yürüme kayması `0.000`a kilitlendi, uzuv konum izleri temizlendi); `_izler_cozulur` içindeki erken konum reddi kaldırılıp dönüş açısı sınırları (`Hips<=55°`, `Spine<=30°`, `Head/neck<=40°`, `Shoulder<=46°`) genişletildi. 68 `*_yuru.glb` taramasında `35` model `6/6`, `19` model kısmi (`1–5/6`), `14` model `0/6` klip durumu doğrulandı.
+- **Doğrulamalar:** `tests/oto/ayarlar_kontrol.tscn`, `tests/oto/acilis_menu_kontrol.tscn`, `tests/oto/ilk_saat_kontrol.tscn`, `tests/oto/chr_kapi_kontrol.tscn` (`RC=0`, `0 SCRIPT ERROR`) ve `tests/oto/koy_foto.tscn` (`GUN=0`, `KIP=bos`) görsel kontrolü temiz.
+- **İhtiyaç:** Kod dışı eksik asset/animasyonlar Ahmet raporuna eklendi; kod tarafında yeni dosya üretilmedi (`asset gerekmedi`).
+- kota görünmüyor

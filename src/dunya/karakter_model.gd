@@ -60,10 +60,14 @@ func kur(model: Node3D, ad: String = "") -> void:
 	_anim = preload("res://src/dunya/guvenli_karakter_animasyonu.gd").ilk(_oynatici)
 	if _anim.is_empty():
 		return
-	_oynatici.get_animation(_anim).loop_mode = Animation.LOOP_LINEAR
 	var sk := model.find_children("*", "Skeleton3D", true, false)
-	if not sk.is_empty():
-		var iskelet := sk[0] as Skeleton3D
+	var iskelet: Skeleton3D = sk[0] as Skeleton3D if not sk.is_empty() else null
+	var yuru_anim := _oynatici.get_animation(_anim)
+	yuru_anim.loop_mode = Animation.LOOP_LINEAR
+	if not yuru_anim.has_meta(&"yuru_temiz"):
+		_yuru_animasyonu_temizle(yuru_anim, iskelet)
+		yuru_anim.set_meta(&"yuru_temiz", true)
+	if iskelet != null:
 		_bekle_animasyonu_kur(iskelet)
 		_duzeltici = DurusDuzeltici.new()
 		_duzeltici.faz = randf() * 20.0
@@ -278,6 +282,46 @@ func _klipleri_yukle(ad: String) -> void:
 		_klipler[h] = adi
 
 
+static func _skelet_olcegi(sk: Skeleton3D) -> float:
+	if sk == null:
+		return 1.0
+	var kalca_idx := sk.find_bone("Hips")
+	if kalca_idx < 0:
+		kalca_idx = sk.find_bone("Pelvis")
+	if kalca_idx >= 0:
+		return maxf(0.5, absf(sk.get_bone_rest(kalca_idx).origin.y))
+	return 1.0
+
+
+static func _yuru_animasyonu_temizle(anim: Animation, sk: Skeleton3D) -> void:
+	_uzuv_konumlarini_temizle(anim)
+	var esik := 0.15 * _skelet_olcegi(sk)
+	for i in anim.get_track_count():
+		if anim.track_get_type(i) != Animation.TYPE_POSITION_3D:
+			continue
+		var sub := String(anim.track_get_path(i).get_concatenated_subnames())
+		if not sub in ["Hips", "Pelvis", "Root"]:
+			continue
+		var k_say := anim.track_get_key_count(i)
+		if k_say <= 1:
+			continue
+		var minx := 1e9
+		var maxx := -1e9
+		var minz := 1e9
+		var maxz := -1e9
+		for k in k_say:
+			var v: Vector3 = anim.track_get_key_value(i, k)
+			minx = minf(minx, v.x)
+			maxx = maxf(maxx, v.x)
+			minz = minf(minz, v.z)
+			maxz = maxf(maxz, v.z)
+		if Vector2(maxx - minx, maxz - minz).length() > esik:
+			var p0: Vector3 = anim.track_get_key_value(i, 0)
+			for k in k_say:
+				var vk: Vector3 = anim.track_get_key_value(i, k)
+				anim.track_set_key_value(i, k, Vector3(p0.x, vk.y, p0.z))
+
+
 static func _uzuv_konumlarini_temizle(anim: Animation) -> void:
 	for i in range(anim.get_track_count() - 1, -1, -1):
 		if anim.track_get_type(i) == Animation.TYPE_POSITION_3D:
@@ -334,15 +378,6 @@ static func _klip_al(yol: String) -> Animation:
 func _izler_cozulur(anim: Animation, kok: Node) -> bool:
 	var toplam := 0
 	var cozulen := 0
-	var skler := kok.find_children("*", "Skeleton3D", true, false)
-	var sk: Skeleton3D = skler[0] as Skeleton3D if not skler.is_empty() else (kok as Skeleton3D)
-	var sk_olcek := 1.0
-	if sk != null:
-		var kalca_idx := sk.find_bone("Hips")
-		if kalca_idx < 0:
-			kalca_idx = sk.find_bone("Pelvis")
-		if kalca_idx >= 0:
-			sk_olcek = maxf(0.5, absf(sk.get_bone_rest(kalca_idx).origin.y))
 	for i in anim.get_track_count():
 		var yol := anim.track_get_path(i)
 		toplam += 1
@@ -356,17 +391,17 @@ func _izler_cozulur(anim: Animation, kok: Node) -> bool:
 			if anim.track_get_key_count(i) > 0:
 				var tur := anim.track_get_type(i)
 				var dinlenme := iskelet.get_bone_rest(kemik)
-				if tur == Animation.TYPE_POSITION_3D and not kemik_ad in ["Hips", "Pelvis", "Root"]:
-					var p0: Vector3 = anim.track_get_key_value(i, 0)
-					if p0.distance_to(dinlenme.origin) > maxf(0.025 * sk_olcek, dinlenme.origin.length() * 0.25):
-						return false
-				elif tur == Animation.TYPE_ROTATION_3D:
+				if tur == Animation.TYPE_ROTATION_3D:
 					var q0 := (anim.track_get_key_value(i, 0) as Quaternion).normalized()
 					var qr := dinlenme.basis.orthonormalized().get_rotation_quaternion()
 					var aci := q0.angle_to(qr)
-					if kemik_ad in ["Hips", "Spine", "Spine01", "Spine02", "neck", "Head"] and aci > deg_to_rad(25.0):
+					if kemik_ad == "Hips" and aci > deg_to_rad(55.0):
 						return false
-					if kemik_ad in ["LeftShoulder", "RightShoulder"] and aci > deg_to_rad(35.0):
+					if kemik_ad in ["Spine", "Spine01", "Spine02"] and aci > deg_to_rad(30.0):
+						return false
+					if kemik_ad in ["neck", "Head"] and aci > deg_to_rad(40.0):
+						return false
+					if kemik_ad in ["LeftShoulder", "RightShoulder"] and aci > deg_to_rad(46.0):
 						return false
 			cozulen += 1
 		elif dugum != null:

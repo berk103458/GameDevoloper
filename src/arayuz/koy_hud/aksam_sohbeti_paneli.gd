@@ -30,6 +30,7 @@ static func ac(koy: KoyEkrani, devam_cb: Callable) -> bool:
 	yer.text = "[Ocak Başı — Yer Tutucu]"
 	yer.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 	yer.add_theme_color_override("font_color", Kabuk.SOLUK)
+	yer.visible = OyuncuSurumu.debug_acik()
 	v.add_child(yer)
 	for satir in sohbet.get("es_replikleri", []):
 		var l := koy._etiket(v, String(satir), Tema.GOVDE_PX)

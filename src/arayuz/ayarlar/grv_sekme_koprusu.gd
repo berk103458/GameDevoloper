@@ -20,6 +20,7 @@ static func bagla(sayfa: Control, kimlik: StringName, ayarlar: Ayarlar) -> void:
 		var secim := Button.new()
 		secim.name = "Dil_" + kod
 		secim.text = TranslationServer.translate("arayuz.dil." + kod)
+		secim.custom_minimum_size = Vector2(240, 48)
 		secim.set_meta(&"metin_anahtari", "arayuz.dil." + kod)
 		secim.pressed.connect(func() -> void: DilAyari.sec(ayarlar, kod))
 		sayfa.add_child(secim)

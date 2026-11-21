@@ -100,6 +100,7 @@ func _ready() -> void:
 	CenazeRaporu.yukleme_karti(self)
 	CinarMeclisPaneli.yukleme(self)
 	preload("res://src/arayuz/koy_hud/sabah_paneli.gd").kur(self)
+	preload("res://src/arayuz/koy_hud/koy_rehberi_paneli.gd").kur(self)
 	_hiz_sec(preload("res://src/sistemler/koy_hizi_ayari.gd").acilis(ayarlar))
 
 ## Ana ekran ses adaptörü; ışığın ilk gunduz fazıyla aynı başlar.
@@ -360,7 +361,7 @@ func _cubuk_imleci() -> void:
 func _ust_panel_var() -> bool:
 	if _ust_kart != null:
 		return true
-	for ad in ["HaritaEkrani", "MuhafizOdasiEkrani", "DivanEkrani", "AyarlarEkrani", "HeybePaneli"]:
+	for ad in ["HaritaEkrani", "MuhafizOdasiEkrani", "DivanEkrani", "AyarlarEkrani", "HeybePaneli", "KoyDiyalogPaneli"]:
 		if has_node(NodePath(ad)):
 			return true
 	return false
@@ -381,6 +382,13 @@ func _unhandled_input(olay: InputEvent) -> void:
 		if kademe == &"ust_panel":
 			if _ust_kart != null:
 				_kart_kapat()
+				get_viewport().set_input_as_handled()
+			elif has_node("KoyDiyalogPaneli"):
+				var dp := get_node("KoyDiyalogPaneli")
+				if dp.has_method("_kapat"):
+					dp.call("_kapat")
+				else:
+					dp.queue_free()
 				get_viewport().set_input_as_handled()
 			return
 		if kademe == &"kip":
@@ -881,6 +889,7 @@ func _yenile() -> void:
 	sahne3b.yenile()
 	hud.guncelle()
 	TasYatagiPaneli.yenile(self)
+	preload("res://src/arayuz/koy_hud/koy_rehberi_paneli.gd").yenile(self)
 	_yapi_satirini_ciz()
 	_bant_ciz()
 	if _secili_bina == KuyuKireclemePaneli.MEYDAN_KUYUSU: _bilgi_goster()
@@ -891,6 +900,7 @@ func _yenile() -> void:
 
 func _kart_ac(baslik: String) -> VBoxContainer:
 	_kart_kapat()
+	preload("res://src/arayuz/koy_hud/koy_rehberi_paneli.gd").kart_durumu(self, true)
 	if _bilgi != null:
 		_bilgi.visible = false
 	_ust_kart = PanelContainer.new()
@@ -924,6 +934,7 @@ func _kart_kapat() -> void:
 	if _secili_bina >= 0 and _y != null and _y.bina(_secili_bina) != null and _bilgi != null:
 		_bilgi.visible = true
 	AmbarKapisiPaneli.kart_durumu(self)
+	preload("res://src/arayuz/koy_hud/koy_rehberi_paneli.gd").kart_durumu(self, false)
 
 
 func _bayrak_etiketi(f: String) -> String:
