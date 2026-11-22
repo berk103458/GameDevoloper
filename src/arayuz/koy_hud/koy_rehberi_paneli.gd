@@ -138,7 +138,8 @@ func _ozet_satirlarini_kur(alt_px: int) -> void:
 		"• İnşa: 'İnşa Et' ile boş zemine bina kur; akçe, odun ve taş gerekir.",
 		"• Stok: Her gece nüfus kadar gıda eksilir; kışın yakacak ve yatak kritiktir.",
 		"• Halk: 3B sahnedeki köylüye tıklayıp 'Muhabbet Et' ile nabız tut.",
-		"• Gece Kapısı: Sağ üstten hızı 1x/2x yap veya geceye geçip gelenlere hüküm ver.",
+		"• Tüccar & Hayvan: Pazar -> 'Tüccar Kervanı' ile koyun, keçi, tavuk, eşek alıp ürün katkısı sağla.",
+		"• Gece Kapısı: Sağ üstten hızı 1x/2x yap veya geceye geçip akşam sohbetiyle kapıya geç.",
 	]
 	for satir in maddeler:
 		var l := Label.new()

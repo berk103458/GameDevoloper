@@ -66,51 +66,49 @@ const ESYA_HARITASI := {
 		{"ad": "td_o05", "boy": 0.85, "ofset": Vector3(0.36, 0.0, 0.38), "don": 0.0, "isik": true},
 		{"ad": "td_o20", "boy": 0.48, "ofset": Vector3(0.0, 0.0, 0.40), "don": 0.0},
 		{"ad": "td_o19", "boy": 0.35, "ofset": Vector3(0.26, 2.05, 0.38), "don": 0.0, "isik": true},
-		{"ad": "td_k09", "boy": 1.72, "ofset": Vector3(-0.40, 0.0, 0.40), "don": 0.0},
-		{"ad": "td_k02", "boy": 1.75, "ofset": Vector3(0.40, 0.0, 0.40), "don": 0.0},
+		{"ad": "td_o18", "boy": 0.72, "ofset": Vector3(-0.38, 0.0, -0.34), "don": 0.0},
 	],
 	"tas_ev": [
 		{"ad": "td_o20", "boy": 0.48, "ofset": Vector3(-0.36, 0.0, 0.38), "don": 0.0},
 		{"ad": "td_o07", "boy": 0.42, "ofset": Vector3(0.36, 0.0, 0.38), "don": 12.0},
-		{"ad": "td_b092", "boy": 1.70, "ofset": Vector3(0.38, 0.0, -0.36), "don": -35.0},
+		{"ad": "td_o48", "boy": 0.40, "ofset": Vector3(0.38, 0.0, -0.36), "don": -35.0},
 		{"ad": "td_o19", "boy": 0.35, "ofset": Vector3(0.0, 2.05, 0.38), "don": 0.0, "isik": true},
 	],
 	"kulube": [
 		{"ad": "td_o48", "boy": 0.42, "ofset": Vector3(-0.36, 0.0, 0.38), "don": 20.0},
 		{"ad": "td_o14", "boy": 0.34, "ofset": Vector3(0.36, 0.0, 0.38), "don": 0.0},
-		{"ad": "td_a146", "boy": 0.40, "ofset": Vector3(0.0, 0.0, 0.42), "don": -25.0},
+		{"ad": "td_o20", "boy": 0.46, "ofset": Vector3(0.0, 0.0, 0.42), "don": -25.0},
 	],
 	"ahir": [
-		{"ad": "td_o30", "boy": 0.45, "ofset": Vector3(0.0, 0.0, 0.40), "don": 0.0},
-		{"ad": "td_a202", "boy": 1.15, "ofset": Vector3(-0.36, 0.0, -0.35), "don": 20.0},
-		{"ad": "td_a172", "boy": 1.45, "ofset": Vector3(-0.38, 0.0, 0.38), "don": 20.0},
-		{"ad": "td_a157", "boy": 1.20, "ofset": Vector3(0.38, 0.0, 0.38), "don": -25.0},
+		{"ad": "td_o30", "boy": 0.45, "ofset": Vector3(0.0, 0.0, 0.28), "don": 0.0},
+		{"ad": "td_a202", "boy": 1.15, "ofset": Vector3(-0.30, 0.0, -0.30), "don": 20.0},
+		{"ad": "td_o00", "boy": 0.72, "ofset": Vector3(-0.30, 0.0, 0.30), "don": 20.0},
+		{"ad": "td_a186", "boy": 0.62, "ofset": Vector3(0.30, 0.0, 0.30), "don": -25.0},
 	],
 	"agil": [
-		{"ad": "td_o30", "boy": 0.45, "ofset": Vector3(0.36, 0.0, 0.40), "don": 0.0},
-		{"ad": "td_b117", "boy": 1.50, "ofset": Vector3(-0.38, 0.0, 0.38), "don": 0.0},
-		{"ad": "td_b019", "boy": 0.82, "ofset": Vector3(0.38, 0.0, -0.38), "don": 180.0},
-		{"ad": "td_a146", "boy": 0.40, "ofset": Vector3(-0.38, 0.0, -0.38), "don": 40.0},
+		{"ad": "td_o30", "boy": 0.45, "ofset": Vector3(0.28, 0.0, 0.28), "don": 0.0},
+		{"ad": "td_a202", "boy": 1.10, "ofset": Vector3(-0.30, 0.0, 0.30), "don": 0.0},
+		{"ad": "td_a186", "boy": 0.62, "ofset": Vector3(0.30, 0.0, -0.30), "don": 30.0},
+		{"ad": "td_o48", "boy": 0.40, "ofset": Vector3(-0.30, 0.0, -0.30), "don": 40.0},
 	],
 	"han": [
 		{"ad": "td_a073", "boy": 2.10, "ofset": Vector3(-0.36, 0.0, 0.36), "don": 12.0},
 		{"ad": "td_a077", "boy": 2.00, "ofset": Vector3(0.36, 0.0, 0.36), "don": -12.0},
 		{"ad": "td_o65", "boy": 1.95, "ofset": Vector3(-0.36, 0.0, -0.34), "don": 25.0},
 		{"ad": "td_o19", "boy": 0.35, "ofset": Vector3(0.0, 2.05, 0.38), "don": 0.0, "isik": true},
-		{"ad": "td_k12", "boy": 1.70, "ofset": Vector3(0.0, 0.0, 0.42), "don": 0.0},
-		{"ad": "td_k15", "boy": 1.72, "ofset": Vector3(-0.38, 0.0, -0.36), "don": 35.0},
-		{"ad": "td_k05", "boy": 1.60, "ofset": Vector3(0.40, 0.0, -0.36), "don": -90.0},
+		{"ad": "td_o20", "boy": 0.48, "ofset": Vector3(0.0, 0.0, 0.42), "don": 0.0},
+		{"ad": "td_a081", "boy": 0.60, "ofset": Vector3(-0.38, 0.0, -0.36), "don": 35.0},
+		{"ad": "td_o48", "boy": 0.42, "ofset": Vector3(0.40, 0.0, -0.36), "don": -20.0},
 	],
 }
 
-## Dış mekan çevresi (meydan ateşinin kenarı ve köy kapı dışı — yürüme koridoru dışında).
+## Dış mekan çevresi (meydan ateşinin kenarı ve köy kapı dışı — başıboş canlı içermez).
 const KOY_CEVRE := [
 	{"ad": "td_o05", "boy": 0.85, "yer": Vector3(-3.2, 0.0, -2.4), "don": 0.0, "isik": true},
 	{"ad": "td_o20", "boy": 0.48, "yer": Vector3(-2.6, 0.0, 2.4), "don": 35.0},
 	{"ad": "td_o32", "boy": 0.22, "yer": Vector3(-2.6, 0.46, 2.4), "don": 0.0, "isik": true},
-	{"ad": "td_b117", "boy": 1.65, "yer": Vector3(2.8, 0.0, 2.5), "don": -20.0},
+	{"ad": "td_o30", "boy": 0.46, "yer": Vector3(2.8, 0.0, 2.5), "don": -20.0},
 	{"ad": "td_o49", "boy": 1.40, "yer": Vector3(4.6, 0.0, 28.5), "don": -30.0},
-	{"ad": "td_k14", "boy": 1.72, "yer": Vector3(3.6, 0.0, 27.8), "don": -145.0},
 ]
 
 
@@ -180,6 +178,24 @@ static func cevre_kur(s: KoyYonetimSahnesi, ust: Node3D) -> void:
 		kok.add_child(esya)
 		if bool(item.get("isik", false)):
 			_sicak_isik_ekle(kok, esya.position + Vector3(0.0, 0.35, 0.0), "cevre")
+	if preload("res://src/koy/ticaret/ek_hayvan_pazari.gd").tuccar_koyde_mi(s.yonetim):
+		for t_item in [
+			{"ad": "td_k14", "boy": 1.72, "yer": Vector3(3.6, 0.0, 27.8), "don": -145.0},
+			{"ad": "td_k05", "boy": 1.55, "yer": Vector3(5.6, 0.0, 27.6), "don": -110.0},
+		]:
+			var t_ad := String(t_item["ad"])
+			if not Dunya3B.model_var_mi(t_ad):
+				continue
+			var t_konum: Vector3 = t_item["yer"]
+			if _yurume_engelli_mi(s, rota, t_konum):
+				t_konum = s.alan_merkezi(Vector2i(-2, 4 + i * 3), Vector2i.ONE)
+			i += 1
+			var tn := Dunya3B.nesne(t_ad, float(t_item["boy"]))
+			tn.name = "cevre_" + t_ad
+			tn.position = t_konum
+			tn.rotation.y = deg_to_rad(float(t_item["don"]))
+			tn.set_meta(&"avlu_esya", true)
+			kok.add_child(tn)
 
 
 static func _yurume_engelli_mi(s: KoyYonetimSahnesi, rota: KoyRotasi, konum: Vector3) -> bool:

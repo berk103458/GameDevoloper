@@ -708,6 +708,7 @@ func _pazar_ac() -> void:
 	GezginStokPaneli.ekle(self, v)
 	KumasAktarPaneli.ekle(self, v)
 	CekiHayvaniPaneli.ekle(self, v)
+	preload("res://src/arayuz/koy_hud/tuccar_alisveris_sekansi.gd").pazar_satiri_ekle(self, v)
 	VergiPaneli.ekle(self, v)
 	KasaTransferPaneli.ekle(self, v)
 	var kapat := PazarKartKaydirma.dugme(self, v, tr("arayuz.olay.devam"))

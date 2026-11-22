@@ -418,6 +418,130 @@
           "moral_etkisi": 0
         }
       }
+    },
+    "ilk_gece_ocak_ve_aile": {
+      "agirlik": 2,
+      "baslik": "İlk Gece: Ocak Başı ve İlk Sığınanlar",
+      "es_replikleri": [
+        "Sancak ulağı atını sürüp karanlığa karıştı beyim; kapı artık senin mührüne emanet.",
+        "Ali ile Zeynep de ocağın kenarında ısınıyor. Ali: 'Ekmeği bölüştün beyim, elimden gelen her işte en önde duracağım.' Zeynep ise dualar ederek yarını bekler."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Yarın gün doğar doğmaz tezgah başına oturup gelenlere yeni çaput dokuyacağım.",
+        "firinci": "Sabaha iki somun fazla çıkaralım da ilk gecenin ayazı içimizi üşütmesin.",
+        "ebe": "Yol yorgunudur bunlar beyim; yarın şifalı suyla yaralarına da bakarım."
+      },
+      "ipucu": "ilk_gece_ocak_karari",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Bu kapıda kural da merhamet de tek elden yürür hatun; yarın köyü ayağa kaldıracağız.",
+          "terazi": "savundu",
+          "moral_etkisi": 2
+        },
+        "kabul_etmek": {
+          "metin": "İlk gece kolay değildi amma ocağımız tütüyorsa umut da vardır.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız kapının sürgüsünü yoklayıp ocağın başında sessizce dinlenir.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "ikinci_gun_karaca_giris": {
+      "agirlik": 2,
+      "baslik": "2. Gün Akşamı: Karaca Usta ve Köyün Direği",
+      "es_replikleri": [
+        "Karaca Usta akşamüstü taş yatağının başından ocağa uğradı beyim.",
+        "Karaca Usta: 'Taşı yontmadan duvar yükselmez muhafız. Yarın uzaktan tüccar tozunu görürüz; elimizdeki taşı odunu tartıp kervana göre tedbir alalım.'"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Kervan gelirse bir top yün ve keten ipliği sormadan geçme beyim.",
+        "firinci": "Ustanın dediği hak; ambarın tahılı azalmadan takas yolu açılmalı.",
+        "ebe": "Karaca Usta yaşlı amma gözü keskin; bu köyün harcını o sıkar."
+      },
+      "ipucu": "karaca_giris_ogudu",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Ustayla omuz omuza taş ocağını da surları da kuracağız; hazırlığımız tam.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "Haklıdır Karaca Usta; sabah ilk iş ambarı ve akçeyi gözden geçireceğim.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız başıyla ustayı onaylar, yarının hesabını zihninden geçirir.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "ucuncu_gun_ayse_ve_pazar": {
+      "agirlik": 2,
+      "baslik": "Kervan Arifesi: Ayşe Bacı ve Ocak Bereketi",
+      "es_replikleri": [
+        "Ayşe Bacı akşam ekmeğini getirirken ambarın hesabını sordu beyim.",
+        "Ayşe Bacı: 'Kış uzak değil evladım; Celep yahut gezgin tüccar geldiğinde bir çift koyun, tavuk ya da eşek edinmek köyün belini doğrultur.'"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Koyunun yünü de keçe de lazım beyim; sadece kılıçla karın doymuyor.",
+        "firinci": "Kümes de ağıl da dolarsa bu ocakta tencere hiç boş kalmaz.",
+        "ebe": "Süt ve yumurta hastaya da bebeye de şifadır beyim; Ayşe Bacı doğru söyler."
+      },
+      "ipucu": "ayse_baci_kervan_ogudu",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Akçemizi çarçur etmeden önce sürü ve mal hesabını kuracağız hatun.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "Ayşe Bacı çok görmüş geçirmiştir; pazar açılınca ilk işi hayvanlara bakmak olur.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız kaseden bir yudum alıp ocağın sıcaklığında derin bir nefes çeker.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "tuccar_konaklama_sohbeti": {
+      "agirlik": 2,
+      "baslik": "Pazar Akşamı: Celep ve Kervan Muhasebesi",
+      "es_replikleri": [
+        "Tüccar kafilesi sur dışına meşalesini dikti beyim; köyde alışveriş telaşı var.",
+        "Pazarın akçesini iyi gözet; koyun ve davar sürüye nefes verir, alet ile demir ise yarınki inşaatı hızlandırır."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Tezgahların ipliği eksilmeden bez ve keçe fiyatını da yoklamayı unutma.",
+        "firinci": "Fazla tahıl ya da odun varsa kervana satıp keseyi doldurmak fırsattır.",
+        "ebe": "Aktarın getirdiği afyon ve sargı, kış salgınında altın değerindedir beyim."
+      },
+      "ipucu": "tuccar_gecesi_hesabi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Köyün kasasını koruduğum kadar yarınki eksikleri de pazardan tamamlarım.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "Tüccarla bizzat pazarlık edip köyün menfaatini gözeteceğim hatun.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız pazardan yükselen kandil parıltısına bakıp defterini kapatır.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
     }
   }
 }
