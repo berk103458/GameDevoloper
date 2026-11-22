@@ -63,7 +63,7 @@ Başarılı koşular `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/03-dosyasiz.log`,
 
 ### Açık bulgular
 
-- **Eklentiler ve performans.** Eklentiler sekmesinin güvenilir ekran görüntüsü, hayvan ve tüccarın uzun rota gözlemi ve Instanced Renderer'ın ayrı FPS etkisi açık. ProtonScatter ölçümü 30 FPS sınırının altında kaldı. O sırada açık başka oyun ve düşük işlem önceliği sonucu etkileyebilir. Terrain3D ayrıca çalışma anında kurulan `Assets` kaynağı için `free_editor_textures` uyarısı veriyor.
+- **Eklentiler ve performans.** Eklentiler sekmesinin güvenilir ekran görüntüsü açık. Takip turunda Instanced Renderer ve ProtonScatter ayrı ölçüldü. Köylü, sürü ve tüccarın kapı rotası geçti. Surlu köyde 30 FPS tekrarlanabilir biçimde sağlanamadı. [Takip ölçümü ve koşulları](EKLENTI_BAGLANTI.md). Terrain3D ayrıca çalışma anında kurulan `Assets` kaynağı için `free_editor_textures` uyarısı veriyor.
 - **Arka planlar.** Kapı gecesi, köy gündüz/gece, gün sonu ve kayıt ekranı için beş PNG yolunun ekran bağlantısı yok. Kapı ve köy için 3B sahnenin hangi alanının görselle kaplanacağı yerleşim kararı gerektiriyor.
 - **Godot uyarıları.** Parley'nin üç kayıt deposu ile HDR başlık uyarıları açık. Editör kapatılırken Theatre, tarama arayüzüne artık erişemediği için `TheatrePlugin.gd:178` satırında hata yazdı. Beş söylenti olayının eksik sonuç anahtarları ve oyun köprüsü testindeki tür çıkarımı hatası Bölüm 2'de giderildi.
 - **Yerel ayna.** Bu makinedeki erişilebilir kopya Ahmet'in çalışma dizini. `C:/Users/ds/Documents/GitHub/GameDevoloper` erişilebilir olmadığı için yerel eşitleme yapılamadı. Bölüm commit'leri festive'e gönderildi.

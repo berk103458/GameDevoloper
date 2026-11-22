@@ -65,3 +65,21 @@ RTX 3050 Laptop GPU, Forward+, 640×360, 45 FPS üst sınırı. Aynı kamera ve 
 | Açık | 26,6 | 41,6 ms | 83 |
 
 Üç örnek de [performans bütçesindeki](gorevler/PERFORMANS_BUTCESI.md) 30 FPS ortanca sınırının altında, 100 ms kare süresi sınırının içinde. Ölçüm düşük işlem önceliğinde ve başka bir oyun açıkken alındı. Temiz performans koşusuyla yeniden doğrulama ve Instanced Renderer için tek başına ölçüm gerekli. [Log ve ekran görüntüsü yolları](CODEX_DENETIM_RAPORU.md).
+
+
+## 22 Kasım 2026 — Surlu köyde ayrı eklenti ölçümü (Kalfa)
+
+`bd8a9a69` commitli izole kopya. RTX 3050 Laptop GPU, Godot 4.7.2 Forward+, 640×360, VSync kapalı, 120 FPS üst sınırı. Başlangıçta GPU %0 ve 44 MiB idi, ana oyun ve editör kapalıydı. Aynı kamera, 12 köylü, 3 yapı ve seviye 1 sur kullanıldı. Instanced Renderer kapalı varyantında yalnız test kopyasındaki durağan dönüşüm atlandı ve özgün ağlar korundu. Açık varyantta 102 ağ dönüştü. Her yapılandırma için 24 ısınma karesinden sonra iki ayrı 84 karelik pencere alındı.
+
+| Instanced Renderer | ProtonScatter | Ortanca FPS aralığı | Görünür çizim çağrısı | Köy viewport GPU ortancası | En uzun kare |
+|---|---|---:|---:|---:|---:|
+| Açık | Açık | 24,61–24,68 | 88 | 12,65–13,58 ms | 50,57 ms |
+| Açık | Gizli | 24,54–24,56 | 76 | 14,04–14,58 ms | 53,01 ms |
+| Kapalı | Açık | 24,78–26,41 | 86 | 12,02–13,33 ms | 46,11 ms |
+| Kapalı | Gizli | 24,95–31,57 | 74 | 11,64–13,55 ms | 46,44 ms |
+
+ProtonScatter görünürlüğü bu kadrajda 12 çizim çağrısı ekledi. Instanced Renderer iki çağrı ekledi ve örneklenen sahnede FPS kazancı göstermedi. Tek 31,57 FPS örneği sonraki pencerede tekrarlanmadı. En uzun kareler 100 ms sınırındaydı. Viewport GPU süresi tüm kareyi kapsamadığından darboğazın tamamı bu sayılardan çıkarılamaz. Üretim ayarları bu ölçümle değiştirilmedi.
+
+Köylünün işe yürüyüşü, akşam ev durağına varışı ve duraklaması geçti. Dört koyun gündüz otlağa çıktı, geçit kapandığında kestirme yapmadı ve akşam ağıla döndü. Sürü sahnesi testine mevcut ağıl yapım bilgisi eklendi. Kayıt kıyası ekranın açılışından sonra başlıyor. Tüccar harçtan sonra eşiği x=1,05 m'de geçti, açıklığın yarı genişliği 1,75 m. Köy yönünde z=2,49 m'ye ilerleyip sahneden ayrıldı. Tüccar ölçümü kapı rotasını kapsar.
+
+Yerel kanıt dizini `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/04-performans/`. `instanced-*.log`, dört varyant PNG'si, `koylu.log`, `suru-rota.log` ve `tuccar.log`.

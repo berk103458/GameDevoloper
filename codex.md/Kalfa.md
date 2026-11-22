@@ -2006,3 +2006,8 @@ Altı çerçeve ve on arka plan dosyasız ve geçici renk PNG'leriyle tek import
 Bölüm commit'leri `4155bd5a`, `5eaa84f7`, `cf0efca3` ve `6cea9ca3`. Açık görsel ve performans kontrolleri, 2D/3D ihtiyaçları, Alpha ile örtüşen klipler ve on oynama kontrolü [rapora](../docs/CODEX_DENETIM_RAPORU.md) eklendi. `ds` aynası bu makinede bulunamadı. Yeni asset gerekmedi. Kota görünmüyor.
 
 Kapanışta eklenti testindeki görüntü yolu değişkeninin aynı işlevdeki adla çakıştığı görüldü. Ad düzeltildi ve Godot `--check-only` çıkışı 0 oldu. Theatre kapanış hatası rapora kaydedildi. Kota görünmüyor.
+
+
+## 22 Kasım 2026 — Köy performansı ve rota takibi (Kalfa)
+
+Surlu köyde Instanced Renderer ve ProtonScatter ayrı dört yapılandırmada ölçüldü. ProtonScatter 12, Instanced Renderer iki görünür çizim çağrısı ekledi. Genel FPS hedefi tekrarlanabilir biçimde karşılanmadı. Köylü iş/eve dönüş, dört koyun otlak/ağıl ve tüccar kapı geçişi kontrolleri geçti. Ağıl rota testinin kurulumuna mevcut yapım bilgisi eklendi. Sonraki adım mevcut grafik profilini ve çözünürlük ölçeğini ölçmek. Asset gerekmedi. ds aynası bulunamadı. Kota görünmüyor.
