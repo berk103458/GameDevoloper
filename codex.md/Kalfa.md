@@ -2044,3 +2044,5 @@ Tohum 11'in 8. gece kaydından 10. geceye 651/0. Tohum 76 ile ana menüden 3. ge
 
 
 Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet isteğini tekrarladı. Açık panel seçim politikası sonraki denetim adımı. Alternatif devam denemesi süre sınırında kapandı. Windows 03.30 yeniden başlatma bildirimi nedeniyle takip oturumu sonlandırıldı.
+
+- 23 Kasım 2026: Festive tam çekildi. Ana menü profili sahiplenildi. Alpha için 311 satırın sırası korunarak üretim yolu notu eklendi. Satır denetimi 19 katalog hedefinin assets/art altında olmadığını gösterdi. Asset gerekmedi. Kota görünmüyor.
