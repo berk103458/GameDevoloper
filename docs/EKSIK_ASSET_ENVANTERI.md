@@ -2,6 +2,10 @@
 
 2D. `docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md` kalem 102–131 üretildi (30 görsel: 10 portre kartı, 20 ipucu/yük ikonu; chr_014 kalan iki ipucu ve chr_015–024 kart/ipuçları, chr_024 yalnızca kart). Yeşil zeminli ham dosyalar `work/ui_yesil_ham/` altında tutuldu; hedef PNG'ler şeffaf yazıldı. Lisans notu: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Kontak sayfası klon dışında `/workspace/gemini_onizleme/parti_04.png` (commit edilmedi). Sıradaki kalem: 132. Not: N131 v2 kullanıldı (v1 modern tulum/askılı önlük gibi duruyordu; v2 basit period önlük). N104 koyu zeytin başörtüsü ve N125 soluk zeytin yelek anahtarlamada yenmedi; N106 fide yaprakları soluk zeytin-kahve (parlak yeşil değil); N112 keçe heybe üst saplı, evrak çantasına yakın; N116 omuzda ekstra metal tokali kayış; N117 ve N120 kâğıtlar boş, yazı yok. Ana liste hâlâ 311 kalem; Antigravity ayrı `docs/arayuz/GEMINI_EK_2D_URETIM_LISTESI.md` (143 kalem) ekledi, ana liste bittikten sonra sıraya alınır.
 
+## 23 Kasım 2026 — ulak asker ve parşömen açılma (Cursor)
+
+ACL-04 kapı açılışı düz yazı paneline 2D ulak asker (`assets/ui/ulak/ulak_asker.png`) ve 9 karelik mühür kırılıp parşömen açılma dizisi (`assets/ui/ulak/parsomen/kare_01.png` … `kare_09.png`) eklendi. Mevcut berat metni (`olay.kapi_acilisi.berat`) Label olarak açık parşömenin üstüne solarak gelir; yazı görsele gömülmez. Kareler yoksa eski düz yazı davranışı aynı kalır. 8 saniyelik otomatik ilerleme (testlerin dayandığı süre) duruyor. Gemini listesindeki `assets/art/cards/ulak.png` ve `assets/art/env/acilis_ulak.png` bu turda üretilmedi; yollar çakışmaz. Lisans: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Kontak ve GIF: `onizleme/ulak_parsomen.png`, `onizleme/ulak_parsomen.gif` (klon dışı).
+
 ## 23 Kasım 2026 — Gemini listesi parti 03 (Muharrir / Grok Bot)
 
 2D. `docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md` kalem 72–101 üretildi (30 görsel: 10 portre kartı, 20 ipucu/yük ikonu; chr_004 kalan iki ipucu ve chr_005–014 kart/ipuçları, chr_014 yalnızca kart). Yeşil zeminli ham dosyalar `work/ui_yesil_ham/` altında tutuldu; hedef PNG'ler şeffaf yazıldı. Lisans notu: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Kontak sayfası klon dışında `/workspace/gemini_onizleme/parti_03.png` (commit edilmedi). Eski `onizleme/parti_01.png` ve `onizleme/parti_02.png` repodan çıkarıldı, aynı klasöre taşındı. Sıradaki kalem: 102. Not: N075 v2 kol askısı kullanıldı (v1 çanta gibi duruyordu); N080 zeytin-gri cübbe anahtarlamada yenmedi; N087 seyyar çekmece açık tahta kutu/saplı kova gibi; N091 keçi silüetleri küçük çizimli keçiler; N095 omuzda ekstra deri/madeni parça; N101 keçe başlık kabarık, omuzda ekstra pul zırh.
@@ -957,3 +961,24 @@ CIL-11 notu (17 Kasım 2026, Antigravity): `CIL11-RIG-BEKLEYEN` — `k02_kipcak_
 ## 23 Kasım 2026 — tüccar stok ikonları (Cursor)
 
 Nalburun `demir` stoğu ile sadakat ürünleri `cevher`, `kurk` ve `bugday` için 512×512 ikon üretildi (`GezginStokIkonu`). Lisans: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Gemini sıradaki üretim listesindeki mevcut stok/heybe ikonları (afyon, keçe, sargı, kumaş, zırh, yay, kalkan, çivi, tırpan, balta, saman, ilaç, heybe `icon_esya_*` vb.) bu turda üretilmedi; o liste başka işlemdedir.
+
+## 23 Kasım 2026 — cep arama kare dizisi (Cursor)
+
+Kapı heybe paneline 5 kese/cep varyantı × 8 kare eklendi (`assets/ui/kapi/cep_arama/`). Varyantlar: kahverengi deri, kırmızı kilim, lacivert çizgili, yeşil işlemeli, keten sade. `CepAramaAnimasyonu` rastgele bir varyantı oynatır; dosya yoksa eski çizilmiş heybe açılışı hatasız kalır. Lisans: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026.
+
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Durum |
+|---|---|---|---|---|
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/kahverengi_deri/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/kirmizi_kilim/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/lacivert_cizgili/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/yesil_islemeli/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/keten_sade/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+
+## 23 Kasım 2026 — ulak giriş sahnesi (Cursor)
+
+Kapı açılışı ulak sunumuna tam boy asker görseli ve mühürlü beratın 9 karelik açılma dizisi eklendi (`assets/ui/ulak/`). `UlakParsomenAnimasyonu` tıklanınca kareleri oynatır; metin son karede Label olarak belirir. Dosya yoksa `kapi_acilis_paneli.gd` eski düz yazı düzenini kurar. Lisans: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026.
+
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Durum |
+|---|---|---|---|---|
+| `ULAK-ASKER` | `assets/ui/ulak/ulak_asker.png` | 864×1152 | RGBA; ham düz #00FF00 | eklendi 23 Kasım 2026 (Cursor) |
+| `ULAK-PARSOMEN` | `assets/ui/ulak/parsomen/kare_01.png` … `kare_09.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |

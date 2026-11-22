@@ -17,6 +17,7 @@ var gelen_adi: String = ""
 var beyan_metni: String = ""
 
 var _cizim: HeybeCizimi
+var _arama: CepAramaAnimasyonu
 var _kartlar: Array[EsyaKarti] = []
 var _yuvalar := {}
 var _toplam: Label
@@ -44,6 +45,11 @@ func _ready() -> void:
 	_cizim.position = Vector2(40, 150)
 	_cizim.size = Vector2(620, 600)
 	add_child(_cizim)
+	_arama = CepAramaAnimasyonu.olustur()
+	if _arama != null:
+		_arama.position = _cizim.position
+		_arama.size = _cizim.size
+		add_child(_arama)
 	var tepsi_baslik := _etiket(tr("heybe.alinacaklar"), TEPSI.position + Vector2(0, -2), 26, Renkler.KUL)
 	tepsi_baslik.add_theme_font_override("font", Tema.font(700))
 	var ipucu := _etiket(tr("heybe.bos"), TEPSI.position + Vector2(0, 520), 17, Renkler.SOGUK_MAVI)
@@ -73,15 +79,29 @@ func _draw() -> void:
 	draw_dashed_line(r.position + Vector2(10, 10), Vector2(r.end.x - 10, r.position.y + 10), Color(MenuSatiri.ALTIN, 0.35), 1.5, 8.0)
 
 
-## Açılış: heybe yere konur gibi belirir, kapak açılır, eşyalar ağızdan sırayla dökülür.
+## Açılış: varsa cep arama kareleri oynar, yoksa heybe yere konur gibi belirir, kapak açılır; eşyalar ağızdan sırayla dökülür.
 func _ac() -> void:
 	_mesgul = true
-	_cizim.scale = Vector2(0.92, 0.92)
 	_cizim.pivot_offset = _cizim.size / 2.0
-	var t := create_tween().set_parallel()
-	t.tween_property(_cizim, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	t.tween_property(_cizim, "acik", 1.0, 0.45).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_delay(0.15)
-	await t.finished
+	if _arama != null:
+		_cizim.modulate.a = 0.0
+		_cizim.acik = 1.0
+		_cizim.scale = Vector2.ONE
+		await _arama.oyna()
+		if not is_instance_valid(self):
+			return
+		var kapat := create_tween().set_parallel()
+		kapat.tween_property(_arama, "modulate:a", 0.0, 0.35)
+		kapat.tween_property(_cizim, "modulate:a", 1.0, 0.35)
+		await kapat.finished
+		if is_instance_valid(_arama):
+			_arama.visible = false
+	else:
+		_cizim.scale = Vector2(0.92, 0.92)
+		var t := create_tween().set_parallel()
+		t.tween_property(_cizim, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		t.tween_property(_cizim, "acik", 1.0, 0.45).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_delay(0.15)
+		await t.finished
 	Ses.cal(&"sfx_kese", -6.0)
 	for e in heybe.gorunenler():
 		_kart_ekle(e, _cizim.agiz_merkezi())

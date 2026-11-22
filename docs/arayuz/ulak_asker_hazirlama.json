@@ -1,0 +1,19 @@
+[
+  {
+    "source": "work/ui_yesil_ham/ulak_asker_ham.png",
+    "name": "ulak_asker.png",
+    "size": [
+      864,
+      1152
+    ],
+    "method": "green",
+    "sha256": "4e27e13ba3e1032d0df6db9e9a7d8d69545becf3333b8a0d6a84b0f8292c4678",
+    "crop": [
+      140,
+      22,
+      631,
+      1132
+    ],
+    "operation": "green"
+  }
+]
