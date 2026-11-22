@@ -1,3 +1,7 @@
+## 23 Kasım 2026 — çerçeve seti ve 10 arka plan (Muharrir)
+
+Altı çerçeve ve on ekran arka planı repoya eklendi; Ahmet onayladı. Kaynak: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Ham yeşil `work/ui_yesil_ham/`; nihai RGBA çerçeveler `assets/ui/atmosfer/gece_kapisi/cerceve_*.png`; arka planlar `assets/ui/arkaplan/`. `kapi_gece`, `koy_gunduz`, `koy_gece`, `gun_sonu` ve `kayit` dosyaları duruyor; ekran bağlantısı hâlâ bekliyor (22 Kasım Kalfa denetimi).
+
 ## 20 Kasım 2026 — köy serpinti yer tutucuları (Cursor)
 
 EKLENTI-SERPINTI. 3B. ProtonScatter yol kenarı ve köy halkası. Ot, repodaki mevcut tutam ağı (`KoyArazisi._tutam`); yeni dosya yok. Taş, çalı ve ağaç: repoda `Dunya3B.model_var_mi("agac")` yoksa isim etiketli BoxMesh (`src/koy/gorsel/koy_serpintisi.gd`). Ölçü: taş yaklaşık 0,35×0,22×0,28 m, çalı 0,7×0,45×0,7 m, ağaç 0,8×3,2×0,8 m. Arama: TR "14. yy Anadolu yol kenarı taş / çalı / servis ağacı", EN "14th century Anatolian roadside stone / shrub / cypress glb". Lisans yalnız CC0 veya CC-BY. Öncelik düşük. Üretim ve indirme yok. Zemin dokuları repodaki Poly Haven CC0 (`sparse_grass`, `rocky_trail`, `muddy_tracks`); yeni doku indirilmedi. Ekleyen: Cursor.
@@ -896,35 +900,35 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 
 ## 20 Kasım 2026 — ekran arka planları (Cursor)
 
-Kod bekler. Dosya yoksa isim etiketli koyu kutu. Promptlar `docs/arayuz/NANO_BANANA_PROMPTLARI.md`. Üretilmedi. Opak, `no text`, 1920×1080.
+**Tamamlandı 23 Kasım 2026 (Muharrir).** Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Dosyalar `assets/ui/arkaplan/` altında, 1920×1080, opak. Promptlar `docs/arayuz/NANO_BANANA_PROMPTLARI.md`. Üç yükleme adayı, ayarlar ve heybe dosya gelince bağlanıyor; `kapi_gece`, `koy_gunduz`, `koy_gece`, `gun_sonu` ve `kayit` için ekran bağlantısı hâlâ bekliyor.
 
-| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Hazır prompt |
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Durum |
 |---|---|---|---|---|
-| ARY-ARKA | `assets/ui/arkaplan/yukleme_kapi.png` | 1920×1080 | opak | [Nano Banana](arayuz/NANO_BANANA_PROMPTLARI.md) |
-| ARY-ARKA | `assets/ui/arkaplan/yukleme_koy.png` | 1920×1080 | opak | aynı |
-| ARY-ARKA | `assets/ui/arkaplan/yukleme_ocak.png` | 1920×1080 | opak | aynı |
-| ARY-ARKA | `assets/ui/arkaplan/kapi_gece.png` | 1920×1080 | opak | aynı |
-| ARY-ARKA | `assets/ui/arkaplan/koy_gunduz.png` | 1920×1080 | opak | aynı |
-| ARY-ARKA | `assets/ui/arkaplan/koy_gece.png` | 1920×1080 | opak | aynı |
-| ARY-ARKA | `assets/ui/arkaplan/ayarlar.png` | 1920×1080 | opak | aynı |
-| ARY-ARKA | `assets/ui/arkaplan/envanter.png` | 1920×1080 | opak | aynı |
-| ARY-ARKA | `assets/ui/arkaplan/gun_sonu.png` | 1920×1080 | opak | aynı |
-| ARY-ARKA | `assets/ui/arkaplan/kayit.png` | 1920×1080 | opak | aynı |
+| ARY-ARKA | `assets/ui/arkaplan/yukleme_kapi.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-ARKA | `assets/ui/arkaplan/yukleme_koy.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-ARKA | `assets/ui/arkaplan/yukleme_ocak.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-ARKA | `assets/ui/arkaplan/kapi_gece.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir); ekran bağlantısı bekliyor |
+| ARY-ARKA | `assets/ui/arkaplan/koy_gunduz.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir); ekran bağlantısı bekliyor |
+| ARY-ARKA | `assets/ui/arkaplan/koy_gece.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir); ekran bağlantısı bekliyor |
+| ARY-ARKA | `assets/ui/arkaplan/ayarlar.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-ARKA | `assets/ui/arkaplan/envanter.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-ARKA | `assets/ui/arkaplan/gun_sonu.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir); ekran bağlantısı bekliyor |
+| ARY-ARKA | `assets/ui/arkaplan/kayit.png` | 1920×1080 | opak | tamamlandı 23 Kasım 2026 (Muharrir); ekran bağlantısı bekliyor |
 
 ## 21 Kasım 2026 — çerçeve seti, 6 parça (Cursor)
 
-Ahmet Nano Banana yolunu seçti. Üretilmedi. Ham yeşil `work/ui_yesil_ham/` altına, aynı adla. Araç: `python -B tools/art/gece_kapisi_hazirla.py docs/arayuz/gece_kapisi_cerceve_alti.json assets/ui/atmosfer/gece_kapisi`. Dosya yoksa eski çerçeve kalır. Prompt: `docs/arayuz/NANO_BANANA_PROMPTLARI.md`.
+**Tamamlandı 23 Kasım 2026 (Muharrir).** Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Ham yeşil `work/ui_yesil_ham/` altında, aynı adla. Nihai RGBA (yeşil zemin şeffafa çevrildi) `assets/ui/atmosfer/gece_kapisi/`. Araç: `python -B tools/art/gece_kapisi_hazirla.py docs/arayuz/gece_kapisi_cerceve_alti.json assets/ui/atmosfer/gece_kapisi`. Godot bir kez açılınca import biter. Prompt: `docs/arayuz/NANO_BANANA_PROMPTLARI.md`.
 
-| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Hazır prompt |
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Durum |
 |---|---|---|---|---|
-| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_diyalog_seridi.png` | 1536×512 | RGBA; düz #00FF00 | [Çerçeve seti](arayuz/NANO_BANANA_PROMPTLARI.md) |
-| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_secenek_satiri.png` | 768×192 | RGBA; düz #00FF00 | aynı |
-| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_portre.png` | 768×1024 | RGBA; düz #00FF00, ortası delik | aynı |
-| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_panel.png` | 1280×768 | RGBA; düz #00FF00 | aynı |
-| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_muhur.png` | 256×256 | RGBA; düz #00FF00 | aynı |
-| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_rumi_kose.png` | 256×256 | RGBA; düz #00FF00 | aynı |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_diyalog_seridi.png` | 1536×512 | RGBA; dışı saydam | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_secenek_satiri.png` | 768×192 | RGBA; dışı saydam | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_portre.png` | 768×1024 | RGBA; dışı ve ortası saydam | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_panel.png` | 1280×768 | RGBA; dışı saydam | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_muhur.png` | 256×256 | RGBA; dışı saydam | tamamlandı 23 Kasım 2026 (Muharrir) |
+| ARY-CERCEVE | `assets/ui/atmosfer/gece_kapisi/cerceve_rumi_kose.png` | 256×256 | RGBA; dışı saydam | tamamlandı 23 Kasım 2026 (Muharrir) |
 
-22 Kasım denetimi (Kalfa): Yukarıdaki 2D listesinde altı çerçeve ve on arka planın nihai PNG dosyaları bekleniyor. Çerçeveler, üç yükleme adayı, ayarlar ve heybe dosya geldiğinde bağlanıyor. `kapi_gece`, `koy_gunduz`, `koy_gece`, `gun_sonu` ve `kayit` için ekran bağlantısı da bekliyor. [Denetim sonucu](CODEX_DENETIM_RAPORU.md).
+22 Kasım denetimi (Kalfa): O sırada altı çerçeve ve on arka planın nihai PNG dosyaları bekleniyordu. 23 Kasım 2026’da dosyalar eklendi (Muharrir). Çerçeveler, üç yükleme adayı, ayarlar ve heybe dosya gelince bağlanıyor; Godot bir kez açılınca import biter. `kapi_gece`, `koy_gunduz`, `koy_gece`, `gun_sonu` ve `kayit` için ekran bağlantısı hâlâ bekliyor. [Denetim sonucu](CODEX_DENETIM_RAPORU.md).
 
 KAP-17 notu (2 Kasım 2026, Kalfa): KAP17-COCUK/YASLI ihtiyaçları yukarıdaki mevcut 3D satırlarında güncellendi; yeni asset üretilmedi/indirilmedi. Kapıdaki refakatçiler isimli BoxMesh, köyde çocuk mevcut LOWPO, yaşlı mevcut yetişkin yer tutucusudur. Boy hedefleri mevcut 1,15 m / 1,65 m. Yaşlı modeli tamamlandı sayılmaz; yeni 2D ihtiyacı yok.
 
