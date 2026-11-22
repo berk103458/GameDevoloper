@@ -133,7 +133,10 @@ static func _gorsel_kur(kat: Control, olay: OlayVerisi, parsomen: UlakParsomenAn
 		ulak.anchor_right = 0.46
 		ulak.anchor_top = 0.02
 		ulak.anchor_bottom = 0.80
-		ulak.offset_left = ulak.offset_right = ulak.offset_top = ulak.offset_bottom = 0.0
+		ulak.offset_left = 0.0
+		ulak.offset_right = 0.0
+		ulak.offset_top = 0.0
+		ulak.offset_bottom = 0.0
 		ulak.modulate.a = 0.0
 		sahne.add_child(ulak)
 	parsomen.name = "UlakParsomen"
@@ -148,7 +151,10 @@ static func _gorsel_kur(kat: Control, olay: OlayVerisi, parsomen: UlakParsomenAn
 		parsomen.anchor_right = 0.88
 		parsomen.anchor_top = 0.06
 		parsomen.anchor_bottom = 0.78
-	parsomen.offset_left = parsomen.offset_right = parsomen.offset_top = parsomen.offset_bottom = 0.0
+	parsomen.offset_left = 0.0
+	parsomen.offset_right = 0.0
+	parsomen.offset_top = 0.0
+	parsomen.offset_bottom = 0.0
 	parsomen.modulate.a = 0.0
 	sahne.add_child(parsomen)
 	var metin := Label.new()
@@ -169,7 +175,10 @@ static func _gorsel_kur(kat: Control, olay: OlayVerisi, parsomen: UlakParsomenAn
 	metin.anchor_right = 0.90
 	metin.anchor_top = 0.32
 	metin.anchor_bottom = 0.66
-	metin.offset_left = metin.offset_right = metin.offset_top = metin.offset_bottom = 0.0
+	metin.offset_left = 0.0
+	metin.offset_right = 0.0
+	metin.offset_top = 0.0
+	metin.offset_bottom = 0.0
 	metin.modulate.a = 0.0
 	parsomen.add_child(metin)
 	var alt := MarginContainer.new()

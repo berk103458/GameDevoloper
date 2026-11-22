@@ -59,6 +59,15 @@ func _ready() -> void:
 	zemin.color = Renkler.GECE
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
+	var arka := GeceKapisiCerceve.arka_plan_varsa("kayit")
+	if arka != null:
+		add_child(arka)
+		var perde := ColorRect.new()
+		perde.name = "kayit_perde"
+		perde.color = Color(Renkler.GECE, 0.42)
+		perde.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		perde.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		add_child(perde)
 	var dikey := VBoxContainer.new()
 	dikey.position = Vector2(80, 80)
 	dikey.custom_minimum_size = Vector2(900, 0)

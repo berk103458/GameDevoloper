@@ -104,3 +104,19 @@ Godot headless import ile `grafik_profili_test.gd` geçti. Canlı sahne testi d�
 ## 22 Kasım 2026 — Terrain3D çalışma uyarısı (Kalfa)
 
 Köyde Terrain3D Assets kaynağı çalışma anında oluşturuluyor. Dosyaya bağlı editör dokularını boşaltma özelliği bu örnekte kapatıldı. Aynı eklenti testi arazi bölgesini, mevcut çarpışma davranışını ve eklenti bağlarını doğruladı. `free_editor_textures requires Assets...` uyarısı çıkmadı. Import ve hedefli test 0. Yerel kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/07-eklenti-kapanis/`. MCP beş editör eklentisini yeniden doğruladı. Windows güncelleme istemi Eklentiler sekmesine erişimi kapattı.
+
+
+## 23 Kasım 2026 — ProtonScatter yeniden ölçümü (Antigravity)
+
+`KoySerpintisi` (`GORUNUR = 120.0`, `[["ot", 140], ["tas", 28], ["cali", 18], ["agac", 12]]`) üzerinde `0d4b213d` sonrası gerçek `KoyEkrani` (`SubViewport` `1920×1080`, `1280×720` pencerede, Vulkan 1.4.341 Forward+, NVIDIA GeForce RTX 3050 Laptop GPU, VSync kapalı, 120 FPS üst sınırı, 12 köylü, 3 hazır yapı `kulube`/`tarla`/`ambar`, `sur_seviye = 1`) yeniden ölçüldü. Her koşuda 24 ısınma + 84 örnek kare alındı:
+
+| Durum | Ortanca FPS | Ortanca kare | En uzun kare | Köy viewport GPU ort. | Görünür çizim çağrısı (VP / Toplam) | Görünür ilkel (VP / Toplam) |
+|---|---:|---:|---:|---:|---:|---:|
+| Normal %100 (`MSAA 4X + SMAA`), Açık (1) | 35,60 | 28,09 ms | 36,39 ms | 13,75 ms | 88 / 672 | 494.022 / 2.969.030 |
+| Normal %100 (`MSAA 4X + SMAA`), Gizli | 34,66 | 28,85 ms | 34,19 ms | 14,27 ms | 77 / 634 | 448.208 / 2.889.195 |
+| Normal %100 (`MSAA 4X + SMAA`), Açık (2) | 33,95 | 29,46 ms | 42,64 ms | 14,71 ms | 89 / 670 | 494.790 / 2.958.619 |
+| Düşük %75 (`MSAA kapalı + SMAA`), Açık | 69,93 | 14,30 ms | 18,22 ms | 6,99 ms | 87 / 286 | 494.718 / 499.978 |
+| Düşük %75 (`MSAA kapalı + SMAA`), Gizli | 71,50 | 13,99 ms | 17,61 ms | 6,84 ms | 75 / 274 | 448.136 / 453.396 |
+
+Normal (%100) iki ProtonScatter Açık penceresi de **33,95–35,60 FPS** (`> 30 FPS`) ve `36,39–42,64 ms` (`< 100 ms`) içinde kaldı. Köy viewport'unda ProtonScatter görünürlüğü ~11–12 çizim çağrısı ve ~46k ilkel ekler; düşük profilde fark ~0,15 ms GPU medyanıdır. Yoğunluk düşürme gerekmedi, `src/koy/gorsel/koy_serpintisi.gd` değiştirilmedi. [Üst rapor](CODEX_DENETIM_RAPORU.md).
+

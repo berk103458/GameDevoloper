@@ -252,18 +252,40 @@ static func uygula(t: Theme) -> bool:
 	return true
 
 
+static func _arka_doku(ad: String) -> Texture2D:
+	var dosya := ARKA + ad + ".png"
+	if not (FileAccess.file_exists(dosya) or ResourceLoader.exists(dosya)):
+		return null
+	if ResourceLoader.exists(dosya):
+		var kaynak: Texture2D = load(dosya) as Texture2D
+		if kaynak != null:
+			return kaynak
+	var img := Image.new()
+	if img.load(dosya) != OK:
+		return null
+	return ImageTexture.create_from_image(img)
+
+
+## Dosya varsa tam ekran arka plan TextureRect döner; yoksa null (eski görünüm aynen kalır).
+static func arka_plan_varsa(ad: String) -> TextureRect:
+	var doku := _arka_doku(ad)
+	if doku == null:
+		return null
+	var r := TextureRect.new()
+	r.name = "arka_" + ad
+	r.texture = doku
+	r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	r.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	return r
+
+
 ## Ahmet dosyayı koyunca kod değişmez. Yoksa isim etiketli koyu kutu.
 static func arka_plan(ad: String) -> Control:
-	var dosya := ARKA + ad + ".png"
-	if ResourceLoader.exists(dosya):
-		var r := TextureRect.new()
-		r.name = "arka_" + ad
-		r.texture = load(dosya)
-		r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		r.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		return r
+	var hazir := arka_plan_varsa(ad)
+	if hazir != null:
+		return hazir
 	var kutu_renk := ColorRect.new()
 	kutu_renk.name = "arka_" + ad
 	kutu_renk.color = Color("14120f")

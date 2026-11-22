@@ -127,3 +127,27 @@ Temiz festive kopyasında `koy_yonetim_sahnesi.gd` henüz commit edilmemiş `Kam
 İlk iki gün için mevcut `KoyRehberiPaneli` işçi, yatak, gıda ve kapı kararını takip ediyor. `data/ogretici/ilk_saat.json` ile `IlkSaat` zamanlanmış ipuçlarını sağlıyor. İlk ailede yalnız soru ve karar öğretiliyor. Yönetim öğreticisinin kabul akışı, ilk köy ekranında bir işçi ata ve üretimini gör, stok ve yatak değişimini oku, geceye geç, ilk aileyi sorgula ve kararın ertesi günkü iş gücü ile kaynak etkisini köyde gör adımlarından oluşur. İnceleme ve daha derin sorgu, ilk uygun ziyaretçide mevcut ağacın gerçek düğmeleriyle tanıtılır. Tamamlanma oyuncunun yaptığı işlemden okunur. Öğreticiyi atlayıp temel akışa dönme ve gün ortası kaydından kalınan adımı açma da kabul akışına dahildir.
 
 Antigravity `9a798752` ile ilk iki günün hikâyesi ve rehberini güncelledi. Ahmet öğretici entegrasyonunu Alpha'ya, kabul testini Kalfa'ya verdi. Dört senaryo `docs/tester/OGRETICI_KABUL_TESTI.md` dosyasında hazır. Alpha'ya öğretici, kamera commit'i ve üretim sırası Ajan Masası #11 üzerinden iletildi. Asset gerekmedi.
+
+## 23 Kasım 2026 — Beş arka plan bağı ve ProtonScatter yeniden ölçümü (Antigravity)
+
+### Beş arka plan bağlantısı (`assets/ui/arkaplan/`)
+- `GeceKapisiCerceve.arka_plan_varsa(ad)` eklendi; dosya mevcutsa tam ekran `TextureRect` (`arka_<ad>`, `MOUSE_FILTER_IGNORE`) kurar, dosya yoksa `null` dönerek önceki görünümü aynen korur.
+- `kayit.png` → `YeniOyunEkrani` ve `KayitHataPaneli` (`BilgiEkrani` üzerinden, hafif karartma perdesiyle).
+- `kapi_gece.png` → `KapiEkrani` (3B kapı sahnesinin arkasına katman), *Muhafızın geçmişi* ekranı ve kapı duraklatma ekranı.
+- `koy_gunduz.png` → `KoyEkrani` gündüz açılışı ve gündüz duraklatma ekranı.
+- `koy_gece.png` → `KoyEkrani` geceye geçiş / köy olayı ekranı ve gece duraklatma ekranı.
+- `gun_sonu.png` → `KoyEkrani` gece sonu raporu ve `AksamSohbetiPaneli` arka katmanı.
+
+### ProtonScatter yeniden ölçümü
+Güncel `KoySerpintisi` ayarlarıyla (`GORUNUR = 120.0`, `[["ot", 140], ["tas", 28], ["cali", 18], ["agac", 12]]`, 4 `ProtonScatter` alt düğümü / 4 `ScatterOutput`) gerçek `KoyEkrani` (`SubViewport` `1920×1080`, `1280×720` pencerede, Vulkan 1.4.341 Forward+, NVIDIA GeForce RTX 3050 Laptop GPU, VSync kapalı, 120 FPS üst sınırı, 12 köylü, 3 hazır yapı `kulube`/`tarla`/`ambar`, `sur_seviye = 1`) üzerinde ölçüldü. Her koşuda 24 ısınma karesi ardından 84 kare örneklendi:
+
+| Durum | Ortanca FPS | Ortanca kare | En uzun kare | Köy viewport GPU ort. | Görünür çizim çağrısı (VP / Toplam) | Görünür ilkel (VP / Toplam) |
+|---|---:|---:|---:|---:|---:|---:|
+| Normal %100 (`MSAA 4X + SMAA`), Scatter Açık (1) | 35,60 | 28,09 ms | 36,39 ms | 13,75 ms | 88 / 672 | 494.022 / 2.969.030 |
+| Normal %100 (`MSAA 4X + SMAA`), Scatter Gizli | 34,66 | 28,85 ms | 34,19 ms | 14,27 ms | 77 / 634 | 448.208 / 2.889.195 |
+| Normal %100 (`MSAA 4X + SMAA`), Scatter Açık (2) | 33,95 | 29,46 ms | 42,64 ms | 14,71 ms | 89 / 670 | 494.790 / 2.958.619 |
+| Düşük %75 (`MSAA kapalı + SMAA`), Scatter Açık | 69,93 | 14,30 ms | 18,22 ms | 6,99 ms | 87 / 286 | 494.718 / 499.978 |
+| Düşük %75 (`MSAA kapalı + SMAA`), Scatter Gizli | 71,50 | 13,99 ms | 17,61 ms | 6,84 ms | 75 / 274 | 448.136 / 453.396 |
+
+Normal (%100) iki ProtonScatter Açık penceresi de **33,95–35,60 FPS** vererek 30 FPS sınırının üzerinde ve 36,39–42,64 ms ile 100 ms kare bütçesinin altında kaldı. ProtonScatter bu kadrajda köy viewport'una ~11–12 çizim çağrısı ve ~46k ilkel eklemekte, düşük profilde ise fark yalnız ~0,15 ms GPU medyanıdır (`69,93` vs `71,50` FPS). Bu nedenle `src/koy/gorsel/koy_serpintisi.gd` yoğunluğu düşürülmedi.
+

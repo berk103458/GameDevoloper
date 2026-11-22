@@ -28,6 +28,9 @@ func _ready() -> void:
 	add_child(zemin)
 	var arka := Sanat.doku("env", arka_plan) if arka_plan != "" and not arka_plan.begins_with("3d_") else null
 	if arka_plan == "3d_koy" and oturum != null:
+		var k_arka := GeceKapisiCerceve.arka_plan_varsa("koy_gunduz")
+		if k_arka != null:
+			add_child(k_arka)
 		var kap_k := SubViewportContainer.new()
 		kap_k.stretch = true
 		kap_k.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -40,6 +43,9 @@ func _ready() -> void:
 		vp_k.add_child(koy)
 	elif arka_plan == "3d_kapi":
 		# 3D kapı gecesi arka plan (kırılma sonu).
+		var g_arka := GeceKapisiCerceve.arka_plan_varsa("kapi_gece")
+		if g_arka != null:
+			add_child(g_arka)
 		var kap := SubViewportContainer.new()
 		kap.stretch = true
 		kap.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -56,6 +62,17 @@ func _ready() -> void:
 		r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		add_child(r)
+	elif arka_plan != "":
+		var yedek_ad := "koy_gunduz" if arka_plan == "3d_koy" else ("kapi_gece" if arka_plan == "3d_kapi" else arka_plan)
+		var ozel := GeceKapisiCerceve.arka_plan_varsa(yedek_ad)
+		if ozel != null:
+			add_child(ozel)
+			var perde := ColorRect.new()
+			perde.name = "bilgi_perde"
+			perde.color = Color(Renkler.GECE, 0.40)
+			perde.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			perde.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+			add_child(perde)
 	var kenar := MarginContainer.new()
 	kenar.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	kenar.add_theme_constant_override("margin_left", 140)

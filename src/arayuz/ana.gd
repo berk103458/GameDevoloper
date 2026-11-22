@@ -96,7 +96,7 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 		var adlar: Array = []
 		for id in g.SIRA: adlar.append(String(g.VERI[id].ad))
 		adlar.append("Ana menüye dön")
-		var e := _bilgi("Muhafızın geçmişi", "Geçmişini seç. Bu seçim oyun boyunca değişmez.", adlar, -1, "")
+		var e := _bilgi("Muhafızın geçmişi", "Geçmişini seç. Bu seçim oyun boyunca değişmez.", adlar, -1, "kapi_gece")
 		e.secildi.connect(func(i: int) -> void:
 			if i >= 0 and i < g.SIRA.size(): _gecmis_secildi(tohum, g.SIRA[i])
 			else: ana_menu()
@@ -231,7 +231,14 @@ func _son_secimi(i: int) -> void:
 func _duraklat() -> void:
 	if _ust != null:
 		return
-	var e := _bilgi(tr("arayuz.duraklat.baslik"), "", [tr("arayuz.duraklat.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.duraklat.menu"), tr("arayuz.duraklat.defter"), tr("arayuz.duraklat.kapi_usulu")], -1, "")
+	var duraklat_arka := ""
+	if _ekran is KapiEkrani:
+		duraklat_arka = "kapi_gece"
+	elif _ekran is KoyEkrani:
+		var koy_ek := _ekran as KoyEkrani
+		var gece_mi := koy_ek.sahne3b != null and koy_ek.sahne3b.atmosfer != null and koy_ek.sahne3b.atmosfer.faz_adi == &"gece"
+		duraklat_arka = "koy_gece" if gece_mi else "koy_gunduz"
+	var e := _bilgi(tr("arayuz.duraklat.baslik"), "", [tr("arayuz.duraklat.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.duraklat.menu"), tr("arayuz.duraklat.defter"), tr("arayuz.duraklat.kapi_usulu")], -1, duraklat_arka)
 	e.secildi.connect(func(i: int) -> void:
 		_ust_kapat()
 		match i:

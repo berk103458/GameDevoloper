@@ -1825,3 +1825,25 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - `TuccarSekansKart` canlı pencereli ekran görüntüsü (`tuccar_sekans.png`) incelendi.
 - **İhtiyaç:** Kod dışı 2D eksik listesi ayrı dosyaya eklendi; kod tarafında yeni dosya üretilmedi (`asset gerekmedi`).
 - kota görünmüyor
+
+### 23 Kasım (Tur 6) — Beş arka plan bağlantısı, ProtonScatter FPS yeniden ölçümü ve ulak paneli sözdizimi düzeltmesi
+- **Pull & Kamera senkronu:** `git pull --ff-only` yapıldı; Codex'in ilettiği eksik `KameraSurukleme.odak_sinirla` metodu `a97b878f` commit'iyle `claude/festive-volta-li1sfm` dalına push edildi ve `origin/claude/festive-volta-li1sfm` (`0d4b213d`) ile birleşti. Öğretici sahipliği Alpha'da kalmaya devam ediyor.
+- **Derleme kilidi düzeltmesi:** `src/arayuz/koy_hud/kapi_acilis_paneli.gd` içinde `5bea5431` ile gelen 3 adet zincirleme `offset_* = 0.0` ataması ayrı satırlara bölündü (`EXITCODE=0`, 0 `SCRIPT ERROR`).
+- **Beş arka plan bağlantısı (`assets/ui/arkaplan/`):**
+  - `src/arayuz/gece_kapisi_cerceve.gd`: `GeceKapisiCerceve.arka_plan_varsa(ad)` ve `_arka_doku(ad)` eklendi; dosya varsa `TextureRect` (`arka_<ad>`) döner, yoksa `null` dönerek eski görünümü korur.
+  - `kayit.png` → `src/arayuz/yeni_oyun_ekrani.gd` (`kayit_perde` ile) ve `src/arayuz/kayit_hata_paneli.gd` (`BilgiEkrani` üzerinden).
+  - `kapi_gece.png` → `src/arayuz/kapi_ekrani.gd` (3B kapı sahnesinin arkasına katman), `src/arayuz/ana.gd` (*Muhafızın geçmişi* ve kapı duraklatma).
+  - `koy_gunduz.png` → `src/arayuz/koy_ekrani.gd` gündüz sahne arkası ve `src/arayuz/ana.gd` gündüz duraklatma.
+  - `koy_gece.png` → `src/arayuz/koy_ekrani.gd` geceye geçiş/olay ekranları ve `src/arayuz/ana.gd` gece duraklatma.
+  - `gun_sonu.png` → `src/arayuz/koy_ekrani.gd` gece sonu raporu ve `src/arayuz/koy_hud/aksam_sohbeti_paneli.gd` arka katmanı (`GRV-08` uyumlu); kart kapanınca temizlenir.
+  - `src/arayuz/bilgi_ekrani.gd`: `"3d_koy"`/`"3d_kapi"` alt katman desteği ve `arka_plan` yedek dalı eklendi.
+- **ProtonScatter yeniden ölçümü (`docs/CODEX_DENETIM_RAPORU.md`, `docs/EKLENTI_BAGLANTI.md`):**
+  - `KoyEkrani` (`SubViewport` `1920×1080`, `1280×720` pencerede, RTX 3050 Laptop GPU, VSync kapalı, 120 FPS üst sınır, 12 köylü, 3 hazır yapı `kulube`/`tarla`/`ambar`, `sur_seviye = 1`): Normal %100 (`MSAA 4X + SMAA`) **35,60 FPS** (Açık 1) / **34,66 FPS** (Gizli) / **33,95 FPS** (Açık 2), Düşük %75 (`MSAA kapalı + SMAA`) **69,93 FPS** (Açık) / **71,50 FPS** (Gizli). Normal koşular `> 30 FPS` kaldığı için `src/koy/gorsel/koy_serpintisi.gd` yoğunluğu (`120 m`, `[140, 28, 18, 12]`) düşürülmedi.
+- **Doğrulamalar:**
+  - `tests/unit/koy/eklenti_bag_test.gd` (`EKLENTI BAG: GEÇTİ`, `RC=0`)
+  - `tests/unit/arayuz/kabuk_test.gd` (`KABUK: GEÇTİ (0 hata)`, `RC=0`)
+  - `tests/oto/aksam_sohbeti_kontrol.tscn` (`AKSAM SOHBETI UI: GEÇTİ (0 hata)`, `RC=0`)
+  - Pencereli arka plan + ekran görüntüsü doğrulaması (`BG VERIFY: GEÇTİ (hata=0)`, `EXITCODE=0`) ve `bg_kayit_yeni_oyun.png` + `bg_gun_sonu_rapor.png` görsel kontrolü; `GRV-08` ve `OGR-53` kural taramaları temiz.
+- **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
+- kota görünmüyor
+

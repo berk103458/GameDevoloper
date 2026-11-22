@@ -66,6 +66,9 @@ func _ready() -> void:
 	var zemin := Panel.new()
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
+	var arka := GeceKapisiCerceve.arka_plan_varsa("kapi_gece")
+	if arka != null:
+		add_child(arka)
 
 	# 3D kapı sahnesi tüm ekranı kaplar; arayüz üstüne biner.
 	_dunya = Control.new()
@@ -85,7 +88,7 @@ func _ready() -> void:
 	kap.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	kap.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(kap)
-	move_child(kap, 1)
+	move_child(kap, 2 if arka != null else 1)
 	get_window().size_changed.connect(func() -> void: _vp.size = _cizim_boyutu())
 	var vp := _vp
 	sahne = KapiSahnesi.new()

@@ -45,6 +45,8 @@ var _kategori := "barinma"
 var _y: KoyYonetimi
 var _dinamik_ortam: Node
 var _gece_kilidi := preload("res://src/sistemler/gece_gecis_kilidi.gd").new()
+var _sahne_arka: TextureRect
+var _kart_arka: TextureRect
 
 
 func _ready() -> void:
@@ -64,6 +66,7 @@ func _ready() -> void:
 	_kap.mouse_filter = Control.MOUSE_FILTER_STOP
 	_kap.gui_input.connect(_dunya_girdisi)
 	add_child(_kap)
+	_sahne_arkasi_ayarla("koy_gunduz")
 	_vp = SubViewport.new()
 	_vp.msaa_3d = Viewport.MSAA_4X
 	_vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_SMAA
@@ -776,9 +779,11 @@ func _geceye_gec_rapor() -> void:
 	_yenile()
 	# Gece hesaplaşması karanlıkta: rapor kartı ay ışığına dönen köyün üstünde açılır.
 	sahne3b.faz(&"gece", 1.8)
+	_sahne_arkasi_ayarla("koy_gece")
 	_dinamik_ortam.faz(&"gece")
 	var r: Dictionary = sonuc["rapor"]
 	var v := _kart_ac(tr("koy.rapor.baslik") % (int(r["gun"]) + 1))
+	_kart_arkasi_koy("gun_sonu")
 	if not preload("res://src/arayuz/gece_raporu_kisa.gd").ekle(self, v, sonuc["bilanco"]):
 		_rapor_ayrinti(v, r)
 	preload("res://src/arayuz/gece_raporu_kisa.gd").ilk_saat_ozetini_ekle(self, v, sonuc["bilanco"])
@@ -829,6 +834,7 @@ func _olay_goster(olay: OlayVerisi, sonuc: Dictionary) -> void:
 	if olay.muzik != &"":
 		Ses.muzik_cal(olay.muzik)
 	var v := _kart_ac(tr(olay.baslik_anahtari))
+	_kart_arkasi_koy("koy_gece")
 	HaberciAnlatiPaneli.ekle(self, v, olay)
 	var m := _etiket(v, tr(olay.metin_anahtari), Tema.GOVDE_PX)
 	m.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -869,6 +875,7 @@ func _olay_sec(olay: OlayVerisi, i: int, gece: Dictionary) -> void:
 	var sonuc := oturum.olay_uygula(olay, i, puan)
 	_kart_kapat()
 	var v := _kart_ac(tr(olay.baslik_anahtari))
+	_kart_arkasi_koy("koy_gece")
 	if puan >= 0:
 		_etiket(v, tr("arayuz.oyun.puan") % [puan, azami], Tema.KUCUK_PX).add_theme_color_override("font_color", MenuSatiri.ALTIN)
 	var l := _etiket(v, tr(sonuc["sonuc_anahtari"]), Tema.KUCUK_PX)
@@ -929,6 +936,9 @@ func _kart_ac(baslik: String) -> VBoxContainer:
 
 func _kart_kapat() -> void:
 	preload("res://src/sistemler/olay_duraklat.gd").kapat(self)
+	if _kart_arka != null and is_instance_valid(_kart_arka):
+		_kart_arka.queue_free()
+	_kart_arka = null
 	if _ust_kart != null and is_instance_valid(_ust_kart):
 		_ust_kart.queue_free()
 	_ust_kart = null
@@ -936,6 +946,26 @@ func _kart_kapat() -> void:
 		_bilgi.visible = true
 	AmbarKapisiPaneli.kart_durumu(self)
 	preload("res://src/arayuz/koy_hud/koy_rehberi_paneli.gd").kart_durumu(self, false)
+
+
+func _sahne_arkasi_ayarla(ad: String) -> void:
+	if _sahne_arka != null and is_instance_valid(_sahne_arka):
+		remove_child(_sahne_arka)
+		_sahne_arka.queue_free()
+	_sahne_arka = GeceKapisiCerceve.arka_plan_varsa(ad)
+	if _sahne_arka != null:
+		add_child(_sahne_arka)
+		move_child(_sahne_arka, 0)
+
+
+func _kart_arkasi_koy(ad: String) -> void:
+	if _kart_arka != null and is_instance_valid(_kart_arka):
+		remove_child(_kart_arka)
+		_kart_arka.queue_free()
+	_kart_arka = GeceKapisiCerceve.arka_plan_varsa(ad)
+	if _kart_arka != null and _kap != null and is_instance_valid(_kap):
+		add_child(_kart_arka)
+		move_child(_kart_arka, _kap.get_index() + 1)
 
 
 func _bayrak_etiketi(f: String) -> String:
