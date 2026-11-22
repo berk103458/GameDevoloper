@@ -1,3 +1,7 @@
+## 23 Kasım 2026 — ulak asker ve parşömen açılma (Cursor)
+
+ACL-04 kapı açılışı düz yazı paneline 2D ulak asker (`assets/ui/ulak/ulak_asker.png`) ve 9 karelik mühür kırılıp parşömen açılma dizisi (`assets/ui/ulak/parsomen/kare_01.png` … `kare_09.png`) eklendi. Mevcut berat metni (`olay.kapi_acilisi.berat`) Label olarak açık parşömenin üstüne solarak gelir; yazı görsele gömülmez. Kareler yoksa eski düz yazı davranışı aynı kalır. 8 saniyelik otomatik ilerleme (testlerin dayandığı süre) duruyor. Gemini listesindeki `assets/art/cards/ulak.png` ve `assets/art/env/acilis_ulak.png` bu turda üretilmedi; yollar çakışmaz. Lisans: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Kontak ve GIF: `onizleme/ulak_parsomen.png`, `onizleme/ulak_parsomen.gif` (klon dışı).
+
 ## 23 Kasım 2026 — Gemini listesi parti 02 (Muharrir / Grok Bot)
 
 2D. `docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md` kalem 42–71 üretildi (30 görsel: 14 portre kartı, 10 köy duruşu, 6 ipucu/yük ikonu). Yeşil zeminli ham dosyalar `work/ui_yesil_ham/` altında tutuldu; hedef PNG'ler şeffaf yazıldı. Lisans notu: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Kontak: `onizleme/parti_02.png`. Sıradaki kalem: 72. Not: N070 (kömür sepetleri ve körük) yanında ekstra küçük atölye aletleri de çizildi; N001 izi yok.
@@ -961,3 +965,12 @@ Kapı heybe paneline 5 kese/cep varyantı × 8 kare eklendi (`assets/ui/kapi/cep
 | `CEP-ARAMA` | `assets/ui/kapi/cep_arama/lacivert_cizgili/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
 | `CEP-ARAMA` | `assets/ui/kapi/cep_arama/yesil_islemeli/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
 | `CEP-ARAMA` | `assets/ui/kapi/cep_arama/keten_sade/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+
+## 23 Kasım 2026 — ulak giriş sahnesi (Cursor)
+
+Kapı açılışı ulak sunumuna tam boy asker görseli ve mühürlü beratın 9 karelik açılma dizisi eklendi (`assets/ui/ulak/`). `UlakParsomenAnimasyonu` tıklanınca kareleri oynatır; metin son karede Label olarak belirir. Dosya yoksa `kapi_acilis_paneli.gd` eski düz yazı düzenini kurar. Lisans: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026.
+
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Durum |
+|---|---|---|---|---|
+| `ULAK-ASKER` | `assets/ui/ulak/ulak_asker.png` | 864×1152 | RGBA; ham düz #00FF00 | eklendi 23 Kasım 2026 (Cursor) |
+| `ULAK-PARSOMEN` | `assets/ui/ulak/parsomen/kare_01.png` … `kare_09.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
