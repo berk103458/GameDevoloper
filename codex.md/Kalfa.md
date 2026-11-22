@@ -2026,3 +2026,8 @@ SMAA kullanan köy viewport'unda düşük profil MSAA'yı kapatıyor, normale d�
 ## 22 Kasım 2026 — Terrain3D çalışma uyarısı (Kalfa)
 
 Çalışma anında üretilen Terrain3D kaynağında editör dokusu boşaltma kapatıldı. Headless import ve eklenti bağ testi geçti, eski uyarı görülmedi. MCP eklenti listesini okudu. Windows güncelleme penceresi Eklentiler sekmesinin görüntüsünü engelledi. Yeni asset gerekmedi. Kota görünmüyor.
+
+
+## 22 Kasım 2026 — Godot editör kapanışı (Kalfa)
+
+Theatre kapanışta dosya sistemi referansını bıraktıktan sonra tekrar tarama almaya çalışıyordu. `_save_external_data` geçerli dosya sistemi varken tarıyor. Temiz headless import ve hazır pencereli editörü MCP ile kapatma geçti. Önceki null tarama hatası çıkmadı. Kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/09-theatre/`. Yeni asset gerekmedi. Kota görünmüyor.
