@@ -96,3 +96,10 @@ Başarılı koşular `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/03-dosyasiz.log`,
 ## Takip — Kalıcı F5 regresyon testi
 
 Başlatmak için `python -B tests/oto/hizli_kayit_yuva_kontrol.py <Godot.exe>`. Test yalıtılmış kayıt dizini kullanıyor. İlk Godot süreci F5'i açık raporda ve normal oyunda sınayıp etkin yuvayı, önceki kaydın yedeğini ve 1. yuvanın değişmediğini doğrular. İkinci süreç Devam Et ile 2. yuvayı açar ve oturum sözlüğünü kayıttan okunan değerlerle karşılaştırır. İki aşama da geçti. Kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/06-kayit-regresyonu/`. Bu test F5 ve yeniden açılışa odaklanır, 3–5. gün oynama kanıtı Bölüm 2'de durur.
+
+
+## Takip — Altıncı ile sekizinci günler
+
+5. gece sonu kaydından başlayınca 6. gece raporu açıldı. 7. günde Sancak Beyi'nin ulağı yalnız `ulak_dinle` düğmesini sundu. Oyun köprüsünün sabit karar listesi geçerli düğme anahtarını reddetti. Köprü artık açık, görünür ve etkin oyun düğmesini esas alıyor. Geçersiz değer ve gösterilmeyen düğme reddediliyor.
+
+6. gece sonundan yeni süreçte devam edilince `ulak_dinle` uygulandı. 7. ve 8. gece raporları kapandı. Yeniden başlatılan 604 adımlık koşu sıfır hata ve `gece_siniri` ile tamamlandı. 6, 7, 8. gecelerde gıda üretimi sırasıyla +16, +11, +9. 8. gece sonu dosyası `8 / kapi` durumuyla diske yazıldı. Kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/08-gec-dongu/`.

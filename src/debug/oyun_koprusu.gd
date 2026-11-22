@@ -209,7 +209,7 @@ func _kapi_karar(args: Dictionary) -> Dictionary:
 	if not ana._ekran is KapiEkrani or ana._ust != null: return hata("Kapı karar ekranı gerekli.")
 	var k := ana._ekran as KapiEkrani
 	var karar: Variant = args.get("karar")
-	if not karar is String or karar not in ["kabul", "ret", "rusvet", "kisla", "harc", "elkoy"]: return hata("Geçersiz karar.")
+	if not karar is String or karar.is_empty(): return hata("Geçersiz karar.")
 	if k.evre != &"karar" or k._heybe_paneli != null or k.has_node("ChrInceleme"): return hata("Önce sohbet/incelemeyi UI seçenekleriyle tamamlayın.")
 	for i in k._karar_anahtarlari.size():
 		if k._karar_anahtarlari[i] == karar:

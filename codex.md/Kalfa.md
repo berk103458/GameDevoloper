@@ -2031,3 +2031,8 @@ SMAA kullanan köy viewport'unda düşük profil MSAA'yı kapatıyor, normale d�
 ## 22 Kasım 2026 — Godot editör kapanışı (Kalfa)
 
 Theatre kapanışta dosya sistemi referansını bıraktıktan sonra tekrar tarama almaya çalışıyordu. `_save_external_data` geçerli dosya sistemi varken tarıyor. Temiz headless import ve hazır pencereli editörü MCP ile kapatma geçti. Önceki null tarama hatası çıkmadı. Kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/09-theatre/`. Yeni asset gerekmedi. Kota görünmüyor.
+
+
+## 22 Kasım 2026 — Geç oyun köprü doğrulaması (Kalfa)
+
+6–8. gece raporları tamamlandı. `ulak_dinle` düğmesi sabit liste yerine gerçek kapı düğmelerinden doğrulanıyor. 6. gece sonundan yeni süreçte 8. geceye 604 adım, 0 hata. Sonraki koşu 8. gece sonu kaydından başlar. Hikâye ve düğme davranışı mevcut oyundan alınır. Asset gerekmedi. Kota görünmüyor.
