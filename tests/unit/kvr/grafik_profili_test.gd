@@ -11,6 +11,10 @@ func _calistir() -> void:
 	var ekran := Node.new()
 	root.add_child(ekran)
 	var vp := SubViewport.new()
+	vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_SMAA
+	vp.msaa_3d = Viewport.MSAA_4X
+	var smaa_olmayan := SubViewport.new()
+	smaa_olmayan.msaa_3d = Viewport.MSAA_2X
 	var alev := KapiManzarasi.alev(1.0)
 	alev.layers = 3
 	var cpu := CPUParticles3D.new()
@@ -18,6 +22,7 @@ func _calistir() -> void:
 	var gpu := GPUParticles3D.new()
 	gpu.emitting = true
 	ekran.add_child(vp)
+	ekran.add_child(smaa_olmayan)
 	ekran.add_child(alev)
 	ekran.add_child(cpu)
 	ekran.add_child(gpu)
@@ -26,10 +31,13 @@ func _calistir() -> void:
 	profil.hedef = ekran
 	ekran.add_child(profil)
 	_kontrol(alev.layers == 3 and gpu.emitting and not cpu.emitting, "Normal profil gerçek başlangıcı korur")
+	_kontrol(vp.msaa_3d == Viewport.MSAA_4X, "Normal profil alt viewport MSAA ayarını korur")
 	ayar.ayarla(&"grafik_profili", &"dusuk")
 	_kontrol(alev.layers == 0 and not gpu.emitting and cpu.layers == 0, "Düşük profil shader ve CPU/GPU efektlerini kapatır")
 	_kontrol(is_equal_approx(vp.scaling_3d_scale, 0.75) and is_equal_approx(root.scaling_3d_scale, 0.75), "Ana ve alt viewport 3B ölçeklenir")
 	_kontrol(is_equal_approx(root.canvas_transform.get_scale().x, 1.0), "2B ölçek aynı kalır")
+	_kontrol(vp.msaa_3d == Viewport.MSAA_DISABLED and vp.screen_space_aa == Viewport.SCREEN_SPACE_AA_SMAA, "Düşük profilde köyün SMAA etkisi kalır")
+	_kontrol(smaa_olmayan.msaa_3d == Viewport.MSAA_2X, "SMAA kullanmayan görünümde MSAA korunur")
 	alev.visible = false # Gündüz/gece görünürlüğü profile bağlı değildir.
 	var yeni := KapiManzarasi.parcacik_alev(0.5, 1.0)
 	ekran.add_child(yeni)
@@ -46,6 +54,7 @@ func _calistir() -> void:
 	DirAccess.remove_absolute(ayar.yol)
 	ayar.ayarla(&"grafik_profili", &"normal")
 	_kontrol(alev.layers == 3 and not alev.visible and gpu.emitting and not cpu.emitting and yeni.emitting, "Normal moda dönüş asıl katman/emisyonu ve güncel görünürlüğü korur")
+	_kontrol(vp.msaa_3d == Viewport.MSAA_4X and vp.screen_space_aa == Viewport.SCREEN_SPACE_AA_SMAA, "Ölçek seçimi sonrası normal profil dört örnekli MSAA ayarını geri getirir")
 	var panel := GrafikAyarlariPaneli.new()
 	panel.ayarlar = ayar
 	ekran.add_child(panel)

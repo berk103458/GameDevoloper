@@ -83,3 +83,19 @@ ProtonScatter görünürlüğü bu kadrajda 12 çizim çağrısı ekledi. Instan
 Köylünün işe yürüyüşü, akşam ev durağına varışı ve duraklaması geçti. Dört koyun gündüz otlağa çıktı, geçit kapandığında kestirme yapmadı ve akşam ağıla döndü. Sürü sahnesi testine mevcut ağıl yapım bilgisi eklendi. Kayıt kıyası ekranın açılışından sonra başlıyor. Tüccar harçtan sonra eşiği x=1,05 m'de geçti, açıklığın yarı genişliği 1,75 m. Köy yönünde z=2,49 m'ye ilerleyip sahneden ayrıldı. Tüccar ölçümü kapı rotasını kapsar.
 
 Yerel kanıt dizini `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/04-performans/`. `instanced-*.log`, dört varyant PNG'si, `koylu.log`, `suru-rota.log` ve `tuccar.log`.
+
+
+## 22 Kasım 2026 — Düşük grafik profili, köy kenar yumuşatma (Kalfa)
+
+Aynı surlu köy 1280×720 görünür pencerede ölçüldü. Köyün SubViewport boyutu 1920×1080. Testte VSync kapalı, üst sınır 120 FPS. Görsel inceleme için [yerel kanıt dizini](CODEX_DENETIM_RAPORU.md) raporda.
+
+| Deneme | Ortanca FPS | Köy GPU ortancası |
+|---|---:|---:|
+| Normal, %100, MSAA + SMAA | 33,21–35,62 | 14,09–15,11 ms |
+| Normal, %75, MSAA + SMAA | 48,71 | 10,35 ms |
+| Düşük, %75, MSAA + SMAA | 52,17–54,41 | 9,25–9,64 ms |
+| Düşük, %75, yalnız SMAA | 67,35–70,35 | 7,19–7,59 ms |
+
+SMAA kullanan SubViewport'larda düşük profil MSAA'yı devre dışı bırakıyor. Normal profile dönüldüğünde önceki MSAA değeri geri yükleniyor. SMAA kullanmayan kapı görünümünün MSAA değeri korunuyor. Değişiklik sonrasında köy saati 1x iken normal → düşük → normal geçişi sırasıyla 34,13 → 71,40 → 33,20 FPS verdi. Önceden duran sahnede yapılan yan yana ölçüm, AA değişikliğinin tek başına etkisini gösterir. Bu değerler aynı donanım ve örnek köyle sınırlı.
+
+Godot headless import ile `grafik_profili_test.gd` geçti. Canlı sahne testi düşük profilde `MSAA_DISABLED + SMAA`, normale dönüşte `MSAA_4X + SMAA` doğruladı. Kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/05-profil/`.

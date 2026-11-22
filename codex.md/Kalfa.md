@@ -2011,3 +2011,8 @@ Kapanışta eklenti testindeki görüntü yolu değişkeninin aynı işlevdeki a
 ## 22 Kasım 2026 — Köy performansı ve rota takibi (Kalfa)
 
 Surlu köyde Instanced Renderer ve ProtonScatter ayrı dört yapılandırmada ölçüldü. ProtonScatter 12, Instanced Renderer iki görünür çizim çağrısı ekledi. Genel FPS hedefi tekrarlanabilir biçimde karşılanmadı. Köylü iş/eve dönüş, dört koyun otlak/ağıl ve tüccar kapı geçişi kontrolleri geçti. Ağıl rota testinin kurulumuna mevcut yapım bilgisi eklendi. Sonraki adım mevcut grafik profilini ve çözünürlük ölçeğini ölçmek. Asset gerekmedi. ds aynası bulunamadı. Kota görünmüyor.
+
+
+## 22 Kasım 2026 — Düşük profil GPU ölçümü (Kalfa)
+
+SMAA kullanan köy viewport'unda düşük profil MSAA'yı kapatıyor, normale dönüşte önceki değer yükleniyor. Ayar paneli ve SMAA kullanmayan kapı görünümü ayrı kaldı. Görünür köyde 1x normal → düşük → normal 34,13 → 71,40 → 33,20 FPS. Import, hedefli grafik profili testi ve gerçek viewport geçişi geçti. [Ölçüm](../docs/EKLENTI_BAGLANTI.md). Asset gerekmedi. Kota görünmüyor.

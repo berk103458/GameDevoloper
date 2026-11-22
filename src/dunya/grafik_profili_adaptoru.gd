@@ -4,6 +4,7 @@ extends Node
 
 const EFEKT := &"grafik_efekti"
 const GOLGE := &"grafik_asli_golge"
+const ASIL_MSAA := &"grafik_asli_msaa"
 var ayarlar: Ayarlar
 var hedef: Node
 
@@ -43,9 +44,10 @@ func _gec_uygula(referans: WeakRef) -> void:
 		_dugum(n)
 
 func _dugum(n: Node) -> void:
+	var dusuk: bool = ayarlar.al(&"grafik_profili") == &"dusuk"
 	if n is SubViewport:
 		n.scaling_3d_scale = float(ayarlar.al(&"cozunurluk_3d")) / 100.0
-	var dusuk: bool = ayarlar.al(&"grafik_profili") == &"dusuk"
+		_kenar_yumusatma(n, dusuk)
 	if n is Light3D:
 		if dusuk:
 			if not n.has_meta(GOLGE):
@@ -64,6 +66,17 @@ func _dugum(n: Node) -> void:
 	n.layers = 0 if dusuk else int(n.get_meta(&"grafik_asli_katman"))
 	if parcacik:
 		n.emitting = false if dusuk else bool(n.get_meta(&"grafik_asli_emisyon"))
+
+## Düşük profilde SMAA açıkken ek MSAA örneklemesini kaldır.
+func _kenar_yumusatma(vp: SubViewport, dusuk: bool) -> void:
+	if dusuk and vp.screen_space_aa == Viewport.SCREEN_SPACE_AA_SMAA:
+		if not vp.has_meta(ASIL_MSAA):
+			vp.set_meta(ASIL_MSAA, vp.msaa_3d)
+		vp.msaa_3d = Viewport.MSAA_DISABLED
+	elif vp.has_meta(ASIL_MSAA):
+		vp.msaa_3d = vp.get_meta(ASIL_MSAA)
+		vp.remove_meta(ASIL_MSAA)
+
 
 func _exit_tree() -> void:
 	if is_instance_valid(ayarlar) and ayarlar.degisti.is_connected(_degisti):
