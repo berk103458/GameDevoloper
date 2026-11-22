@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Instagram reel — 22 Kasım 2026
+
+Yalnız belge: `docs/arastirma/INSTAGRAM_REEL_DgDAiTHiyao.md`. Reel `@murathanaksoz`, Perchance ücretsiz metinden görsel aracı. Godot ve 3B değil; oyuna bağlanmaz. Üretim yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Instagram reel — 21 Kasım 2026
 
 Yalnız belge: `docs/arastirma/INSTAGRAM_REEL_DgAJ1x8hwd_.md`. Reel `@neyapiyoruzburak`, Türkticaret.net öğrenci hosting ilanı. Godot aracı değil; oyuna bağlanmaz. Kod, satın alma ve asset yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
