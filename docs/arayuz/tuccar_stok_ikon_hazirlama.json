@@ -1,0 +1,70 @@
+[
+  {
+    "source": "work/ui_yesil_ham/icon_stok_demir_ham.png",
+    "name": "icon_stok_demir.png",
+    "size": [
+      512,
+      512
+    ],
+    "method": "green",
+    "sha256": "02c57c41fd38e4b660a98243704ad9c08510121c18e4ce47411bc3e25d4ae191",
+    "crop": [
+      150,
+      277,
+      874,
+      787
+    ],
+    "operation": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/icon_stok_cevher_ham.png",
+    "name": "icon_stok_cevher.png",
+    "size": [
+      512,
+      512
+    ],
+    "method": "green",
+    "sha256": "c2286cf38ca04930d4e4792d2e32119190f6fb1c535f0a74b3d1307f3d8cc431",
+    "crop": [
+      188,
+      248,
+      835,
+      750
+    ],
+    "operation": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/icon_stok_kurk_ham.png",
+    "name": "icon_stok_kurk.png",
+    "size": [
+      512,
+      512
+    ],
+    "method": "green",
+    "sha256": "8f54ecf63041ac3383219018b8fc2874bbf46b1aca8d49f12662fe0838b5ed74",
+    "crop": [
+      169,
+      199,
+      854,
+      819
+    ],
+    "operation": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/icon_stok_bugday_ham.png",
+    "name": "icon_stok_bugday.png",
+    "size": [
+      512,
+      512
+    ],
+    "method": "green",
+    "sha256": "14a5049ce87f73b94c5d9edd45f6d08dafb824f22569052a000b55f4459a5050",
+    "crop": [
+      228,
+      136,
+      746,
+      884
+    ],
+    "operation": "green"
+  }
+]
