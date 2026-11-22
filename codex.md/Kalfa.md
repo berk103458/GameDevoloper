@@ -2050,3 +2050,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - 23 Kasım 2026: Gerçek ana menü profilinde 2048 kalite gök haritası 256 gerçek zamanlıya alındı. 3,6 → 33,0 FPS. Menü yaması yerelde doğrulandı. Temiz festive açılışı eksik kamera metodu nedeniyle kırık. Öğreticinin mevcut Alpha rehberiyle sahiplik çakışması raporlandı. Kalıp yeterli, asset gerekmedi. Kota görünmüyor.
 
 - 23 Kasım 2026: Ahmet öğretici uygulamasını Alpha'ya, kabul testini Kalfa'ya verdi. Dört uçtan uca kabul senaryosu hazır. Alpha'ya Ajan Masası #11'de öğretici devri, eksik kamera commit'i ve Gemini listesi bildirildi. Asset gerekmedi. Kota görünmüyor.
+
+- 23 Kasım 2026: Diyalog işi D:/Kapı_Muhafizi_Kalfa_Diyalog festive klonuna taşındı. Tohum 76 Zeynep incelemesini geçip 5. geceyi 483 adım ve sıfır hatayla bitirdi. Alpha ulak panelini düzeltti. Rebase'de iki rapor bölümü korundu. Güncel kaynakta import temiz ve ikinci koşu 372 adımda sıfır hata. Asset gerekmedi. Kota görünmüyor.

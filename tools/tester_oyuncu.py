@@ -24,6 +24,7 @@ class Politika:
         self.koy_adimi = {}
         self.gorulen_secenekler = {}
         self.gorulen_eylemler = {}
+        self.gorulen_incelemeler = {}
 
     def _hikaye_sohbet_sec(self, imza, secenekler, eylemler):
         """KLT-18: hikâye odaklı persona karar öncesi tüm diyalog dallarını ve incelemeleri gezer."""
@@ -52,6 +53,18 @@ class Politika:
             return "soru_sor", {"indeks": secenekler[sayi % len(secenekler)]["indeks"]}
         return None
 
+    def _inceleme_sec(self, imza, secenekler):
+        kapat = next((b for b in secenekler if b["metin"] in ("Sorguya dön", "İncelemeye dön")), None)
+        if kapat is None:
+            return None
+        if self.ad == "hikaye_odakli" and kapat["metin"] == "Sorguya dön":
+            gorulen = self.gorulen_incelemeler.setdefault(imza, set())
+            for b in secenekler:
+                if b != kapat and b["metin"] not in gorulen:
+                    gorulen.add(b["metin"])
+                    return "devam", {"indeks": b["indeks"]}
+        return "devam", {"indeks": kapat["indeks"]}
+
     def sec(self, s):
         """Yalnız get_state içindeki oyuncunun gördüğü veriyi kullanır."""
         if not s.get("hazir") or s.get("mesgul"):
@@ -65,6 +78,9 @@ class Politika:
             return "devam", {"indeks": i}
         if ekran == "kapi":
             kisi = s.get("kisi", {})
+            imza = (s.get("gun"), kisi.get("ad"), kisi.get("sirada"))
+            if s.get("inceleme_acik"):
+                return self._inceleme_sec(imza, s.get("secenekler", []))
             if s.get("evre") == "karar":
                 kararlar = kisi.get("kararlar", [])
                 if not kararlar:
@@ -82,7 +98,6 @@ class Politika:
                         karar = kararlar[0]
                 return "kapi_karar", {"karar": karar}
             if s.get("evre") == "sohbet":
-                imza = (s.get("gun"), kisi.get("ad"), kisi.get("sirada"))
                 sayi = self.sohbet_sayisi.get(imza, 0)
                 secenekler = s.get("secenekler", [])
                 eylemler = s.get("eylemler", [])

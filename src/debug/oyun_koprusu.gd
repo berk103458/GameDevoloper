@@ -147,6 +147,7 @@ func get_state() -> Dictionary:
 		"rusvet_keseleri": {"kisisel_akce": o.muhafiz_akce, "alinan_rusvet_sayisi": int(o.bayraklar.get(&"rusvet_sayisi", 0))}})
 	if e is KapiEkrani:
 		r["evre"] = String(e.evre)
+		r["inceleme_acik"] = is_instance_valid(kok) and kok.name in [&"ChrInceleme", &"EsyaDetayKarti"]
 		r["eylemler"] = []
 		var eylem_bs := dugmeler(e._eylemler)
 		for i in eylem_bs.size(): r.eylemler.append({"indeks": i, "metin": _dugme_metni(eylem_bs[i])})

@@ -151,3 +151,10 @@ Güncel `KoySerpintisi` ayarlarıyla (`GORUNUR = 120.0`, `[["ot", 140], ["tas", 
 
 Normal (%100) iki ProtonScatter Açık penceresi de **33,95–35,60 FPS** vererek 30 FPS sınırının üzerinde ve 36,39–42,64 ms ile 100 ms kare bütçesinin altında kaldı. ProtonScatter bu kadrajda köy viewport'una ~11–12 çizim çağrısı ve ~46k ilkel eklemekte, düşük profilde ise fark yalnız ~0,15 ms GPU medyanıdır (`69,93` vs `71,50` FPS). Bu nedenle `src/koy/gorsel/koy_serpintisi.gd` yoğunluğu düşürülmedi.
 
+## Takip — Kapı inceleme ekranından sorguya dönüş (23 Kasım 2026)
+
+Oyun köprüsü CHR inceleme paneli veya eşya ayrıntı kartı açıkken bunu `inceleme_acik` alanında bildirir. Hikâye politikası görünür inceleme düğmelerini birer kez kullanır, ayrıntı kartını kapatır ve sorguya döner. Diğer politikalar görünür geri dönüş düğmesini kullanır. Normal sohbet ve karar komutları korunur.
+
+Tohum 76, üçüncü gece sonu gerçek kaydından başlatıldı. Zeynep'in incelemesi sekiz geçerli `devam` isteğiyle geçildi. Dördüncü ve beşinci geceler 483 adım ve sıfır hatayla tamamlandı. Politika denetiminde altı doğrulama geçti. Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/11-diyalog/tohum-76-uyumlu-panel.ozet.json` ve aynı dizindeki JSONL.
+
+İlk koşuda yalnız D: test kopyasında ulak panelinin önceki çalışan sürümü kullanıldı. Alpha'nın ulak sözdizimi düzeltmesi `55130cfd` sonrasında güncel kaynakla import temiz geçti. İkinci koşuda aynı kayıt Halil'in incelemesini geçti ve beşinci gece 372 adım ve sıfır hatayla kapandı. Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/11-diyalog/import-guncel.log` ve aynı dizindeki `tohum-76-festive.ozet.json`. Asset gerekmedi.

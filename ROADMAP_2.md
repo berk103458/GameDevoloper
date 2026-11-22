@@ -20,7 +20,7 @@ Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde 
 - [x] Takip — 6–8. gece raporları tamamlandı ve geçerli ulak düğmesinin oyun köprüsü bağlantısı düzeltildi. (Kalfa)
 - [x] Takip — 10. geceye kadar döngü ve alternatif tohumla 3. geceye kadar açılış doğrulandı. (Kalfa)
 - [/] (Kalfa) Takip — Ana menüde açılış takılması ölçülecek ve menüye özgü çizim maliyeti giderilecek.
-- [/] (Kalfa) Takip — Otomatik oyuncu, kapı inceleme ekranından sorguya dönüp alternatif tohumda 5. geceye ilerler.
+- [x] Takip — Otomatik oyuncu kapı incelemesinden sorguya döndü ve tohum 76'da 5. geceye sıfır hatayla ulaştı. (Kalfa)
 
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 
