@@ -98,13 +98,22 @@ func _girdi(olay: InputEvent) -> void:
 
 func _kaydir(fark: Vector3) -> void:
 	# Kamera odağını gerçek ızgara sınırına, atama ve yerleştirmeden önce kırp.
-	var alt := sahne.hucre_kosesi(Vector2i.ZERO)
-	var ust_sinir := sahne.hucre_kosesi(sahne.yonetim.a.izgara_boyut)
-	var hedef := sahne.hedef + fark
-	hedef.x = clampf(hedef.x, alt.x, ust_sinir.x)
-	hedef.z = clampf(hedef.z, alt.z, ust_sinir.z)
-	sahne.hedef = hedef
+	sahne.hedef = odak_sinirla(sahne, sahne.hedef + fark)
 	sahne._kamera_yerlestir()
+
+
+## Odak noktasını köy ızgarası + kapı payı ve arazi yüksekliği içinde tutar.
+static func odak_sinirla(s: KoyYonetimSahnesi, nokta: Vector3) -> Vector3:
+	if s == null or s.yonetim == null:
+		return nokta
+	var alt := s.hucre_kosesi(Vector2i.ZERO)
+	var ust_sinir := s.hucre_kosesi(s.yonetim.a.izgara_boyut)
+	var x := clampf(nokta.x, alt.x, ust_sinir.x)
+	var z := clampf(nokta.z, alt.z, ust_sinir.z)
+	var y := 0.0
+	if s.arazi != null:
+		y = maxf(0.0, s.arazi.yukseklik_burada(x, z))
+	return Vector3(x, maxf(y, clampf(nokta.y, y, y + 6.0)), z)
 
 
 func _birak() -> void:

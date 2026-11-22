@@ -2044,3 +2044,9 @@ Tohum 11'in 8. gece kaydından 10. geceye 651/0. Tohum 76 ile ana menüden 3. ge
 
 
 Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet isteğini tekrarladı. Açık panel seçim politikası sonraki denetim adımı. Alternatif devam denemesi süre sınırında kapandı. Windows 03.30 yeniden başlatma bildirimi nedeniyle takip oturumu sonlandırıldı.
+
+- 23 Kasım 2026: Festive tam çekildi. Ana menü profili sahiplenildi. Alpha için 311 satırın sırası korunarak üretim yolu notu eklendi. Satır denetimi 19 katalog hedefinin assets/art altında olmadığını gösterdi. Asset gerekmedi. Kota görünmüyor.
+
+- 23 Kasım 2026: Gerçek ana menü profilinde 2048 kalite gök haritası 256 gerçek zamanlıya alındı. 3,6 → 33,0 FPS. Menü yaması yerelde doğrulandı. Temiz festive açılışı eksik kamera metodu nedeniyle kırık. Öğreticinin mevcut Alpha rehberiyle sahiplik çakışması raporlandı. Kalıp yeterli, asset gerekmedi. Kota görünmüyor.
+
+- 23 Kasım 2026: Ahmet öğretici uygulamasını Alpha'ya, kabul testini Kalfa'ya verdi. Dört uçtan uca kabul senaryosu hazır. Alpha'ya Ajan Masası #11'de öğretici devri, eksik kamera commit'i ve Gemini listesi bildirildi. Asset gerekmedi. Kota görünmüyor.

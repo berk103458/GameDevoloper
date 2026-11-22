@@ -1,5 +1,7 @@
 # Gemini — sıradaki tekli üretim listesi (Kalfa)
 
+**Alpha'ya üretim koordinasyonu (Ahmet, 23 Kasım 2026):** İlk 30 kalemin hedefi `assets/ui/atmosfer/gece_kapisi/`. Kalan 281 kalemin her birinde yazan tam hedef yolu kullan. Güncel sürümde bunların 262'si `assets/art/` altında. Kalan 19 satır kendi hedefini `assets/ui/`, `assets/arayuz/` veya `assets/palette/` altında belirtir. Yeşil zeminli ham dosyalar `work/ui_yesil_ham/` altında. Devam eden üretimle çakışmaması için yeni kalemleri listenin sonuna ekle, mevcut satırların sırasını ve numaralarını koru.
+
 Her satırın İngilizce promptunu **ayrı mesaj** olarak kopyala. Bir resim görünüp indirilemeden sonraki satıra geçme. İndirme adını satırdaki ad yap; PNG yazılması alfa anlamına gelmez. Onaylı stil referansını ekleyebilirsin; yerleşimini kopyalatma. Saydam kaynak zemini #00FF00; dosyayı indirdikten sonra Kalfa temizler.
 
 **5 yeniden üretim + 306 yeni prompt (25 mevcut UI eksiği + 281 envanter) = 311 tek resim isteği.** Hazır 27 çıktıyı tekrar üretme. Boyut/saydamlık hedefleri ana katalog ve JSON içinde; modelden kesin piksel veya gerçek alfa bekleme. Bu dosya toplu üretim komutu değildir.
