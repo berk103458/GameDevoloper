@@ -16,7 +16,7 @@ static func ac(koy: KoyEkrani, devam_cb: Callable) -> bool:
 	if koy._ust_kart != null and koy._ust_kart.has_meta(&"aksam_sohbeti"):
 		return true
 	var meclis := CinarMeclisPaneli._bekliyor(koy) or CinarAltiMeclisi.haftalik_bekliyor(koy.oturum.yonetim)
-	var sohbet: Dictionary = koy.oturum.aksam_sohbeti_hazirla({"meclis_gecesi": meclis})
+	var sohbet: Dictionary = koy.oturum.aksam_sohbeti_hazirla({"meclis_gecesi": meclis, "otomatik_hikaye": true})
 	if sohbet.is_empty():
 		return false
 	var konu_id := String(sohbet.get("konu_id", ""))
@@ -32,6 +32,8 @@ static func ac(koy: KoyEkrani, devam_cb: Callable) -> bool:
 	yer.add_theme_color_override("font_color", Kabuk.SOLUK)
 	yer.visible = OyuncuSurumu.debug_acik()
 	v.add_child(yer)
+	var katilim := koy._etiket(v, preload("res://src/koy/ilk_gunler_hikayesi.gd").katilimci_basligi(koy.oturum, konu_id), Tema.KUCUK_PX)
+	katilim.add_theme_color_override("font_color", Kabuk.BAR_DOLU)
 	for satir in sohbet.get("es_replikleri", []):
 		var l := koy._etiket(v, String(satir), Tema.GOVDE_PX)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

@@ -97,10 +97,7 @@ func _process(delta: float) -> void:
 	if Input.is_physical_key_pressed(KEY_E):
 		yon -= 60.0 * delta
 	if d != Vector3.ZERO:
-		hedef += d.normalized() * hiz
-		var sinir := yonetim.a.izgara_boyut.x * HUCRE * 0.6
-		hedef.x = clampf(hedef.x, -sinir, sinir)
-		hedef.z = clampf(hedef.z, -sinir, sinir + 8.0)
+		hedef = KameraSurukleme.odak_sinirla(self, hedef + d.normalized() * hiz)
 	_kamera_yerlestir()
 
 
@@ -112,8 +109,10 @@ func ayak_zemini_yuksekligi(konum: Vector3) -> float:
 
 
 func faz(ad: StringName, sure: float = 2.0) -> void:
-	atmosfer.faz(ad, sure)
+	var gercek_sure := preload("res://src/sistemler/hareket_azalt.gd").sure(sure)
+	atmosfer.faz(ad, gercek_sure)
 	halk_hareketi.faz(ad)
+	_gece_isiklarini_guncelle(ad, gercek_sure)
 
 
 ## Kapının dünya konumu (x, z): kapı yolu ve arazi buradan güneye uzanır.
@@ -124,6 +123,21 @@ func kapi_noktasi() -> Vector2:
 
 func yakinlas(adim: float) -> void:
 	uzaklik = KameraSurukleme.uzaklik_sinirla(uzaklik * (1.0 - adim * 0.1))
+
+
+## Kamerayı verilen konuma (ızgara ve arazi sınırları içinde) odaklar; HareketAzalt'a uyar.
+func odaklan(konum: Vector3, sure: float = 0.35) -> void:
+	var hedef_nokta := KameraSurukleme.odak_sinirla(self, konum)
+	var gercek_sure := preload("res://src/sistemler/hareket_azalt.gd").sure(sure)
+	if gercek_sure <= 0.0 or not is_inside_tree():
+		hedef = hedef_nokta
+		_kamera_yerlestir()
+		return
+	var tw := create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tw.tween_method(func(v: Vector3) -> void:
+		hedef = v
+		_kamera_yerlestir()
+	, hedef, hedef_nokta, gercek_sure)
 
 
 func _kamera_yerlestir() -> void:
@@ -199,17 +213,65 @@ func yenile() -> void:
 	TasYatagiGorseli.kur(self, _yapilar)
 	for b in yonetim.binalar:
 		var n := _bina_dugumu(b)
+		var gorsel_yon := _yola_gore_yon(b)
 		n.position = alan_merkezi(b.hucre, b.boyut(yonetim.katalog))
-		n.rotation_degrees.y = 90.0 * b.yon
+		n.rotation_degrees.y = 90.0 * gorsel_yon
 		n.set_meta("bina_id", b.id)
+		n.set_meta(&"gorsel_yon", gorsel_yon)
 		_yapilar.add_child(n)
-	HazirEsyaHayvan.kopek_kur(_yapilar, Vector3(kapi_noktasi().x + 2.0, 0, kapi_noktasi().y - 2.0))
+	var ek_hayvan := preload("res://src/koy/ticaret/ek_hayvan_pazari.gd")
+	ek_hayvan.sahne_hayvanlarini_kur(self, _yapilar)
+	var kopek_gerekli := ek_hayvan.toplam_ek(yonetim) > 0 or yonetim.lojistik.sayi() > 0 or yonetim.binalar.any(func(b: KoyBinasi) -> bool: return b.hazir() and b.tur in ["agil", "ahir", "muhafiz_kislasi"])
+	if kopek_gerekli:
+		HazirEsyaHayvan.kopek_kur(_yapilar, Vector3(kapi_noktasi().x + 2.0, 0, kapi_noktasi().y - 2.0))
 	_sur_kur()
 	OduncuRutini.orman_kur(self, _yapilar)
 	MuhafizDevriyesi.kule_kur(self, _yapilar)
 	halk_hareketi.yenile()
 	DivanZindanGorseli.kur(self, _yapilar)
 	IklimGorseli.uygula(self)
+	_gece_isiklarini_guncelle(atmosfer.faz_adi, 0.0)
+
+
+func _yola_gore_yon(b: KoyBinasi) -> int:
+	if b.yon != 0:
+		return b.yon
+	var boy := b.boyut(yonetim.katalog)
+	var merkez := Vector2(b.hucre) + Vector2(boy) * 0.5
+	var hedef_nokta := Vector2(yonetim.a.meydan.position) + Vector2(yonetim.a.meydan.size) * 0.5
+	var en_yakin := INF
+	for h in yonetim.izgara.yollar:
+		var d := merkez.distance_squared_to(Vector2(h) + Vector2(0.5, 0.5))
+		if d < en_yakin:
+			en_yakin = d
+			hedef_nokta = Vector2(h) + Vector2(0.5, 0.5)
+	var fark := hedef_nokta - merkez
+	if boy.x != boy.y:
+		return 0 if fark.y >= 0.0 else 2
+	if absf(fark.y) >= absf(fark.x):
+		return 0 if fark.y >= 0.0 else 2
+	return 1 if fark.x >= 0.0 else 3
+
+
+func _gece_isiklarini_guncelle(ad: StringName, sure: float) -> void:
+	var enerji := 0.0 if ad == &"gunduz" else (1.15 if ad == &"aksam" else 1.65)
+	for n in _yapilar.find_children("*", "OmniLight3D", true, false):
+		var isik := n as OmniLight3D
+		if isik == null or not isik.has_meta(&"gece_isigi"):
+			continue
+		isik.light_color = Color("#FF9A40")
+		if sure <= 0.0 or not is_inside_tree():
+			isik.light_energy = enerji
+			isik.visible = enerji > 0.0
+		else:
+			isik.visible = true
+			var tw := create_tween()
+			tw.tween_property(isik, "light_energy", enerji, sure)
+			if enerji <= 0.0:
+				tw.tween_callback(func() -> void:
+					if is_instance_valid(isik):
+						isik.visible = false
+				)
 
 
 func _meydan_kur() -> void:

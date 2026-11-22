@@ -91,6 +91,12 @@ static func _duz_yazi_kur(kat: Control, olay: OlayVerisi, gecir: Callable) -> vo
 	metin.text = TranslationServer.translate(olay.metin_anahtari)
 	metin.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	kutu.add_child(metin)
+	var ugurlama := Label.new()
+	ugurlama.text = "Eşin: 'Ulak atına bindi beyim; dışarıda soğukta bekleyenler var, ilk kararın bütün köyün önünü açacak.'\nKaraca Usta: 'Sancak mührü artık elinde muhafız; kime kapı açarsan köy onunla büyür.'"
+	ugurlama.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	ugurlama.add_theme_font_size_override("font_size", alt_px)
+	ugurlama.add_theme_color_override("font_color", Kabuk.yazi())
+	kutu.add_child(ugurlama)
 	var gecis := Label.new()
 	gecis.text = "Ulak gözden yitince kapı ilk kez açılır. Bu geceki tercihlerin 2. günün düzenini ve 2. gecenin yükünü belirleyecek."
 	gecis.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

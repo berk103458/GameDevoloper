@@ -1806,3 +1806,22 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - 6 sekmenin tamamı (`Oyun`, `Görüntü`, `Okuma`, `Ses`, `Kontroller`, `Dil`) canlı pencerede yakalanıp görsel olarak doğrulandı (`0 SCRIPT ERROR`).
 - **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
 - kota görünmüyor
+
+### 23 Kasım (Tur 5) — İlk 2 gün hikâyesi, tüccar sekansı, koyun/hayvan katkısı, avlu temizliği ve ek 2D üretim listesi
+- **İlk 2 gün hikâyesi ve otomatik akşam/giriş sohbetleri:**
+  - `data/soz/aksam_konulari.json` ve `src/koy/ilk_gunler_hikayesi.gd`: `"ilk_gece_ocak_ve_aile"`, `"ikinci_gun_karaca_giris"`, `"ucuncu_gun_ayse_ve_pazar"` ve `"tuccar_konaklama_sohbeti"` konuları ve katılımcı başlıkları eklendi.
+  - `src/sistemler/oturum.gd` ve `src/arayuz/koy_hud/aksam_sohbeti_paneli.gd`: `"Geceye geç"` akışında `ek_baglam["otomatik_hikaye"] = true` ile eş, Ali ve Zeynep, Karaca Usta, Ayşe Bacı ve konaklayan tüccarla otomatik ocak başı sohbeti bağlandı (doğrudan birim test çağrıları korundu).
+  - `src/arayuz/koy_hud/kapi_acilis_paneli.gd`: 1. gece ulak geçişi öncesi eş ve Karaca Usta uğurlama/uyarı satırları eklendi.
+- **Uçtan uca tüccar alışveriş sekansı ve tüm hayvanların katkısı:**
+  - `src/koy/ticaret/ek_hayvan_pazari.gd`: `koyun` (18/9 akçe), `keci` (20/10), `tavuk` (10/5), `esek` (22/11) alım/satımı, başlangıç + barınak kapasiteleri, gece doğrudan ürün katkıları (`gida`, her 2 koyuna +1 `kece`, `esek` için `odun`/`tas`) ve koşullu kayıt (`ek_hayvanlar` toplam > 0 ise) eklendi; 3B sahne yenilemesinde ad çakışmasını önlemek için `ust.remove_child(eski)` düzeltmesi yapıldı.
+  - `src/koy/ticaret/canli_hayvan_takasi.gd` ve `src/koy/koy_yonetimi.gd`: Ağıl/üretim çarpan eki ve gece/kayıt akışı bağlandı.
+  - `src/arayuz/koy_hud/tuccar_alisveris_sekansi.gd`, `src/arayuz/koy_ekrani.gd`, `src/arayuz/koy_hud/koy_rehberi_paneli.gd`: Kervan durumu, yol havadisi, ziyaret başına 1 kez pazarlık, koyun/keçi/tavuk/eşek + Celep + erzak + uzman stok + köy fazlası satışı sekansı (`TuccarSekansKart`, `GRV-08` uyumlu) ve rehber notu eklendi.
+- **Başıboş avlu/çevre asset temizliği:**
+  - `src/koy/gorsel/bina_avlu_esyalari.gd` ve `src/dunya/koy_yonetim_sahnesi.gd`: Avlu ve meydan kenarındaki sahipsiz hayvan/insan heykelleri (`td_b117`, `td_a146`, `td_a172`, `td_a157`, `td_b019`, `td_k05`, `td_k09`, `td_k02`, `td_b092`, `td_k12`, `td_k14`, `td_k15`) kaldırılıp durağan avlu eşyaları kondu; tüccar/hayvan/köpek yalnız gerçekten köydeyken yerleştirildi.
+- **Ek 2D üretim taraması (ayrı dosya):**
+  - `docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md` (311 kalem) hiç değiştirilmeden ayrı `docs/arayuz/GEMINI_EK_2D_URETIM_LISTESI.md` (143 kalem: 99 tekil UI/portre/olay/mini-oyun/savaş + 10 set 44 kare 12 FPS sıra-sıra 2D animasyon) oluşturuldu.
+- **Doğrulamalar:**
+  - `tests/oto/aksam_sohbeti_kontrol.tscn` (`AKSAM SOHBETI UI: GEÇTİ (0 hata)`, `RC=0`), `tests/unit/koy/avlu_esya_yerlesim_test.gd` (`CIL-07 AVLU EŞYA (114 avlu, 14 çevre): GEÇTİ`, `RC=0`), `tests/unit/koy/aksam_sohbeti_test.gd` (`TEST PASS`, `RC=0`), ve uçtan uca `_tmp_verify.tscn` (`VERIFY_TUR5: GECTI`, `3B sahnede 5 hayvan yerlestirildi: 5`, `RC=0`).
+  - `TuccarSekansKart` canlı pencereli ekran görüntüsü (`tuccar_sekans.png`) incelendi.
+- **İhtiyaç:** Kod dışı 2D eksik listesi ayrı dosyaya eklendi; kod tarafında yeni dosya üretilmedi (`asset gerekmedi`).
+- kota görünmüyor

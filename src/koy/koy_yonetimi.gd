@@ -597,6 +597,7 @@ func gece() -> Dictionary:
 		olaylar.append({"anahtar": "koy.olay.isyan_uretim_yok"})
 	GeciciIsler.gece(self, rapor, calismalar)
 	SamanBakimi.hasat(self, rapor)
+	preload("res://src/koy/ticaret/ek_hayvan_pazari.gd").gece_katkisi(self, rapor)
 	GeceDeneyi.uretimin_ardindan(self)
 	KoyluGelisimYoneticisi.gece(self, calismalar, olaylar)
 	KoyluBagi.gun_sonu_kur(self)
@@ -980,12 +981,16 @@ func kaydet() -> Dictionary:
 	var b: Array = []
 	for x in binalar:
 		b.append(x.kaydet())
-	return {"cozumleme": preload("res://src/koy/cozumleme.gd").durum(self), "ozel_esyalar": OzelEsyalar.durum(self), "sira_olayi_raporu": SiraOlayiSonucu.durum(self), "tas_yatagi": tas_yatagi.kaydet() if tas_yatagi != null else null, "perde2_baslangic": PERDE_GECISI.baslangic(self), "kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kapi_nobeti": KapiNobeti.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
+	var kayit_d := {"cozumleme": preload("res://src/koy/cozumleme.gd").durum(self), "ozel_esyalar": OzelEsyalar.durum(self), "sira_olayi_raporu": SiraOlayiSonucu.durum(self), "tas_yatagi": tas_yatagi.kaydet() if tas_yatagi != null else null, "perde2_baslangic": PERDE_GECISI.baslangic(self), "kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kapi_nobeti": KapiNobeti.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
 		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "cete_anlasmasi": CeteAnlasmasi.durum(self), "savunma_konuslanmasi": SavunmaKonuslanmasi.durum(self), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
 		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self), "kurt_baskini_son_gece": KurtBaskini.oku(get_meta(KurtBaskini.META, -1)), "kis_hastaligi_son_gece": KisHastaligi.gece_oku(get_meta(KisHastaligi.META, -1)), "sifahane_kontenjani": SifahaneKontenjani.durum(self), "saman_son_gece": KurtBaskini.oku(get_meta(SamanBakimi.META, -1)), "casus_gece_takibi": CasusGeceTakibi.durum(self), "casus_devriyesi": CasusDevriyesi.durum(self), "kuyu_zehirleme": KuyuZehirleme.durum(self), "ambar_kundaklamasi": AmbarKundaklamasi.durum(self), "divan_oturumu": DivanOturumu.durum(self), "divan_hukumleri": DivanHukmu.durum(self), "karaboran_intikami": KaraboranIntikami.durum(self), "fisilti_gazetesi": FisiltiGazetesi.durum(self), "divan_haksizligi": DivanHaksizligi.durum(self), "yil_izi": YilIzi.durum(self), "toplam_olen": int(get_meta(PerdeOzeti.OLU_META, 0)), "hane": hane.kayit_verisi_al(), "hane_esi": HaneEsi.kaydet(self), "baglar": KoyluBagi.oku(baglar)}
+	var ek_hayvan_hat := preload("res://src/koy/ticaret/ek_hayvan_pazari.gd")
+	if ek_hayvan_hat.toplam_ek(self) > 0:
+		kayit_d["ek_hayvanlar"] = ek_hayvan_hat.kaydet(self)
+	return kayit_d
 
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
@@ -1079,5 +1084,6 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 		Hane.acilis_hanesinden_turet(y, y.hane)
 	HaneEsi.yukle(y, v.get("hane_esi", {}))
 	y.baglar = KoyluBagi.oku(v.get("baglar", []))
+	preload("res://src/koy/ticaret/ek_hayvan_pazari.gd").yukle(y, v.get("ek_hayvanlar"))
 	y._ambar_kapasitesi()
 	return y

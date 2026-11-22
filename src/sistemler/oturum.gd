@@ -911,8 +911,13 @@ func aksam_sohbeti_hazirla(ek_baglam: Dictionary = {}) -> Dictionary:
 				misafir_veri["ziyaret"] = int(m_hafiza.get("ziyaret", 0))
 			if not misafir_veri.has("son_karar"):
 				misafir_veri["son_karar"] = String(m_hafiza.get("son_karar", ""))
-	if gunun_aksam_kararlari.is_empty() and misafir_veri.is_empty():
-		return {}
+	var etkin_kararlar: Array = gunun_aksam_kararlari
+	if etkin_kararlar.is_empty() and misafir_veri.is_empty():
+		if not bool(ek_baglam.get("otomatik_hikaye", false)):
+			return {}
+		etkin_kararlar = preload("res://src/koy/ilk_gunler_hikayesi.gd").otomatik_kararlar(self)
+		if etkin_kararlar.is_empty():
+			return {}
 	var es_bilgi := _es_bilgisi()
 	if bool(ek_baglam.get("es_oldu", false)) or not bool(es_bilgi["es_hayatta"]):
 		return {}
@@ -925,7 +930,7 @@ func aksam_sohbeti_hazirla(ek_baglam: Dictionary = {}) -> Dictionary:
 		"es_meclis_sozu": false,
 		"misafir": misafir_veri,
 	}
-	var secim := AksamSohbeti.konu_sec(gunun_aksam_kararlari, gun + 1, baglam)
+	var secim := AksamSohbeti.konu_sec(etkin_kararlar, gun + 1, baglam)
 	if not secim.is_empty():
 		aksam_sohbeti_gece = gun
 		preload("res://src/koy/es_aksam_ogretisi.gd").ekle(self, secim)
