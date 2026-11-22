@@ -113,3 +113,17 @@ Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/08-gec-dongu/gece-9-10.ozet.
 
 
 Tohum 76'nın 3. gece sonu kaydını izleyen koşu Zeynep'in inceleme panelinde durdu. Köprü durumunda evre `sohbet` göründü, seçenekler arasında `Sorguya dön` vardı ve hikâye politikası `soru_sor` isteğini tekrarladı. Köprü açık inceleme nedeniyle isteği reddetti. Bu bulgu otomatik oyuncunun modal seçim akışına ait. 4. ve 5. gece bu tohumda doğrulanmadı. Kanıt `alternatif-76-gece-4-5.jsonl`.
+
+## Takip — Açılış menüsü ve öğretici (23 Kasım 2026)
+
+Godot 4.7.2 Forward+ ve RTX 3050 Laptop ile gerçek ana menü, 1920 × 1080 iç çözünürlükte ölçüldü. Hareketli gökyüzü başlangıçta 2048'lik gök ışığı küp haritasını kalite modunda güncelliyordu. 256'lık gerçek zamanlı küp haritasıyla medyan 275,2 ms'den 30,3 ms'ye (3,6 → 33,0 FPS), yüzde 95 kare süresi 333,8 ms'den 34,0 ms'ye indi. Ana menünün ilk düğme odağı ile Yeni Oyun geçişi çalıştı. 3D arka planı 960 × 540'a indiren deneme medyanı iyileştirmedi, bu değişiklik pakete alınmadı. Kanıtlar: D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/10-ana-menu/onceki-temel.log, gok256-temel.log ve son.log. Görüntüler aynı dizinde onceki.png ve gok256.png.
+
+Temiz festive kopyasında `koy_yonetim_sahnesi.gd` henüz commit edilmemiş `KameraSurukleme.odak_sinirla()` metodunu çağırdığı için derleme hatası verdi. Önce/sonra denemeleri aynı yerel kamera bağımlılığıyla D: üzerindeki test kopyasında yapıldı. Kamera dosyaları düzenlenmedi. Menü yaması çalışma kopyasında hazır. Ana dala yayın koşulu, temiz bir kopyanın açılış parse kontrolünden geçmesi.
+
+### Öğretici ve mevcut diyalog ağacı
+
+`docs/DIYALOG_DALI_BIRLESME_NOTU.md` 30 ziyaretçi için üç kademeli sorguları, koşullu takipleri ve yalan/doğru dallarını belgeliyor. Türkçe oyun verisi `data/diyalog/diyalog_01_20.json` içinde. `src/sistemler/oturum.gd` ziyaretçiye ve dile göre bu ağacı yükler. Köylü ve eş sohbetleri ayrı Parley kaynaklarından geliyor.
+
+İlk iki gün için mevcut `KoyRehberiPaneli` işçi, yatak, gıda ve kapı kararını takip ediyor. `data/ogretici/ilk_saat.json` ile `IlkSaat` zamanlanmış ipuçlarını sağlıyor. İlk ailede yalnız soru ve karar öğretiliyor. Yönetim öğreticisinin kabul akışı, ilk köy ekranında bir işçi ata ve üretimini gör, stok ve yatak değişimini oku, geceye geç, ilk aileyi sorgula ve kararın ertesi günkü iş gücü ile kaynak etkisini köyde gör adımlarından oluşur. İnceleme ve daha derin sorgu, ilk uygun ziyaretçide mevcut ağacın gerçek düğmeleriyle tanıtılır. Tamamlanma oyuncunun yaptığı işlemden okunur. Öğreticiyi atlayıp temel akışa dönme ve gün ortası kaydından kalınan adımı açma da kabul akışına dahildir.
+
+Antigravity `9a798752` ile ilk iki günün hikâyesi ve rehberini güncelledi. Ahmet öğretici entegrasyonunu Alpha'ya, kabul testini Kalfa'ya verdi. Dört senaryo `docs/tester/OGRETICI_KABUL_TESTI.md` dosyasında hazır. Alpha'ya öğretici, kamera commit'i ve üretim sırası Ajan Masası #11 üzerinden iletildi. Asset gerekmedi.
