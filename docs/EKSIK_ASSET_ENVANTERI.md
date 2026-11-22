@@ -378,6 +378,10 @@ Her satırdaki prompt bağlantısı tam İngilizce metin, kaynak konu ve notlar�
 | `TUC03-CIVI` | `assets/art/icons/icon_stok_civi.png` — kapatıldı 3 Kasım 2026 (Cursor): çivi, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 223](arayuz/UI_ASSET_PROMPTLARI_2.md#223--assetsarticonsicon_stok_civipng) |
 | `TUC03-TIRPAN` | `assets/art/icons/icon_stok_tirpan.png` — kapatıldı 3 Kasım 2026 (Cursor): tırpan, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 224](arayuz/UI_ASSET_PROMPTLARI_2.md#224--assetsarticonsicon_stok_tirpanpng) |
 | `TUC03-BALTA` | `assets/art/icons/icon_stok_balta.png` — kapatıldı 3 Kasım 2026 (Cursor): balta, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 225](arayuz/UI_ASSET_PROMPTLARI_2.md#225--assetsarticonsicon_stok_baltapng) |
+| `TUC03-DEMIR` | `assets/art/icons/icon_stok_demir.png` — kapatıldı 23 Kasım 2026 (Cursor): demir külçeleri; Grok Bot GenerateImage, Ahmet onayladı 23 Kas 2026 | 512×512 | RGBA; düz #00FF00 | — |
+| `TUC-CEVHER` | `assets/art/icons/icon_stok_cevher.png` — eklendi 23 Kasım 2026 (Cursor): demir cevheri; Grok Bot GenerateImage, Ahmet onayladı 23 Kas 2026 | 512×512 | RGBA; düz #00FF00 | — |
+| `TUC-KURK` | `assets/art/icons/icon_stok_kurk.png` — eklendi 23 Kasım 2026 (Cursor): kürk postu; Grok Bot GenerateImage, Ahmet onayladı 23 Kas 2026 | 512×512 | RGBA; düz #00FF00 | — |
+| `TUC-BUGDAY` | `assets/art/icons/icon_stok_bugday.png` — eklendi 23 Kasım 2026 (Cursor): buğday demeti; Grok Bot GenerateImage, Ahmet onayladı 23 Kas 2026 | 512×512 | RGBA; düz #00FF00 | — |
 | `MEV07-SU` | `assets/art/icons/icon_stok_su.png` — kapatıldı 3 Kasım 2026 (Cursor): su matarası, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 226](arayuz/UI_ASSET_PROMPTLARI_2.md#226--assetsarticonsicon_stok_supng) |
 | `MEV14-SAMAN` | `assets/art/icons/icon_stok_saman.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 227](arayuz/UI_ASSET_PROMPTLARI_2.md#227--assetsarticonsicon_stok_samanpng) |
 | `KRI03-ILAC` | `assets/art/icons/icon_stok_ilac_stok.png` — kısmi 3 Kasım 2026 (Cursor): ot demeti, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 228](arayuz/UI_ASSET_PROMPTLARI_2.md#228--assetsarticonsicon_stok_ilac_stokpng) |
@@ -941,3 +945,7 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 KAP-17 notu (2 Kasım 2026, Kalfa): KAP17-COCUK/YASLI ihtiyaçları yukarıdaki mevcut 3D satırlarında güncellendi; yeni asset üretilmedi/indirilmedi. Kapıdaki refakatçiler isimli BoxMesh, köyde çocuk mevcut LOWPO, yaşlı mevcut yetişkin yer tutucusudur. Boy hedefleri mevcut 1,15 m / 1,65 m. Yaşlı modeli tamamlandı sayılmaz; yeni 2D ihtiyacı yok.
 
 CIL-11 notu (17 Kasım 2026, Antigravity): `CIL11-RIG-BEKLEYEN` — `k02_kipcak_kuman_savascisi`, `b092`, `k14`, `k15` (ve `b019_kangal`) için iskelet + yürüme/sakin bekleme klibi bekleniyor; `k02` kışla sabit nöbeti (`CIL-11`) dışında `b092`/`k14`/`k15` rigleme sırasını bekler.
+
+## 23 Kasım 2026 — tüccar stok ikonları (Cursor)
+
+Nalburun `demir` stoğu ile sadakat ürünleri `cevher`, `kurk` ve `bugday` için 512×512 ikon üretildi (`GezginStokIkonu`). Lisans: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Gemini sıradaki üretim listesindeki mevcut stok/heybe ikonları (afyon, keçe, sargı, kumaş, zırh, yay, kalkan, çivi, tırpan, balta, saman, ilaç, heybe `icon_esya_*` vb.) bu turda üretilmedi; o liste başka işlemdedir.

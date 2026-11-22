@@ -1,0 +1,38 @@
+[
+  {
+    "source": "work/ui_yesil_ham/icon_stok_demir_ham.png",
+    "name": "icon_stok_demir.png",
+    "size": [
+      512,
+      512
+    ],
+    "method": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/icon_stok_cevher_ham.png",
+    "name": "icon_stok_cevher.png",
+    "size": [
+      512,
+      512
+    ],
+    "method": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/icon_stok_kurk_ham.png",
+    "name": "icon_stok_kurk.png",
+    "size": [
+      512,
+      512
+    ],
+    "method": "green"
+  },
+  {
+    "source": "work/ui_yesil_ham/icon_stok_bugday_ham.png",
+    "name": "icon_stok_bugday.png",
+    "size": [
+      512,
+      512
+    ],
+    "method": "green"
+  }
+]
