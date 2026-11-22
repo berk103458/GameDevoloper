@@ -91,3 +91,8 @@ Başarılı koşular `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/03-dosyasiz.log`,
 8. 4. ve 5. gece raporunda üretim, tüketim, zarar ve olay seçimini kontrol et. 5. gece sonu kaydını oyunu kapatıp yeni süreçte aç.
 9. Kapı sorgusunu ve tüccar diyaloğunu birer kez aç. Ret ve harç sonuçlarının ilgili karaktere ve köy durumuna işlendiğini kontrol et.
 10. Nihai PNG'ler geldiğinde diyalog, düğme, portre, mühür, rumi köşe, yükleme, ayarlar ve heybeyi aç. Beş eksik ekran bağı eklendiğinde aynı koşuyu bu ekranlarda da yap.
+
+
+## Takip — Kalıcı F5 regresyon testi
+
+Başlatmak için `python -B tests/oto/hizli_kayit_yuva_kontrol.py <Godot.exe>`. Test yalıtılmış kayıt dizini kullanıyor. İlk Godot süreci F5'i açık raporda ve normal oyunda sınayıp etkin yuvayı, önceki kaydın yedeğini ve 1. yuvanın değişmediğini doğrular. İkinci süreç Devam Et ile 2. yuvayı açar ve oturum sözlüğünü kayıttan okunan değerlerle karşılaştırır. İki aşama da geçti. Kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/06-kayit-regresyonu/`. Bu test F5 ve yeniden açılışa odaklanır, 3–5. gün oynama kanıtı Bölüm 2'de durur.

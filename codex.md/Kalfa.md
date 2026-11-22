@@ -2016,3 +2016,8 @@ Surlu köyde Instanced Renderer ve ProtonScatter ayrı dört yapılandırmada ö
 ## 22 Kasım 2026 — Düşük profil GPU ölçümü (Kalfa)
 
 SMAA kullanan köy viewport'unda düşük profil MSAA'yı kapatıyor, normale dönüşte önceki değer yükleniyor. Ayar paneli ve SMAA kullanmayan kapı görünümü ayrı kaldı. Görünür köyde 1x normal → düşük → normal 34,13 → 71,40 → 33,20 FPS. Import, hedefli grafik profili testi ve gerçek viewport geçişi geçti. [Ölçüm](../docs/EKLENTI_BAGLANTI.md). Asset gerekmedi. Kota görünmüyor.
+
+
+## 22 Kasım 2026 — Hızlı kayıt regresyonu (Kalfa)
+
+`hizli_kayit_yuva_kontrol.py` gerçek F5 yolunu ve Devam Et yüklemesini iki Godot sürecinde çalıştırıyor. Rapor açıkken disk yazımı yok, F5 etkin 2. yuvaya güncel gıdayı yazıyor, eski kayıt yedekte ve 1. yuva aynı. Yeniden açılan oturum sözlüğü kaydedilen değerlerle eşleşti. Headless import ve iki süreç geçti. Asset gerekmedi. Kota görünmüyor.

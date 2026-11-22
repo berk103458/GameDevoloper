@@ -16,6 +16,7 @@ Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde 
 - [x] Bölüm 3 — Altı çerçeve ve on arka plan dosyasız ve test PNG'li denetlendi. Beş ekranın eksik bağlantısı rapora yazıldı. (Kalfa)
 - [x] Bölüm 4 — Commit ve kanıt yolları, açık bulgular, asset ve animasyon listesi ile 10 oynama kontrolü rapora eklendi. (Kalfa)
 - [x] Takip — Düşük profilde SMAA kullanan köy görünümü için ek MSAA kapatıldı. Normal profil dönüşü ve gerçek kare süreleri doğrulandı. (Kalfa)
+- [x] Takip — Etkin yuvaya F5, açık rapor koruması ve ayrı Godot sürecinde Devam Et regresyonu eklendi. (Kalfa)
 
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 
