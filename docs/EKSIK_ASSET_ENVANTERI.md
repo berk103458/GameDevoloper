@@ -1,3 +1,7 @@
+## 23 Kasım 2026 — Gemini listesi parti 01 (Muharrir / Grok Bot)
+
+2D. `docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md` kalem 1, 4 ve 18–41 üretildi (26 görsel). Yeşil zeminli ham dosyalar `work/ui_yesil_ham/` altında tutuldu; hedef PNG'ler şeffaf veya opak olarak yazıldı. Lisans notu: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Kontak: `onizleme/parti_01.png`. Atlanan (zaten duran gerçek sanat): kalem 2–3, 5–17. Sıradaki kalem: 42.
+
 ## 20 Kasım 2026 — köy serpinti yer tutucuları (Cursor)
 
 EKLENTI-SERPINTI. 3B. ProtonScatter yol kenarı ve köy halkası. Ot, repodaki mevcut tutam ağı (`KoyArazisi._tutam`); yeni dosya yok. Taş, çalı ve ağaç: repoda `Dunya3B.model_var_mi("agac")` yoksa isim etiketli BoxMesh (`src/koy/gorsel/koy_serpintisi.gd`). Ölçü: taş yaklaşık 0,35×0,22×0,28 m, çalı 0,7×0,45×0,7 m, ağaç 0,8×3,2×0,8 m. Arama: TR "14. yy Anadolu yol kenarı taş / çalı / servis ağacı", EN "14th century Anatolian roadside stone / shrub / cypress glb". Lisans yalnız CC0 veya CC-BY. Öncelik düşük. Üretim ve indirme yok. Zemin dokuları repodaki Poly Haven CC0 (`sparse_grass`, `rocky_trail`, `muddy_tracks`); yeni doku indirilmedi. Ekleyen: Cursor.
