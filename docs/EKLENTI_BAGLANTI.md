@@ -99,3 +99,8 @@ Aynı surlu köy 1280×720 görünür pencerede ölçüldü. Köyün SubViewport
 SMAA kullanan SubViewport'larda düşük profil MSAA'yı devre dışı bırakıyor. Normal profile dönüldüğünde önceki MSAA değeri geri yükleniyor. SMAA kullanmayan kapı görünümünün MSAA değeri korunuyor. Değişiklik sonrasında köy saati 1x iken normal → düşük → normal geçişi sırasıyla 34,13 → 71,40 → 33,20 FPS verdi. Önceden duran sahnede yapılan yan yana ölçüm, AA değişikliğinin tek başına etkisini gösterir. Bu değerler aynı donanım ve örnek köyle sınırlı.
 
 Godot headless import ile `grafik_profili_test.gd` geçti. Canlı sahne testi düşük profilde `MSAA_DISABLED + SMAA`, normale dönüşte `MSAA_4X + SMAA` doğruladı. Kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/05-profil/`.
+
+
+## 22 Kasım 2026 — Terrain3D çalışma uyarısı (Kalfa)
+
+Köyde Terrain3D Assets kaynağı çalışma anında oluşturuluyor. Dosyaya bağlı editör dokularını boşaltma özelliği bu örnekte kapatıldı. Aynı eklenti testi arazi bölgesini, mevcut çarpışma davranışını ve eklenti bağlarını doğruladı. `free_editor_textures requires Assets...` uyarısı çıkmadı. Import ve hedefli test 0. Yerel kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/07-eklenti-kapanis/`. MCP beş editör eklentisini yeniden doğruladı. Windows güncelleme istemi Eklentiler sekmesine erişimi kapattı.

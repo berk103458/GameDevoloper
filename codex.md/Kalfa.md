@@ -2021,3 +2021,8 @@ SMAA kullanan köy viewport'unda düşük profil MSAA'yı kapatıyor, normale d�
 ## 22 Kasım 2026 — Hızlı kayıt regresyonu (Kalfa)
 
 `hizli_kayit_yuva_kontrol.py` gerçek F5 yolunu ve Devam Et yüklemesini iki Godot sürecinde çalıştırıyor. Rapor açıkken disk yazımı yok, F5 etkin 2. yuvaya güncel gıdayı yazıyor, eski kayıt yedekte ve 1. yuva aynı. Yeniden açılan oturum sözlüğü kaydedilen değerlerle eşleşti. Headless import ve iki süreç geçti. Asset gerekmedi. Kota görünmüyor.
+
+
+## 22 Kasım 2026 — Terrain3D çalışma uyarısı (Kalfa)
+
+Çalışma anında üretilen Terrain3D kaynağında editör dokusu boşaltma kapatıldı. Headless import ve eklenti bağ testi geçti, eski uyarı görülmedi. MCP eklenti listesini okudu. Windows güncelleme penceresi Eklentiler sekmesinin görüntüsünü engelledi. Yeni asset gerekmedi. Kota görünmüyor.

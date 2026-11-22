@@ -41,6 +41,7 @@ func _kos() -> void:
 	var duz := s.arazi.get_node_or_null(^"zemin_eski") as MeshInstance3D
 	var terrain := s.arazi.get_node_or_null(^"zemin_terrain") as Terrain3D
 	_kontrol(terrain != null and terrain.data.get_region_count() > 0, "Terrain3D bölgesi var")
+	_kontrol(terrain != null and not terrain.free_editor_textures, "Bellekte kurulan arazi editör dokularını boşaltmaz")
 	_kontrol(duz != null and not duz.visible, "eski zemin duruyor ve gizlendi")
 	_kontrol(is_equal_approx(s.arazi.yukseklik_burada(0, 0), 0.0), "ızgara yüksekliği 0")
 	print("CARPISMA ", terrain.collision_mode)

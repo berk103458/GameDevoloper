@@ -16,6 +16,8 @@ static func kur(arazi: KoyArazisi) -> Terrain3D:
 	if eski != null:
 		eski.queue_free()
 	var t := Terrain3D.new()
+	# Assets çalışma anında oluşturulur ve bir editör dosyasına bağlı değildir.
+	t.free_editor_textures = false
 	t.name = &"zemin_terrain"
 	t.region_size = COZUNURLUK
 	t.vertex_spacing = KoyArazisi.ZEMIN_BOYU / float(COZUNURLUK - 1)
