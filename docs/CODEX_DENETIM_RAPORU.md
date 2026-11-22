@@ -103,3 +103,13 @@ Başlatmak için `python -B tests/oto/hizli_kayit_yuva_kontrol.py <Godot.exe>`. 
 5. gece sonu kaydından başlayınca 6. gece raporu açıldı. 7. günde Sancak Beyi'nin ulağı yalnız `ulak_dinle` düğmesini sundu. Oyun köprüsünün sabit karar listesi geçerli düğme anahtarını reddetti. Köprü artık açık, görünür ve etkin oyun düğmesini esas alıyor. Geçersiz değer ve gösterilmeyen düğme reddediliyor.
 
 6. gece sonundan yeni süreçte devam edilince `ulak_dinle` uygulandı. 7. ve 8. gece raporları kapandı. Yeniden başlatılan 604 adımlık koşu sıfır hata ve `gece_siniri` ile tamamlandı. 6, 7, 8. gecelerde gıda üretimi sırasıyla +16, +11, +9. 8. gece sonu dosyası `8 / kapi` durumuyla diske yazıldı. Kanıt `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/08-gec-dongu/`.
+
+
+## Takip — Onuncu gece ve alternatif tohum
+
+Tohum 11 ile 8. gece sonu kaydı yeni bir süreçte açıldı. 9. ve 10. gece raporları 651 adımda sıfır hata ile kapandı. Gıda üretimi +10 ve +9, tüketimi 14 ve 18. 10. gece sonu kayıt fazı `kapi`. Tohum 76 ve hikâye odaklı seçimle ana menüden başlayan alternatif 507 adımlık koşu da 3. geceye sıfır hata ile ulaştı.
+
+Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/08-gec-dongu/gece-9-10.ozet.json` ve aynı dizinde `erken-alternatif-76.ozet.json`.
+
+
+Tohum 76'nın 3. gece sonu kaydını izleyen koşu Zeynep'in inceleme panelinde durdu. Köprü durumunda evre `sohbet` göründü, seçenekler arasında `Sorguya dön` vardı ve hikâye politikası `soru_sor` isteğini tekrarladı. Köprü açık inceleme nedeniyle isteği reddetti. Bu bulgu otomatik oyuncunun modal seçim akışına ait. 4. ve 5. gece bu tohumda doğrulanmadı. Kanıt `alternatif-76-gece-4-5.jsonl`.

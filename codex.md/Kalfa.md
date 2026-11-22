@@ -2036,3 +2036,11 @@ Theatre kapanışta dosya sistemi referansını bıraktıktan sonra tekrar taram
 ## 22 Kasım 2026 — Geç oyun köprü doğrulaması (Kalfa)
 
 6–8. gece raporları tamamlandı. `ulak_dinle` düğmesi sabit liste yerine gerçek kapı düğmelerinden doğrulanıyor. 6. gece sonundan yeni süreçte 8. geceye 604 adım, 0 hata. Sonraki koşu 8. gece sonu kaydından başlar. Hikâye ve düğme davranışı mevcut oyundan alınır. Asset gerekmedi. Kota görünmüyor.
+
+
+## 22 Kasım 2026 — Onuncu gece ve alternatif tohum (Kalfa)
+
+Tohum 11'in 8. gece kaydından 10. geceye 651/0. Tohum 76 ile ana menüden 3. geceye 507/0. Oyun raporu, kaynak hareketi ve gece sonu `kapi` kaydı doğrulandı. [Kanıtlar](../docs/CODEX_DENETIM_RAPORU.md). Asset gerekmedi. Kota görünmüyor.
+
+
+Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet isteğini tekrarladı. Açık panel seçim politikası sonraki denetim adımı. Windows 03.30 yeniden başlatma bildirimi nedeniyle çalışan deneme kontrollü kapatıldı.
