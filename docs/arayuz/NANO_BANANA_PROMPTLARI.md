@@ -2,6 +2,8 @@
 
 20 Kasım 2026. Cursor. Ahmet üretir. Kod, dosya bu yolda ve bu adla durunca onu yükler. Yoksa isim etiketli koyu kutu kalır. `no text`. Saydamlık yok. Opak resim.
 
+23 Kasım 2026: Altı çerçeve ve on arka plan üretildi. Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Nihai dosyalar `assets/ui/atmosfer/gece_kapisi/` ve `assets/ui/arkaplan/` altında.
+
 Ortak üslup: 14. yüzyıl Osmanlı uç beyliği, ciddi, gece, mum ve demir. Avrupa parşömen penceresi, çini desen dolgusu, çizgi film, gotik haç yok.
 
 | Dosya | Boyut | Ekran | Prompt |
