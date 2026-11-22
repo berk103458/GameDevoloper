@@ -1,3 +1,7 @@
+## 23 Kasım 2026 — Gemini listesi parti 02 (Muharrir / Grok Bot)
+
+2D. `docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md` kalem 42–71 üretildi (30 görsel: 14 portre kartı, 10 köy duruşu, 6 ipucu/yük ikonu). Yeşil zeminli ham dosyalar `work/ui_yesil_ham/` altında tutuldu; hedef PNG'ler şeffaf yazıldı. Lisans notu: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Kontak: `onizleme/parti_02.png`. Sıradaki kalem: 72. Not: N070 (kömür sepetleri ve körük) yanında ekstra küçük atölye aletleri de çizildi; N001 izi yok.
+
 ## 23 Kasım 2026 — Gemini listesi parti 01 (Muharrir / Grok Bot)
 
 2D. `docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md` kalem 1, 4 ve 18–41 üretildi (26 görsel). Yeşil zeminli ham dosyalar `work/ui_yesil_ham/` altında tutuldu; hedef PNG'ler şeffaf veya opak olarak yazıldı. Lisans notu: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Kontak: `onizleme/parti_01.png`. Atlanan (zaten duran gerçek sanat): kalem 2–3, 5–17. Sıradaki kalem: 42.
