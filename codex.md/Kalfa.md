@@ -2043,4 +2043,4 @@ Theatre kapanışta dosya sistemi referansını bıraktıktan sonra tekrar taram
 Tohum 11'in 8. gece kaydından 10. geceye 651/0. Tohum 76 ile ana menüden 3. geceye 507/0. Oyun raporu, kaynak hareketi ve gece sonu `kapi` kaydı doğrulandı. [Kanıtlar](../docs/CODEX_DENETIM_RAPORU.md). Asset gerekmedi. Kota görünmüyor.
 
 
-Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet isteğini tekrarladı. Açık panel seçim politikası sonraki denetim adımı. Windows 03.30 yeniden başlatma bildirimi nedeniyle çalışan deneme kontrollü kapatıldı.
+Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet isteğini tekrarladı. Açık panel seçim politikası sonraki denetim adımı. Alternatif devam denemesi süre sınırında kapandı. Windows 03.30 yeniden başlatma bildirimi nedeniyle takip oturumu sonlandırıldı.
