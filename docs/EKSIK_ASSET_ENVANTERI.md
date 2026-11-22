@@ -941,3 +941,15 @@ CIL-11 notu (17 Kasım 2026, Antigravity): `CIL11-RIG-BEKLEYEN` — `k02_kipcak_
 ## 23 Kasım 2026 — tüccar stok ikonları (Cursor)
 
 Nalburun `demir` stoğu ile sadakat ürünleri `cevher`, `kurk` ve `bugday` için 512×512 ikon üretildi (`GezginStokIkonu`). Lisans: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026. Gemini sıradaki üretim listesindeki mevcut stok/heybe ikonları (afyon, keçe, sargı, kumaş, zırh, yay, kalkan, çivi, tırpan, balta, saman, ilaç, heybe `icon_esya_*` vb.) bu turda üretilmedi; o liste başka işlemdedir.
+
+## 23 Kasım 2026 — cep arama kare dizisi (Cursor)
+
+Kapı heybe paneline 5 kese/cep varyantı × 8 kare eklendi (`assets/ui/kapi/cep_arama/`). Varyantlar: kahverengi deri, kırmızı kilim, lacivert çizgili, yeşil işlemeli, keten sade. `CepAramaAnimasyonu` rastgele bir varyantı oynatır; dosya yoksa eski çizilmiş heybe açılışı hatasız kalır. Lisans: Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026.
+
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Durum |
+|---|---|---|---|---|
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/kahverengi_deri/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/kirmizi_kilim/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/lacivert_cizgili/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/yesil_islemeli/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
+| `CEP-ARAMA` | `assets/ui/kapi/cep_arama/keten_sade/kare_01.png` … `kare_08.png` | 1152×864 | Opak RGB; tam sahne | eklendi 23 Kasım 2026 (Cursor) |
