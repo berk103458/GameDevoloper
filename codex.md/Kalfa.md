@@ -2076,3 +2076,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - Kayıt ikizi testi boş geceye denk gelen fikstüründe bir sonraki ziyaretin etkisini kullanıyor. İki yüklemede etki ve ilk ziyaretçi kimliği doğrulandı. Asset gerekmedi. Kota görünmüyor.
 
 - Köy tüccarı Söz üzerinden canlı havadis söylüyor. Son replik Ayrıl düğmesine kadar ekranda kaldı. SOY-46 ve kaynak denetimleri geçti. Asset gerekmedi. Kota görünmüyor.
+
+- CHR gecikmeli ziyareti tehdit günü gelene kadar bekliyor. Kuyruk doluysa normal ziyaretçinin önüne alınıyor, özel ziyaretler yüzünden düşerse kaydı beklemede kalıyor. Karar dönüşü ve 90 CHR dalı geçti. Asset gerekmedi. Kota görünmüyor.

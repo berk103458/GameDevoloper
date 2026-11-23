@@ -233,3 +233,9 @@ KAY-19 kayıt ikizi testi serbest akışın boş gece seçebildiği bir tohumu k
 SOY-46, esnafın eski seçenek sözlüğünde Parley alanı arıyordu. Tüccara Söz üzerinden bir havadis seçeneği eklendi. Şu anki söylenti varsa köylünün kendi satırı okunuyor. Sohbet ikinci dedikodu kaydı, akçe hareketi veya iş gücü etkisi oluşturmuyor. Söylenti yoksa yerelleştirilmiş cevap gösteriliyor. Çeviri çıktıları CSV ile birlikte güncellendi.
 
 Test gerçek köy diyalog panelinde son repliğin Ayrıl düğmesine kadar kaldığını ve söylentinin çoğalmadığını doğruladı. Godot hata ve uyarısı 0. Günlük D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/tuccar-havadis-panel.log. Asset gerekmedi.
+
+## Gecikmeli CHR ziyareti
+
+CHR_001 kabulüyle oluşturulan CHR_004 ziyareti kayıt/yüklemeden sonra tehdit takvimine uygun ilk kapı gecesinde değerlendiriliyor. Kapı kuyruğu dolduğunda planlı ziyaret sıradan ziyaretlerin önünde tutuluyor. Sınır özel ziyaretlerle doluysa düşen planlı ziyaretin kaydı yeniden beklemeye geçiyor. Uygun olmayan kişi gelmiş sayılmıyor.
+
+Karar dönüşü denetimi Söz kararını, kaydı, tehdit gününden önce beklemeyi ve iki kuyruk durumunu doğruladı. Otuz CHR'nin 90 dalı da yeniden geçti. Kanıtlar D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/karar-donusu-kuyruk-dogrulama.log ve kadro-kuyruk-son.log. Asset gerekmedi.

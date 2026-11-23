@@ -60,7 +60,7 @@ func _init() -> void:
 	else:
 		var o := Oturum.new(kat, 42)
 		var g: Gelen = o._adli_gelen(&"chr_001")
-		o.karar_ver(g, &"kabul")
+		g.kapi_sozu().kapi_karar(&"kabul", func() -> Dictionary: return o.karar_ver(g, &"kabul"), o.yonetim, "")
 		if o.gecikmeli_kuyruk.size() != 1:
 			hatalar.append("Oturum.karar_ver tek gecikmeli_kuyruk satırı üretmeli, bulunan: %d" % o.gecikmeli_kuyruk.size())
 		o.karar_ver(g, &"kabul")
@@ -75,8 +75,20 @@ func _init() -> void:
 		if yuklenen == null or yuklenen.gecikmeli_kuyruk.size() != 1:
 			hatalar.append("Kayıt/yükleme sonrasında gecikmeli_kuyruk korunmalı!")
 		elif o.katalog.karakter(&"chr_004") != null:
-			yuklenen.yonetim.gun = 10
+			var spawn_kaydi: Dictionary = yuklenen.gecikmeli_kuyruk[0]
+			var vade := int(spawn_kaydi.hedef_gun)
+			var ilk_tehdit := int(TehditTakvimi.AYAR.tehdit_baslangic_gunu)
+			var eski_adli_olasiligi := yuklenen.ayarlar.adli_olasiligi
+			yuklenen.ayarlar.adli_olasiligi = 0.0
+			if vade < ilk_tehdit:
+				yuklenen.gun = vade
+				var erken_kuyruk := yuklenen.gece_kuyrugu()
+				if erken_kuyruk.any(func(kisi: Gelen) -> bool: return kisi.id == &"chr_004") or bool(spawn_kaydi.spawned):
+					hatalar.append("Vade tehdit takviminden önceyse kayıt sonraki geceye kalmalı!")
+			yuklenen.gun = maxi(vade, ilk_tehdit)
+			yuklenen.sonraki_gelen_ek = GelenAkisi.tavan()
 			var beklenen_kuyruk := yuklenen.gece_kuyrugu()
+			yuklenen.ayarlar.adli_olasiligi = eski_adli_olasiligi
 			var geldi := false
 			for gelen_kisi in beklenen_kuyruk:
 				if String(gelen_kisi.id).to_lower() == "chr_004":
@@ -84,6 +96,17 @@ func _init() -> void:
 					break
 			if not geldi:
 				hatalar.append("Vadesi gelen tek spawn kuyruğu gece_kuyrugu içinde görünmeli!")
+			var dolu_oturum := Oturum.kayittan(kat, paket)
+			dolu_oturum.gun = maxi(vade, ilk_tehdit)
+			var dolu_kuyruk: Array[Gelen] = []
+			for i in GelenAkisi.tavan():
+				var ozel := Gelen.new()
+				ozel.set_meta(&"har05_goc", true)
+				dolu_kuyruk.append(ozel)
+			KararDonusu.spawn_ekle(dolu_oturum, dolu_kuyruk)
+			var sinirli := GelenAkisi.kuyrugu_temizle_ve_sinirla(dolu_oturum, dolu_kuyruk)
+			if sinirli.any(func(kisi: Gelen) -> bool: return kisi.id == &"chr_004") or bool(dolu_oturum.gecikmeli_kuyruk[0].spawned):
+				hatalar.append("Özel ziyaretler kuyruğu doldurduğunda gecikmeli ziyaret kaybolmamalı!")
 
 		# 9. DYL-08 gerçek gece_sonu: 2/gün sınırı (3. aynı kuyrukta kalır), ölen -> haberci, tanıklı/tanıksız dedikodu, tek sefer bar, SAB-01'e yazmaz
 		var o2 := Oturum.new(kat, 77)
@@ -126,5 +149,5 @@ func _init() -> void:
 		quit(1)
 		return
 
-	print("TEST PASS: karar_donusu_test.gd")
+	print("GEÇTİ: karar_donusu_test.gd")
 	quit(0)

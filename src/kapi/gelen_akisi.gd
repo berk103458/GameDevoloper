@@ -285,7 +285,8 @@ static func uygun_adaylar(o: Oturum, gun: int) -> Array[StringName]:
 static func _ozel_ziyaret_mi(g: Gelen) -> bool:
 	if g == null:
 		return false
-	return g.get_meta("har05_goc", false) \
+	return g.has_meta(KararDonusu.ZIYARET_KAYDI) \
+		or g.get_meta("har05_goc", false) \
 		or TuccarKapiGecisi.ilgilenir(g) \
 		or YetimBakimi.ilgilenir(g) \
 		or preload("res://src/kapi/aile_kafilesi.gd").ilgilenir(g) \
@@ -324,6 +325,7 @@ static func kuyrugu_temizle_ve_sinirla(o: Oturum, sonuc: Array[Gelen]) -> Array[
 		if cikar_idx < 0:
 			cikar_idx = normaller.size() - 1
 		var dusen: Gelen = normaller.pop_at(cikar_idx)
+		KararDonusu.kuyruktan_dustu(dusen)
 		if dusen.adli and dusen.id != &"" and o.kadro != null and o.kadro.durumlar.has(dusen.id):
 			o.kadro.durumlar[dusen.id]["istendi"] = false
 	var birlesik: Array[Gelen] = []

@@ -8,6 +8,7 @@ extends RefCounted
 
 const GECERLI_HEDEF_SISTEMLER := ["bar", "dedikodu", "spawn", "kuyu_zehri", "ambar_kundak"]
 const AZAMI_GUNLUK_DONUS := 2
+const ZIYARET_KAYDI := &"karar_donusu_ziyaret_kaydi"
 
 static func gecikmeli_satir_gecerli_mi(satir: Dictionary) -> bool:
 	var hs := String(satir.get("hedef_sistem", ""))
@@ -233,8 +234,7 @@ static func spawn_ekle(o: Oturum, sonuc: Array[Gelen]) -> void:
 			figur.id = StringName(ham_id)
 			figur.secenekler = PackedStringArray(["kabul", "ret"])
 			figur.heybe = o.heybe_uret(figur.sinif)
-			sonuc.append(figur)
-			satir["spawned"] = true
+			_ziyareti_ekle(sonuc, figur, satir)
 			continue
 		var aday_id := _karakter_kimligi_bul(o, ham_id)
 		if aday_id == &"": continue
@@ -247,14 +247,25 @@ static func spawn_ekle(o: Oturum, sonuc: Array[Gelen]) -> void:
 			continue
 		# Gecikmeli çağrı da ilk varış/dönüş tarihine uyar. Henüz uygun
 		# olmayan kişiyi tüketme; aynı kayıt sonraki kapı gününde denenir.
-		if aday_id not in o.kadro.uygunlar(o.gun):
+		if not TehditTakvimi.profil_uygun(o.gun, aday_id) or aday_id not in o.kadro.uygunlar(o.gun):
 			continue
 		o.kadro.iste(aday_id, o.gun)
 		var gelen: Gelen = o._adli_gelen(aday_id)
 		if gelen != null:
-			sonuc.append(gelen)
+			_ziyareti_ekle(sonuc, gelen, satir)
 			mevcutlar[String(aday_id).to_lower()] = true
-			satir["spawned"] = true
+
+
+static func _ziyareti_ekle(sonuc: Array[Gelen], gelen: Gelen, satir: Dictionary) -> void:
+	gelen.set_meta(ZIYARET_KAYDI, satir)
+	sonuc.append(gelen)
+	satir["spawned"] = true
+
+
+static func kuyruktan_dustu(gelen: Gelen) -> void:
+	if gelen.has_meta(ZIYARET_KAYDI):
+		var satir: Dictionary = gelen.get_meta(ZIYARET_KAYDI)
+		satir["spawned"] = false
 
 
 static func _karakter_kimligi_bul(o: Oturum, ham_id: String) -> StringName:
