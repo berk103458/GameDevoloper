@@ -3,6 +3,9 @@ extends PanelContainer
 
 var sorgu: RefCounted
 var _aciklama: RichTextLabel
+var _portre_doku: Texture2D
+var _iz_doku: Texture2D
+var _iz_acik := false
 
 func _nesne_incele(sira: int) -> void:
 	if has_node("EsyaDetayKarti"):
@@ -34,17 +37,28 @@ func _ready() -> void:
 	yuk.custom_minimum_size.y = 70
 	yuk.pressed.connect(_nesne_incele.bind(2))
 	kutu.add_child(yuk)
+	var cid := String(sorgu.karakter.id).to_lower()
 	var portre := TextureButton.new()
 	portre.name = "GorselIz"
 	portre.ignore_texture_size = true
 	portre.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 	portre.custom_minimum_size = Vector2(240, 220)
-	var eski_yol := "res://data/karakterler/%s.tres" % String(sorgu.karakter.id)
-	if ResourceLoader.exists(eski_yol):
-		var eski := load(eski_yol) as KarakterVerisi
-		portre.texture_normal = Sanat.portre(String(eski.portre))
+	_portre_doku = Sanat.portre(cid)
+	if _portre_doku == null:
+		var eski_yol := "res://data/karakterler/%s.tres" % cid
+		if ResourceLoader.exists(eski_yol):
+			var eski := load(eski_yol) as KarakterVerisi
+			if eski != null:
+				_portre_doku = Sanat.portre(String(eski.portre))
+	portre.texture_normal = _portre_doku
+	_iz_doku = Sanat.doku("inspect", "%s_trace" % cid)
 	portre.tooltip_text = "Portrede fiziksel izi incele"
-	portre.pressed.connect(func() -> void: _aciklama.text = sorgu.gorsel_incele())
+	portre.pressed.connect(func() -> void:
+		_aciklama.text = sorgu.gorsel_incele()
+		if _iz_doku != null:
+			_iz_acik = not _iz_acik
+			portre.texture_normal = _iz_doku if _iz_acik else _portre_doku
+	)
 	kutu.add_child(portre)
 	GeceKapisiCerceve.portre_giydir(portre)
 	var iz_etiketi := Label.new()
