@@ -207,3 +207,7 @@ Köy tüccar sohbeti Söz'ün veri düğümlerinden yürür. Eski oyun içi Dial
 ## CHR kaçış sinyali ve kapanış
 
 Kaçış sinyali taşıdığı CHR sorgusunu artık kuvvetli bir başvuruyla tutmaz. Ertelenen işlem sinyali gönderen sorgunun hâlâ kapıdaki ziyaretçiye ait olduğunu denetler. Canlı kapı testi geçici sorgunun serbest kaldığını, Meryem ve Haydar kararlarının uygulandığını doğruladı. Kayıt: `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/chr-kacis-dogrulama.log`. Asset gerekmedi.
+
+## Birim testi giriş noktaları
+
+İlk paket keşfi, betik yoluyla kalıtım kullanan Şiddet Korkusu ekran testini tek başına `godot -s` ile açtı. Godot autoload bağlamını kuramadı ve betiği SceneTree olarak çalıştıramadı. Keşif artık eşleşen test sahnesini açıyor. Gerekirse betiğin kalıtımını izliyor ve düğümü autoload'lar kurulduktan sonra SceneTree sarmalayıcısına ekliyor. Şiddet Korkusu ekran sahnesi ve SceneTree tabanlı oyun testi ayrı giriş noktalarında geçti.

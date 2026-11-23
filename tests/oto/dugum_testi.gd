@@ -4,6 +4,11 @@ extends SceneTree
 
 
 func _initialize() -> void:
+	# Düğümü derlemeden önce projenin autoload'ları ağaca girsin.
+	call_deferred("_betigi_ekle")
+
+
+func _betigi_ekle() -> void:
 	var argumanlar := OS.get_cmdline_user_args()
 	if argumanlar.is_empty():
 		push_error("düğüm testi yolu yok")

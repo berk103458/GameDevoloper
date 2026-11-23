@@ -2068,3 +2068,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - Oyun içindeki son Dialogue Manager kullanımı olan köy tüccarı Söz'e taşındı. CHR, zar ve kaçış metin anahtarları CSV kapısından geçti. Asset gerekmedi. Kota görünmüyor.
 
 - CHR kaçış sinyalinin referans döngüsü zayıf başvuruyla kapatıldı. Canlı kapı testi iki ziyareti ve geçici sorgunun serbest kalmasını doğruladı. Tam paket ve beş gece koşuyor. Asset gerekmedi. Kota görünmüyor.
+
+- Test keşfi düğüm sahnesini, dosya yoluyla kalıtımı ve SceneTree tabanını ayırt ediyor. Şiddet Korkusu ekran sahnesi ve oyun testi geçti. Asset gerekmedi. Kota görünmüyor.
