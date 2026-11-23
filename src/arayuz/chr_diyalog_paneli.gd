@@ -127,7 +127,7 @@ func guncelle() -> void:
 					var kok: Node = self
 					while kok != null and not (kok is KapiEkrani):
 						kok = kok.get_parent()
-					await ZarAtisiAnimasyonu.oynat(kok if kok is Control else self, z_tur, ayarlar)
+					await ZarAtisiAnimasyonu.oynat(kok if kok is Control else self, z_tur, ayarlar, int(sorgu.son_zar.get("zar", 0)))
 				guncelle()
 		)
 		add_child(b)

@@ -121,20 +121,20 @@ Oyuncu gece boyunca aynı nesneleri eliyle işler: zar, kese, mühür, sürgü, 
 
 Ortak kabuk: `src/arayuz/kare_animasyon_kabuk.gd` (`KareAnimasyonKabuk`). `olustur()` en az 2 kare yoksa `null` döner; `oynat_uzerinde` ebeveyn veya düğüm yoksa hemen çıkar. Küçük ikonlar (genişlik ≤ 512) karartılmış perdede ortalanmış 480×480 kutuda oynar.
 
-- [x] **A1 Zar atışı** — mevcut `assets/art/anim/zar_d6_roll_01.png`–`04.png` ve `zar_d12_roll_01.png`–`04.png` (4+4, 256×256 RGBA). Kod: `src/arayuz/kapi/zar_atisi_animasyonu.gd`. Kanca: `chr_diyalog_paneli.gd` (seçenek, `son_zar` sonrası), `kapi_kavgasi_paneli.gd` `_sec`. `belirme_hizi == &"aninda"` ise son kareye atlar. Sinema tam sahne zar seti üretilmedi (mevcut kareler kullanılacak diye).
+- [x] **A1 Zar atışı (v2, kodla hareket)** — BG3 tarzı fırlatma, havada dönüş (rotation + ölçek), 2–3 azalan sekişme, sönümlenen sallanma, yüksekliğe göre gölge, çarpışta sarsıntı, sonuç yüzünde parlama. Fırlatma yönü/hızı her atışta rastgele; sonuç `son_zar` / kavga zarından kilitlenir. Temiz yüzler: `assets/ui/kapi/zar_yuz/zar_d6_yuz_1–6.png`, `zar_d12_yuz_1–12.png` (mevcut boyalı gövde + pips/numara). Kod: `src/arayuz/kapi/zar_atisi_animasyonu.gd`. Kanca aynı; `oynat(..., sonuc)`. `aninda` belirmede yalnız sonuç yüzü.
 - [x] **A2 Rüşvet kesesi** — 8 kare, 1152×864 opak RGB, `assets/ui/kapi/rusvet_kesesi/kare_01.png`–`08.png`. Kod: `src/arayuz/kapi/rusvet_kesesi_animasyonu.gd`. Kanca: `kapi_ekrani.gd` `_karar_ver` içinde `sfx_kese` sonrası (`rusvet` / `elkoy`).
 - [x] **A3 Yalan mührü** — mevcut `assets/art/anim/muhur_bas_01.png`–`04.png` (4 kare, 256×256 RGBA). Kod: `src/arayuz/kapi/yalan_muhur_animasyonu.gd`. Kanca: `heybe_paneli.gd` `_muhur_bas` içinde, kalıcı vektör `Muhur` tween'inden hemen önce. Planlanan 8 karelik tam sahne yerine mevcut ikon seti kullanıldı.
 - [x] **A4 Kapı sürgüsü — kabul** — 8 kare, 1152×864 opak RGB, `assets/ui/kapi/surgu/kabul/kare_01.png`–`08.png`.
 - [x] **A5 Kapı sürgüsü — ret** — 8 kare, 1152×864 opak RGB, `assets/ui/kapi/surgu/ret/kare_01.png`–`08.png`. A4+A5 ortak sınıf: `src/arayuz/kapi/kapi_surgu_animasyonu.gd`. Kanca: `kapi_ekrani.gd` `_karar_ver` içinde `sfx_kapi_acilir` / `sfx_kapi_kapanir` sonrası, `oynat(self, bool(sonuc["kaldi"]))`.
-- [x] **A6 Sabah defteri** — 9 kare, 1152×864 opak RGB, `assets/ui/koy/sabah_defteri/kare_01.png`–`09.png`. Sayfalar boş bırakıldı; rapor metni Label olarak kartta kalır. Kod: `src/arayuz/koy_hud/sabah_defteri_animasyonu.gd`. Kanca: `koy_ekrani.gd` `_geceye_gec_rapor` içinde `_kart_ac` öncesi.
+- [x] **A6 Sabah defteri (v2)** — Kapak sol menteşeden kitap gibi açılır (destek kareleri: `kapali.png`, `kapak_yarim.png`, `kapak_sola.png`, `acik.png`), ardından 1–2 sayfa kodla kıvrılarak çevrilir; gecenin kaydı sağ sayfada Label olarak belirir, görsele gömülmez. Eski 9 karelik “kutu açılır” dizisi kaldırıldı. Kod: `src/arayuz/koy_hud/sabah_defteri_animasyonu.gd`. Kanca: `koy_ekrani.gd` `_geceye_gec_rapor`.
 
 Lisans notu: `docs/arayuz/ANIMASYON_A1_A6_LISANS.md`. Birim testleri: `tests/unit/arayuz/*_animasyonu_test.gd`. Önizleme GIF'leri klon dışındadır (`/workspace/anim_onizleme/`), repoya girmez.
 
-### Bilinen kusurlar
+### Bilinen kusurlar ve yeniden üretim
 
-- A1: `zar_d6_roll_01.png` neredeyse boş fildişi küp, pips yok (mevcut asset, yeniden üretilmedi).
+- A1 (eski kare dizisi, **yeniden üretim / v2 ile aşıldı**): `assets/art/anim/zar_d6_roll_01.png` neredeyse boş fildişi küp, pips yok; 02–04 ve d12 karelerinde de yüz işaretleri yoktu, dizi BG3 tarzı fırlatmayı vermiyordu. Eski `zar_*_roll_*` dosyaları durur ama A1 artık kullanmaz. v2: kodla hareket + temiz `zar_d6_yuz_*` / `zar_d12_yuz_*`.
 - A2: bazı akçelerde zayıf darphane izi gibi işaretler; orta karelerde hafif kamera açısı kayması.
-- A4: 01'den sonra üslup biraz daha grafik; 05'te sürgü gövdesinde çentik artifaktı; 06 bir an neredeyse kapalı duruyor, 07–08 yeniden aralanır.
-- A5: 03'te gece yarığı kapanmak yerine biraz genişler; 05–07 sürgü konumu birbirine yakın (kilit hareketi sıkışık).
-- A6: ilk 08 denemesinde defter kayboldu, kare 07 referansıyla yeniden üretildi; sayfalar bilinçli olarak yazısızdır.
+- A4 (**yeniden üretim adayı**): 01'den sonra üslup biraz daha grafik; 05'te sürgü gövdesinde çentik artifaktı; 06 bir an neredeyse kapalı duruyor, 07–08 yeniden aralanır. v2 turunda el sürülmedi.
+- A5 (**yeniden üretim adayı**): 03'te gece yarığı kapanmak yerine biraz genişler; 05–07 sürgü konumu birbirine yakın (kilit hareketi sıkışık). v2 turunda el sürülmedi.
+- A6 (eski kare dizisi, **yeniden üretim / v2 ile aşıldı**): 9 karelik dizi kapağı kutu kapağı gibi yukarı kaldırıyor, yan menteşeli kitap açılışı okunmuyordu; ilk 08 denemesinde defter kaybolmuştu. v2: dört menteşe destek karesi + kodla sayfa kıvrımı, eski `kare_01–09` kaldırıldı.
 

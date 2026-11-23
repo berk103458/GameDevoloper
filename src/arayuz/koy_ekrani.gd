@@ -782,8 +782,9 @@ func _geceye_gec_rapor() -> void:
 	_sahne_arkasi_ayarla("koy_gece")
 	_dinamik_ortam.faz(&"gece")
 	var r: Dictionary = sonuc["rapor"]
-	await SabahDefteriAnimasyonu.oynat(self)
-	var v := _kart_ac(tr("koy.rapor.baslik") % (int(r["gun"]) + 1))
+	var rapor_baslik := tr("koy.rapor.baslik") % (int(r["gun"]) + 1)
+	await SabahDefteriAnimasyonu.oynat(self, rapor_baslik)
+	var v := _kart_ac(rapor_baslik)
 	_kart_arkasi_koy("gun_sonu")
 	if not preload("res://src/arayuz/gece_raporu_kisa.gd").ekle(self, v, sonuc["bilanco"]):
 		_rapor_ayrinti(v, r)
