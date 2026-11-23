@@ -485,3 +485,13 @@ HY1 tamamlandı. Kapsam: Parti 01 kuyruğu (tehlike pinleri 5/7/9/11, seçili pi
 **Hâlâ kusurlu (2):** `kopru_saglam`, `kopru_yikik` — açık/yıkık kemer ve kapısızlık duruyor, toprak setler küçüldü; hafif izometrik bakış 1 denemede (yıkık, sağlam referanslı) tamamen kaybolmadı.
 
 Hafif kalan notlar (yeni zorunlu kuyruk değil): `olay_ulak` boyununda 3/3 denemede çok küçük yeşil leke kalabilir; `hisar_salgin` ev bezleri soluk kireçten çok kısa renkli flama; `ui_lejant_cerceve` üslubu önceki ahşaptan biraz daha düz.
+
+### 7H. Bağlama (Muharrir)
+
+Üretim (87/87 + HY1) bitti; bu partide kod ve veri bağlandı. Alpha'nın Parti 1b bağladığı mevcut `icon_map_*` / `icon_geri` / `icon_harita` ve `harita_uc` kullanımı ile B10 sınıfı (`HaritaRulosuAnimasyonu`, `9af89503`) üzerine inşa edildi; o işler tekrarlanmadı. `ARKA_HARITA` artık `map_bg.png`; `DIS_MANZARA` `harita_uc.png` (α=0,18).
+
+Bağlananlar: `ui_*` krom (kenarlık, pusula, ölçek, lejant, yakınlaştırma), pin durumları (normal/seçili/tehlike, oyun durumuna göre), rota/köprü/nehir, savaş sisi (keşfedilmemiş bölge), mühürler, olay rozetleri, mevsim katmanı (oyun mevsimi, α=0,26), seçili bölge manzarası (temel + aktif olay/mevsim varyantı; `CevreHaritasi.manzara` + `data/cevre_manzara.json`), B10 rulo açılışı (`HaritaRulosuAnimasyonu.oynat`; testte `belirme_hizi=aninda`, açılış beklenmez).
+
+7C'den sapma: bölge manzarası tuvali kaplamaz (pin/rota/sis coğrafyası `map_bg` üzerinde kalır); sağ bilgi kartında gösterilir. Eski dört bölgenin `bilgi()` metni ve düğüm adları (`harita_alan`, `sec_{id}`, `harita_bolge_baslik`, `harita_bolge_bilgi`, `harita_kapat`) korunur; ek durum `_gorunen` alanındadır. `chr_inceleme_paneli.gd`, çeviriler, `varlik_olculeri.json`, `project.godot`, `iklim_gorseli.gd`, `durus_duzeltici.gd`, `el_esyasi_temasi_test.gd` dokunulmadı.
+
+Önizleme: `/workspace/harita_onizleme/baglama_{normal,tehlike,kis}.png` (repoya girmez).

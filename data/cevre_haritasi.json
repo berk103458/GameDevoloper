@@ -2,40 +2,234 @@
   "arka": "181c22",
   "harita_renk": "252b30",
   "yol_renk": "6c7167",
-  "nokta_genislik": 220,
-  "nokta_yukseklik": 72,
+  "nokta_genislik": 96,
+  "nokta_yukseklik": 96,
+  "arka_harita": "res://assets/ui/atmosfer/gece_kapisi/map_bg.png",
+  "dis_manzara": "res://assets/art/env/harita_uc.png",
+  "yakinlastirma": {
+    "min": 0.85,
+    "varsayilan": 1.0,
+    "max": 1.85,
+    "adim": 0.15
+  },
+  "katmanlar": {
+    "savas_sisi": {
+      "tam": "res://assets/art/map/savas_sisi_tam_katman.png",
+      "bulut": "res://assets/art/map/savas_sisi_bulut.png",
+      "kenar": "res://assets/art/map/savas_sisi_kenar.png"
+    },
+    "mevsimler": {
+      "ilkbahar": "res://assets/art/map/mevsim_ilkbahar_katman.png",
+      "yaz": "res://assets/art/map/mevsim_yaz_katman.png",
+      "sonbahar": "res://assets/art/map/mevsim_sonbahar_katman.png",
+      "kis": "res://assets/art/map/mevsim_kis_katman.png"
+    },
+    "muhurler": {
+      "guvenli": "res://assets/art/map/muhur_guvenli.png",
+      "tehlike": "res://assets/art/map/muhur_tehlike.png",
+      "harac": "res://assets/art/map/muhur_harac.png",
+      "kapali_yol": "res://assets/art/map/muhur_kapali_yol.png",
+      "kesfedildi": "res://assets/art/map/muhur_kesfedildi.png"
+    },
+    "olaylar": {
+      "yangin": "res://assets/art/map/olay_yangin.png",
+      "baskin": "res://assets/art/map/olay_baskin.png",
+      "salgin": "res://assets/art/map/olay_salgin.png",
+      "kitlik": "res://assets/art/map/olay_kitlik.png",
+      "taskin": "res://assets/art/map/olay_taskin.png",
+      "pusu": "res://assets/art/map/olay_pusu.png",
+      "kervan": "res://assets/art/map/olay_kervan.png",
+      "heyet": "res://assets/art/map/olay_heyet.png",
+      "ulak": "res://assets/art/map/olay_ulak.png",
+      "mogol_akin": "res://assets/art/map/olay_mogol_akin.png"
+    }
+  },
   "bolgeler": [
     {
       "id": "hisar",
+      "tur": "hisar",
       "ad": "Taşlık Hisar",
       "x": 0.28,
       "y": 0.58,
       "renk": "777b6d",
+      "ikon_normal": "res://assets/art/icons/icon_map_hisar.png",
+      "ikon_secili": "res://assets/art/map/pin_hisar_secili.png",
+      "ikon_tehlike": "res://assets/art/map/pin_hisar_tehlike.png",
+      "kesfedildi_varsayilan": true,
+      "sis_yaricapi": 0.32,
+      "manzara_gorsel": "res://assets/art/env/bolge/hisar.png",
+      "tooltip_ozet": "Merkez uç hisarı ve geçit kapısı",
+      "olay_kaynaklari": [
+        "yangin",
+        "salgin",
+        "kitlik",
+        "taskin",
+        "baskin",
+        "mogol_akin",
+        "ulak"
+      ],
       "metin": "Kapısını koruduğun yerleşim. Çevredeki yollar burada birleşir."
     },
     {
       "id": "karaboran",
+      "tur": "yol",
       "ad": "Karaboran",
       "x": 0.22,
       "y": 0.2,
       "renk": "6e5650",
+      "ikon_normal": "res://assets/art/icons/icon_map_yol.png",
+      "ikon_secili": "res://assets/art/map/pin_yol_secili.png",
+      "ikon_tehlike": "res://assets/art/map/pin_yol_tehlike.png",
+      "kesfedildi_varsayilan": true,
+      "sis_yaricapi": 0.28,
+      "manzara_gorsel": "res://assets/art/env/bolge/karaboran.png",
+      "tooltip_ozet": "Dağ hattı ve eşkıya güzergâhı",
+      "olay_kaynaklari": [
+        "pusu",
+        "baskin"
+      ],
       "metin": "Dağ hattı ve eşkıya güzergâhı. Yol güvenliği köyün dışındaki tehlikelerle bağlantılıdır."
     },
     {
       "id": "tekfur",
+      "tur": "tekfur",
       "ad": "Tekfur Hisarı",
       "x": 0.75,
       "y": 0.3,
       "renk": "66576e",
+      "ikon_normal": "res://assets/art/icons/icon_map_tekfur.png",
+      "ikon_secili": "res://assets/art/map/pin_tekfur_secili.png",
+      "ikon_tehlike": "res://assets/art/map/pin_tekfur_tehlike.png",
+      "kesfedildi_varsayilan": true,
+      "sis_yaricapi": 0.28,
+      "manzara_gorsel": "res://assets/art/env/bolge/tekfur.png",
+      "tooltip_ozet": "Tekfur kuvvetlerinin geldiği hisar",
+      "olay_kaynaklari": [
+        "heyet",
+        "ulak"
+      ],
       "metin": "Tekfurun kuvvetlerinin geldiği hisar. Köyde yaşanan baskılar ve savunmalar aşağıda gösterilir."
     },
     {
       "id": "goc_yolu",
+      "tur": "goc",
       "ad": "Göç yolları",
       "x": 0.73,
       "y": 0.76,
       "renk": "716b53",
+      "ikon_normal": "res://assets/art/icons/icon_map_goc.png",
+      "ikon_secili": "res://assets/art/map/pin_goc_secili.png",
+      "ikon_tehlike": "res://assets/art/map/pin_goc_tehlike.png",
+      "kesfedildi_varsayilan": true,
+      "sis_yaricapi": 0.28,
+      "manzara_gorsel": "res://assets/art/env/bolge/goc_yolu.png",
+      "tooltip_ozet": "Göçmen ve ticaret kafilelerinin yolu",
+      "olay_kaynaklari": [
+        "pusu",
+        "kervan",
+        "ulak"
+      ],
       "metin": "Göçmen ve ticaret kafilelerinin köye ulaştığı yollar."
+    },
+    {
+      "id": "oba",
+      "tur": "oba",
+      "ad": "Ertuğrul Obası",
+      "x": 0.1,
+      "y": 0.42,
+      "renk": "6a5c45",
+      "ikon_normal": "res://assets/art/map/pin_oba_normal.png",
+      "ikon_secili": "res://assets/art/map/pin_oba_secili.png",
+      "ikon_tehlike": "res://assets/art/map/pin_oba_tehlike.png",
+      "kesfedildi_varsayilan": false,
+      "sis_yaricapi": 0.24,
+      "manzara_gorsel": "res://assets/art/env/bolge/oba.png",
+      "tooltip_ozet": "Batı uçtaki Türkmen obası",
+      "olay_kaynaklari": [
+        "kervan",
+        "ulak"
+      ],
+      "metin": "Batı uçtaki Ertuğrul obası. İttifak kurulunca yol güvenliği ve takas açılır."
+    },
+    {
+      "id": "sancak",
+      "tur": "sancak",
+      "ad": "Selçuklu Sancak Merkezi",
+      "x": 0.9,
+      "y": 0.14,
+      "renk": "5a5348",
+      "ikon_normal": "res://assets/art/map/pin_sancak_normal.png",
+      "ikon_secili": "res://assets/art/map/pin_sancak_secili.png",
+      "ikon_tehlike": "res://assets/art/map/pin_sancak_tehlike.png",
+      "kesfedildi_varsayilan": false,
+      "sis_yaricapi": 0.22,
+      "manzara_gorsel": "res://assets/art/env/harita_uc.png",
+      "tooltip_ozet": "Sancak mercii ve ferman kaynağı",
+      "olay_kaynaklari": [
+        "ulak"
+      ],
+      "metin": "Selçuklu sancak merkezi. Asker talebi ve ferman buradan gelir."
+    },
+    {
+      "id": "mogol",
+      "tur": "mogol",
+      "ad": "Moğol Akın Kolu",
+      "x": 0.5,
+      "y": 0.08,
+      "renk": "5c4a46",
+      "ikon_normal": "res://assets/art/map/pin_mogol_normal.png",
+      "ikon_secili": "res://assets/art/map/pin_mogol_secili.png",
+      "ikon_tehlike": "res://assets/art/map/pin_mogol_tehlike.png",
+      "kesfedildi_varsayilan": false,
+      "sis_yaricapi": 0.22,
+      "manzara_gorsel": "res://assets/art/env/bolge/hisar_ufuk_duman.png",
+      "tooltip_ozet": "Kuzeyden yaklaşan akın kolu",
+      "olay_kaynaklari": [
+        "mogol_akin"
+      ],
+      "metin": "Kuzeyden yaklaşan Moğol akın kolu. Ufuktaki duman hisardan görülür."
+    },
+    {
+      "id": "gozcu",
+      "tur": "gozcu",
+      "ad": "Gözcü Kulesi",
+      "x": 0.42,
+      "y": 0.36,
+      "renk": "5e5a52",
+      "ikon_normal": "res://assets/art/map/pin_gozcu_normal.png",
+      "ikon_secili": "res://assets/art/map/pin_gozcu_secili.png",
+      "ikon_tehlike": "res://assets/art/map/pin_gozcu_tehlike.png",
+      "kesfedildi_varsayilan": false,
+      "sis_yaricapi": 0.2,
+      "manzara_gorsel": "res://assets/art/env/bolge/hisar.png",
+      "tooltip_ozet": "Uç hattını gözleyen kule",
+      "olay_kaynaklari": [
+        "ulak"
+      ],
+      "metin": "Gözcü kulesi. Aktif nöbet, keşfedilmemiş bölgelerin sisini açar."
+    },
+    {
+      "id": "koy",
+      "tur": "koy",
+      "ad": "Komşu Uç Köyü",
+      "x": 0.58,
+      "y": 0.62,
+      "renk": "6b6356",
+      "ikon_normal": "res://assets/art/map/pin_koy_normal.png",
+      "ikon_secili": "res://assets/art/map/pin_koy_secili.png",
+      "ikon_tehlike": "res://assets/art/map/pin_koy_tehlike.png",
+      "kesfedildi_varsayilan": false,
+      "sis_yaricapi": 0.22,
+      "manzara_gorsel": "res://assets/art/env/bolge/hisar.png",
+      "tooltip_ozet": "Komşu vadideki uç köyü",
+      "olay_kaynaklari": [
+        "salgin",
+        "kitlik",
+        "yangin",
+        "taskin",
+        "baskin"
+      ],
+      "metin": "Komşu uç köyü. Salgın ve kıtlık haberleri buradan da duyulur."
     }
   ],
   "yollar": [
@@ -57,5 +251,112 @@
       0.73,
       0.76
     ]
+  ],
+  "rotalar": [
+    {
+      "id": "hisar_karaboran",
+      "baslangic": "hisar",
+      "bitis": "karaboran",
+      "ara_noktalar": [
+        [
+          0.26,
+          0.39
+        ]
+      ],
+      "tip": "patika",
+      "nehir_gecisi": false,
+      "kopru_konum": []
+    },
+    {
+      "id": "hisar_tekfur",
+      "baslangic": "hisar",
+      "bitis": "tekfur",
+      "ara_noktalar": [
+        [
+          0.52,
+          0.45
+        ]
+      ],
+      "tip": "ana_yol",
+      "nehir_gecisi": true,
+      "kopru_konum": [
+        0.52,
+        0.45
+      ]
+    },
+    {
+      "id": "hisar_goc",
+      "baslangic": "hisar",
+      "bitis": "goc_yolu",
+      "ara_noktalar": [
+        [
+          0.55,
+          0.7
+        ]
+      ],
+      "tip": "ana_yol",
+      "nehir_gecisi": false,
+      "kopru_konum": []
+    },
+    {
+      "id": "hisar_gozcu",
+      "baslangic": "hisar",
+      "bitis": "gozcu",
+      "ara_noktalar": [],
+      "tip": "patika",
+      "nehir_gecisi": false,
+      "kopru_konum": []
+    },
+    {
+      "id": "hisar_oba",
+      "baslangic": "hisar",
+      "bitis": "oba",
+      "ara_noktalar": [
+        [
+          0.16,
+          0.52
+        ]
+      ],
+      "tip": "patika",
+      "nehir_gecisi": false,
+      "kopru_konum": []
+    },
+    {
+      "id": "hisar_koy",
+      "baslangic": "hisar",
+      "bitis": "koy",
+      "ara_noktalar": [],
+      "tip": "patika",
+      "nehir_gecisi": false,
+      "kopru_konum": []
+    },
+    {
+      "id": "kuzey_sinir",
+      "baslangic": "karaboran",
+      "bitis": "mogol",
+      "ara_noktalar": [
+        [
+          0.36,
+          0.12
+        ]
+      ],
+      "tip": "sinir",
+      "nehir_gecisi": false,
+      "kopru_konum": []
+    },
+    {
+      "id": "sancak_hatti",
+      "baslangic": "tekfur",
+      "bitis": "sancak",
+      "ara_noktalar": [
+        [
+          0.84,
+          0.2
+        ]
+      ],
+      "tip": "ana_yol",
+      "nehir_gecisi": false,
+      "kopru_konum": []
+    }
   ]
 }

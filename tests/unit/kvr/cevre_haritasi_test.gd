@@ -7,7 +7,9 @@ func _initialize() -> void:
  var o:=Oturum.new(kat,1101)
  var once:=JSON.stringify(o.kaydet())
  var rng:=o._rng.state
- _dene(CevreHaritasi.bolgeler().size()==4, "cevre_haritasi_test.gd:8")
+ var ids: Array=[]
+ for b in CevreHaritasi.bolgeler(): ids.append(String(b.id))
+ _dene(CevreHaritasi.bolgeler().size()>=4 and "hisar" in ids and "karaboran" in ids and "tekfur" in ids and "goc_yolu" in ids, "cevre_haritasi_test.gd:8")
  _dene(CevreHaritasi.bilgi(o,"hisar").metin.contains("Gün: 1"), "cevre_haritasi_test.gd:9")
  for id in ["hisar","karaboran","tekfur","goc_yolu"]:
   var d:=CevreHaritasi.bilgi(o,id)
@@ -22,6 +24,17 @@ func _initialize() -> void:
  _dene(CevreHaritasi.bilgi(o,"tekfur").metin.contains("3") and CevreHaritasi.bilgi(o,"tekfur").metin.contains("2"), "cevre_haritasi_test.gd:20")
  var geri:=Oturum.kayittan(kat,JSON.parse_string(JSON.stringify(o.kaydet())))
  _dene(CevreHaritasi.bilgi(geri,"tekfur")==CevreHaritasi.bilgi(o,"tekfur"), "cevre_haritasi_test.gd:22")
+ var rng2:=o._rng.state
+ var d0:=CevreHaritasi.bolge_durumu(o,"hisar")
+ _dene(String(d0.get("durum",""))=="normal" and bool(d0.get("kesfedildi",false)) and String(d0.get("manzara","")).contains("hisar"), "cevre_haritasi_test.gd:24")
+ o.yonetim.harac_bekliyor=true
+ var dt:=CevreHaritasi.bolge_durumu(o,"tekfur")
+ _dene(String(dt.get("durum",""))=="tehlike" and String(dt.get("muhur",""))=="harac" and "heyet" in dt.get("olaylar",[]), "cevre_haritasi_test.gd:26")
+ _dene(CevreHaritasi.mevsim_katmani(o).contains("mevsim_"), "cevre_haritasi_test.gd:27")
+ _dene(not CevreHaritasi.bilgi(o,"oba").is_empty() and not CevreHaritasi.kesfedildi_mi(o,"oba"), "cevre_haritasi_test.gd:28")
+ var kislik:=CevreHaritasi.mevsim_katmani(o)
+ _dene(CevreHaritasi.manzara(o,"goc_yolu")!="" and kislik!="", "cevre_haritasi_test.gd:29")
+ _dene(o._rng.state==rng2, "cevre_haritasi_test.gd:30")
  print("CEVRE HARITASI: GEÇTİ" if _hata == 0 else "CEVRE HARITASI: KALDI (%d hata)" % _hata)
  quit(1 if _hata > 0 else 0)
 

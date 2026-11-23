@@ -1,0 +1,29 @@
+{
+  "temel": {
+    "hisar": "res://assets/art/env/bolge/hisar.png",
+    "karaboran": "res://assets/art/env/bolge/karaboran.png",
+    "tekfur": "res://assets/art/env/bolge/tekfur.png",
+    "goc_yolu": "res://assets/art/env/bolge/goc_yolu.png",
+    "oba": "res://assets/art/env/bolge/oba.png"
+  },
+  "oncelik": ["felaket", "ufuk", "mevsim", "bereket", "temel"],
+  "varyantlar": [
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_yangin.png", "sinif": "felaket", "tetik": ["yangin"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_taskin.png", "sinif": "felaket", "tetik": ["taskin"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_saldiri.png", "sinif": "felaket", "tetik": ["saldiri", "baskin"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_kurt.png", "sinif": "felaket", "tetik": ["kurt"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_salgin.png", "sinif": "felaket", "tetik": ["salgin"]},
+    {"bolge": "goc_yolu", "dosya": "res://assets/art/env/bolge/goc_yolu_pusu.png", "sinif": "felaket", "tetik": ["pusu"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_ufuk_duman.png", "sinif": "ufuk", "tetik": ["mogol_akin"]},
+    {"bolge": "tekfur", "dosya": "res://assets/art/env/bolge/tekfur_ordu.png", "sinif": "ufuk", "tetik": ["heyet"]},
+    {"bolge": "karaboran", "dosya": "res://assets/art/env/bolge/karaboran_cete.png", "sinif": "ufuk", "tetik": ["pusu", "baskin"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_cekirge.png", "sinif": "felaket", "tetik": ["cekirge"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_kuraklik.png", "sinif": "mevsim", "tetik": ["kuraklik", "kitlik"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_don.png", "sinif": "mevsim", "tetik": ["don"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_yagmur.png", "sinif": "mevsim", "tetik": ["yagmur"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_kar.png", "sinif": "mevsim", "tetik": ["kar"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_hasat.png", "sinif": "bereket", "tetik": ["hasat"]},
+    {"bolge": "hisar", "dosya": "res://assets/art/env/bolge/hisar_sur.png", "sinif": "felaket", "tetik": ["sur_catlak"]},
+    {"bolge": "goc_yolu", "dosya": "res://assets/art/env/bolge/goc_yolu_kafile.png", "sinif": "bereket", "tetik": ["kervan"]}
+  ]
+}

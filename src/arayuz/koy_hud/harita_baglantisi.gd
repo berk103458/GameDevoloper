@@ -13,6 +13,22 @@ static func kur(e: KoyEkrani,v: VBoxContainer) -> void:
   b.icon = load(iy)
   b.expand_icon = true
  b.custom_minimum_size.y=42
+ if e.oturum and ((int(MogolOncusu.durum(e.oturum).kalan)<=5) or e.oturum.yonetim.harac_bekliyor):
+  var uyari:=GeceKapisiCerceve.yol("icon_uyari")
+  if ResourceLoader.exists(uyari):
+   var rozet:=TextureRect.new()
+   rozet.name="harita_uyari"
+   rozet.texture=load(uyari)
+   rozet.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+   rozet.custom_minimum_size=Vector2(18,18)
+   rozet.size=Vector2(18,18)
+   rozet.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+   rozet.offset_left=-18
+   rozet.offset_top=0
+   rozet.offset_right=0
+   rozet.offset_bottom=18
+   rozet.mouse_filter=Control.MOUSE_FILTER_IGNORE
+   b.add_child(rozet)
  hedef.add_child(b)
  e.hud._katman.izle(b, "harita_baglantisi.gd")
  b.pressed.connect(func() -> void: ac(e))
