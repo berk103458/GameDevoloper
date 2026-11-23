@@ -17,9 +17,11 @@ static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContain
 	var o: Oturum = ekran.get("oturum") as Oturum
 	if o != null:
 		var asker_var: bool = o.yonetim.etkin_muhafiz_sayisi() > 0 or o.yonetim.koylular.any(func(k: Koylu) -> bool: return k.sinif == &"asker" and k.saglik > 0)
+		var grup := preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").grup(o, gelen)
 		sorgu.zar_baglami = {
 			"terazi": MuhafizTerazisi.durum(o),
-			"itibar": o.grup_itibari.zar_etkisi(gelen.id),
+			# Hesaplayıcı itibar yönünü gerekli zar değiştiricisine çevirir.
+			"itibar": -o.grup_itibari.zar_etkisi(grup),
 			"asker": asker_var,
 			"kanit": not sorgu.ipuclari.is_empty(),
 		}

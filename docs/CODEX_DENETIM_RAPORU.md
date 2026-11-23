@@ -158,3 +158,9 @@ Oyun köprüsü CHR inceleme paneli veya eşya ayrıntı kartı açıkken bunu `
 Tohum 76, üçüncü gece sonu gerçek kaydından başlatıldı. Zeynep'in incelemesi sekiz geçerli `devam` isteğiyle geçildi. Dördüncü ve beşinci geceler 483 adım ve sıfır hatayla tamamlandı. Politika denetiminde altı doğrulama geçti. Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/11-diyalog/tohum-76-uyumlu-panel.ozet.json` ve aynı dizindeki JSONL.
 
 İlk koşuda yalnız D: test kopyasında ulak panelinin önceki çalışan sürümü kullanıldı. Alpha'nın ulak sözdizimi düzeltmesi `55130cfd` sonrasında güncel kaynakla import temiz geçti. İkinci koşuda aynı kayıt Halil'in incelemesini geçti ve beşinci gece 372 adım ve sıfır hatayla kapandı. Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/11-diyalog/import-guncel.log` ve aynı dizindeki `tohum-76-festive.ozet.json`. Asset gerekmedi.
+
+## Takip — Kapı sorgusunda grup itibarı ve zar (23 Kasım 2026)
+
+CHR kapı adaptörü grup itibarını ziyaretçinin çözülmüş grup anahtarıyla okur. Paneldeki değiştirici satırı ve atış aynı sayısal zar bağlamını kullanır. Sohbet tepkileri ziyaretin anlatı bağlamını kullanmaya devam eder. Sorgu API'sine açıkça ek zar bağlamı verildiğinde tavan kontrolü ve atış aynı bağlamı okur.
+
+Godot importu, gerçek kapı düğmesine tıklayan zar bağlantı sahnesi ve değiştirici birim testi geçti. Asker grubu itibarı +8 iken panel −1 gösterdi ve atış aynı değeri kullandı. d6 tavanında ek itibar kilidi açtı ve gerekli değer 6 oldu. 30 CHR kaynak sayfası doğrulandı. Ek `chr_sorgu_test.gd` komut satırı koşusu `Ses` autoload bağlamı ve `GorselIz` düğüm yolu yüzünden tamamlanamadı. Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/12-zar-baglam/`. Asset gerekmedi.

@@ -50,6 +50,7 @@ func _ready() -> void:
 	kok.add_child(e)
 	await get_tree().process_frame
 	var g := o._adli_gelen(&"chr_001")
+	o.grup_itibari.uygula("asker", 8)
 	e._gelen = g
 	e.evre = &"sohbet"
 	e._sohbet_goster()
@@ -62,11 +63,14 @@ func _ready() -> void:
 	# ZAR-01 + ZAR-04: zar SorguZari ile atılır; sayı, gerekli değer ve söz panelde görünür.
 	s._dugume_git(&"1.1")
 	var tansiyon_once: int = s.tansiyon
+	_kontrol(o.grup_itibari.zar_etkisi("asker") == -1 and s.zar_baglami.itibar == 1, "Yüksek grup itibarı zar eşiğini düşürür")
 	var deg: Dictionary = s.yaklasim_degistiricisi(s.karakter.diyalog_dugumu(s.dugum_id)["secenekler"][1], {})
 	_kontrol(deg.satirlar.any(func(r: Dictionary) -> bool: return String(r.tur) == "tecrube" and String(r.metin) == String(TranslationServer.translate("zar.degistirici.tecrube"))), "Tecrübe satırı zar.degistirici.tecrube anahtarından geliyor")
 	s.tohumla(_tohum(s.zar_turu(), 6))
 	panel.guncelle()
 	var liste := panel.find_child("ZarDegistiriciler1", true, false)
+	var itibar_yazisi := String(TranslationServer.translate("zar.degistirici.grup_itibari"))
+	_kontrol(liste != null and liste.get_children().any(func(r: Label) -> bool: return itibar_yazisi + " (-1)" in r.text), "Gerçek panel grup itibarı eksi bir satırını gösteriyor")
 	var tecrube_yazisi := String(TranslationServer.translate("zar.degistirici.tecrube"))
 	_kontrol(liste != null and liste.get_child_count() > 0 and tecrube_yazisi in String(liste.get_child(liste.get_child_count() - 1).text), "Panel tecrübe satırını anahtardan yazıyor")
 	var b := panel.find_child("Secenek1", true, false) as Button
@@ -78,6 +82,19 @@ func _ready() -> void:
 	_kontrol(int(s.son_zar.get("zar", 0)) == 6 and int(s.son_zar.get("gerekli", 0)) == beklenen and bool(s.son_zar.get("basarili", false)), "Zar 6 tavan; gerekli değer ZAR-01 formülü")
 	var zar_lbl := panel.find_child("ZarSonucu", true, false) as Label
 	_kontrol(zar_lbl != null and ": 6, gereken %d+" % beklenen in zar_lbl.text and "başarılı" in zar_lbl.text, "Panel zar sayısını, gerekeni ve sözü yazıyor")
+
+	_kontrol(s.son_zar.get("degistirici_satirlari", []).any(func(r: Dictionary) -> bool: return r.tur == "grup_itibari" and r.deger == -1), "Atılan zar önizlemedeki grup itibarı değerini kullanıyor")
+
+	# Ek bağlam verilirse ön kontrol ve atış aynı tavanı kullanır.
+	var baglamli := ChrSorgusu.new(s.karakter.duplicate())
+	baglamli.karakter.sorgu_degeri = 6
+	baglamli.karakter.zar = "d6"
+	baglamli.tansiyon = 0
+	baglamli._dugume_git(&"1.1")
+	var secenek: Dictionary = baglamli.karakter.diyalog_dugumu(&"1.1").secenekler[1]
+	var destek := {"itibar": 1}
+	_kontrol(not baglamli.secenek_acik(secenek, 1) and baglamli.secenek_acik(secenek, 1, destek), "Ek itibar tavandaki kilidi açabiliyor")
+	_kontrol(baglamli.secenek_sec(1, destek) and baglamli.son_zar.get("gerekli") == 6, "Aynı bağlam zar atışını da açıyor")
 
 	# Kilit: gerekli tavanı aşınca seçenek kapanır, zar atılmaz.
 	var kilit := preload("res://src/sistemler/chr_sorgusu.gd").new(s.karakter.duplicate())

@@ -79,7 +79,7 @@ func yaklasim_degistiricisi(secenek: Dictionary, ek_baglam: Dictionary = {}) -> 
 func metin(anahtar: StringName) -> String:
 	return preload("res://src/veri/chr_guvenli_okuma.gd").metin(karakter.metinler.get(String(anahtar)), String(anahtar))
 
-func secenek_acik(secenek: Dictionary, indeks: int = -1) -> bool:
+func secenek_acik(secenek: Dictionary, indeks: int = -1, ek_baglam: Dictionary = {}) -> bool:
 	if indeks >= 0 and _denemeler.has("%s:%d" % [dugum_id, indeks]):
 		return false
 	var ipucu_kosulu: Array = secenek.get("gerekli_ipuclari", [])
@@ -93,7 +93,7 @@ func secenek_acik(secenek: Dictionary, indeks: int = -1) -> bool:
 	for bayrak in secenek.get("gerekli_bayraklar", []):
 		if not bayraklar.get(String(bayrak), false):
 			return false
-	return not kacti() and not zar_kilitli(secenek)
+	return not kacti() and not zar_kilitli(secenek, ek_baglam)
 
 ## ZAR-03: tansiyon eşiği aşıldı; ziyaret "kaçtı" kararıyla biter, başka karar açılmaz.
 func kacti() -> bool:
@@ -115,7 +115,7 @@ func _kacis_hesapla(artis: int) -> bool:
 func secenek_sec(indeks: int, ek_baglam: Dictionary = {}) -> bool:
 	var dugum := karakter.diyalog_dugumu(dugum_id)
 	var secenekler: Array = dugum.get("secenekler", [])
-	if indeks < 0 or indeks >= secenekler.size() or not secenek_acik(secenekler[indeks], indeks):
+	if indeks < 0 or indeks >= secenekler.size() or not secenek_acik(secenekler[indeks], indeks, ek_baglam):
 		return false
 	var secenek: Dictionary = secenekler[indeks]
 	if not String(secenek.get("beceri", "")).is_empty():
