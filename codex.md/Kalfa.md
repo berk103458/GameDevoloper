@@ -2052,3 +2052,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - 23 Kasım 2026: Ahmet öğretici uygulamasını Alpha'ya, kabul testini Kalfa'ya verdi. Dört uçtan uca kabul senaryosu hazır. Alpha'ya Ajan Masası #11'de öğretici devri, eksik kamera commit'i ve Gemini listesi bildirildi. Asset gerekmedi. Kota görünmüyor.
 
 - 23 Kasım 2026: Diyalog işi D:/Kapı_Muhafizi_Kalfa_Diyalog festive klonuna taşındı. Tohum 76 Zeynep incelemesini geçip 5. geceyi 483 adım ve sıfır hatayla bitirdi. Alpha ulak panelini düzeltti. Rebase'de iki rapor bölümü korundu. Güncel kaynakta import temiz ve ikinci koşu 372 adımda sıfır hata. Asset gerekmedi. Kota görünmüyor.
+
+- 23 Kasım 2026: Menü yaması D: festive klonunda güncel kaynakla doğrulandı. Son koşu medyanı 13,89 ms, Yeni Oyun açıldı. Asset gerekmedi. Kota görünmüyor.

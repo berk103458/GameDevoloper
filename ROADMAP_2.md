@@ -19,7 +19,7 @@ Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde 
 - [x] Takip — Etkin yuvaya F5, açık rapor koruması ve ayrı Godot sürecinde Devam Et regresyonu eklendi. (Kalfa)
 - [x] Takip — 6–8. gece raporları tamamlandı ve geçerli ulak düğmesinin oyun köprüsü bağlantısı düzeltildi. (Kalfa)
 - [x] Takip — 10. geceye kadar döngü ve alternatif tohumla 3. geceye kadar açılış doğrulandı. (Kalfa)
-- [/] (Kalfa) Takip — Ana menüde açılış takılması ölçülecek ve menüye özgü çizim maliyeti giderilecek.
+- [x] Takip — Ana menü gök haritasının çizim maliyeti düşürüldü. Festive açılışı ve Yeni Oyun doğrulandı. (Kalfa)
 - [x] Takip — Otomatik oyuncu kapı incelemesinden sorguya döndü ve tohum 76'da 5. geceye sıfır hatayla ulaştı. (Kalfa)
 
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)

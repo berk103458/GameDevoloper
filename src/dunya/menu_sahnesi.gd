@@ -69,9 +69,9 @@ func _ortam_kur() -> void:
 	mat.set_shader_parameter("ay_yonu", AY_YONU)
 	mat.set_shader_parameter("ay_boyut", 0.028)
 	gok.sky_material = mat
-	# Ay diski keskin kalsın: gök küp haritası yüksek çözünürlükte.
-	gok.radiance_size = Sky.RADIANCE_SIZE_2048
-	gok.process_mode = Sky.PROCESS_MODE_QUALITY
+	# Göğün hareketi küp haritasını her karede yeniler. Ekrandaki ay ayrı çizilir.
+	gok.radiance_size = Sky.RADIANCE_SIZE_256
+	gok.process_mode = Sky.PROCESS_MODE_REALTIME
 	env.background_mode = Environment.BG_SKY
 	env.sky = gok
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
