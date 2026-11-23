@@ -103,7 +103,8 @@ static func _dunya_etkin(o: Oturum,oid: String) -> bool:
  if uygulanan is Array and oid in uygulanan: return true
  return DunyaZamani.isaret_var_mi(o, oid)
 static func _mogol_durum(o: Oturum) -> Dictionary:
- if not (MogolOncusu.AYAR is Dictionary) or not MogolOncusu.AYAR.has("varis_gunu"):
+ var ay:=MogolOncusu._ayar()
+ if not (ay is Dictionary) or not ay.has("varis_gunu"):
   return {"kalan":999,"sinirda":false,"ad":""}
  return MogolOncusu.durum(o)
 static func _olaylar(o: Oturum,id: String) -> Array:

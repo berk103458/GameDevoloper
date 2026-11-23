@@ -2,6 +2,11 @@
 class_name MogolOncusu
 extends RefCounted
 static var AYAR: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/mogol_oncusu.json"))
+static func _ayar() -> Dictionary:
+ if not (AYAR is Dictionary) or AYAR.is_empty():
+  var v: Variant=JSON.parse_string(FileAccess.get_file_as_string("res://data/mogol_oncusu.json"))
+  if v is Dictionary: AYAR=v
+ return AYAR
 ## Optional defter yalnız izinli uyarı eşiklerini tutar; eski kayıt geçmiş uyarı uydurmaz.
 static func oku(v: Variant) -> Dictionary:
  var d: Dictionary={"son_gece":-1,"uyarilar":[]}
@@ -15,8 +20,9 @@ static func oku(v: Variant) -> Dictionary:
  return d
 ## Geri sayım salt okunur, bakiye veya ikinci gün sayacı değildir.
 static func durum(o: Oturum) -> Dictionary:
- var kalan:=maxi(0,int(AYAR.varis_gunu)-maxi(0,o.gun))
- return {"ad":String(AYAR.ad),"kalan":kalan,"sinirda":kalan==0}
+ var ay:=_ayar()
+ var kalan:=maxi(0,int(ay.get("varis_gunu",30))-maxi(0,o.gun))
+ return {"ad":String(ay.get("ad","")),"kalan":kalan,"sinirda":kalan==0}
 ## DNY-03 tehdit kapısı çarpanı (ikinci sayaç/zar eklemez).
 static func tehdit_carpani(o: Oturum) -> float:
  return DunyaEtkisi.o_carpani(o, "tehdit_kapisi")
@@ -25,22 +31,24 @@ static func metin(o: Oturum) -> String:
  return olay_metin(durum(o))
 ## Tamamlanan gerçek gece eşiği bir kez aynı rapora eklenir; savaş/para/zar eklenmez.
 static func gece(o: Oturum,r: Dictionary) -> void:
+ var ay:=_ayar()
  var no:=int(r.gun)+1
  var d:=oku(o.mogol_oncusu)
  if o.yonetim.son!="" or no<=int(d.son_gece): return
  d.son_gece=no
- var kalan:=maxi(0,int(AYAR.varis_gunu)-no)
+ var kalan:=maxi(0,int(ay.get("varis_gunu",30))-no)
  if kalan in _esikler() and not kalan in d.uyarilar:
   d.uyarilar.append(kalan)
   var dis_hat = preload("res://src/sistemler/dis_hat_kapisi.gd")
   if dis_hat.izin(o.yonetim, dis_hat.SONUC if kalan == 0 else dis_hat.HABER, -1):
-   r.olaylar.append({"anahtar":&"koy.olay.mogol_oncusu","deger":[],"mogol_oncusu":{"ad":String(AYAR.ad),"kalan":kalan,"sinirda":kalan==0}})
+   r.olaylar.append({"anahtar":&"koy.olay.mogol_oncusu","deger":[],"mogol_oncusu":{"ad":String(ay.get("ad","")),"kalan":kalan,"sinirda":kalan==0}})
  o.mogol_oncusu=d
 ## Aynı sabah raporu ve harita tek uyarı dilini kullanır; CSV anahtarı sızmaz.
 static func olay_metin(d: Dictionary) -> String:
- return String(AYAR.varis_metin) if int(d.kalan)==0 else String(AYAR.yaklasma_metin)%int(d.kalan)
+ var ay:=_ayar()
+ return String(ay.get("varis_metin","")) if int(d.get("kalan",0))==0 else String(ay.get("yaklasma_metin","%d"))%int(d.get("kalan",0))
 
 static func _esikler() -> Array[int]:
  var a: Array[int]=[]
- for n in AYAR.uyari_kalan: a.append(int(n))
+ for n in _ayar().get("uyari_kalan",[]): a.append(int(n))
  return a
