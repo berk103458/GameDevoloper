@@ -94,6 +94,9 @@ def checks(godot, root):
     yield "protected-api", [sys.executable, "-B", "tools/api_sozlesmesi.py", "--manifest", "tools/api_sozlesmesi_baseline.json"], None
     yield "headless-import", [godot, "--headless", "--path", str(root), "--editor", "--import", "--quit"], None
     # oyun_koprusu_test.gd and tests/tools/test_tester_oyuncu.py are discovered below.
+    for scene in ("chr_soz_canli_kontrol", "chr_kadro_karar_kontrol"):
+        marker = "CHR_SOZ_OZET" if scene == "chr_soz_canli_kontrol" else "CHR KADRO: GEÇTİ"
+        yield scene, [godot, "--headless", "--path", str(root), f"tests/oto/{scene}.tscn"], marker
     yield "oyun_koprusu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/oyun_koprusu_kontrol.tscn"], "GEÇTİ"
     yield "ayak_zemini_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/ayak_zemini_kontrol.tscn"], "AYAK ZEMİNİ: GEÇTİ"
     yield "karakter_muayene", [godot, "--headless", "--fixed-fps", "120", "--path", str(root), "tests/oto/karakter_muayene.tscn"], "MUAYENE BİTTİ"

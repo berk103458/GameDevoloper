@@ -2062,3 +2062,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - 23 Kasım 2026: Gerçek kapıda iki CHR kabul testi geçti. Meryem kabulü +1 köylü ve +2 gıda, Haydar reddi +1 ret sonucu verdi. Sıfır hata, sıfır yer tutucu. Diyalog entegrasyonu kapandı. Asset gerekmedi. Kota görünmüyor.
 
 - Ses autoload ve görsel izin kök nedenleri giderildi. Bağımsız ve canlı CHR testleri geçti. Sırada kadro karar matrisi ve beş gece. Asset gerekmedi. Kota görünmüyor.
+
+- 30 CHR'nin doğal gece sırası ve 90 bağımsız karar dalı geçti. Kadro listesi ve test sanity paketine eklendi. Asset gerekmedi. Kota görünmüyor.

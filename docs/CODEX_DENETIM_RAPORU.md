@@ -177,7 +177,7 @@ Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/13-kapi-soz/uc-gece-son.moto
 
 ### Sonraya
 
-Zar denetimi, bağımsız CHR testi, testteki `Ses` autoload bağlamı ve `GorselIz` düğüm yolu sonraya bırakıldı. Bu çalışma kapıdaki konuşma ve karar bağlantısıyla sınırlı.
+Bağımsız CHR testi, `Ses` autoload bağlamı ve `GorselIz` yolu kapatıldı. Zar bağlantısı hedefli sahneyle denetlendi.
 
 ## Canlı CHR kapı doğrulaması
 
@@ -193,3 +193,7 @@ Godot 4.7.2 importu ve sahne çıkış kodu 0. Oyun hatası, eksik metin anahtar
 Kayıtlı `Ses` autoload korunuyor. Zorunlu CHR konuşma ve karar sesleri başlayamazsa kaynak yolu başına bir kez uyarı yazar. Karar sesinin dosya denetimi oynatıcıyla aynı yönlendirmeyi kullanır. Görsel iz düğmesi çerçeve hiyerarşisinden bağımsız bir erişime sahip. Çerçeveli portre tıklanabilir boyutunu korur. Bağımsız CHR testi arayüz betiklerini autoload hazır olduktan sonra yükler.
 
 Import, bağımsız CHR sorgusu ve iki ziyaretli canlı kapı denetimi geçti. Test, replik efektini ve karar sesini kayıtlı `Ses` üzerinden başlattı. Loglar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/`. Asset gerekmedi.
+
+## Bütün CHR kadrosu
+
+`docs/SOZ_KAPI_KADROSU.md` 30 CHR kaydını ve varış koşullarını listeler. 90 karar koşusunda gerçek gece kuyruğu kullanıldı. Yedi tehdit profili mevcut takvim nedeniyle 14. günden sonra denendi. Kabul, ret ve rüşvetin iş gücü, ret sayacı, gıda, kese ve kapı çıkışı doğrulandı. Sorgu replikleri ve takip seçimi Söz izinde. Sonuçsuz dal veya teklifsiz rüşvet yok. Asset gerekmedi. Log `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/kadro-son.log`.
