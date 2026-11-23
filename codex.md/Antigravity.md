@@ -1870,3 +1870,14 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - Harita bilinen 3 görsel kusur için mekanik değiştirmeyen öneriler: (1) Seçili manzara üzerinde pinlerin yerleşimi için bölge başına `manzara_pin_konumu` veya pin opaklık/çerçeve ayırıcı eklenmesi, (2) Sağ bilgi kartının metin boşken minimum yükseklik/boş durum metniyle dengelenmesi, (3) `kopru_saglam.png` / `kopru_yikik.png` görsellerinin üstten harita açısına hizalanması.
   - Değişikliklerimizden bağımsız 3 mevcut test hatası gözlendi: `acilis_menu_kontrol.tscn` (C5 `YeniOyunBeratiAnimasyonu.oynat` 1.5s beklemesini test etmiyor, 1 kare sonra `BilgiEkrani` arıyor), `hayvan_takas_kontrol.tscn` (`CobanSurusu.koyunlar.size() == 5` assertion), `soylenti_meclis_kontrol.tscn` (`HafizaDefteri` satır içeriği kontrolü).
 - kota görünmüyor
+
+### 24 Kasım (Tur 8) — Kırık 3 Testin Düzeltilmesi, Harita Pin Koordinatları ve Sağ Bilgi Kartı
+- **Düzeltilen 3 test (`RC=0`):**
+  - `tests/oto/acilis_menu_kontrol.gd`: `secim._baslat()` sonrası C5 `YeniOyunBeratiAnimasyonu.oynat` beklemesi için headless modda da gerçek zamanlı `Time.get_ticks_msec()` tabanlı `6000 ms` bekleme eklendi (`AÇILIŞ MENÜ: GEÇTİ`, `RC=0`).
+  - `src/arayuz/hafiza_defteri_ekrani.gd`: `sayfa_sec()` içinde `_listeyi_ciz()` çağrısı `await HafizaSayfasiAnimasyonu.oynat(self, kisa)` öncesine alındı (`soylenti_meclis_kontrol.tscn` `RC=0`).
+  - `tests/oto/hayvan_takas_kontrol.gd`: `YAP-01` yapı kilidi için `y.kabul({"ad": "Çoban", "yapi_bilgisi": ["ahir", "agil"]})` eklendi ve satın alınan koç assertion'ı gerçek 3B model + yedek kutu ile uyumlu hale getirildi (`hayvan_takas_kontrol.tscn` `RC=0`).
+- **Harita pinleri ve sağ bilgi kartı:**
+  - `data/cevre_haritasi.json`: Tüm 9 bölge pini (`hisar`, `karaboran`, `tekfur`, `goc_yolu`, `oba`, `sancak`, `mogol`, `gozcu`, `koy`), `yollar` ve `rotalar` ara noktaları + `kopru_konum` çerçeve içi güvenli alana (`x: 0.20..0.79, y: 0.24..0.74`) ve vadi/nehir coğrafyasına oturtuldu.
+  - `src/arayuz/harita_ekrani.gd`: `harita_bolge_kart` dikeyde dolduruldu (`SIZE_EXPAND_FILL`), seçimsiz durumda (`bolge_sec("")`) genel uç özeti ("Uç Çevre Haritası", gün/nüfus/Moğol/Gözcü/keşif/ticaret hattı) ve seçili bölgede `_bolge_gorunen_metni()` (konum, durum, bağlı yollar) eklendi.
+  - Doğrulama: `cevre_haritasi_test.gd`, `cevre_haritasi_baglama_test.gd`, `harita_ekrani_baglama_test.gd`, `harita_ekrani_kontrol.tscn` (`RC=0`) ve pencereli 2 yeni ekran görüntüsü (`harita_yeni_1_secimsiz.png`, `harita_yeni_2_hisar.png`) ile doğrulandı.
+- kota görünmüyor

@@ -49,8 +49,8 @@
       "id": "hisar",
       "tur": "hisar",
       "ad": "Taşlık Hisar",
-      "x": 0.28,
-      "y": 0.58,
+      "x": 0.36,
+      "y": 0.6,
       "renk": "777b6d",
       "ikon_normal": "res://assets/art/icons/icon_map_hisar.png",
       "ikon_secili": "res://assets/art/map/pin_hisar_secili.png",
@@ -74,8 +74,8 @@
       "id": "karaboran",
       "tur": "yol",
       "ad": "Karaboran",
-      "x": 0.22,
-      "y": 0.2,
+      "x": 0.24,
+      "y": 0.3,
       "renk": "6e5650",
       "ikon_normal": "res://assets/art/icons/icon_map_yol.png",
       "ikon_secili": "res://assets/art/map/pin_yol_secili.png",
@@ -94,8 +94,8 @@
       "id": "tekfur",
       "tur": "tekfur",
       "ad": "Tekfur Hisarı",
-      "x": 0.75,
-      "y": 0.3,
+      "x": 0.65,
+      "y": 0.35,
       "renk": "66576e",
       "ikon_normal": "res://assets/art/icons/icon_map_tekfur.png",
       "ikon_secili": "res://assets/art/map/pin_tekfur_secili.png",
@@ -114,8 +114,8 @@
       "id": "goc_yolu",
       "tur": "goc",
       "ad": "Göç yolları",
-      "x": 0.73,
-      "y": 0.76,
+      "x": 0.62,
+      "y": 0.74,
       "renk": "716b53",
       "ikon_normal": "res://assets/art/icons/icon_map_goc.png",
       "ikon_secili": "res://assets/art/map/pin_goc_secili.png",
@@ -135,8 +135,8 @@
       "id": "oba",
       "tur": "oba",
       "ad": "Ertuğrul Obası",
-      "x": 0.1,
-      "y": 0.42,
+      "x": 0.2,
+      "y": 0.52,
       "renk": "6a5c45",
       "ikon_normal": "res://assets/art/map/pin_oba_normal.png",
       "ikon_secili": "res://assets/art/map/pin_oba_secili.png",
@@ -155,8 +155,8 @@
       "id": "sancak",
       "tur": "sancak",
       "ad": "Selçuklu Sancak Merkezi",
-      "x": 0.9,
-      "y": 0.14,
+      "x": 0.79,
+      "y": 0.26,
       "renk": "5a5348",
       "ikon_normal": "res://assets/art/map/pin_sancak_normal.png",
       "ikon_secili": "res://assets/art/map/pin_sancak_secili.png",
@@ -174,8 +174,8 @@
       "id": "mogol",
       "tur": "mogol",
       "ad": "Moğol Akın Kolu",
-      "x": 0.5,
-      "y": 0.08,
+      "x": 0.53,
+      "y": 0.24,
       "renk": "5c4a46",
       "ikon_normal": "res://assets/art/map/pin_mogol_normal.png",
       "ikon_secili": "res://assets/art/map/pin_mogol_secili.png",
@@ -193,8 +193,8 @@
       "id": "gozcu",
       "tur": "gozcu",
       "ad": "Gözcü Kulesi",
-      "x": 0.42,
-      "y": 0.36,
+      "x": 0.38,
+      "y": 0.4,
       "renk": "5e5a52",
       "ikon_normal": "res://assets/art/map/pin_gozcu_normal.png",
       "ikon_secili": "res://assets/art/map/pin_gozcu_secili.png",
@@ -212,8 +212,8 @@
       "id": "koy",
       "tur": "koy",
       "ad": "Komşu Uç Köyü",
-      "x": 0.58,
-      "y": 0.62,
+      "x": 0.56,
+      "y": 0.56,
       "renk": "6b6356",
       "ikon_normal": "res://assets/art/map/pin_koy_normal.png",
       "ikon_secili": "res://assets/art/map/pin_koy_secili.png",
@@ -234,22 +234,22 @@
   ],
   "yollar": [
     [
-      0.28,
-      0.58,
-      0.22,
-      0.2
-    ],
-    [
-      0.28,
-      0.58,
-      0.75,
+      0.36,
+      0.6,
+      0.24,
       0.3
     ],
     [
-      0.28,
-      0.58,
-      0.73,
-      0.76
+      0.36,
+      0.6,
+      0.65,
+      0.35
+    ],
+    [
+      0.36,
+      0.6,
+      0.62,
+      0.74
     ]
   ],
   "rotalar": [
@@ -259,8 +259,8 @@
       "bitis": "karaboran",
       "ara_noktalar": [
         [
-          0.26,
-          0.39
+          0.29,
+          0.44
         ]
       ],
       "tip": "patika",
@@ -273,15 +273,15 @@
       "bitis": "tekfur",
       "ara_noktalar": [
         [
-          0.52,
-          0.45
+          0.5,
+          0.48
         ]
       ],
       "tip": "ana_yol",
       "nehir_gecisi": true,
       "kopru_konum": [
-        0.52,
-        0.45
+        0.5,
+        0.48
       ]
     },
     {
@@ -290,8 +290,8 @@
       "bitis": "goc_yolu",
       "ara_noktalar": [
         [
-          0.55,
-          0.7
+          0.49,
+          0.68
         ]
       ],
       "tip": "ana_yol",
@@ -313,8 +313,8 @@
       "bitis": "oba",
       "ara_noktalar": [
         [
-          0.16,
-          0.52
+          0.28,
+          0.56
         ]
       ],
       "tip": "patika",
@@ -336,8 +336,8 @@
       "bitis": "mogol",
       "ara_noktalar": [
         [
-          0.36,
-          0.12
+          0.38,
+          0.26
         ]
       ],
       "tip": "sinir",
@@ -350,8 +350,8 @@
       "bitis": "sancak",
       "ara_noktalar": [
         [
-          0.84,
-          0.2
+          0.72,
+          0.3
         ]
       ],
       "tip": "ana_yol",

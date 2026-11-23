@@ -148,6 +148,7 @@ func _ready() -> void:
  var kart:=PanelContainer.new()
  kart.name="harita_bolge_kart"
  kart.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ kart.size_flags_vertical=Control.SIZE_EXPAND_FILL
  var kart_stil:=_kart_stil()
  if kart_stil: kart.add_theme_stylebox_override("panel", kart_stil)
  kaydir.add_child(kart)
@@ -197,9 +198,13 @@ func _ready() -> void:
 func bolge_sec(id: String) -> void:
  if String(id).strip_edges().is_empty():
   _secili=""
-  if _baslik: _baslik.text=""
-  if _bilgi: _bilgi.text=""
-  if _gorunen: _gorunen.text=""
+  if _baslik: _baslik.text="Uç Çevre Haritası"
+  if _bilgi:
+   var genel:="Harita üzerindeki bir noktayı seçerek bölgenin durumunu, bağlı yolları ve yaklaşan tehditleri incele."
+   if oturum!=null:
+    genel+="\n\nGün: %d · Nüfus: %d\n\n%s\n\n%s"%[oturum.gosterilen_gece(), oturum.yonetim.nufus(), MogolOncusu.metin(oturum), GozcuOngoru.metin(oturum)]
+   _bilgi.text=genel
+  if _gorunen: _gorunen.text=_genel_gorunen_metni()
   if _kart_rozet:
    for c in _kart_rozet.get_children(): c.queue_free()
   _manzara_gec(ARKA_HARITA)
@@ -217,13 +222,40 @@ func bolge_sec(id: String) -> void:
  _manzara_gec(manzara_yol)
  _rozet_satiri(durum)
  if _gorunen:
-  var parca: PackedStringArray=[]
-  if not bool(durum.get("kesfedildi", true)): parca.append("Savaş sisi: keşfedilmedi")
-  elif not String(durum.get("muhur","")).is_empty(): parca.append("Mühür: "+String(durum.muhur))
-  var olaylar: Array=durum.get("olaylar", [])
-  if not olaylar.is_empty(): parca.append("Olay: "+", ".join(PackedStringArray(olaylar)))
-  _gorunen.text=" · ".join(parca)
+  _gorunen.text=_bolge_gorunen_metni(id, durum)
  _noktalari_guncelle()
+func _genel_gorunen_metni() -> String:
+ var bolgeler:=CevreHaritasi.bolgeler()
+ var kesif:=0
+ for b in bolgeler:
+  if CevreHaritasi.kesfedildi_mi(oturum, String(b.get("id", ""))):
+   kesif+=1
+ var yol_durumu:="Kapalı (köprü yıkık)" if CevreHaritasi.yol_kapali(oturum) else "Açık"
+ return "Keşfedilen bölge: %d / %d\nTicaret ve kervan hattı: %s" % [kesif, bolgeler.size(), yol_durumu]
+func _bolge_gorunen_metni(id: String, durum: Dictionary) -> String:
+ var satirlar: PackedStringArray=[]
+ var ozet:=String(durum.get("tooltip", ""))
+ if not ozet.is_empty():
+  satirlar.append("Konum: " + ozet)
+ var parca: PackedStringArray=[]
+ if not bool(durum.get("kesfedildi", true)): parca.append("Savaş sisi: keşfedilmedi")
+ elif not String(durum.get("muhur","")).is_empty(): parca.append("Mühür: "+String(durum.muhur))
+ var olaylar: Array=durum.get("olaylar", [])
+ if not olaylar.is_empty(): parca.append("Olay: "+", ".join(PackedStringArray(olaylar)))
+ satirlar.append(" · ".join(parca) if not parca.is_empty() else "Durum: Sakin · görünür tehdit yok")
+ var baglilar: PackedStringArray=[]
+ for r in CevreHaritasi.rotalar():
+  if not r is Dictionary: continue
+  var b1:=String(r.get("baslangic", ""))
+  var b2:=String(r.get("bitis", ""))
+  if b1!=id and b2!=id: continue
+  var diger:=b2 if b1==id else b1
+  var d_ad:=String(CevreHaritasi.kayit(diger).get("ad", diger))
+  if not d_ad.is_empty() and not d_ad in baglilar:
+   baglilar.append(d_ad)
+ if not baglilar.is_empty():
+  satirlar.append("Bağlı yollar: " + ", ".join(baglilar))
+ return "\n".join(satirlar)
 func _rulo_ac() -> void:
  if not is_inside_tree(): return
  HaritaRulosuAnimasyonu.oynat(self)

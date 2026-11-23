@@ -66,8 +66,8 @@ func sayfa_sec(indeks: int) -> void:
 		_sayfa_dugmeleri[i].set_pressed_no_signal(i == sayfa)
 	var kisa := _sayfa_oynadi
 	_sayfa_oynadi = true
-	await HafizaSayfasiAnimasyonu.oynat(self, kisa)
 	_listeyi_ciz()
+	await HafizaSayfasiAnimasyonu.oynat(self, kisa)
 
 
 func girdi(eylem: StringName) -> void:

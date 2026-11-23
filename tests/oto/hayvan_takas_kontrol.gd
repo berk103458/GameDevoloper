@@ -16,6 +16,7 @@ func _ready() -> void:
  y.akce = 1000
  y.kaynaklar.kapasite = 10000
  for t in ["odun", "tas", "gida"]: y.kaynaklar.ekle(t, 100)
+ y.kabul({"ad": "Çoban", "yapi_bilgisi": ["ahir", "agil"]})
  kur(y, "ahir")
  var agil := kur(y, "agil")
  y.gun = 3
@@ -31,7 +32,7 @@ func _ready() -> void:
  var h := e.sahne3b.halk_hareketi
  var suru := CobanSurusu._bul(h, agil.id)
  assert(suru != null and suru.koyunlar.size() == 5 and suru.adimlar.size() == 5 and suru.yollar.size() == 5)
- assert(suru.koyunlar[4].get_child(0) is MeshInstance3D and suru.koyunlar[4].get_child(0).mesh is BoxMesh)
+ assert(suru.koyunlar[4].has_meta("satinalinan_koc") and suru.koyunlar[4].get_child_count() > 0)
  var makbuz := JSON.stringify(ana.oturum.kaydet())
  h.yenile()
  h.yenile()

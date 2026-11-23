@@ -58,8 +58,13 @@ func _calistir() -> void:
 	dene(ana._ekran == secim and secim._onay and secim._baslat_dugmesi.text == "Dolu yuvanın üzerine yaz (Onayla)", "Dolu yuvada ilk tıklamada onay istenir ve düğme metni değişir")
 	dene(secim._uyari_etiketi.text.contains("dolu"), "Dolu yuvada ilk tıklamada uyarı metni gösterilir")
 	secim._baslat()
-	await get_tree().process_frame
-	var kadraj := ana._ekran as BilgiEkrani
+	var kadraj: BilgiEkrani = null
+	var bitis := Time.get_ticks_msec() + 6000
+	while Time.get_ticks_msec() < bitis:
+		await get_tree().process_frame
+		kadraj = ana._ekran as BilgiEkrani
+		if kadraj != null:
+			break
 	dene(kadraj != null, "Açılış kadrajı geldi")
 	if kadraj != null:
 		kadraj.secildi.emit(0)
