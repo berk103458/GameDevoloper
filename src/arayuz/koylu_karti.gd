@@ -108,6 +108,10 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	KoyGeciciIslerPaneli.ekle(ekran,sekmeler,k)
 	NeDuydun.ekle(ekran, v, k)
 	var konus := ekran._dugme("Muhabbet Et (Konuş)", v)
+	var dy_ikon := GeceKapisiCerceve.yol("icon_diyalog")
+	if ResourceLoader.exists(dy_ikon):
+		konus.icon = load(dy_ikon)
+		konus.expand_icon = true
 	konus.pressed.connect(func() -> void:
 		ekran._kart_kapat()
 		var dy = KoyDiyalogYoneticisi.new()
@@ -117,6 +121,10 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 		dy.muhabbet_baslat(k, y)
 	)
 	var kapat := ekran._dugme("Kapat", v)
+	var kpt_ikon := GeceKapisiCerceve.yol("icon_kapat")
+	if ResourceLoader.exists(kpt_ikon):
+		kapat.icon = load(kpt_ikon)
+		kapat.expand_icon = true
 	kapat.pressed.connect(ekran._kart_kapat)
 	kapat.grab_focus.call_deferred()
 static func _ata(ekran: KoyEkrani, id: int, hedef: int) -> void:

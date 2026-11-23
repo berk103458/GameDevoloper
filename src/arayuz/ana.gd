@@ -394,9 +394,10 @@ func _hata_goster() -> void:
 
 func _imleci_kur() -> void:
 	var t := Sanat.doku("ui", "ui_cursor_arrow_32")
+	var el := Sanat.doku("ui", "ui_cursor_hand_32")
 	if t != null:
 		Input.set_custom_mouse_cursor(t, Input.CURSOR_ARROW)
-		Input.set_custom_mouse_cursor(t, Input.CURSOR_POINTING_HAND)
+		Input.set_custom_mouse_cursor(el if el != null else t, Input.CURSOR_POINTING_HAND)
 
 
 func _odak_sesini_kur() -> void:

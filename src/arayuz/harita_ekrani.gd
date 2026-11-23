@@ -8,8 +8,12 @@ var _bilgi: Label
 var _baslik: Label
 var _noktalar: Dictionary={}
 var _yollar: Array[ColorRect]=[]
+const ARKA_HARITA := "res://assets/art/env/harita_uc.png"
 const IKON_HISAR := "res://assets/art/icons/icon_map_hisar.png"
+const IKON_TEKFUR := "res://assets/art/icons/icon_map_tekfur.png"
+const IKON_GOC := "res://assets/art/icons/icon_map_goc.png"
 const IKON_YOL := "res://assets/art/icons/icon_map_yol.png"
+const IKON_GERI := "res://assets/ui/atmosfer/gece_kapisi/icon_geri.png"
 func _ready() -> void:
  process_mode=Node.PROCESS_MODE_ALWAYS
  set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -42,6 +46,7 @@ func _ready() -> void:
  s.add_child(panel)
  _alan=Control.new()
  _alan.name="harita_alan"
+ _alan.clip_contents=true
  _alan.custom_minimum_size=Vector2(640,360)
  panel.add_child(_alan)
  var renk:=ColorRect.new()
@@ -49,6 +54,15 @@ func _ready() -> void:
  renk.mouse_filter=Control.MOUSE_FILTER_IGNORE
  renk.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  _alan.add_child(renk)
+ if ResourceLoader.exists(ARKA_HARITA):
+  var harita_arka := TextureRect.new()
+  harita_arka.name = "harita_arka_doku"
+  harita_arka.texture = load(ARKA_HARITA)
+  harita_arka.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  harita_arka.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  harita_arka.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  harita_arka.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+  _alan.add_child(harita_arka)
  for y in CevreHaritasi.AYAR.yollar:
   var c:=ColorRect.new()
   c.color=Color(String(CevreHaritasi.AYAR.yol_renk))
@@ -69,7 +83,11 @@ func _ready() -> void:
   dugme.add_theme_stylebox_override("normal",stil)
   dugme.text=String(b.ad)
   dugme.name="sec_"+String(b.id)
-  var iy := IKON_HISAR if String(b.id) == "hisar" else IKON_YOL
+  var iy := IKON_YOL
+  match String(b.id):
+   "hisar": iy = IKON_HISAR
+   "tekfur": iy = IKON_TEKFUR
+   "goc_yolu": iy = IKON_GOC
   if ResourceLoader.exists(iy):
    dugme.icon = load(iy)
    dugme.expand_icon = true
@@ -100,6 +118,9 @@ func _ready() -> void:
  var geri:=Button.new()
  geri.name="harita_kapat"
  geri.text="Köye dön"
+ if ResourceLoader.exists(IKON_GERI):
+  geri.icon = load(IKON_GERI)
+  geri.expand_icon = true
  geri.custom_minimum_size.y=48
  geri.pressed.connect(queue_free)
  v.add_child(geri)

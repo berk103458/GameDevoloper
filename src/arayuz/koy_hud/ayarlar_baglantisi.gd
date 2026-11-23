@@ -16,6 +16,10 @@ static func kur(e: KoyEkrani, v: Container) -> void:
 	var b := Button.new()
 	b.name = "ayarlar_ac"
 	b.text = String(TranslationServer.translate("arayuz.menu.ayarlar"))
+	var iy := GeceKapisiCerceve.yol("icon_ayarlar")
+	if ResourceLoader.exists(iy):
+		b.icon = load(iy)
+		b.expand_icon = true
 	b.custom_minimum_size.y = 42
 	hedef.add_child(b)
 	b.pressed.connect(func() -> void: ac(e))

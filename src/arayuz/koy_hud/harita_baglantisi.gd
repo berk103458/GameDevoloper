@@ -8,6 +8,10 @@ static func kur(e: KoyEkrani,v: VBoxContainer) -> void:
  var b:=Button.new()
  b.name="harita_ac"
  b.text="Harita"
+ var iy := GeceKapisiCerceve.yol("icon_harita")
+ if ResourceLoader.exists(iy):
+  b.icon = load(iy)
+  b.expand_icon = true
  b.custom_minimum_size.y=42
  hedef.add_child(b)
  e.hud._katman.izle(b, "harita_baglantisi.gd")
