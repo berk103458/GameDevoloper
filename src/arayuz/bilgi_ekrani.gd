@@ -57,11 +57,20 @@ func _ready() -> void:
 		vp.add_child(MenuSahnesi.new())
 	elif arka != null:
 		var r := TextureRect.new()
+		r.name = "arka_" + arka_plan
 		r.texture = arka
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		r.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		add_child(r)
+		if arka_plan != "env_menu_bg":
+			var perde := ColorRect.new()
+			perde.name = "bilgi_perde"
+			perde.color = Color(Renkler.GECE, 0.38)
+			perde.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			perde.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+			add_child(perde)
 	elif arka_plan != "":
 		var yedek_ad := "koy_gunduz" if arka_plan == "3d_koy" else ("kapi_gece" if arka_plan == "3d_kapi" else arka_plan)
 		var ozel := GeceKapisiCerceve.arka_plan_varsa(yedek_ad)

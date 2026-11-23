@@ -23,7 +23,8 @@ static func ac(koy: KoyEkrani, devam_cb: Callable) -> bool:
 	var baslik := "Ocak Başı — %s" % String(sohbet.get("baslik", "Akşam Sohbeti"))
 	var v: VBoxContainer = koy._kart_ac(baslik)
 	if koy.has_method("_kart_arkasi_koy"):
-		koy.call("_kart_arkasi_koy", "gun_sonu")
+		var arka_ad := "ocak_arasahne" if GeceKapisiCerceve.arka_plan_var_mi("ocak_arasahne") else "gun_sonu"
+		koy.call("_kart_arkasi_koy", arka_ad)
 	if koy._ust_kart != null:
 		koy._ust_kart.name = "AksamSohbetiKart"
 		koy._ust_kart.set_meta(&"aksam_sohbeti", true)

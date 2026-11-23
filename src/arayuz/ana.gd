@@ -96,7 +96,8 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 		var adlar: Array = []
 		for id in g.SIRA: adlar.append(String(g.VERI[id].ad))
 		adlar.append("Ana menüye dön")
-		var e := _bilgi("Muhafızın geçmişi", "Geçmişini seç. Bu seçim oyun boyunca değişmez.", adlar, -1, "kapi_gece")
+		var secim_arka := "secim_bg" if GeceKapisiCerceve.arka_plan_var_mi("secim_bg") else "kapi_gece"
+		var e := _bilgi("Muhafızın geçmişi", "Geçmişini seç. Bu seçim oyun boyunca değişmez.", adlar, -1, secim_arka)
 		e.secildi.connect(func(i: int) -> void:
 			if i >= 0 and i < g.SIRA.size(): _gecmis_secildi(tohum, g.SIRA[i])
 			else: ana_menu()
@@ -190,8 +191,10 @@ func _son_goster(son: StringName) -> void:
 	var istatistik := tr("arayuz.son.istatistik") % [y.gun, y.kabul_sayisi, y.ret_sayisi, y.nufus()]
 	var baslik := tr("arayuz.perde.baslik")
 	var metin := tr("arayuz.demo.bitti") + "\n\n" + istatistik
+	var nihai_son := ""
 	if son != &"demo":
 		var son_metni := preload("res://src/sistemler/nihai_son.gd").son_metni(oturum, son, SancakTeftisi.son_metni(son))
+		nihai_son = String(son_metni.get("nihai", ""))
 		baslik = String(son_metni.baslik)
 		metin = MuhafizEpilogu.metin(oturum, son, String(son_metni.metin)) + "\n\n" + istatistik
 		if oturum != null:
@@ -201,8 +204,15 @@ func _son_goster(son: StringName) -> void:
 			kayit_paketi["epilog"] = metin
 			oturum.son_verisi_isle(kayit_paketi)
 			SonKaydi.kayda_son_ekle(oturum.kaydet(), kayit_paketi)
+	var son_arka := "3d_koy"
+	if son == &"zafer" and not nihai_son.is_empty() and Sanat.doku("env", "son_" + nihai_son) != null:
+		son_arka = "son_" + nihai_son
+	elif son in [SancakTeftisi.SON_AZIL, SancakTeftisi.SON_IDAM] and Sanat.doku("env", "oda_epilog") != null:
+		son_arka = "oda_epilog"
+	elif son != &"demo" and Sanat.doku("env", "son_epilog") != null:
+		son_arka = "son_epilog"
 	var e := _bilgi(baslik, metin, [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
-		oturum.gun, "3d_koy")
+		oturum.gun, son_arka)
 	e.oturum = oturum
 	e.secildi.connect(_son_secimi)
 	_goster(e)
