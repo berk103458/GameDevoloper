@@ -24,6 +24,9 @@ Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde 
 - [x] Takip — Kapı sorgusunda grup itibarı satırı, seçenek kilidi ve zar atışı aynı bağlamı kullanır. (Kalfa)
 - [x] Takip — Kapı konuşmaları ve kararları Söz motoruna bağlandı. Yeni oyunda üç gece, dört ziyaret, sıfır hata ve yer tutucu. (Kalfa)
 - [x] Takip — İki CHR ziyareti gerçek kapı ekranında Söz motoru ve köy sonucu ile doğrulandı. (Kalfa)
+- [/] (Kalfa) Takip — CHR kapı kaynaklarını listele, doğal sıra ve tüm karar sonuçlarını denetle.
+- [/] (Kalfa) Takip — CHR inceleme, Ses autoload ve bütün kadro karar regresyonunu tamamla.
+- [/] (Kalfa) Takip — Söz kapsamı için beş gece ve mevcut test paketini denetle.
 
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 
