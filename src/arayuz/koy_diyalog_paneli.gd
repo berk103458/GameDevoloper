@@ -66,7 +66,7 @@ func _kur() -> void:
 	
 	if yonetici:
 		yonetici.replik_geldi.connect(_replik_goster)
-		yonetici.diyalog_sonlandi.connect(_kapat)
+		yonetici.diyalog_sonlandi.connect(_diyalog_sonlandi)
 
 
 func _replik_goster(konusan: String, metin: String, secenekler: Array) -> void:
@@ -102,6 +102,12 @@ func _replik_goster(konusan: String, metin: String, secenekler: Array) -> void:
 						yonetici.soz_secenek(kimlik)
 				)
 				_secenekler_kutusu.add_child(btn)
+
+
+func _diyalog_sonlandi() -> void:
+	# Son replik varsa oyuncu okuyup Ayrıl düğmesiyle kapatır.
+	if not _kapat_butonu.visible:
+		queue_free()
 
 
 func _kapat() -> void:

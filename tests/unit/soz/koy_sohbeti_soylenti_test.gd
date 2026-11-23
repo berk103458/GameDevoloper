@@ -14,7 +14,7 @@ func _dogrula(kosul: bool, mesaj: String) -> void:
 
 
 func _initialize() -> void:
-	_kos()
+	call_deferred("_kos")
 
 
 func _kos() -> void:
@@ -60,6 +60,7 @@ func _kos() -> void:
 	ctx.p_data = b1
 	_dogrula(fact.evaluate(ctx, ["soylenti"]), "KoyHavadisFact soylenti koşulunu true okumalı")
 	ctx.free()
+	fact.free()
 
 	# 3. Gerçek Parley muhabbet akışında havadis seçeneği canlı söylentiyi iki köylüde farklı satırla basar.
 	var satir_k1 := await _muhabbet_havadisi_al(k1, o.yonetim)
@@ -78,22 +79,27 @@ func _kos() -> void:
 		quit(1)
 		return
 
-	print("TEST PASS: SOY-46 koy_sohbeti_soylenti_test")
+	print("GEÇTİ: SOY-46 koy_sohbeti_soylenti_test")
 	quit(0)
 
 
 func _muhabbet_havadisi_al(k: Koylu, y: KoyYonetimi, hedef_id: String = "opt_havadis") -> String:
 	var dy = KoyDiyalogYoneticisi.new()
+	var kok := Control.new()
+	root.add_child(kok)
+	var panel := KoyDiyalogPaneli.ac(kok, dy)
 	var sonuc := {"havadis_secenegi": null, "replik": ""}
 	dy.replik_geldi.connect(func(_konusan: String, metin: String, secenekler: Array) -> void:
 		if not secenekler.is_empty():
 			for s in secenekler:
-				if String(s.id).contains(hedef_id) or String(s.text).contains("havadis"):
+				var secim_metni := String(s.get("metin", "")) if s is Dictionary else String(s.text)
+				if String(s.id).contains(hedef_id) or secim_metni.to_lower().contains("havadis"):
 					sonuc.havadis_secenegi = s
 		else:
 			sonuc.replik = metin
 	)
 	if not dy.muhabbet_baslat(k, y):
+		kok.queue_free()
 		return ""
 	for _i in 10:
 		await process_frame
@@ -101,11 +107,20 @@ func _muhabbet_havadisi_al(k: Koylu, y: KoyYonetimi, hedef_id: String = "opt_hav
 			break
 	if sonuc.havadis_secenegi == null:
 		dy.bitir()
+		kok.queue_free()
 		return ""
-	dy.secenek_sec(sonuc.havadis_secenegi)
+	if sonuc.havadis_secenegi is Dictionary:
+		dy.soz_secenek(String(sonuc.havadis_secenegi.id))
+	else:
+		dy.secenek_sec(sonuc.havadis_secenegi)
 	for _i in 10:
 		await process_frame
 		if not String(sonuc.replik).is_empty():
 			break
+	if sonuc.havadis_secenegi is Dictionary:
+		_dogrula(is_instance_valid(panel) and not panel.is_queued_for_deletion()
+			and panel._metin_label.text == sonuc.replik and panel._kapat_butonu.visible,
+			"Tüccarın son repliği Ayrıl düğmesine kadar ekranda kalmalı")
 	dy.bitir()
+	kok.queue_free()
 	return String(sonuc.replik)

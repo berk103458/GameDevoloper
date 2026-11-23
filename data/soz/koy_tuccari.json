@@ -16,6 +16,11 @@
           "hedef": "rusvet"
         },
         {
+          "id": "opt_havadis",
+          "metin": "diyalog.koy.tuccar.havadis.soru",
+          "hedef": "havadis"
+        },
+        {
           "id": "ret",
           "metin": "diyalog.koy.tuccar.ret.soru",
           "hedef": "ret"
@@ -27,6 +32,9 @@
     },
     "rusvet": {
       "satir": "diyalog.koy.tuccar.rusvet.cevap"
+    },
+    "havadis": {
+      "satir": "diyalog.koy.tuccar.havadis.cevap"
     },
     "ret": {
       "satir": "diyalog.koy.tuccar.ret.cevap"

@@ -4602,6 +4602,8 @@ diyalog.koy.tuccar.harc.soru,Kapıdaki geçiş bacını sor.,Ask about the toll 
 diyalog.koy.tuccar.harc.cevap,Bacın kaydı kapıdadır. Ben tezgâhıma döneyim.,The toll is recorded at the gate. I'll return to my stall.
 diyalog.koy.tuccar.rusvet.soru,Kapıda bıraktığın keseyi sor.,Ask about the purse left at the gate.
 diyalog.koy.tuccar.rusvet.cevap,O kese aramızda kalsın ağa. Köylüler bu işe içerledi.,"Let that purse stay between us, agha. The villagers took offence."
+diyalog.koy.tuccar.havadis.soru,Pazarda ne havadis var?,What's the news at the market?
+diyalog.koy.tuccar.havadis.cevap,Kulağıma yeni haber gelmedi ağa.,"I haven't heard any news today, agha."
 diyalog.koy.tuccar.ret.soru,Sohbeti bitir.,End the conversation.
 diyalog.koy.tuccar.ret.cevap,"Pekâlâ, tezgâh başına dönerim.","Very well, I'll return to my stall."
 koy.bayrak.sev06_maskeli,Adı henüz sorulmadı,Name not yet asked

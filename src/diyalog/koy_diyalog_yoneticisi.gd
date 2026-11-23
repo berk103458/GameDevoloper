@@ -148,10 +148,16 @@ func soz_secenek(id: String) -> void:
 	var sonuc := _tuccar_sozu.sec(id)
 	if not sonuc.get("basarili", false):
 		return
-	if yonetim != null:
+	var satir := SozMotoru.kapi_metni(String(sonuc.satir))
+	if id == "opt_havadis":
+		var baglam := ParleyKoyAdaptoru.baglam_olustur(koylu, yonetim)
+		var soylenti := ParleyKoyAdaptoru.canli_soylenti_satiri(baglam)
+		if not soylenti.is_empty():
+			satir = soylenti
+	elif yonetim != null:
 		var etki := SozMotoru.is_gucu_etkisi(yonetim, "tuccar", id)
 		yonetim.set_meta(&"koy_tuccar_soz_karari", {"id": id, "etki": etki})
-	replik_geldi.emit(koylu.ad, SozMotoru.kapi_metni(String(sonuc.satir)), [])
+	replik_geldi.emit(koylu.ad, satir, [])
 	bitir()
 
 

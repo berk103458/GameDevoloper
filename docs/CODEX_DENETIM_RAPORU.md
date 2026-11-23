@@ -227,3 +227,9 @@ Projenin depo içinde beklediği Türkçe ve İngilizce çeviri kaynakları gün
 ## Kayıt ve sonraki ziyaret
 
 KAY-19 kayıt ikizi testi serbest akışın boş gece seçebildiği bir tohumu kullanıyordu. Fikstüre kaydedilen sonraki ziyaret etkisi eklendi. İki yükleme ayrı ayrı etkiyi korudu ve ilk gelen kimliği eşleşti. Üretim sırası değişmedi. Kayıt ikizi paketi geçti. Günlük D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/soz-ikiz-son.log.
+
+## Tüccardan canlı havadis
+
+SOY-46, esnafın eski seçenek sözlüğünde Parley alanı arıyordu. Tüccara Söz üzerinden bir havadis seçeneği eklendi. Şu anki söylenti varsa köylünün kendi satırı okunuyor. Sohbet ikinci dedikodu kaydı, akçe hareketi veya iş gücü etkisi oluşturmuyor. Söylenti yoksa yerelleştirilmiş cevap gösteriliyor. Çeviri çıktıları CSV ile birlikte güncellendi.
+
+Test gerçek köy diyalog panelinde son repliğin Ayrıl düğmesine kadar kaldığını ve söylentinin çoğalmadığını doğruladı. Godot hata ve uyarısı 0. Günlük D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/tuccar-havadis-panel.log. Asset gerekmedi.
