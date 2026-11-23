@@ -2078,3 +2078,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - Köy tüccarı Söz üzerinden canlı havadis söylüyor. Son replik Ayrıl düğmesine kadar ekranda kaldı. SOY-46 ve kaynak denetimleri geçti. Asset gerekmedi. Kota görünmüyor.
 
 - CHR gecikmeli ziyareti tehdit günü gelene kadar bekliyor. Kuyruk doluysa normal ziyaretçinin önüne alınıyor, özel ziyaretler yüzünden düşerse kaydı beklemede kalıyor. Karar dönüşü ve 90 CHR dalı geçti. Asset gerekmedi. Kota görünmüyor.
+
+- Tam denetim 612 kalem. Üç hedefli düzeltmenin ardından 430 geçti ve 182 açık kaldı. Beş gece ve CHR kapsamı geçti. Tam paket maddesi açık. Eksik yangın sesi envantere kaydedildi. Kota görünmüyor.

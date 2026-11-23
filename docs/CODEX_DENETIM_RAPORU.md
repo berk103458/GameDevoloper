@@ -239,3 +239,23 @@ Test gerçek köy diyalog panelinde son repliğin Ayrıl düğmesine kadar kald�
 CHR_001 kabulüyle oluşturulan CHR_004 ziyareti kayıt/yüklemeden sonra tehdit takvimine uygun ilk kapı gecesinde değerlendiriliyor. Kapı kuyruğu dolduğunda planlı ziyaret sıradan ziyaretlerin önünde tutuluyor. Sınır özel ziyaretlerle doluysa düşen planlı ziyaretin kaydı yeniden beklemeye geçiyor. Uygun olmayan kişi gelmiş sayılmıyor.
 
 Karar dönüşü denetimi Söz kararını, kaydı, tehdit gününden önce beklemeyi ve iki kuyruk durumunu doğruladı. Otuz CHR'nin 90 dalı da yeniden geçti. Kanıtlar D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/karar-donusu-kuyruk-dogrulama.log ve kadro-kuyruk-son.log. Asset gerekmedi.
+
+## Tam test paketi ve açık kalanlar
+
+Paket, proje çalıştırıcısının 612 denetimini D: üzerindeki yalıtılmış kopyalarda çalıştırdı. İlk birleşik sonuç 427 geçti ve 185 kaldı. Kayıt ikizi, tüccar havadisi ve karar dönüşü son hedefli koşularında geçti. Bu üç sonucu içeren bilanço **430 geçti, 182 kaldı**. İlk çalıştırmanın ham sonucu korunuyor. Ayrıntılar D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/sanity-sonuc.json ve aynı klasörde sanity-ozet.json ile sanity-sicak-loglari.
+
+- Açık 182 denetimin 100'ü hata çıktısı, 23'ü zaman aşımı, 55'i farklı biçimde başarı bildirimi, 2'si eksik tamamlanma bildirimi ve 2'si başarısız çıkış. Farklı bitiş metni kullanan testler paketin kendi geçme kriterine göre açık bırakıldı.
+- Temiz importta Godot kapanışında kaynak sızıntıları raporlandı. Kaynak denetimi Dialogue Manager ile Theatre'daki çift DialogueLabel sınıfını ve başlangıç denetiminin üç sütunlu güncel CSV'yi iki sütunlu beklediğini gösterdi. Korunan API denetimi KarakterModel.yuru imzasında kaldı. Bu dosya ve denetim başlangıç commit'inden beri bu çalışma kapsamında değişmedi.
+- Ses denetimi samanlık yangınının sfx_yangin dosyasını bulamadı. İhtiyaç envanterde. Ses autoload, kapı repliği ve karar sesi bağımsız CHR testinde çalıştı.
+- Kapının CHR, figür, açılış ve özel ziyaret konuşmaları Söz'e bağlı. Köy tüccarı Söz kullanıyor. Yazılmış diğer köy Parley sohbetleri kendi veri kaynağını kullanmaya devam ediyor. Otuz CHR'nin 90 kabul/ret/rüşvet dalında sonuçsuz karar veya eksik teklif görülmedi.
+- Ortak Ahmet klasöründe yalnız git pull --ff-only denendi. Yerel chr_inceleme_paneli.gd değişikliği ilerlemeyi engelledi ve korundu. C:/Users/ds/Documents/GitHub/GameDevoloper yolu bu makinede bulunamadı.
+
+### Yayınlanan son adımlar
+
+- 0f7b304a — Kadro ve doğrulama için ROADMAP sahipliği.
+- da8120c6 — CSV'den üretilen çeviri kaynakları ve beş gece kanıtı.
+- 26ef01b5 — Kayıt ikizinde sonraki ziyaret etkisi.
+- acf6b783 — Tüccarın canlı havadisi ve okunabilir son repliği.
+- 78e69906 — Gecikmeli CHR ziyaretinde tehdit takvimi ve dolu kuyruk.
+
+Tam paket geçme kriteri sağlanmadığı için ROADMAP doğrulama maddesi açık bırakıldı.

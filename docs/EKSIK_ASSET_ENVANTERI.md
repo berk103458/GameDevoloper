@@ -909,6 +909,8 @@ Görev 14 kapsamında tamamlanan 20 ziyaretçi portresi (01–20) ve 10 isimli k
 
 Ses/müzik, font ve GPL/ASE palet dosyaları 2D resim değildir; Nano Banana ile üretilmez, 3D kuyruğuna da sokulmaz. Ses ihtiyaçları kaynak taramasının A3 ve C3 bölümlerinde korunur. Mevcut fontlar ve teslim edilmiş modeller yeniden eksik sayılmaz. Lisans/kaynak kayıtları silinmemiştir.
 
+- Samanlık yangını sesi, WAV. Aranan kaynak res://assets/ses/sfx_yangin.wav. Olay data/olaylar/samanlik_yangini.tres. Mevcut durumda hazır ses ve yer tutucu dosya bulunmuyor. Arama terimleri samanlık yangını, alev, çıtırtı / hay barn fire, flames, crackle. Öncelik orta. Ekleyen Kalfa.
+
 ## H. ROADMAP 2 (ARY-05)
 
 Kimlik izleme tablosu: önceki ARY-05/SRM-18 kaynak satırları korunur. Aktif üretim türü, dosya, ölçü ve prompt yukarıdaki 2D / 3D bölümünde bulunur. Yeni ihtiyaç aynı tip bölümüne eklenir; ROADMAP Asset satırına eklenen kimliğin bu izleme tablosu da korunur.

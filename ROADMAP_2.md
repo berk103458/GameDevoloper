@@ -26,7 +26,7 @@ Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde 
 - [x] Takip — İki CHR ziyareti gerçek kapı ekranında Söz motoru ve köy sonucu ile doğrulandı. (Kalfa)
 - [x] Takip — 30 CHR doğal gece kuyruğunda ve 90 karar dalında doğrulandı. (Kalfa)
 - [x] Takip — CHR inceleme, Ses autoload ve bütün kadro karar regresyonu doğrulandı. (Kalfa)
-- [/] (Kalfa) Takip — Söz kapsamı için beş gece ve mevcut test paketini denetle.
+- [/] (Kalfa) Takip — Söz kapsamı için beş gece ve mevcut test paketini denetle. Beş gece tamamlandı. Son hedefli doğrulamalarla 430/612 geçti, tam paket maddesi açık.
 
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 
