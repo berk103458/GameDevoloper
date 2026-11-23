@@ -178,3 +178,12 @@ Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/13-kapi-soz/uc-gece-son.moto
 ### Sonraya
 
 Zar denetimi, bağımsız CHR testi, testteki `Ses` autoload bağlamı ve `GorselIz` düğüm yolu sonraya bırakıldı. Bu çalışma kapıdaki konuşma ve karar bağlantısıyla sınırlı.
+
+## Canlı CHR kapı doğrulaması
+
+`res://tests/oto/chr_soz_canli_kontrol.tscn` yalnız test oturumuna Meryem ve Haydar'ı sırayla verir. Üretim kuyruğu değiştirilmedi. Test normal kapıya girer, görünür düğmelerden ilk soruyu ve takip sorusunu seçer, nişanı inceleyip mevcut yüzleşme dalı üzerinden karar ekranına ulaşır. İki ziyaretin Söz motoru kayıtlarında giriş repliği, `00 → 1.1 → 1.2` takibi, karar ve sonuç bulundu.
+
+- Meryem (`chr_002`) kabul edildi. Nüfus 0 → 1, gıda 30 → 32. Meryem köyün boşta iş gücüne katıldı.
+- Haydar (`chr_003`) geri çevrildi. Köy nüfusu 1, gıda 32. Ret sayacı 0 → 1. İkinci kararın ardından gerçek köy ekranı açıldı.
+
+Godot 4.7.2 importu ve sahne çıkış kodu 0. Oyun hatası, eksik metin anahtarı ve yer tutucu metin 0. Log `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/14-chr-canli/canli.log`. Diyalog entegrasyonu kabul edildi. Asset gerekmedi.
