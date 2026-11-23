@@ -1,3 +1,7 @@
+## 23 Kasım 2026 — Gemini EK listesi parti 14 (Muharrir / Grok Bot)
+
+`GEMINI_EK_2D_URETIM_LISTESI.md` kalem 91–120 üretildi (hepsi eksikti, atlanan yok): 2F kalan köy olay kartları 91–98 (800×450, opak 16:9); 2G kandil / ocak / tansiyon / kese animasyon kareleri 99–114 (256×256); 3A oda ikonları 115–117 (64×64, 2px dış pay), durum rozetleri 118–119 (48×48, 2px dış pay) ve `usta_defteri_marangoz` 120 (256×256, mevcut `icon_usta_defteri.png` ölçüsüne uyum; eski envanter satırı 64×64 diyordu). Yeniden üretim kullanılmadı. Lisans notu: “Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026”. Kontak klon dışında `/workspace/gemini_onizleme/parti_14.png` (commit edilmedi). Sıradaki iş: EK liste kalem 121 (`mini_oyun_harman_bg`).
+
 ## 23 Kasım 2026 — Gemini EK listesi parti 13 (Muharrir / Grok Bot)
 
 `GEMINI_EK_2D_URETIM_LISTESI.md` kalem 61–90 üretildi (hepsi eksikti, atlanan yok): 2B kalan stok ikonları 61–64 (64×64, 2px dış pay); 2C canlı hayvan pazarı 65–72 (64×64, 2px dış pay); 2D zar yaklaşımı / muhafız geçmişi / durum ikonları 73–83 (48×48 veya 64×64, prompttaki ölçü, 2px dış pay); 2E rol ve heyet portreleri 84–88 (600×760); 2F ilk iki köy olay kartı 89–90 (800×450, opak 16:9). Yeniden üretim kullanılmadı. Lisans notu: “Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026”. Kontak klon dışında `/workspace/gemini_onizleme/parti_13.png` (commit edilmedi). Sıradaki iş: EK liste kalem 91 (`event_salgin_fisiltisi`).
