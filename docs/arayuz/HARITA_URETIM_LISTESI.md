@@ -53,14 +53,14 @@ Aşağıdaki dosyalar repoda **hâlihazırda üretilmiş ve kullanılabilir duru
 | 1 | `assets/art/map/pin_koy_normal.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Köy noktası — normal |
 | 2 | `assets/art/map/pin_koy_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Köy noktası — seçili |
 | 3 | `assets/art/map/pin_koy_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Köy noktası — tehlike/olay |
-| 4 | `assets/art/map/pin_hisar_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Taşlık Hisar (`hisar`) — seçili (`normal` mevcut) |
-| 5 | `assets/art/map/pin_hisar_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Taşlık Hisar (`hisar`) — tehlike/olay — **yeniden üretim** (Parti 01: kule yangını gibi duruyor, uyarı mangalı değil; çıkartma üslup. Şimdi üretilmez.) |
-| 6 | `assets/art/map/pin_yol_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Karaboran / Dağ Yolu (`yol`) — seçili (`normal` mevcut) |
-| 7 | `assets/art/map/pin_yol_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Karaboran / Dağ Yolu (`yol`) — tehlike/olay — **yeniden üretim** (Parti 01: yol kenarı kamp ateşlerine benziyor; çıkartma üslup. Şimdi üretilmez.) |
-| 8 | `assets/art/map/pin_goc_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Göç Yolları (`goc_yolu`) — seçili (`normal` mevcut) |
-| 9 | `assets/art/map/pin_goc_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Göç Yolları (`goc_yolu`) — tehlike/olay — **yeniden üretim** (Parti 01: seçiliden zor ayrılıyor, yeterince eğik değil; çıkartma üslup. Şimdi üretilmez.) |
-| 10 | `assets/art/map/pin_tekfur_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Tekfur Hisarı (`tekfur`) — seçili (`normal` mevcut) |
-| 11 | `assets/art/map/pin_tekfur_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Tekfur Hisarı (`tekfur`) — tehlike/olay — **yeniden üretim** (Parti 01: uyarı mangalı değil yanar kule; çıkartma üslup. Şimdi üretilmez.) |
+| 4 | `assets/art/map/pin_hisar_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Taşlık Hisar (`hisar`) — seçili (`normal` mevcut) — **HY1 düzeltildi** (yağlı boya siluet; çıkartma/fildişi kontur yok; seçili hali yalnızca amber kapı ışığı). |
+| 5 | `assets/art/map/pin_hisar_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Taşlık Hisar (`hisar`) — tehlike/olay — **HY1 düzeltildi** (uyarı mangalı, kale yanmıyor; yağlı boya siluet, çıkartma/fildişi kontur yok). |
+| 6 | `assets/art/map/pin_yol_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Karaboran / Dağ Yolu (`yol`) — seçili (`normal` mevcut) — **HY1 düzeltildi** (yağlı boya yol silueti; çıkartma kontur yok; seçili hali amber ışık). |
+| 7 | `assets/art/map/pin_yol_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Karaboran / Dağ Yolu (`yol`) — tehlike/olay — **HY1 düzeltildi** (yol kenarı tek mangal ve duman; kamp ateşi ve ek yapı yok; yağlı boya siluet). |
+| 8 | `assets/art/map/pin_goc_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Göç Yolları (`goc_yolu`) — seçili (`normal` mevcut) — **HY1 düzeltildi** (yağlı boya yolcu bohçası; çıkartma kontur yok; seçili hali amber ışık). |
+| 9 | `assets/art/map/pin_goc_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Göç Yolları (`goc_yolu`) — tehlike/olay — **HY1 düzeltildi** (bohça belirgin eğik ve dumanlı, seçiliden ayrışıyor; yağlı boya siluet). |
+| 10 | `assets/art/map/pin_tekfur_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Tekfur Hisarı (`tekfur`) — seçili (`normal` mevcut) — **HY1 düzeltildi** (yağlı boya siluet; çıkartma/fildişi kontur yok; seçili hali amber kapı ışığı). |
+| 11 | `assets/art/map/pin_tekfur_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Tekfur Hisarı (`tekfur`) — tehlike/olay — **HY1 düzeltildi** (uyarı mangalı, kule yanmıyor; yağlı boya siluet, çıkartma/fildişi kontur yok). |
 | 12 | `assets/art/map/pin_oba_normal.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Ertuğrul Obası (`oba`, HAR-07) — normal |
 | 13 | `assets/art/map/pin_oba_secili.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Ertuğrul Obası (`oba`) — seçili |
 | 14 | `assets/art/map/pin_oba_tehlike.png` | 1 · İşaretçi | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Ertuğrul Obası (`oba`) — tehlike/olay |
@@ -80,25 +80,25 @@ Aşağıdaki dosyalar repoda **hâlihazırda üretilmiş ve kullanılabilir duru
 | 28 | `assets/art/map/rota_tehlike_kesik.png` | 2 · Rota/Coğrafya | 512×64 | 8:1 | 16:9 | RGBA (`#00FF00`) | Tehlikeli / akın rotası pas-kızıl kesik şerit |
 | 29 | `assets/art/map/sinir_cizgisi.png` | 2 · Rota/Coğrafya | 512×64 | 8:1 | 16:9 | RGBA (`#00FF00`) | Uç sınır hattı (nokta-çizgi şerit) |
 | 30 | `assets/art/map/nehir_isaret.png` | 2 · Rota/Coğrafya | 256×128 | 2:1 | 16:9 | RGBA (`#00FF00`) | Nehir geçişi / akıntı işareti |
-| 31 | `assets/art/map/kopru_saglam.png` | 2 · Rota/Coğrafya | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Sağlam tek gözlü taş kemer köprü — **yeniden üretim** (Parti 03: açık kemer doğru, kapı yok; hâlâ hafif izometrik karo ve toprak setli yaklaşımlar. Şimdi üretilmez.) |
-| 32 | `assets/art/map/kopru_yikik.png` | 2 · Rota/Coğrafya | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Yıkık / geçit vermeyen taş köprü — **yeniden üretim** (Parti 03: orta açıklık doğru; `kopru_saglam` ile aynı hafif izometrik/toprak set kusuru. Şimdi üretilmez.) |
+| 31 | `assets/art/map/kopru_saglam.png` | 2 · Rota/Coğrafya | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Sağlam tek gözlü taş kemer köprü — **HY1 kısmen düzeldi** (açık kemer, kapı ve çıkartma yok; setler küçüldü). **Hâlâ kusurlu:** hafif izometrik bakış tamamen kaybolmadı. |
+| 32 | `assets/art/map/kopru_yikik.png` | 2 · Rota/Coğrafya | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Yıkık / geçit vermeyen taş köprü — **HY1 kısmen düzeldi** (orta açıklık, kapı/çıkartma yok; `kopru_saglam` ile eşleşir). **Hâlâ kusurlu:** hafif izometrik bakış tamamen kaybolmadı. |
 | 33 | `assets/art/map/savas_sisi_bulut.png` | 3A · Savaş Sisi | 512×512 | 1:1 | 1:1 | RGBA (`#00FF00`) | Keşfedilmemiş bölge üstü isli sis bulutu |
 | 34 | `assets/art/map/savas_sisi_kenar.png` | 3A · Savaş Sisi | 512×128 | 4:1 | 16:9 | RGBA (`#00FF00`) | Keşif sınırı sis geçiş kenarı |
 | 35 | `assets/art/map/savas_sisi_tam_katman.png` | 3A · Savaş Sisi | 1920×1080 | 16:9 | 16:9 | Opak RGB (full-bleed) | Tam ekran keşfedilmemiş alan koyu sis örtüsü |
 | 36 | `assets/art/map/muhur_guvenli.png` | 3B · Mühür/Damga | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Güvenli / ittifaklı bölge balmumu mührü |
 | 37 | `assets/art/map/muhur_tehlike.png` | 3B · Mühür/Damga | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Kuşatma / tehlike altındaki bölge mührü |
 | 38 | `assets/art/map/muhur_harac.png` | 3B · Mühür/Damga | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Haraç / anlaşma / ferman mührü |
-| 39 | `assets/art/map/muhur_kapali_yol.png` | 3B · Mühür/Damga | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Kapalı yol / kesik menzil mürekkep damgası — **yeniden üretim** (Parti 03: istenen el mürekkebi X yerine çapraz mızrak ve dağ tepeleri. Şimdi üretilmez.) |
+| 39 | `assets/art/map/muhur_kapali_yol.png` | 3B · Mühür/Damga | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Kapalı yol / kesik menzil mürekkep damgası — **HY1 düzeltildi** (kırmızı balmumu mühür üzerinde el X'i; mızrak ve dağ tepeleri yok). |
 | 40 | `assets/art/map/muhur_kesfedildi.png` | 3B · Mühür/Damga | 192×192 | 1:1 | 1:1 | RGBA (`#00FF00`) | Gözcü kulesi keşif / istihbarat damgası |
-| 41 | `assets/art/map/olay_yangin.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Yangın / kundaklama olay işareti — **yeniden üretim** (Parti 01: ev/kundak yangını değil kamp ateşi. Şimdi üretilmez.) |
+| 41 | `assets/art/map/olay_yangin.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Yangın / kundaklama olay işareti — **HY1 düzeltildi** (yalnız yanan ev/kundak; kamp ateşi ve tondo yok). |
 | 42 | `assets/art/map/olay_baskin.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Baskın (çete / kurt) olay işareti |
 | 43 | `assets/art/map/olay_salgin.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Salgın / kara humma olay işareti |
 | 44 | `assets/art/map/olay_kitlik.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Kıtlık / kuraklık olay işareti |
-| 45 | `assets/art/map/olay_taskin.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | İlkbahar taşkını / sel olay işareti — **yeniden üretim** (Parti 01: dairesel vinayet, taşkın silueti zayıf. Şimdi üretilmez.) |
+| 45 | `assets/art/map/olay_taskin.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | İlkbahar taşkını / sel olay işareti — **HY1 düzeltildi** (sel, kazık ve boğulmuş yol; yazı ve dairesel vinayet yok). |
 | 46 | `assets/art/map/olay_pusu.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Yol pususu / eşkıya tehdidi işareti |
 | 47 | `assets/art/map/olay_kervan.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Göç / ticaret kervanı hareketi işareti |
 | 48 | `assets/art/map/olay_heyet.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Diplomatik heyet / ferman elçisi işareti |
-| 49 | `assets/art/map/olay_ulak.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Haberci güvercin / ulak işareti — **yeniden üretim** (Parti 03: güvercin ve tomar doğru; üslup doğal illustrasyon, yağlı boya rozetten uzak; boyunda iridesan yeşil kalıntı. Şimdi üretilmez.) |
+| 49 | `assets/art/map/olay_ulak.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Haberci güvercin / ulak işareti — **HY1 düzeltildi** (gouache güvercin ve bacak tomarı, boyun şarap/eflatun). Hafif kalan: boyunda çok küçük yeşil leke 3/3 denemede tamamen silinmedi. |
 | 50 | `assets/art/map/olay_mogol_akin.png` | 3C · Olay İşareti | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Moğol öncü akını yaklaşma işareti |
 | 51 | `assets/art/map/mevsim_ilkbahar_katman.png` | 3D · Mevsim Katmanı | 1920×1080 | 16:9 | 16:9 | Opak RGB (full-bleed) | İlkbahar serin pus / çiğ yağmur katmanı |
 | 52 | `assets/art/map/mevsim_yaz_katman.png` | 3D · Mevsim Katmanı | 1920×1080 | 16:9 | 16:9 | Opak RGB (full-bleed) | Yaz sıcak kurak amber toz katmanı |
@@ -109,7 +109,7 @@ Aşağıdaki dosyalar repoda **hâlihazırda üretilmiş ve kullanılabilir duru
 | 57 | `assets/art/map/ui_harita_kenarlik.png` | 4 · Harita Arayüzü | 1920×1080 | 16:9 | 16:9 | RGBA (dış+orta `#00FF00`), 9-slice 112/112/112/112 | Harita panosu ahşap-demir dış kenarlık |
 | 58 | `assets/art/map/ui_pusula_gulu.png` | 4 · Harita Arayüzü | 256×256 | 1:1 | 1:1 | RGBA (`#00FF00`) | Yazısız 8 yönlü pusula gülü |
 | 59 | `assets/art/map/ui_olcek_cubugu.png` | 4 · Harita Arayüzü | 512×64 | 8:1 | 16:9 | RGBA (`#00FF00`) | Rakamsız menzil ölçek çubuğu |
-| 60 | `assets/art/map/ui_lejant_cerceve.png` | 4 · Harita Arayüzü | 512×640 | 4:5 | 4:5 | RGBA (`#00FF00`), 9-slice 64/64/64/64 | Harita lejant (işaret rehberi) çerçevesi — **yeniden üretim** (Parti 01: üst ray ek yerinde boşluk. Şimdi üretilmez.) |
+| 60 | `assets/art/map/ui_lejant_cerceve.png` | 4 · Harita Arayüzü | 512×640 | 4:5 | 4:5 | RGBA (`#00FF00`), 9-slice 64/64/64/64 | Harita lejant (işaret rehberi) çerçevesi — **HY1 düzeltildi** (üst ray kesintisiz; iç alan koyu kömür, 9-slice 512×640). Hafif not: üslup önceki ahşaptan biraz daha düz. |
 | 61 | `assets/art/map/ui_btn_yakinlastir.png` | 4 · Harita Arayüzü | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Yakınlaştır (`+`) düğme ikonu |
 | 62 | `assets/art/map/ui_btn_uzaklastir.png` | 4 · Harita Arayüzü | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Uzaklaştır (`-`) düğme ikonu |
 | 63 | `assets/art/map/ui_btn_merkezle.png` | 4 · Harita Arayüzü | 128×128 | 1:1 | 1:1 | RGBA (`#00FF00`) | Görünümü hisara merkezle ikonu |
@@ -393,7 +393,7 @@ Kaynak plan: çalışma kopyası `/workspace/BOLGE_OLAY_MANZARA_PLANI.md`. `hari
 | 66 | `assets/art/env/bolge/hisar.png` | P0 | 1920×1080 | Opak RGB | Taşlık Hisar temeli (küçük taş hisar ve evler; `harita_uc` boş vadi olduğu için yeniden çizilir) |
 | 67 | `assets/art/env/bolge/karaboran.png` | P0 | 1920×1080 | Opak RGB | Karaboran / dağ geçidi temeli (`karaboran`, Alpha pin `yol`) |
 | 68 | `assets/art/env/bolge/tekfur.png` | P0 | 1920×1080 | Opak RGB | Tekfur Hisarı temeli |
-| 69 | `assets/art/env/bolge/goc_yolu.png` | P0 | 1920×1080 | Opak RGB | Göç yolları temeli (boş kervan yolu) — **yeniden üretim** (Parti 01: gökyüzü settekinden soluk/puslu. Şimdi üretilmez; `goc_yolu_pusu` varyantı mevcut temeli referans alır.) |
+| 69 | `assets/art/env/bolge/goc_yolu.png` | P0 | 1920×1080 | Opak RGB | Göç yolları temeli (boş kervan yolu) — **HY1 düzeltildi** (gökyüzü hisar ailesiyle aynı zengin yağlı boya bulut; boş yol ve kadraj korundu). |
 | 70 | `assets/art/env/bolge/hisar_yangin.png` | P1 | 1920×1080 | Opak RGB | `yangin`, `samanlik_yangini`, `yaz_su_yangin` (yanan yapı), `ambar_kundaklamasi` |
 | 71 | `assets/art/env/bolge/hisar_taskin.png` | P1 | 1920×1080 | Opak RGB | `ilkbahar_taskini` |
 | 72 | `assets/art/env/bolge/hisar_ufuk_duman.png` | P1 | 1920×1080 | Opak RGB | `mogol_duman`, `mogol_oncusu` (kalan ≤5 gün) |
@@ -407,11 +407,11 @@ Kaynak plan: çalışma kopyası `/workspace/BOLGE_OLAY_MANZARA_PLANI.md`. `hari
 | 80 | `assets/art/env/bolge/hisar_don.png` | P2 | 1920×1080 | Opak RGB | `tarla_don`, `gece_donu` |
 | 81 | `assets/art/env/bolge/hisar_yagmur.png` | P2 | 1920×1080 | Opak RGB | `tarla_yagmur` |
 | 82 | `assets/art/env/bolge/hisar_hasat.png` | P2 | 1920×1080 | Opak RGB | `harman`, `hasat_senligi` |
-| 83 | `assets/art/env/bolge/hisar_salgin.png` | P2 | 1920×1080 | Opak RGB | `salgin`, `kis_hastaligi` — **yeniden üretim** (Parti 03: kadraj korundu, haç yok; bir kapı aşırı beyaz aydınlatmalı, kireç işaretleri zayıf. Şimdi üretilmez.) |
+| 83 | `assets/art/env/bolge/hisar_salgin.png` | P2 | 1920×1080 | Opak RGB | `salgin`, `kis_hastaligi` — **HY1 düzeltildi** (kadraj korundu; haç ve aşırı beyaz açık kapı yok, kapılar loş). Hafif kalan: evlerdeki bezler soluk kireçten çok kısa renkli flama. |
 | 84 | `assets/art/env/bolge/hisar_kar.png` | P2 | 1920×1080 | Opak RGB | `kar_ortusu`, kış / `kapi_firtina_kuyrugu` |
 | 85 | `assets/art/env/bolge/hisar_sur.png` | P2 | 1920×1080 | Opak RGB | `sur_catlak` |
-| 86 | `assets/art/env/bolge/goc_yolu_kafile.png` | P2 | 1920×1080 | Opak RGB | `kervan`, `kervan_korumasi`, `aydogdu_oba`, başarılı yol — **yeniden üretim** (Parti 03: kadraj ve kafile doğru; gökyüzü kusurlu temel `goc_yolu` gibi soluk/puslu. Şimdi üretilmez.) |
-| 87 | `assets/art/env/bolge/oba.png` | P3 | 1920×1080 | Opak RGB | Ertuğrul / batı uç temeli (Alpha pin `oba`; JSON'a beşinci nokta sonra) — **yeniden üretim** (Parti 03: orta plan kamp ve sıcak batı ışığı doğru; yurtlar keçeli çadırdan çok saz damlı yuvarlak kulübe, alçak taş duvar Hisar'a yakın. Şimdi üretilmez.) |
+| 86 | `assets/art/env/bolge/goc_yolu_kafile.png` | P2 | 1920×1080 | Opak RGB | `kervan`, `kervan_korumasi`, `aydogdu_oba`, başarılı yol — **HY1 düzeltildi** (yeni `goc_yolu` gökyüzü ve kadraj; orta plan kafile). |
+| 87 | `assets/art/env/bolge/oba.png` | P3 | 1920×1080 | Opak RGB | Ertuğrul / batı uç temeli (Alpha pin `oba`; JSON'a beşinci nokta sonra) — **HY1 düzeltildi** (keçe yurtlar, duman deliği, ahşap çit; taş Hisar duvarı ve saz dam yok). |
 
 Kapı sıra olayları, diyalog/karakter kartları, söylenti kapanışları, hırsızlık, divan, teftiş ve düğün için manzara varyantı üretilmez. Diğer üç bölgeye kış örtüsü çoğaltması P3'tür. `sancak` ve `mogol` işaretçileri Alpha'dadır; ayrı temel manzara şimdilik açılmaz (`mogol` ufku `hisar_ufuk_duman` ile görülür).
 
@@ -441,9 +441,9 @@ Bölge seçilince sol alan, o bölgenin temel veya aktif olay manzarasına 0,45�
 
 Parti 01 tamamlandı (30/87). Üretilenler: P0 dört temel manzara (66–69) + Alpha Bölüm 4'teki 11 öncelikli arayüz parçası (55–65) + mevcut dört bölgenin seçili/tehlike işaretçileri (4–11) + P1'e denk yedi olay rozeti (`olay_yangin`, `olay_baskin`, `olay_taskin`, `olay_pusu`, `olay_mogol_akin`, `olay_kitlik`, `olay_kervan`). Bağlama yok. Kontak sayfası `/workspace/harita_onizleme/parti_01.png` (repoya girmez).
 
-### Yeniden üretim kuyruğu (Parti 01 kusurları — şimdi üretilmez)
+### Yeniden üretim kuyruğu (Parti 01 kusurları — HY1'de ele alındı)
 
-Aşağıdaki Parti 01 çıktıları kusurlu kabul edilir; dosyalar yerinde kalır, bu partide yeniden üretilmez. Sıradaki yeniden üretim partisine bırakılır.
+Aşağıdaki Parti 01 çıktıları kusurlu kabul edilmişti; HY1'de aynı yola yeniden yazıldı (yedek: `work/yedek/HY1/`). Sonuçlar 7G.
 
 - `pin_hisar_tehlike.png`, `pin_yol_tehlike.png`, `pin_goc_tehlike.png`, `pin_tekfur_tehlike.png` — tehlike hali konu olarak zayıf (yanar kule / yol kenarı ateşi / seçiliden ayrışmama). Parti 01 pinleri ayrıca çıkartma/karikatür ve kalın fildişi konturlu; `harita_uc` / `map_bg` boyalı sade siluet üslubuna uyumsuz. (Seçili pinler 4, 6, 8, 10 da aynı üslup kusurunu taşır; yeniden üretim sonraya.)
 - `olay_yangin.png` — ev/kundak yangını değil kamp ateşi.
@@ -455,17 +455,17 @@ Aşağıdaki Parti 01 çıktıları kusurlu kabul edilir; dosyalar yerinde kalı
 
 Parti 02 tamamlandı (60/87). Üretilenler: P1 dokuz manzara varyantı (70–78) + kalan pinler `koy` / `oba` / `sancak` / `mogol` / `gozcu` (1–3, 12–23) + altı rota/sınır parçası (24–29: `rota_duz`, `rota_kivrim`, `rota_kesik`, `rota_uc_ok`, `rota_tehlike_kesik`, `sinir_cizgisi`). Yeni pinler çıkartma/karikatür değil; `harita_uc.png` ve `map_bg.png` ile uyumlu boyalı, sade siluet. Kusurlu Parti 01 parçaları bu partide yok. Bağlama yok. Kontak sayfası `/workspace/harita_onizleme/parti_02.png` (repoya girmez).
 
-Sıradaki iş 7F'de tamamlandı; yeni kalem kalmadı. Yeniden üretim kuyruğu ayrı partidedir.
+Sıradaki iş 7F'de tamamlandı; yeni kalem kalmadı. Yeniden üretim kuyruğu 7G'de (HY1) ele alındı.
 
 ### 7F. Parti 03 üretim kapsamı (kalan 27 yeni kalem)
 
 Parti 03 tamamlandı (87/87). Üretilenler: `nehir_isaret`, `kopru_saglam`, `kopru_yikik`, savaş sisi (`bulut`, `kenar`, `tam_katman`), beş mühür (`guvenli`, `tehlike`, `harac`, `kapali_yol`, `kesfedildi`), kalan olay rozetleri (`olay_salgin`, `olay_heyet`, `olay_ulak`), dört mevsim katmanı, P2 manzaralar (79–86), P3 `oba`. Pin/ikon/rota benzeri kalemlerde izometrik mürekkep ikon değil, manzarayla aynı yağlı boya/fırça dokusu ve düzensiz el mürekkebi çizgi hedeflendi. Kusurlu Parti 01 parçaları ve bu partinin yeniden üretim notları bu commit'te üretilmedi. Bağlama yok. Kontak sayfası `/workspace/harita_onizleme/parti_03.png` (repoya girmez).
 
-Sıradaki parti: yeniden üretim kuyruğu (Parti 01 ve Parti 03 kusurları). Yeni kalem kalmadı (0/87).
+Sıradaki parti 7G'de tamamlandı (HY1 yeniden üretim). Yeni kalem kalmadı (0/87).
 
-### Yeniden üretim kuyruğu (Parti 03 kusurları — şimdi üretilmez)
+### Yeniden üretim kuyruğu (Parti 03 kusurları — HY1'de ele alındı)
 
-Aşağıdaki Parti 03 çıktıları kusurlu kabul edilir; dosyalar yerinde kalır, bu commit'te yeniden üretilmez. Ayrı yeniden üretim partisine bırakılır.
+Aşağıdaki Parti 03 çıktıları kusurlu kabul edilmişti; HY1'de aynı yola yeniden yazıldı (yedek: `work/yedek/HY1/`). Sonuçlar 7G.
 
 - `kopru_saglam.png`, `kopru_yikik.png` — açık/yıkık kemer doğru, kapı yok; hâlâ hafif izometrik karo ve toprak setli yaklaşımlar, manzara yağlı boyasından uzak.
 - `muhur_kapali_yol.png` — istenen el mürekkebi X yerine çapraz mızrak ve dağ tepeleri.
@@ -475,3 +475,13 @@ Aşağıdaki Parti 03 çıktıları kusurlu kabul edilir; dosyalar yerinde kalı
 - `assets/art/env/bolge/oba.png` — orta plan kamp ve sıcak batı ışığı doğru; yurtlar keçeli çadırdan çok saz damlı yuvarlak kulübe, alçak taş duvar Hisar'a yakın.
 
 Daha hafif notlar (ayrı zorunlu kuyruk değil): `savas_sisi_bulut` / `savas_sisi_kenar` yumuşak saçakları anahtardan sonra biraz sert; mühür ailesi hafif plastik/3B balmumu; `olay_salgin` kumaşı kireç yeşili yerine hardal (chroma yeşili kumaş anahtarda kayboluyordu); `hisar_kurt` kurtları okunur ama biraz büyük.
+
+### 7G. HY1 yeniden üretim partisi (19 kalem)
+
+HY1 tamamlandı. Kapsam: Parti 01 kuyruğu (tehlike pinleri 5/7/9/11, seçili pinler 4/6/8/10 — çıkartma üslubu, `olay_yangin`, `olay_taskin`, `goc_yolu`, `ui_lejant_cerceve`) ve Parti 03 kuyruğu (`kopru_saglam`, `kopru_yikik`, `muhur_kapali_yol`, `olay_ulak`, `hisar_salgin`, `goc_yolu_kafile`, `oba`). Parti 02'de resmi yeniden üretim kuyruğu yoktu; `pin_gozcu_tehlike` hafif notu ve Parti 03'ün «daha hafif notlar»ı bu partide üretilmedi. Eski dosyalar `work/yedek/HY1/` altına alındı, yenileri aynı asset yoluna yazıldı (kalem başına en fazla 2–3 deneme). Pinler yağlı boya/fırça dokulu, manzarayla aynı dil; seçili hali yalnızca ışık, fildişi çıkartma konturu yok. Bağlama yok. Kontak sayfası `/workspace/harita_onizleme/yeniden_HY1.png` (eski sol, yeni sağ; repoya girmez).
+
+**Düzelen (17):** `pin_hisar_secili`, `pin_hisar_tehlike`, `pin_yol_secili`, `pin_yol_tehlike`, `pin_goc_secili`, `pin_goc_tehlike`, `pin_tekfur_secili`, `pin_tekfur_tehlike`, `olay_yangin`, `olay_taskin`, `olay_ulak`, `muhur_kapali_yol`, `ui_lejant_cerceve`, `goc_yolu`, `goc_yolu_kafile`, `hisar_salgin`, `oba`.
+
+**Hâlâ kusurlu (2):** `kopru_saglam`, `kopru_yikik` — açık/yıkık kemer ve kapısızlık duruyor, toprak setler küçüldü; hafif izometrik bakış 1 denemede (yıkık, sağlam referanslı) tamamen kaybolmadı.
+
+Hafif kalan notlar (yeni zorunlu kuyruk değil): `olay_ulak` boyununda 3/3 denemede çok küçük yeşil leke kalabilir; `hisar_salgin` ev bezleri soluk kireçten çok kısa renkli flama; `ui_lejant_cerceve` üslubu önceki ahşaptan biraz daha düz.
