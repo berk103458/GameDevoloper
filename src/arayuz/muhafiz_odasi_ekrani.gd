@@ -66,6 +66,10 @@ func _ready() -> void:
  var b:=Button.new()
  b.name="oda_kapat"
  b.text="Köye dön"
+ var kpt_ikon := GeceKapisiCerceve.yol("icon_kapat")
+ if ResourceLoader.exists(kpt_ikon):
+  b.icon = load(kpt_ikon)
+  b.expand_icon = true
  b.custom_minimum_size.y=48
  v.add_child(b)
  b.pressed.connect(queue_free)

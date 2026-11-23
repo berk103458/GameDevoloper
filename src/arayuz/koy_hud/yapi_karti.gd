@@ -3,6 +3,8 @@ class_name YapiKarti
 extends Button
 
 const IKONLAR := {"cadir": "cadir", "kulube": "kulube", "tarla": "gida", "hizarhane": "odun", "odunluk": "tomruk", "tas_ocagi": "tas", "kirec_kuyusu": "kirec", "tas_ev": "kulube", "avci": "avci", "atolye": "alet", "ambar": "ambar"}
+const KOY_PNG_KOK := "res://assets/ui/koy/gece_kapisi/"
+const YAPI_PNG := {"agil": "agil", "ahir": "ahir", "degirmen": "degirmen", "demirhane": "demirhane", "firin": "firin", "muhafiz_kislasi": "kislasi", "sifahane": "sifahane"}
 
 ## Kartı güncel simülasyon verisiyle kurar; satın alma kuralı oyunun kaynaklarına dayanır.
 func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
@@ -25,7 +27,7 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	var baslik := HBoxContainer.new()
 	baslik.add_theme_constant_override("separation", 10)
 	v.add_child(baslik)
-	baslik.add_child(GozcuKulesiGorseli.ikon(38) if tur==GozcuKulesi.TUR else KaynakGostergesi.ikon(IKONLAR.get(tur, "kulube"), 38))
+	baslik.add_child(_yapi_ikonu(tur, 38))
 	var ad := _etiket(MeslekYapilari.ad(tur), ayarlar.boyut(Kabuk.KUCUK))
 	ad.add_theme_font_override("font", Tema.koy_baslik_fontu())
 	baslik.add_child(ad)
@@ -72,3 +74,19 @@ func _malzeme(m: Dictionary) -> Dictionary:
 	var sonuc := m.duplicate()
 	sonuc.erase("akce")
 	return sonuc
+
+
+static func _yapi_ikonu(tur: String, boy: int) -> Control:
+	if tur == GozcuKulesi.TUR:
+		return GozcuKulesiGorseli.ikon(boy)
+	if YAPI_PNG.has(tur):
+		var png_yol := KOY_PNG_KOK + String(YAPI_PNG[tur]) + ".png"
+		if ResourceLoader.exists(png_yol):
+			var r := TextureRect.new()
+			r.texture = load(png_yol)
+			r.custom_minimum_size = Vector2(boy, boy)
+			r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			return r
+	return KaynakGostergesi.ikon(IKONLAR.get(tur, "kulube"), boy)

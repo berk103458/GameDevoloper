@@ -16,6 +16,10 @@ static func hud(h: Node, y: KoyYonetimi, goster: bool = true) -> void:
 		b = Button.new()
 		b.name = "cinar_meclisi"
 		b.text = "Çınar altı meclisi"
+		var iy := GeceKapisiCerceve.yol("icon_adalet")
+		if ResourceLoader.exists(iy):
+			b.icon = load(iy)
+			b.expand_icon = true
 		ust.add_child(b)
 		b.pressed.connect(func() -> void:
 			var e := _ekran(h)

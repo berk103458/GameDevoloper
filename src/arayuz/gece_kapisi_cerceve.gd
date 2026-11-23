@@ -5,6 +5,7 @@ extends RefCounted
 
 const KOK := "res://assets/ui/atmosfer/gece_kapisi/"
 const ARKA := "res://assets/ui/arkaplan/"
+const SANAT_ENV := "res://assets/art/env/"
 const TEMA := "res://src/arayuz/gece_kapisi_tema.tres"
 
 const KIRPMA := 16
@@ -252,18 +253,27 @@ static func uygula(t: Theme) -> bool:
 	return true
 
 
+static func arka_plan_var_mi(ad: String) -> bool:
+	for kok in [ARKA, SANAT_ENV]:
+		var dosya := String(kok) + ad + ".png"
+		if FileAccess.file_exists(dosya) or ResourceLoader.exists(dosya):
+			return true
+	return false
+
+
 static func _arka_doku(ad: String) -> Texture2D:
-	var dosya := ARKA + ad + ".png"
-	if not (FileAccess.file_exists(dosya) or ResourceLoader.exists(dosya)):
-		return null
-	if ResourceLoader.exists(dosya):
-		var kaynak: Texture2D = load(dosya) as Texture2D
-		if kaynak != null:
-			return kaynak
-	var img := Image.new()
-	if img.load(dosya) != OK:
-		return null
-	return ImageTexture.create_from_image(img)
+	for kok in [ARKA, SANAT_ENV]:
+		var dosya := String(kok) + ad + ".png"
+		if not (FileAccess.file_exists(dosya) or ResourceLoader.exists(dosya)):
+			continue
+		if ResourceLoader.exists(dosya):
+			var kaynak: Texture2D = load(dosya) as Texture2D
+			if kaynak != null:
+				return kaynak
+		var img := Image.new()
+		if img.load(dosya) == OK:
+			return ImageTexture.create_from_image(img)
+	return null
 
 
 ## Dosya varsa tam ekran arka plan TextureRect döner; yoksa null (eski görünüm aynen kalır).
@@ -326,16 +336,18 @@ static func yukleme_arkasi() -> Control:
 
 
 static func _rastgele_yukleme() -> String:
-	var d := DirAccess.open(ARKA)
-	if d == null:
-		return ""
 	var adaylar: PackedStringArray = []
-	d.list_dir_begin()
-	var ad := d.get_next()
-	while ad != "":
-		if not d.current_is_dir() and ad.begins_with("yukleme") and ad.ends_with(".png"):
-			adaylar.append(ARKA + ad)
-		ad = d.get_next()
+	for kok in [ARKA, SANAT_ENV]:
+		var kok_s := String(kok)
+		var d := DirAccess.open(kok_s)
+		if d == null:
+			continue
+		d.list_dir_begin()
+		var ad := d.get_next()
+		while ad != "":
+			if not d.current_is_dir() and ad.begins_with("yukleme") and ad.ends_with(".png"):
+				adaylar.append(kok_s + ad)
+			ad = d.get_next()
 	if adaylar.is_empty():
 		return ""
 	return adaylar[randi() % adaylar.size()]
