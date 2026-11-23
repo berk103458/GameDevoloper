@@ -15,5 +15,5 @@ static func efekt(karakter: KarakterVerisi, replik: String) -> StringName:
 		return &"sfx_chr_sikke"
 	return &"sfx_chr_deri"
 
-static func cal(karakter: KarakterVerisi, replik: String) -> void:
-	preload("res://src/sistemler/guvenli_ses_cagrisi.gd").oynat(efekt(karakter, replik), -12.0)
+static func cal(karakter: KarakterVerisi, replik: String) -> bool:
+	return preload("res://src/sistemler/guvenli_ses_cagrisi.gd").oynat(efekt(karakter, replik), -12.0, true)

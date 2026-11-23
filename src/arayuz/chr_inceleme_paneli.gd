@@ -6,6 +6,11 @@ var _aciklama: RichTextLabel
 var _portre_doku: Texture2D
 var _iz_doku: Texture2D
 var _iz_acik := false
+var _gorsel_iz_dugmesi: TextureButton
+
+
+func gorsel_iz_dugmesi() -> TextureButton:
+	return _gorsel_iz_dugmesi
 
 func _nesne_incele(sira: int) -> void:
 	if has_node("EsyaDetayKarti"):
@@ -39,6 +44,7 @@ func _ready() -> void:
 	kutu.add_child(yuk)
 	var cid := String(sorgu.karakter.id).to_lower()
 	var portre := TextureButton.new()
+	_gorsel_iz_dugmesi = portre
 	portre.name = "GorselIz"
 	portre.ignore_texture_size = true
 	portre.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
@@ -61,6 +67,9 @@ func _ready() -> void:
 	)
 	kutu.add_child(portre)
 	GeceKapisiCerceve.portre_giydir(portre)
+	var portre_yuvasi := portre.get_parent() as Control
+	if portre_yuvasi != kutu:
+		portre_yuvasi.custom_minimum_size = portre.get_combined_minimum_size()
 	var iz_etiketi := Label.new()
 	iz_etiketi.text = "Fiziksel izi incelemek için portreye tıkla"
 	kutu.add_child(iz_etiketi)

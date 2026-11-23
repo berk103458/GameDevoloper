@@ -70,16 +70,14 @@ static func ses_adi(metin: String, anahtar: String) -> StringName:
 
 
 static func dosya_var(ad: StringName) -> bool:
-	return ad != &"" and ResourceLoader.exists("res://assets/ses/%s.wav" % String(ad))
+	return ad != &"" and ResourceLoader.exists(HazirSesKaynaklari.yol(String(ad)))
 
 
-## Satırları ve çalınacak mevcut dosya adını döndürür. Autoload yoksa ses sessizce atlanır.
+## Satırları döndürür ve mevcut karar sesini kayıtlı Ses autoload üzerinden ister.
 static func uygula(gelen: Gelen, anahtar: String) -> Dictionary:
 	var liste := satirlar(gelen, anahtar)
 	var metin := "\n".join(liste)
 	var sfx := ses_adi(metin, anahtar)
 	var var_mi := dosya_var(sfx)
-	var calindi := false
-	if var_mi:
-		calindi = preload("res://src/sistemler/guvenli_ses_cagrisi.gd").oynat(sfx, -12.0)
+	var calindi := preload("res://src/sistemler/guvenli_ses_cagrisi.gd").oynat(sfx, -12.0, true)
 	return {"satirlar": liste, "metin": metin, "sfx": sfx, "dosya": var_mi, "calindi": calindi}

@@ -15,7 +15,7 @@ func _calistir() -> void:
 	diger.id = gelen.id
 	diger.adli = true
 	_kontrol(diger.chr_sorgusu() != sorgu, "İki ziyaret bağımsız")
-	var diyalog := preload("res://src/arayuz/chr_diyalog_paneli.gd").new()
+	var diyalog = load("res://src/arayuz/chr_diyalog_paneli.gd").new()
 	diyalog.sorgu = sorgu
 	root.add_child(diyalog)
 	_kontrol((diyalog.get_node("Secenek2") as Button).disabled, "Kanıtsız Dal 3 düğmesi kilitli")
@@ -24,7 +24,7 @@ func _calistir() -> void:
 	root.add_child(ekran)
 	var eylemler := VBoxContainer.new()
 	ekran.add_child(eylemler)
-	preload("res://src/arayuz/chr_kapi_adaptoru.gd").inceleme_dugmesi(ekran, gelen, eylemler)
+	load("res://src/arayuz/chr_kapi_adaptoru.gd").inceleme_dugmesi(ekran, gelen, eylemler)
 	(eylemler.get_child(0) as Button).pressed.emit()
 	var panel := ekran.get_node("ChrInceleme")
 	(panel.get_child(0).get_child(1) as Button).pressed.emit()
@@ -40,7 +40,11 @@ func _calistir() -> void:
 	_kontrol(panel.get_node("EsyaDetayKarti").baslik == "İncelenen yük", "Yük ayrı modal karta açılır")
 	panel.get_node("EsyaDetayKarti").free()
 	_kontrol(sorgu.obje_incele(0) == "" and sorgu.ipuclari.size() == 2, "Geçersiz inceleme ipucu üretmiyor")
-	(panel.get_child(0).get_node("GorselIz") as TextureButton).pressed.emit()
+	var gorsel_iz: TextureButton = panel.call("gorsel_iz_dugmesi")
+	_kontrol(gorsel_iz != null and panel.is_ancestor_of(gorsel_iz) and gorsel_iz.get_parent().get_combined_minimum_size().y >= 220,
+		"Görsel iz düğmesi çerçeveyle de erişilebilir ve tıklanabilir boyutta")
+	if gorsel_iz != null:
+		gorsel_iz.pressed.emit()
 	_kontrol(sorgu.ipuclari.has(&"Clue_Görsel_CHR001_KukurtYanigi") and sorgu.ipuclari.size() == 3, "2D portre tıklaması görsel ipucu veriyor")
 	_kontrol(sorgu.gorsel_incele().contains("kükürt") and sorgu.ipuclari.size() == 3, "Görsel açıklama kaynak metni; tekrar ipucu üretmez")
 	_kontrol(diger.chr_sorgusu().ipuclari.is_empty(), "İpucu başka ziyarete sızmıyor")
@@ -81,15 +85,18 @@ func _calistir() -> void:
 	_kontrol(beceri.replik_baslat() and not beceri.replik_baslat(), "UI yenileme aynı repliği/sesi tekrar başlatmıyor")
 	var sesler := preload("res://src/sistemler/chr_sorgu_sesi.gd")
 	_kontrol(sesler.efekt(sorgu.karakter, "Hançer kabzasına sarılır") == &"sfx_chr_kabza", "Kabza eylemi replikle eşzamanlı seçiliyor")
+	_kontrol(root.has_node("Ses") and sesler.cal(sorgu.karakter, "Hançer kabzasına sarılır"), "Kayıtlı Ses autoload replik efektini oynattı")
 	for ses in ["metal", "kagit", "bebek", "kabza", "deri", "sikke"]:
-		_kontrol(ResourceLoader.exists("res://assets/ses/sfx_chr_%s.wav" % ses), "Üretilmiş SFX mevcut: " + ses)
+		_kontrol(ResourceLoader.exists(HazirSesKaynaklari.yol("sfx_chr_" + ses)), "Yönlendirilen SFX mevcut: " + ses)
+	var karar_sesi: Dictionary = load("res://src/kapi/karar_replik_adaptoru.gd").uygula(gelen, "rusvet")
+	_kontrol(karar_sesi.dosya and karar_sesi.calindi, "Karar sesi kayıtlı kaynaktan çalındı")
 	diyalog.free()
 	ekran.free()
 	await process_frame
 	await process_frame
 	await create_timer(0.8).timeout
 	print("CHR SORGU: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
-	quit(hata)
+	await root.get_node("Ses").call("cik", hata)
 
 func _kontrol(olur: bool, mesaj: String) -> void:
 	if not olur:

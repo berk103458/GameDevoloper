@@ -187,3 +187,9 @@ Zar denetimi, bağımsız CHR testi, testteki `Ses` autoload bağlamı ve `Gorse
 - Haydar (`chr_003`) geri çevrildi. Köy nüfusu 1, gıda 32. Ret sayacı 0 → 1. İkinci kararın ardından gerçek köy ekranı açıldı.
 
 Godot 4.7.2 importu ve sahne çıkış kodu 0. Oyun hatası, eksik metin anahtarı ve yer tutucu metin 0. Log `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/14-chr-canli/canli.log`. Diyalog entegrasyonu kabul edildi. Asset gerekmedi.
+
+## Ses autoload ve görsel inceleme
+
+Kayıtlı `Ses` autoload korunuyor. Zorunlu CHR konuşma ve karar sesleri başlayamazsa kaynak yolu başına bir kez uyarı yazar. Karar sesinin dosya denetimi oynatıcıyla aynı yönlendirmeyi kullanır. Görsel iz düğmesi çerçeve hiyerarşisinden bağımsız bir erişime sahip. Çerçeveli portre tıklanabilir boyutunu korur. Bağımsız CHR testi arayüz betiklerini autoload hazır olduktan sonra yükler.
+
+Import, bağımsız CHR sorgusu ve iki ziyaretli canlı kapı denetimi geçti. Test, replik efektini ve karar sesini kayıtlı `Ses` üzerinden başlattı. Loglar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/`. Asset gerekmedi.

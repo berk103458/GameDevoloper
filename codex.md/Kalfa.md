@@ -2060,3 +2060,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - Kapı diyalog akışı D: klonunda Söz motoruna bağlandı. İlk üç gece tohum 76 ile 312 adım, dört ziyaret, sıfır hata ve sıfır yer tutucu. Tohum 11 ret debuff'ını doğruladı. Zar, bağımsız CHR testi, Ses ve GorselIz sonraya. Asset gerekmedi. Kota görünmüyor.
 
 - 23 Kasım 2026: Gerçek kapıda iki CHR kabul testi geçti. Meryem kabulü +1 köylü ve +2 gıda, Haydar reddi +1 ret sonucu verdi. Sıfır hata, sıfır yer tutucu. Diyalog entegrasyonu kapandı. Asset gerekmedi. Kota görünmüyor.
+
+- Ses autoload ve görsel izin kök nedenleri giderildi. Bağımsız ve canlı CHR testleri geçti. Sırada kadro karar matrisi ve beş gece. Asset gerekmedi. Kota görünmüyor.
