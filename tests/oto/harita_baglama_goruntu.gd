@@ -19,7 +19,7 @@ func _bekle() -> void:
  await process_frame
  await process_frame
  if DisplayServer.get_name()!="headless":
-  await create_timer(0.35).timeout
+  await create_timer(0.45).timeout
   await RenderingServer.frame_post_draw
 
 func _cek(yol: String) -> void:
@@ -41,7 +41,7 @@ func _kos() -> void:
  var e1:=_ekran(o1,ayarlar)
  e1.bolge_sec("hisar")
  await _bekle()
- _cek(dizin.path_join("baglama_normal.png"))
+ _cek(dizin.path_join("baglama2_normal.png"))
  e1.queue_free()
  await process_frame
 
@@ -53,7 +53,7 @@ func _kos() -> void:
  var e2:=_ekran(o2,ayarlar)
  e2.bolge_sec("tekfur")
  await _bekle()
- _cek(dizin.path_join("baglama_tehlike.png"))
+ _cek(dizin.path_join("baglama2_tehlike.png"))
  e2.queue_free()
  await process_frame
 
@@ -62,7 +62,7 @@ func _kos() -> void:
  var e3:=_ekran(o3,ayarlar)
  e3.bolge_sec("hisar")
  await _bekle()
- _cek(dizin.path_join("baglama_kis.png"))
+ _cek(dizin.path_join("baglama2_kis.png"))
  e3.queue_free()
  await process_frame
  print("HARITA BAGLAMA GORUNTU: TAMAM")

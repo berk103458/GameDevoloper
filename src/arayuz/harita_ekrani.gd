@@ -16,7 +16,7 @@ var _manzara_ust: TextureRect
 var _tooltip: PanelContainer
 var _tooltip_yazi: Label
 var _lejant: Control
-var _kart_manzara: TextureRect
+var _vinyet: TextureRect
 var _kart_rozet: HBoxContainer
 var _gorunen: Label
 var _rota_cizim: Array[Control]=[]
@@ -97,10 +97,19 @@ func _ready() -> void:
  _manzara_ust.modulate.a=0
  _manzara_ust.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  _harita_tuval.add_child(_manzara_ust)
+ _vinyet=TextureRect.new()
+ _vinyet.name="harita_vinyet"
+ _vinyet.texture=_vinyet_doku()
+ _vinyet.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+ _vinyet.stretch_mode=TextureRect.STRETCH_SCALE
+ _vinyet.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ _vinyet.modulate.a=0.0
+ _vinyet.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ _harita_tuval.add_child(_vinyet)
  var mevsim_yol:=CevreHaritasi.mevsim_katmani(oturum)
  _katman_mevsim=_doku_rect(mevsim_yol, "mevsim_katman")
  if _katman_mevsim:
-  _katman_mevsim.modulate.a=0.26
+  _katman_mevsim.modulate.a=0.38
   _katman_mevsim.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
   _katman_mevsim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
   _harita_tuval.add_child(_katman_mevsim)
@@ -150,12 +159,6 @@ func _ready() -> void:
  for a in ["left","right","top","bottom"]: ic_pay.add_theme_constant_override("margin_"+a, 8)
  ic_pay.add_child(bilgi)
  kart.add_child(ic_pay)
- _kart_manzara=TextureRect.new()
- _kart_manzara.name="harita_bolge_manzara"
- _kart_manzara.custom_minimum_size=Vector2(0, 120)
- _kart_manzara.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
- _kart_manzara.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
- bilgi.add_child(_kart_manzara)
  _baslik=Label.new()
  _baslik.name="harita_bolge_baslik"
  _baslik.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -192,6 +195,16 @@ func _ready() -> void:
  _rulo_ac.call_deferred()
 ## Aynı bilgi alanı seçilen bölgeyle güncellenir; oyun durumuna yazılmaz.
 func bolge_sec(id: String) -> void:
+ if String(id).strip_edges().is_empty():
+  _secili=""
+  if _baslik: _baslik.text=""
+  if _bilgi: _bilgi.text=""
+  if _gorunen: _gorunen.text=""
+  if _kart_rozet:
+   for c in _kart_rozet.get_children(): c.queue_free()
+  _manzara_gec(ARKA_HARITA)
+  _noktalari_guncelle()
+  return
  var d:=CevreHaritasi.bilgi(oturum,id)
  if d.is_empty(): return
  _secili=id
@@ -199,12 +212,9 @@ func bolge_sec(id: String) -> void:
  _bilgi.text=String(d.metin)
  var durum:=CevreHaritasi.bolge_durumu(oturum,id)
  var manzara_yol:=String(durum.get("manzara", ""))
- if _kart_manzara and ResourceLoader.exists(manzara_yol):
-  _kart_manzara.texture=load(manzara_yol)
-  _kart_manzara.visible=true
- elif _kart_manzara:
-  _kart_manzara.texture=null
-  _kart_manzara.visible=false
+ if manzara_yol.is_empty() or not ResourceLoader.exists(manzara_yol):
+  manzara_yol=ARKA_HARITA
+ _manzara_gec(manzara_yol)
  _rozet_satiri(durum)
  if _gorunen:
   var parca: PackedStringArray=[]
@@ -264,6 +274,8 @@ func _nokta_kur(b: Dictionary) -> void:
  halka.mouse_filter=Control.MOUSE_FILTER_IGNORE
  halka.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  nokta.add_child(halka)
+ for k in [["kontur_u",0.0,-2.0,0.5],["kontur_d",0.0,2.0,0.5],["kontur_l",-2.0,0.0,0.5],["kontur_r",2.0,0.0,0.5],["golge",2.0,3.0,0.45]]:
+  nokta.add_child(_golge_kopya(String(k[0]), float(k[1]), float(k[2]), float(k[3])))
  var ikon:=TextureRect.new()
  ikon.name="ikon"
  ikon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
@@ -334,6 +346,12 @@ func _noktalari_guncelle() -> void:
   if ikon:
    if ResourceLoader.exists(ikon_yol): ikon.texture=load(ikon_yol)
    ikon.modulate.a=1.0 if kes else 0.35
+   for ad in ["golge","kontur_u","kontur_d","kontur_l","kontur_r"]:
+    var g:=n.get_node_or_null(ad) as TextureRect
+    if g==null: continue
+    g.texture=ikon.texture
+    var taban: float=0.45 if ad=="golge" else 0.5
+    g.modulate=Color(0,0,0, taban if kes else taban*0.35)
   var halka:=n.get_node_or_null("halka") as TextureRect
   if halka:
    var hyol:=""
@@ -532,10 +550,41 @@ func _tooltip_goster(id: String) -> void:
  _tooltip.global_position=get_global_mouse_position()+Vector2(16,16)
 func _tooltip_gizle() -> void:
  if _tooltip: _tooltip.visible=false
+func _golge_kopya(ad: String, dx: float, dy: float, a: float) -> TextureRect:
+ var t:=TextureRect.new()
+ t.name=ad
+ t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+ t.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+ t.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ t.modulate=Color(0,0,0,a)
+ t.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ t.offset_left=dx
+ t.offset_top=dy
+ t.offset_right=dx
+ t.offset_bottom=dy
+ return t
+func _vinyet_doku() -> Texture2D:
+ var img:=Image.create(256, 256, false, Image.FORMAT_RGBA8)
+ for y in 256:
+  for x in 256:
+   var u:=(float(x)+0.5)/256.0
+   var v:=(float(y)+0.5)/256.0
+   var dx:=u-0.5
+   var dy:=(v-0.64)/0.72
+   var r:=sqrt(dx*dx+dy*dy)
+   var kenar:=clampf(r, 0.0, 1.0)
+   var gokyuzu:=clampf((0.42-v)*1.5, 0.0, 1.0)
+   var a:=clampf(0.14+0.14*kenar*kenar+0.12*gokyuzu, 0.14, 0.34)
+   img.set_pixel(x, y, Color(0, 0, 0, a))
+ return ImageTexture.create_from_image(img)
 func _manzara_gec(yol: String) -> void:
  if yol.is_empty() or not ResourceLoader.exists(yol) or _manzara_ust==null or _manzara_alt==null: return
  var doku:=load(yol) as Texture2D
- if _manzara_alt.texture==doku: return
+ var bolge_manzara: bool=yol!=ARKA_HARITA
+ var hedef_vinyet: float=1.0 if bolge_manzara else 0.0
+ if _manzara_alt.texture==doku:
+  if _vinyet: _vinyet.modulate.a=hedef_vinyet
+  return
  _manzara_ust.texture=doku
  _manzara_ust.modulate.a=0
  if _manzara_tween: _manzara_tween.kill()
@@ -543,10 +592,14 @@ func _manzara_gec(yol: String) -> void:
  if aninda:
   _manzara_alt.texture=doku
   _manzara_ust.modulate.a=0
+  if _vinyet: _vinyet.modulate.a=hedef_vinyet
   return
  _manzara_tween=create_tween()
- _manzara_tween.tween_property(_manzara_ust, "modulate:a", 1.0, 0.52)
- _manzara_tween.tween_callback(func() -> void:
+ _manzara_tween.set_parallel(true)
+ _manzara_tween.tween_property(_manzara_ust, "modulate:a", 1.0, 0.4)
+ if _vinyet:
+  _manzara_tween.tween_property(_vinyet, "modulate:a", hedef_vinyet, 0.4)
+ _manzara_tween.chain().tween_callback(func() -> void:
   _manzara_alt.texture=_manzara_ust.texture
   _manzara_ust.modulate.a=0
  )
@@ -602,12 +655,36 @@ func _serit_yerlestir(serit: Control, alan: Vector2) -> void:
    (parca as TextureRect).stretch_mode=TextureRect.STRETCH_SCALE
   else:
    (parca as ColorRect).color=Color(String(CevreHaritasi.AYAR.yol_renk))
+  var golge_r: Control=TextureRect.new() if tex else ColorRect.new()
+  golge_r.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  golge_r.modulate=Color(0,0,0,0.5)
+  if golge_r is TextureRect:
+   (golge_r as TextureRect).texture=tex
+   (golge_r as TextureRect).expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+   (golge_r as TextureRect).stretch_mode=TextureRect.STRETCH_SCALE
+  else:
+   (golge_r as ColorRect).color=Color(0,0,0,0.5)
+  golge_r.position=p+Vector2(2,2)
+  golge_r.size=Vector2(p.distance_to(q), 12)
+  golge_r.rotation=(q-p).angle()
+  golge_r.pivot_offset=Vector2(0, 6)
+  serit.add_child(golge_r)
   parca.position=p
   parca.size=Vector2(p.distance_to(q), 10)
   parca.rotation=(q-p).angle()
   parca.pivot_offset=Vector2(0, 5)
   serit.add_child(parca)
   if i==noktalar.size()-2 and ResourceLoader.exists(MAP_KOK+"rota_uc_ok.png"):
+   var ok_g:=TextureRect.new()
+   ok_g.texture=load(MAP_KOK+"rota_uc_ok.png")
+   ok_g.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+   ok_g.modulate=Color(0,0,0,0.5)
+   ok_g.custom_minimum_size=Vector2(24,16)
+   ok_g.size=Vector2(24,16)
+   ok_g.position=q-ok_g.size/2+Vector2(2,2)
+   ok_g.rotation=(q-p).angle()
+   ok_g.mouse_filter=Control.MOUSE_FILTER_IGNORE
+   serit.add_child(ok_g)
    var ok:=TextureRect.new()
    ok.texture=load(MAP_KOK+"rota_uc_ok.png")
    ok.expand_mode=TextureRect.EXPAND_IGNORE_SIZE

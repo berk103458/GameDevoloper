@@ -27,6 +27,9 @@ func _kos() -> void:
   _dene(e._baslik.text==String(CevreHaritasi.bilgi(o,id).ad), "ui: baslik "+id)
   _dene(e._bilgi.text==String(CevreHaritasi.bilgi(o,id).metin), "ui: bilgi "+id)
   _dene(e._noktalar[id] is ColorRect, "ui: nokta ColorRect "+id)
+  var beklenen:=String(CevreHaritasi.bolge_durumu(o,id).get("manzara",""))
+  var tuval_yol:=String(e._manzara_alt.texture.resource_path) if e._manzara_alt and e._manzara_alt.texture else ""
+  _dene(not beklenen.is_empty() and tuval_yol==beklenen, "ui: tuval manzara "+id)
  _dene(e.find_children("harita_kapat","Button",true,false).size()==1, "ui: kapat")
  _dene(e.find_children("harita_kenarlik","NinePatchRect",true,false).size()>=0, "ui: kenarlik")
  var kaydir:=e.find_children("harita_bolge_kaydir","ScrollContainer",true,false)
@@ -34,10 +37,26 @@ func _kos() -> void:
  _dene(e.find_children("mevsim_katman","TextureRect",true,false).size()==1, "ui: mevsim")
  _dene(e.find_children("btn_yakinlastir","Button",true,false).size()==1, "ui: zoom")
  _dene(e.find_children("harita_arka_doku","TextureRect",true,false).size()==1, "ui: arka doku")
+ var vin:=e.find_children("harita_vinyet","TextureRect",true,false)
+ _dene(vin.size()==1 and vin[0].modulate.a>=0.99, "ui: vinyet acik")
+ var mev:=e.find_children("mevsim_katman","TextureRect",true,false)
+ _dene(mev.size()==1 and mev[0].modulate.a>=0.35 and mev[0].modulate.a<=0.41, "ui: mevsim alpha")
+ _dene(e.find_children("harita_bolge_manzara","TextureRect",true,false).is_empty(), "ui: kart manzara yok")
+ var hisar_n:=e._noktalar["hisar"] as ColorRect
+ _dene(hisar_n.get_node_or_null("golge") is TextureRect, "ui: pin golge")
  o.yonetim.harac_bekliyor=true
  e.bolge_sec("tekfur")
  await process_frame
  _dene(e._baslik.text==String(CevreHaritasi.bilgi(o,"tekfur").ad) and e._bilgi.text==String(CevreHaritasi.bilgi(o,"tekfur").metin), "ui: tekfur bilgi duruyor")
+ var tek_yol:=String(e._manzara_alt.texture.resource_path) if e._manzara_alt and e._manzara_alt.texture else ""
+ _dene(tek_yol.contains("tekfur"), "ui: tekfur manzara tuvalde")
+ e.bolge_sec("")
+ await process_frame
+ var bos_yol:=String(e._manzara_alt.texture.resource_path) if e._manzara_alt and e._manzara_alt.texture else ""
+ _dene(bos_yol.contains("map_bg") or bos_yol.contains("harita_uc"), "ui: secimsiz map_bg")
+ _dene(e._vinyet!=null and e._vinyet.modulate.a<=0.01, "ui: vinyet kapali")
+ e.bolge_sec("tekfur")
+ await process_frame
  var tek:=e._noktalar["tekfur"] as ColorRect
  var halka:=tek.get_node_or_null("halka") as TextureRect
  _dene(halka!=null and halka.visible, "ui: tehlike/secili halka")
