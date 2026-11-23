@@ -10,6 +10,10 @@ static func ekle(e: KoyEkrani, ust: Control) -> void:
   var tur := String(t)
   var d := e._dugme("%s geri sat · %d akçe" % [CelepHamdullah.AYAR.hayvanlar[t].ad, CanliHayvanTakasi.fiyat(tur)], satir)
   d.name = "hayvan_geri_sat_" + tur
+  var ik_yol := "res://assets/art/icons/icon_hayvan_%s.png" % ("beygir" if tur == "at" else tur)
+  if ResourceLoader.exists(ik_yol):
+   d.icon = load(ik_yol)
+   d.expand_icon = true
   d.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   d.disabled = not CanliHayvanTakasi.satilabilir(y, tur)
   d.tooltip_text = "Tek hayvan Celep'e gider; gelir kamuya, barınak yeri boşalır. Alım fiyatının yarısı aşağı yuvarlanır."

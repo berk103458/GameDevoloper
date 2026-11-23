@@ -61,6 +61,11 @@ static func ekle(e: KoyEkrani, b: KoyBinasi) -> void:
 		var baslik := "cozuldu" if id in s.tamamlanan else ("sirala" if r.kuyrukta else "baslat")
 		var dugme := e._dugme(_t(baslik),v)
 		dugme.name = "cozumleme_baslat_" + id
+		var ozel_ik := "res://assets/art/icons/%s.png" % id
+		var defter_ik := ozel_ik if ResourceLoader.exists(ozel_ik) else IKON_DEFTER
+		if ResourceLoader.exists(defter_ik):
+			dugme.icon = load(defter_ik)
+			dugme.expand_icon = true
 		dugme.disabled = not KAPI.acik(e) or (not r.ok and not r.kuyrukta)
 		if not String(r.neden).is_empty(): dugme.tooltip_text = _t("neden." + String(r.neden))
 		dugme.pressed.connect(func() -> void:

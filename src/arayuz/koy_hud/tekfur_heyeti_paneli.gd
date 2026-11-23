@@ -31,16 +31,22 @@ static func kur(e: Control, v: VBoxContainer) -> void:
 	v.add_child(tuslar)
 	var ode: Button = e._dugme(TranslationServer.translate("koy.harac.ode"),tuslar)
 	ode.name = "TekfurHaracOde"
+	var h_ik := "res://assets/art/icons/icon_durum_harac.png"
+	if ResourceLoader.exists(h_ik):
+		ode.icon = load(h_ik)
+		ode.expand_icon = true
 	ode.disabled = y.akce < y.a.harac_akce or y.kaynaklar.miktar("bugday") < y.a.harac_gida
 	ode.pressed.connect(func() -> void:
 		if y.harac_ode():
-			Ses.cal(&"sfx_kese")
+			var s := e.get_tree().root.get_node_or_null("Ses")
+			if s != null: s.cal(&"sfx_kese")
 			e._yenile()
 	)
 	var red: Button = e._dugme(TranslationServer.translate("koy.harac.reddet"),tuslar)
 	red.name = "TekfurHaracReddet"
 	red.pressed.connect(func() -> void:
 		y.harac_reddet()
-		Ses.cal(&"sfx_saldiri",-6.0)
+		var s := e.get_tree().root.get_node_or_null("Ses")
+		if s != null: s.cal(&"sfx_saldiri",-6.0)
 		e._yenile()
 	)

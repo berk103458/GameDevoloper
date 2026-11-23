@@ -6,6 +6,14 @@ const AD := "TuccarSekansKart"
 const EkHayvan := preload("res://src/koy/ticaret/ek_hayvan_pazari.gd")
 
 
+static func _ses_cal(e: Node, ad: StringName) -> void:
+	if e == null or e.get_tree() == null:
+		return
+	var s := e.get_tree().root.get_node_or_null("Ses")
+	if s != null:
+		s.cal(ad)
+
+
 static func pazar_satiri_ekle(e: KoyEkrani, ust: Control) -> void:
 	if e == null or e._y == null or ust == null:
 		return
@@ -61,7 +69,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 		y.set_meta(pazarlik_meta, true)
 		var indirim := 5
 		y.akce += indirim
-		Ses.cal(&"sfx_kese")
+		_ses_cal(e, &"sfx_kese")
 		await AkceSayimiAnimasyonu.oynat(e)
 		e.hud.guncelle()
 		ac(e, "Tüccar: 'Sözün eri muhafızmışsın; yol hakkı ve peşin iskonto olarak kasaya %d akçe geri yazdım.'" % indirim)
@@ -73,6 +81,15 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 		var bilgi_h: Dictionary = EkHayvan.HAYVANLAR[tur]
 		var satir := HBoxContainer.new()
 		v.add_child(satir)
+		var ik_yol := "res://assets/art/icons/icon_hayvan_%s.png" % tur
+		if ResourceLoader.exists(ik_yol):
+			var tr := TextureRect.new()
+			tr.texture = load(ik_yol)
+			tr.custom_minimum_size = Vector2(28, 28)
+			tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			tr.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			satir.add_child(tr)
 		var aciklama := e._etiket(satir, "%s (%d/%d) — %s" % [
 			String(bilgi_h["ad"]),
 			EkHayvan.sayi(y, tur),
@@ -86,7 +103,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 		al_d.disabled = not EkHayvan.alinabilir(y, tur)
 		al_d.pressed.connect(func() -> void:
 			if EkHayvan.al(y, tur):
-				Ses.cal(&"sfx_kese")
+				_ses_cal(e, &"sfx_kese")
 				await AkceSayimiAnimasyonu.oynat(e)
 				e.sahne3b.yenile()
 				e.hud.guncelle()
@@ -97,7 +114,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 		sat_d.disabled = not EkHayvan.satilabilir(y, tur)
 		sat_d.pressed.connect(func() -> void:
 			if EkHayvan.sat(y, tur):
-				Ses.cal(&"sfx_kese")
+				_ses_cal(e, &"sfx_kese")
 				await AkceSayimiAnimasyonu.oynat(e)
 				e.sahne3b.yenile()
 				e.hud.guncelle()
@@ -112,10 +129,14 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 		for tur in CelepHamdullah.AYAR.hayvanlar:
 			var ct := String(tur)
 			var cb := e._dugme("%s · %d akçe" % [CelepHamdullah.AYAR.hayvanlar[ct].ad, CekiLojistigi.FIYAT[ct]], c_satir)
+			var c_ik := "res://assets/art/icons/icon_hayvan_%s.png" % ("beygir" if ct == "at" else ct)
+			if ResourceLoader.exists(c_ik):
+				cb.icon = load(c_ik)
+				cb.expand_icon = true
 			cb.disabled = not y.lojistik.alinabilir(y, ct)
 			cb.pressed.connect(func() -> void:
 				if y.lojistik.al(y, ct):
-					Ses.cal(&"sfx_kese")
+					_ses_cal(e, &"sfx_kese")
 					await AkceSayimiAnimasyonu.oynat(e)
 					e.sahne3b.yenile()
 					e.hud.guncelle()

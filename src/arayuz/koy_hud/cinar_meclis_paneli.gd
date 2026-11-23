@@ -16,7 +16,8 @@ static func hud(h: Node, y: KoyYonetimi, goster: bool = true) -> void:
 		b = Button.new()
 		b.name = "cinar_meclisi"
 		b.text = "Çınar altı meclisi"
-		var iy := GeceKapisiCerceve.yol("icon_adalet")
+		var durum_ik := "res://assets/art/icons/icon_durum_cinar_meclisi.png"
+		var iy := durum_ik if ResourceLoader.exists(durum_ik) else GeceKapisiCerceve.yol("icon_adalet")
 		if ResourceLoader.exists(iy):
 			b.icon = load(iy)
 			b.expand_icon = true

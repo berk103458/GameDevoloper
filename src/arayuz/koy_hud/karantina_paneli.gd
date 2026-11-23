@@ -13,6 +13,10 @@ static func ekle(e: KoyEkrani, v: VBoxContainer, k: Koylu) -> void:
 	var neden := "" if cikis else KarantinaYoneticisi.neden(y, k)
 	var d := e._dugme("Karantinadan çıkar" if cikis else "Şüpheyle 2 gün karantinaya al", v)
 	d.name = "karantina_dugmesi"
+	var k_ik := "res://assets/art/icons/icon_durum_karantina.png"
+	if ResourceLoader.exists(k_ik):
+		d.icon = load(k_ik)
+		d.expand_icon = true
 	d.disabled = y.son != &"" or not neden.is_empty()
 	d.tooltip_text = "Erken çıkarma teması yeniden açar; giriş bedeli iade edilmez." if cikis else neden
 	d.pressed.connect(func() -> void:

@@ -10,6 +10,10 @@ static func ekle(e: Node, v: Control, sikayet: String) -> void:
 	CinarMeclisPaneli._metin(e, v, sikayet, "meclis_soylenti_sikayeti")
 	var b: Button = e._dugme("Şikâyeti dinle, hükme bağla", v)
 	b.name = "meclis_soylenti_hukum"
+	var s_ik := "res://assets/art/icons/icon_soylenti_agi.png"
+	if ResourceLoader.exists(s_ik):
+		b.icon = load(s_ik)
+		b.expand_icon = true
 	b.pressed.connect(func() -> void:
 		var satir := SoylentiKoprusu.hukme_bagla(e.oturum)
 		if satir.is_empty(): return

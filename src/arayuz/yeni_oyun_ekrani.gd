@@ -113,6 +113,10 @@ func _gecmis_satiri(dikey: VBoxContainer) -> void:
 	for id in g.SIRA:
 		var d := Button.new()
 		d.text = String(g.VERI[id].ad)
+		var ik_yol := "res://assets/art/icons/icon_gecmis_%s.png" % String(id)
+		if ResourceLoader.exists(ik_yol):
+			d.icon = load(ik_yol)
+			d.expand_icon = true
 		d.toggle_mode = true
 		d.pressed.connect(_gecmis_sec.bind(String(id), d, satir))
 		satir.add_child(d)

@@ -20,11 +20,16 @@ const DOKU := {
 	"cevher": "res://assets/art/icons/icon_stok_cevher.png",
 	"kurk": "res://assets/art/icons/icon_stok_kurk.png",
 	"bugday": "res://assets/art/icons/icon_stok_bugday.png",
+	"kereste": "res://assets/art/icons/icon_stok_kereste.png",
+	"kirec": "res://assets/art/icons/icon_stok_kirec.png",
+	"harc": "res://assets/art/icons/icon_stok_harc.png",
+	"tomruk": "res://assets/art/icons/icon_stok_tomruk.png",
+	"un": "res://assets/art/icons/icon_stok_un.png",
 }
 
 
 static func ikon(r: TextureRect, tur: String) -> bool:
-	if tur not in ["civi", "tirpan", "balta", "afyon", "sargi", "kece", "kumas", "zirh", "yay", "kalkan", "su", "saman", "ilac", "demir", "cevher", "kurk", "bugday"]: return false
+	if tur not in ["civi", "tirpan", "balta", "afyon", "sargi", "kece", "kumas", "zirh", "yay", "kalkan", "su", "saman", "ilac", "demir", "cevher", "kurk", "bugday", "kereste", "kirec", "harc", "tomruk", "un"]: return false
 	var renk := String(SamanBakimi.AYAR.ikon_renk) if tur == "saman" else (Kabuk.STOK_SU.to_html() if tur == "su" else Kabuk.STOK_KUMAS.to_html())
 	var c := Kabuk.yer_tutucu(tur, renk, Vector2.ZERO)
 	r.add_child(c)

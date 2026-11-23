@@ -95,6 +95,12 @@ func guncelle() -> void:
 			continue
 		var b := Button.new()
 		b.name = "Secenek%d" % i
+		var beceri := String(secenek.get("beceri", ""))
+		if not beceri.is_empty():
+			var z_ik := "res://assets/art/icons/icon_zar_%s.png" % beceri
+			if ResourceLoader.exists(z_ik):
+				b.icon = load(z_ik)
+				b.expand_icon = true
 		var secim_anahtari := TON.anahtar(oturum, secenek)
 		b.text = SozMotoru.kapi_metni(secim_anahtari) if kapi_sozu != null else sorgu.metin(StringName(secim_anahtari))
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

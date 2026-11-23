@@ -4,7 +4,28 @@ extends Button
 
 const IKONLAR := {"cadir": "cadir", "kulube": "kulube", "tarla": "gida", "hizarhane": "odun", "odunluk": "tomruk", "tas_ocagi": "tas", "kirec_kuyusu": "kirec", "tas_ev": "kulube", "avci": "avci", "atolye": "alet", "ambar": "ambar"}
 const KOY_PNG_KOK := "res://assets/ui/koy/gece_kapisi/"
-const YAPI_PNG := {"agil": "agil", "ahir": "ahir", "degirmen": "degirmen", "demirhane": "demirhane", "firin": "firin", "muhafiz_kislasi": "kislasi", "sifahane": "sifahane"}
+const YAPI_PNG := {
+	"agil": "agil",
+	"ahir": "ahir",
+	"degirmen": "degirmen",
+	"demirhane": "demirhane",
+	"firin": "firin",
+	"muhafiz_kislasi": "kislasi",
+	"sifahane": "sifahane",
+	"kulube": "kulube",
+	"cadir": "cadir",
+	"tas_ev": "tas_ev",
+	"tarla": "tarla",
+	"bostan": "bostan",
+	"odunluk": "odunluk",
+	"hizarhane": "hizarhane",
+	"tas_ocagi": "tas_ocagi",
+	"kirec_kuyusu": "kirec_kuyusu",
+	"avci": "avci",
+	"ambar": "ambar",
+	"atolye": "atolye",
+	"cozumleme_odasi": "cozumleme_odasi",
+}
 
 ## Kartı güncel simülasyon verisiyle kurar; satın alma kuralı oyunun kaynaklarına dayanır.
 func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:

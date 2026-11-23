@@ -23,6 +23,10 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
   var a: Dictionary=MuhafizOdaGelisimi.AYAR[id]
   var b:=Button.new()
   b.name="oda_gelistir_"+id
+  var ik_yol:="res://assets/art/icons/icon_oda_%s.png"%String(id)
+  if ResourceLoader.exists(ik_yol):
+   b.icon=load(ik_yol)
+   b.expand_icon=true
   b.text=String(a.ad)+(" · alındı" if MuhafizOdaGelisimi.var_mi(e.oturum,id) else " · %d kişisel akçe"%int(a.bedel))
   b.disabled=not MuhafizOdaGelisimi.alinabilir(e.oturum,id)
   b.add_theme_color_override("font_disabled_color",Renkler.KUL)
