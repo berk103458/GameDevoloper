@@ -8,7 +8,9 @@ Bu dosya, ana liste (`GEMINI_SIRADAKI_URETIM_LISTESI.md`) ve ek liste (`GEMINI_E
 
 **Y1 (ilk 30, N062–N266):** 29 düzeldi ve `[x]` işaretlendi; N062 o partide hâlâ kusurlu kaldı (sonra Y2'de düzeltildi).
 
-**Y2 (N267–E34 + N062 yeniden deneme):** 26 düzeldi (`[x]`, N062 dahil); N310 Y2 sonrası hâlâ kusurlu (2 deneme, v2 alındı). E30, E32, E33, E34 (zar_d6_roll_01/03/04 ve zar_d12_roll_01) atlandı — A1 zar animasyonu başka işte. Kalan aday: 24 denenmemiş + 4 atlanan zar + 1 hâlâ kusurlu.
+**Y2 (N267–E34 + N062 yeniden deneme):** 26 düzeldi (`[x]`, N062 dahil); N310 Y2 sonrası hâlâ kusurlu (2 deneme, v2 alındı). E30, E32, E33, E34 (zar_d6_roll_01/03/04 ve zar_d12_roll_01) atlandı — A1 zar animasyonu başka işte.
+
+**Y3 (E38–E143 kalan 24 + N310 yeniden deneme; son parti):** 22 düzeldi (`[x]`, N310 dahil). 3 kalem Y3 sonrası hâlâ kusurlu (2'şer deneme, daha iyi sürüm alındı): E43 (toka çözüldü ama kapak hâlâ kapalı), E105 (alevler sola yatmadı), E135 (kısalmış/foreshorten uçuş yok). E30, E32, E33, E34 `[-] A1 v2 ile geçersiz`: A1 v2 zar atışı kodla ve `assets/ui/kapi/zar_yuz/` yüzleriyle çiziliyor; `zar_d*_roll_*` kareleri src/sahnede yüklenmiyor (yalnızca `kare_animasyon_kabuk.gd` yorum örneği). Listenin son durumu: 77 düzelen, 3 hâlâ kusurlu, 4 geçersiz; denenmemiş kalmadı.
 
 ---
 
@@ -203,7 +205,8 @@ Bu dosya, ana liste (`GEMINI_SIRADAKI_URETIM_LISTESI.md`) ve ek liste (`GEMINI_E
 - **Kusur:** Halat sürtünme halkası yerine bilekte duran ip/bilezik gibi duruyor.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Sağ bilekte **ip olmayan, ciltte kalmış sürtünme halkası** (takılı ip veya bilezik değil).
 
-### N310 — `assets/art/inspect/chr_029_trace.png`
+### [x] N310 — `assets/art/inspect/chr_029_trace.png`
+- **Y3'te düzeltildi:** Sağ başparmakta okunaklı eski çekiç ezikleri (ezik tırnak kenarı, soluk darbe izleri) ve kese ağzında isli dikiş. Y2 v2 yedeklendi.
 - **Y2 sonrası hâlâ kusurlu:** İki deneme. Kese ağzındaki isli dikiş iyileşti ama sağ başparmak çekiç ezikleri hâlâ zayıf/okunaksız. Daha iyi olan v2 alındı.
 - **Kusur:** Başparmakta çekiç ezikleri zayıf; kese ağzındaki isli dikiş belirsiz.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Sağ başparmakta **eski küçük çekiç ezikleri** ve yanında **ağız dikişi isli bir kese**, her iki iz de okunaklı.
@@ -244,118 +247,126 @@ Bu dosya, ana liste (`GEMINI_SIRADAKI_URETIM_LISTESI.md`) ve ek liste (`GEMINI_E
 - **Kusur:** Örgülü demir halka yaka yok; kurum lekesi ve nalbur/hırdavatçı kimliği zayıf.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760. Yapılı 44 yaş gezgin nalbur: şakaklarda is lekesi, **örgü demir halka yaka**, koyu keçe kalpak, yara izli ağır deri önlük, pratik kısık bakış.
 
-### E30 — `assets/art/anim/zar_d6_roll_01.png`
+### [-] E30 — `assets/art/anim/zar_d6_roll_01.png`
+- **A1 v2 ile geçersiz:** A1 zar atışı artık `zar_atisi_animasyonu.gd` ile kodlanıyor ve `assets/ui/kapi/zar_yuz/` yüzleriyle çiziliyor; `zar_d*_roll_*` kareleri oyunda yüklenmiyor (src/sahnede load/preload yok, yalnızca `kare_animasyon_kabuk.gd` yorum örneği). Yeniden üretilmedi, dosyaya dokunulmadı.
 - **Y2'de atlandı:** A1 zar animasyonu başka işte yeniden yapılıyor; bu partide dokunulmadı.
 - **Kusur:** 35 derecelik fırlatma açısı yok; zar neredeyse oturmuş/az eğik. Yüzler boş (iyi).
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. Fildişi d6, **ortada 35 derece yukarı eğik fırlatma duruşu**, yüzler tamamen boş (pips/rakam yok).
 
-### E32 — `assets/art/anim/zar_d6_roll_03.png`
+### [-] E32 — `assets/art/anim/zar_d6_roll_03.png`
+- **A1 v2 ile geçersiz:** A1 zar atışı artık `zar_atisi_animasyonu.gd` ile kodlanıyor ve `assets/ui/kapi/zar_yuz/` yüzleriyle çiziliyor; `zar_d*_roll_*` kareleri oyunda yüklenmiyor (src/sahnede load/preload yok, yalnızca `kare_animasyon_kabuk.gd` yorum örneği). Yeniden üretilmedi, dosyaya dokunulmadı.
 - **Y2'de atlandı:** A1 zar animasyonu başka işte yeniden yapılıyor; bu partide dokunulmadı.
 - **Kusur:** İstenen düşük ~12° yatış yerine E31’e çok yakın açı.
 - **Düzeltilmiş prompt ipucu:** Aynı zar kimliği, kare 3/4: **yalnızca yaklaşık 12° alçak yatış**, E31’den bariz daha yatık. Boş yüzler.
 
-### E33 — `assets/art/anim/zar_d6_roll_04.png`
+### [-] E33 — `assets/art/anim/zar_d6_roll_04.png`
+- **A1 v2 ile geçersiz:** A1 zar atışı artık `zar_atisi_animasyonu.gd` ile kodlanıyor ve `assets/ui/kapi/zar_yuz/` yüzleriyle çiziliyor; `zar_d*_roll_*` kareleri oyunda yüklenmiyor (src/sahnede load/preload yok, yalnızca `kare_animasyon_kabuk.gd` yorum örneği). Yeniden üretilmedi, dosyaya dokunulmadı.
 - **Y2'de atlandı:** A1 zar animasyonu başka işte yeniden yapılıyor; bu partide dokunulmadı.
 - **Kusur:** Zar değil, düz levha/plaket gibi tek yüz.
 - **Düzeltilmiş prompt ipucu:** Aynı zar, kare 4/4: **hemen hemen durmuş küp**, üç boyutlu (tek düz kare plaka değil), boş yüzler.
 
-### E34 — `assets/art/anim/zar_d12_roll_01.png`
+### [-] E34 — `assets/art/anim/zar_d12_roll_01.png`
+- **A1 v2 ile geçersiz:** A1 zar atışı artık `zar_atisi_animasyonu.gd` ile kodlanıyor ve `assets/ui/kapi/zar_yuz/` yüzleriyle çiziliyor; `zar_d*_roll_*` kareleri oyunda yüklenmiyor (src/sahnede load/preload yok, yalnızca `kare_animasyon_kabuk.gd` yorum örneği). Yeniden üretilmedi, dosyaya dokunulmadı.
 - **Y2'de atlandı:** A1 zar animasyonu başka işte yeniden yapılıyor; bu partide dokunulmadı.
 - **Kusur:** d12 çerçevesi sonraki karelere (E35–E37) göre küçük/ölçeksiz.
 - **Düzeltilmiş prompt ipucu:** 256×256. Boş yüzlü d12, **E35–E37 ile aynı nesne ölçeği ve çerçeve payı**; ilk kareyi küçük çizme.
 
-### E38 — `assets/art/anim/muhur_bas_01.png`
+### [x] E38 — `assets/art/anim/muhur_bas_01.png`
 - **Kusur:** Balmumu havuzu çiçek biçiminde.
 - **Düzeltilmiş prompt ipucu:** 256×256. Mühür basımı kare 1: **düzensiz doğal balmumu gölcüğü** (çiçek/yıldız simetri yok), üzerinde harf/arma yok.
 
 ### E43 — `assets/art/anim/heybe_ac_02.png`
+- **Y3 sonrası hâlâ kusurlu:** İki deneme. Toka çözüldü ve sarkıyor ama kapak hâlâ kapalı; açılma okunaksız. Daha iyi olan v2 alındı (tokası açık).
 - **Kusur:** Kapalı E42 ile neredeyse aynı; toka hâlâ bağlı, açılma okunaksız.
 - **Düzeltilmiş prompt ipucu:** Aynı heybe, kare 2/4: **toka çözülmüş, kapak belirgin aralanmış**; kapalı kareden net fark.
 
-### E50 — `assets/art/icons/icon_koy_tarla.png`
+### [x] E50 — `assets/ui/koy/gece_kapisi/tarla.png`
+- **Y3 notu:** Listedeki `assets/art/icons/icon_koy_tarla.png` yolu repoda yoktu; resmi hedef `assets/ui/koy/gece_kapisi/tarla.png` (64×64). Ev kaldırıldı, yalnız tarla parseli.
 - **Kusur:** Yalnız tarla değil, çitli buğday parselinin önünde bir çiftlik evi.
 - **Düzeltilmiş prompt ipucu:** 64×64, 2px pay. **Yalnız bir tarla/ekim parseli** (ev, çiftlik yapısı yok). Ekin tozlu altın, lime değil.
 
-### E60 — `assets/art/icons/icon_stok_kereste.png`
+### [x] E60 — `assets/art/icons/icon_stok_kereste.png`
 - **Kusur:** Tam 3 yontulmuş tahta yerine 3×2 (6 kiriş) yığını. (v2 yuvarlak tomruğu düzeltti ama sayı/biçim hâlâ kaymış.)
 - **Düzeltilmiş prompt ipucu:** 64×64, 2px pay. **Tam olarak üç yontulmuş kereste tahtası** (altı kiriş veya yuvarlak tomruk değil).
 
-### E63 — `assets/art/icons/icon_stok_kirec.png`
+### [x] E63 — `assets/art/icons/icon_stok_kirec.png`
 - **Kusur:** Kireç teknesi değil, daha çok kasa/sandık.
 - **Düzeltilmiş prompt ipucu:** 64×64, 2px pay. **Açık kireç teknesi/oluğu**, içinde soluk kireç; tahta kasa değil.
 
-### E69 — `assets/art/icons/icon_hayvan_okuz.png`
+### [x] E69 — `assets/art/icons/icon_hayvan_okuz.png`
 - **Kusur:** Boyunduruk boyunda klasik yaka değil, sırtta kiriş gibi duruyor.
 - **Düzeltilmiş prompt ipucu:** 64×64, 2px pay. Öküz, **boynuna oturmuş klasik ahşap boyunduruk** (sırtın üstüne yatmış kiriş değil).
 
-### E73 — `assets/art/icons/icon_zar_ikna.png`
+### [x] E73 — `assets/art/icons/icon_zar_ikna.png`
 - **Kusur:** 48px’te avuç + ayakta tam terazi, kalabalık; yalnız kefe/terazi kolu değil.
 - **Düzeltilmiş prompt ipucu:** 48×48, 2px pay. **Yalın bir terazi kolu/kefe** (avuç ve ayakta duran tam terazi ekleme, sade tut).
 
-### E76 — `assets/art/icons/icon_zar_gonul_alma.png`
+### [x] E76 — `assets/art/icons/icon_zar_gonul_alma.png`
 - **Kusur:** Düz yassı ekmek değil, ızgara/waffle dokulu ekmek.
 - **Düzeltilmiş prompt ipucu:** 48×48, 2px pay. **Sade yassı pide/yufka**, waffle ızgarası yok. Altın-ocre, lime değil.
 
-### E77 — `assets/art/icons/icon_gecmis_eski_levent.png`
+### [x] E77 — `assets/art/icons/icon_gecmis_eski_levent.png`
 - **Kusur:** Mızrak miğferin arkasından çapraz değil, tepesine dikilmiş.
 - **Düzeltilmiş prompt ipucu:** 64×64, 2px pay. Miğfer, **mızrak arkadan çapraz** (tepeye saplanmış değil).
 
-### E82 — `assets/art/icons/icon_durum_karantina.png`
+### [x] E82 — `assets/art/icons/icon_durum_karantina.png`
 - **Kusur:** Kavanoz üzerindeki yüz maskesi değil, şişe ağzına bez bağlanmış tıpa gibi duruyor.
 - **Düzeltilmiş prompt ipucu:** 48×48, 2px pay. **Kavanoz/kap üzerinde bez yüz maskesi** (şişe tıpası değil), karantina rozeti olarak okunaklı.
 
-### E95 — `assets/art/events/event_gece_donu.png`
+### [x] E95 — `assets/art/events/event_gece_donu.png`
 - **Kusur:** Dere tam buz tutmamış; nöbetçi palisad üzerinde değil, bir platformda.
 - **Düzeltilmiş prompt ipucu:** 800×450 opak 16:9. Palisadlı gece donu: **dere/ırmak tamamen buzlu**, saçak buzlar, nöbetçi palisad üzerinde, mangal amber. Yazı yok.
 
-### E96 — `assets/art/events/event_harami_elcisi.png`
+### [x] E96 — `assets/art/events/event_harami_elcisi.png`
 - **Kusur:** Haraç rulosu katlı rulo değil, açık boş bayrak gibi.
 - **Düzeltilmiş prompt ipucu:** 800×450 opak. Alacakaranlıkta harami atlısı, yüzü siyah eşarpla gizli, elinde **katlı, yazısız haraç rulosu** (açık flama/bayrak değil).
 
-### E97 — `assets/art/events/event_tuccar_kervani.png`
+### [x] E97 — `assets/art/events/event_tuccar_kervani.png`
 - **Kusur:** Kapı lentosunda yazıya benzer / Kûfî tarzı bezeme var (yazı kuralı). Kart kullanılabilir ama işaret temizlenmeli.
 - **Düzeltilmiş prompt ipucu:** 800×450 opak. Çamur tuğla kapıda kervan, katırlar, kandiller, koyunlar; **lento, bayrak ve bezler tamamen boş** — harf, kitabe, Kûfî taklidi yok.
 
-### E100 — `assets/art/anim/kandil_alev_02.png`
+### [x] E100 — `assets/art/anim/kandil_alev_02.png`
 - **Kusur:** Aynı kandil iyi; sağa yatış ve uzama çok hafif, kare 1’den az ayrılıyor.
 - **Düzeltilmiş prompt ipucu:** Aynı açık toprak kandil (cam baca yok). Kare 2/4: **alev bariz sağa yatsın ve daha uzun olsun**, amber/fildişi, lime değil.
 
-### E101 — `assets/art/anim/kandil_alev_03.png`
+### [x] E101 — `assets/art/anim/kandil_alev_03.png`
 - **Kusur:** Sola yatış hafif; kıvılcım var ama pose kare 1–2’ye çok yakın.
 - **Düzeltilmiş prompt ipucu:** Aynı kandil. Kare 3/4: **alev bariz sola eğilsin**, tepede tek küçük amber kıvılcım (lime değil).
 
 ### E105 — `assets/art/anim/ocak_ates_03.png`
+- **Y3 sonrası hâlâ kusurlu:** İki deneme. Alevler v1'de sağa, v2'de büyük ölçüde dik; istenen net sola yatış yok. Daha iyi olan v2 alındı.
 - **Kusur:** “Sola yatan ikiz dil” hafif, alevler daha çok dik.
 - **Düzeltilmiş prompt ipucu:** Aynı çapraz ocak odunları. Kare 3/4: **iki amber alev dili net sola yatsın**, kor yatağı parlasın. Lime yok.
 
-### E109 — `assets/art/anim/tansiyon_catlak_03.png`
+### [x] E109 — `assets/art/anim/tansiyon_catlak_03.png`
 - **Kusur:** 01–02’ye göre daha grafik; çatlaklar çubuğun tümüne yayılmış, yalnızca genişlemiş orta çatlak değil.
 - **Düzeltilmiş prompt ipucu:** Aynı arduvaz çubuk ve demir uçlar (01–02 üslubu). Kare 3/4: **ortadaki çatlaklar genişlesin, içinde amber ışıma**; çubuğun tümünü damar gibi kaplamasın. Rakam yok.
 
-### E113 — `assets/art/anim/kese_sikkesi_03.png`
+### [x] E113 — `assets/art/anim/kese_sikkesi_03.png`
 - **Kusur:** Havada 3 boş akçe yerine ~6 durulmuş sikke dökülüyor.
 - **Düzeltilmiş prompt ipucu:** Aynı deri kese. Kare 3/4: kese yan yatmış, **havada tam 3 tamamen boş akçe** (harf, tuğra, sayı yok); 6 sikke ve yere oturmuş yığın olmasın.
 
-### E119 — `assets/art/icons/icon_durum_cinar_meclisi.png`
+### [x] E119 — `assets/art/icons/icon_durum_cinar_meclisi.png`
 - **Kusur:** Yaprak çınara yakın palmat ama akçaağaçsı; taş sedirde altın haç bezemesi var.
 - **Düzeltilmiş prompt ipucu:** 48×48, 2px pay. **Tek geniş çınar yaprağı** (tozlu zeytin/adaçayı, asla lime) **sade, kavisli taş meclis sedirinin üstünde**; haç veya arma yok.
 
-### E130 — `assets/art/anim/harman_duven_01.png`
+### [x] E130 — `assets/art/anim/harman_duven_01.png`
 - **Kusur:** İstenen tepeden bakış yerine yan/üç-çeyrek görünüş (02–04 aynı kimliği izlediği için set tutarlı ama açı yanlış).
 - **Düzeltilmiş prompt ipucu:** 256×256, dört kare de **tam tepeden bakış** düven (taş/demir dişler altta görünsün). Kare 1: pruva sağa, 0°. Saman tozlu altın, lime değil. 02–04 aynı tepeden kimlikle 45°/90°/135°.
 
 ### E135 — `assets/art/anim/okculuk_ok_02.png`
+- **Y3 sonrası hâlâ kusurlu:** İki deneme. Hız çizgili çapraz uçuş var ama kameradan uzağa kısalmış (foreshorten) duruş yok. Daha iyi olan v2 alındı.
 - **Kusur:** Kameraya doğru kısalmış (foreshorten) uçuş yok; düzlemde çapraz uçuş.
 - **Düzeltilmiş prompt ipucu:** Aynı ok. Kare 2/4: **ucu üst-merkeze, kameradan hafif uzağa kısalmış uçuş**, tüyde iki soluk hız çizgisi.
 
-### E136 — `assets/art/anim/okculuk_ok_03.png`
+### [x] E136 — `assets/art/anim/okculuk_ok_03.png`
 - **Kusur:** Uç hedefe gömülü değil (tam görünüyor); sap eğilmesi çok hafif.
 - **Düzeltilmiş prompt ipucu:** Aynı ok. Kare 3/4: **uç önden gömülmüş**, sap hafif yukarı eğik, uçta üç küçük altın saman teli. Hedef yüzü yok.
 
-### E139 — `assets/art/anim/kapi_surgu_02.png`
+### [x] E139 — `assets/art/anim/kapi_surgu_02.png`
 - **Kusur:** Sürgü yarı yolda değil, neredeyse tamamen kapanmış; istenen hafif eğim yok denecek kadar az.
 - **Düzeltilmiş prompt ipucu:** Aynı meşe sürgü ve iki demir yuva, 512×256. Kare 2/3: **sürgü yarı yolda**, sağ uç yuvaya yeni giriyor, **hafif eğik**. 01’den ve kilitli 03’ten net fark.
 
-### E143 — `assets/art/icons/icon_savas_hareket.png`
+### [x] E143 — `assets/art/icons/icon_savas_hareket.png`
 - **Kusur:** İleri basılmış taban izi değil, üstten görülen çarık çiftinin kendisi (kayışlar görünüyor).
 - **Düzeltilmiş prompt ipucu:** 48×48, 2px pay. **İleri basılmış iki yıpranmış çarık taban izi** (ayakkabının üstü/kayışı değil, yerdeki basış izleri).
