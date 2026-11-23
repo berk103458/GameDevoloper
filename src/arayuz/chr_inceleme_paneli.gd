@@ -19,6 +19,7 @@ func _nesne_incele(sira: int) -> void:
 	var kart := preload("res://src/arayuz/kapi/esya_detay_karti.tscn").instantiate()
 	kart.baslik = "İncelenen nişan" if sira == 1 else "İncelenen yük"
 	kart.aciklama = _aciklama.text
+	await EvrakAnimasyonu.oynat(self, String(kart.aciklama))
 	add_child(kart)
 
 func _ready() -> void:
@@ -32,17 +33,25 @@ func _ready() -> void:
 	baslik.text = "Nişan ve yük incelemesi"
 	baslik.add_theme_font_size_override("font_size", Tema.BASLIK_PX)
 	kutu.add_child(baslik)
+	var cid := String(sorgu.karakter.id).to_lower()
 	var nisani := Button.new()
 	nisani.text = "Nişanı / mührü incele"
+	var obje1_doku := Sanat.doku("icons", "icon_clue_%s_obje1" % cid)
+	if obje1_doku != null:
+		nisani.icon = obje1_doku
+		nisani.expand_icon = true
 	nisani.custom_minimum_size.y = 70
 	nisani.pressed.connect(_nesne_incele.bind(1))
 	kutu.add_child(nisani)
 	var yuk := Button.new()
 	yuk.text = "Yükü / gizli bölmeyi incele"
+	var obje2_doku := Sanat.doku("icons", "icon_clue_%s_obje2" % cid)
+	if obje2_doku != null:
+		yuk.icon = obje2_doku
+		yuk.expand_icon = true
 	yuk.custom_minimum_size.y = 70
 	yuk.pressed.connect(_nesne_incele.bind(2))
 	kutu.add_child(yuk)
-	var cid := String(sorgu.karakter.id).to_lower()
 	var portre := TextureButton.new()
 	_gorsel_iz_dugmesi = portre
 	portre.name = "GorselIz"
