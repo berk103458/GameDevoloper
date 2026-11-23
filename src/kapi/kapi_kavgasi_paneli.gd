@@ -14,7 +14,8 @@ func _ac(e: KapiEkrani) -> void:
 	var a = A.al(e.oturum)
 	a.panel_acik = true
 	A.sonuc_yaz(e, a.son)
-	# CAT02-KAVGA: yalnız mevcut UI üzerinde kısa sarsıntı, yeni asset yok.
+	# CAT02-KAVGA: gerilim animasyonu, ardından mevcut kısa sarsıntı.
+	await KavgaGerilimAnimasyonu.oynat(e)
 	var baslangic := e._kayit.position
 	var t := e.create_tween()
 	t.tween_property(e._kayit, "position", baslangic + Vector2(6, 0), 0.06)

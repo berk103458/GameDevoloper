@@ -15,6 +15,7 @@ var kapali: bool = false
 var filtre: String = ""
 var okunmus_isaret: bool = false
 var ilk_sayfa_odakta: bool = false
+var _sayfa_oynadi := false
 
 var _sayfa_dugmeleri: Array[Button] = []
 var _sayfalar: Array[String] = []
@@ -63,6 +64,9 @@ func sayfa_sec(indeks: int) -> void:
 	sayfa = posmod(indeks, _sayfalar.size())
 	for i in _sayfa_dugmeleri.size():
 		_sayfa_dugmeleri[i].set_pressed_no_signal(i == sayfa)
+	var kisa := _sayfa_oynadi
+	_sayfa_oynadi = true
+	await HafizaSayfasiAnimasyonu.oynat(self, kisa)
 	_listeyi_ciz()
 
 

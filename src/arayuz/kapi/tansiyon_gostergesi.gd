@@ -4,6 +4,7 @@ extends VBoxContainer
 var sorgu: RefCounted
 var etiket: Label
 var bar: ProgressBar
+var _son_bolge := -1
 const RENKLER := [Kabuk.MORAL, Kabuk.BAR_DOLU, Hud.UYARI]
 
 func _ready() -> void:
@@ -35,3 +36,6 @@ func guncelle(deger: int, kilitli: bool = false) -> void:
 	bar.value = tansiyon
 	preload("res://src/arayuz/kapi/tansiyon_bicimi.gd").uygula(self, bolge)
 	bar.self_modulate = RENKLER[bolge]
+	if _son_bolge >= 0 and bolge > _son_bolge:
+		TansiyonCatlamasiAnimasyonu.oynat(self)
+	_son_bolge = bolge

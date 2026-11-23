@@ -130,7 +130,11 @@ Ortak kabuk: `src/arayuz/kare_animasyon_kabuk.gd` (`KareAnimasyonKabuk`). `olust
 
 Lisans notu: `docs/arayuz/ANIMASYON_A1_A6_LISANS.md`. Birim testleri: `tests/unit/arayuz/*_animasyonu_test.gd`. Önizleme GIF'leri klon dışındadır (`/workspace/anim_onizleme/`), repoya girmez.
 
-### Bilinen kusurlar ve yeniden üretim
+### B grubu (B1–B10)
+
+Hareket mümkün olduğunca kodda: plaka çözünmesi settle/ease ile, akçe sekişi, mühür basışı, terazi salınımı, çatlak sarsıntısı, harita rulo açılması. Ham kare en fazla 6 (çoğunda 1–4 destek). Origin `kese_sikkesi_01–04` ve `tansiyon_catlak_01–04` yeniden üretilmedi. B10 yalnız sınıf + test; `harita_ekrani.gd` kancasız. Metin ve pin kareye gömülmez.
+
+## Bilinen kusurlar ve yeniden üretim
 
 - A1 (eski kare dizisi, **yeniden üretim / v2 ile aşıldı**): `assets/art/anim/zar_d6_roll_01.png` neredeyse boş fildişi küp, pips yok; 02–04 ve d12 karelerinde de yüz işaretleri yoktu, dizi BG3 tarzı fırlatmayı vermiyordu. Eski `zar_*_roll_*` dosyaları durur ama A1 artık kullanmaz. v2: kodla hareket + temiz `zar_d6_yuz_*` / `zar_d12_yuz_*`.
 - A2: bazı akçelerde zayıf darphane izi gibi işaretler; orta karelerde hafif kamera açısı kayması.

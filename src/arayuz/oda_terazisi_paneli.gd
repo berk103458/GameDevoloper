@@ -34,6 +34,7 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
  p.custom_minimum_size.y=20
  n.add_child(p)
  guncelle(e)
+ VicdanTerazisiAnimasyonu.oynat(e, int(MuhafizTerazisi.durum(e.oturum)["denge"]))
 
 ## Yetenek alımı sonrasında aynı etiket/bar yeniden okunur; ikinci panel üretilmez.
 static func guncelle(e: MuhafizOdasiEkrani) -> void:

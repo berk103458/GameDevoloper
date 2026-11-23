@@ -802,7 +802,7 @@ func _geceye_gec_rapor() -> void:
 			return
 		var olay: OlayVerisi = sonuc["olay"]
 		if olay != null:
-			_olay_goster(olay, sonuc)
+			await _olay_goster(olay, sonuc)
 		else:
 			devam_istendi.emit(sonuc)
 	)
@@ -835,6 +835,10 @@ func _olay_goster(olay: OlayVerisi, sonuc: Dictionary) -> void:
 		Ses.cal(olay.ses, -3.0)
 	if olay.muzik != &"":
 		Ses.muzik_cal(olay.muzik)
+	if SancakAskerTalebi.tanimli(olay):
+		await SancakFermaniAnimasyonu.oynat(self)
+	else:
+		await OlayKartiAnimasyonu.oynat(self)
 	var v := _kart_ac(tr(olay.baslik_anahtari))
 	_kart_arkasi_koy("koy_gece")
 	HaberciAnlatiPaneli.ekle(self, v, olay)

@@ -62,6 +62,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 		var indirim := 5
 		y.akce += indirim
 		Ses.cal(&"sfx_kese")
+		await AkceSayimiAnimasyonu.oynat(e)
 		e.hud.guncelle()
 		ac(e, "Tüccar: 'Sözün eri muhafızmışsın; yol hakkı ve peşin iskonto olarak kasaya %d akçe geri yazdım.'" % indirim)
 	)
@@ -86,6 +87,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 		al_d.pressed.connect(func() -> void:
 			if EkHayvan.al(y, tur):
 				Ses.cal(&"sfx_kese")
+				await AkceSayimiAnimasyonu.oynat(e)
 				e.sahne3b.yenile()
 				e.hud.guncelle()
 				ac(e, "Yeni bir %s köye alındı! Her gece doğrudan ürün katkısı verecek." % String(bilgi_h["ad"]))
@@ -96,6 +98,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 		sat_d.pressed.connect(func() -> void:
 			if EkHayvan.sat(y, tur):
 				Ses.cal(&"sfx_kese")
+				await AkceSayimiAnimasyonu.oynat(e)
 				e.sahne3b.yenile()
 				e.hud.guncelle()
 				ac(e, "Bir %s tüccara satıldı; %d akçe köy kasasına eklendi." % [String(bilgi_h["ad"]), int(bilgi_h["satis"])])
@@ -113,6 +116,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 			cb.pressed.connect(func() -> void:
 				if y.lojistik.al(y, ct):
 					Ses.cal(&"sfx_kese")
+					await AkceSayimiAnimasyonu.oynat(e)
 					e.sahne3b.yenile()
 					e.hud.guncelle()
 					ac(e, "%s köye teslim edildi." % CelepHamdullah.AYAR.hayvanlar[ct].ad)
@@ -133,6 +137,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 				y.akce -= bedel
 				y.kaynaklar.ekle(tur_ad, 10)
 				Ses.cal(&"sfx_kese")
+				await AkceSayimiAnimasyonu.oynat(e)
 				e.hud.guncelle()
 				ac(e, "Kervandan 10 %s alındı (-%d akçe)." % [tur_ad, bedel])
 		)
@@ -149,6 +154,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 			ub.pressed.connect(func() -> void:
 				if y.gezgin_ticaret.al(y, ut, 1):
 					Ses.cal(&"sfx_kese")
+					await AkceSayimiAnimasyonu.oynat(e)
 					e.hud.guncelle()
 					ac(e, "Uzman stoğundan 1 %s alındı." % String(u_veri.get("ad", ut)))
 			)
@@ -163,6 +169,7 @@ static func ac(e: KoyEkrani, onceki_not: String = "") -> void:
 			var r := PazarSatisi.uygula(e.oturum, st, 5, false, false)
 			if int(r.get("akce", 0)) > 0:
 				Ses.cal(&"sfx_kese")
+				await AkceSayimiAnimasyonu.oynat(e)
 				e.hud.guncelle()
 				ac(e, "Tüccara 5 %s satıldı (+%d akçe köy kasasına)." % [TranslationServer.translate("koy.kaynak." + st), int(r["akce"])])
 		)

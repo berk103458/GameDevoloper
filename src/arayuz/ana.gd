@@ -321,6 +321,7 @@ func _kayit_yaz() -> void:
 	var veri := oturum.kaydet()
 	veri["yuva"] = aktif_yuva
 	kayit.yaz(veri)
+	KayitMuhuruAnimasyonu.oynat(_ekran if _ekran is Control else self)
 
 
 func _ayarlari_ac(sonra: Callable, ustte: bool = false) -> void:
