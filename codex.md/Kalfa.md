@@ -2054,3 +2054,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - 23 Kasım 2026: Diyalog işi D:/Kapı_Muhafizi_Kalfa_Diyalog festive klonuna taşındı. Tohum 76 Zeynep incelemesini geçip 5. geceyi 483 adım ve sıfır hatayla bitirdi. Alpha ulak panelini düzeltti. Rebase'de iki rapor bölümü korundu. Güncel kaynakta import temiz ve ikinci koşu 372 adımda sıfır hata. Asset gerekmedi. Kota görünmüyor.
 
 - 23 Kasım 2026: Menü yaması D: festive klonunda güncel kaynakla doğrulandı. Son koşu medyanı 13,89 ms, Yeni Oyun açıldı. Asset gerekmedi. Kota görünmüyor.
+
+- 23 Kasım 2026: Kapı sorgusunda grup anahtarı çözüldü, sayısal itibar önizleme ve atışta birleştirildi. Godot importu ve iki hedefli zar testi geçti. Ek CHR komut satırı koşusu Ses/GorselIz nedeniyle tamamlanmadı. Asset gerekmedi. Kota görünmüyor.

@@ -21,7 +21,7 @@ Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde 
 - [x] Takip — 10. geceye kadar döngü ve alternatif tohumla 3. geceye kadar açılış doğrulandı. (Kalfa)
 - [x] Takip — Ana menü gök haritasının çizim maliyeti düşürüldü. Festive açılışı ve Yeni Oyun doğrulandı. (Kalfa)
 - [x] Takip — Otomatik oyuncu kapı incelemesinden sorguya döndü ve tohum 76'da 5. geceye sıfır hatayla ulaştı. (Kalfa)
-- [/] (Kalfa) Takip — Kapı sorgusunda zar eşiği ve düğme grup itibarını aynı bağlamdan okur.
+- [x] Takip — Kapı sorgusunda grup itibarı satırı, seçenek kilidi ve zar atışı aynı bağlamı kullanır. (Kalfa)
 
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 

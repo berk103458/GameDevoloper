@@ -7,6 +7,7 @@ signal kacis_istendi
 var sorgu: RefCounted
 var oturum: Oturum
 var ayarlar: Ayarlar
+# Konuşma tepkisi bağlamı. Zar için ChrSorgusu.zar_baglami kullanılır.
 var baglam: Dictionary = {}
 var _ton_tepkisi := ""
 var _zar_ipucu := ""
@@ -94,7 +95,7 @@ func guncelle() -> void:
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		b.custom_minimum_size.y = 80
 		b.disabled = not sorgu.secenek_acik(secenek, i)
-		if b.disabled and sorgu.has_method("zar_kilitli") and sorgu.zar_kilitli(secenek, baglam):
+		if b.disabled and sorgu.has_method("zar_kilitli") and sorgu.zar_kilitli(secenek):
 			var kilit_sozu := tr("ZAR_KILITLI")
 			b.tooltip_text = kilit_sozu if b.tooltip_text.is_empty() else "%s — %s" % [b.tooltip_text, kilit_sozu]
 		acik_var = acik_var or not b.disabled
@@ -106,7 +107,7 @@ func guncelle() -> void:
 			if _heybe_acik_mi():
 				return
 			_zar_ipucu = ""
-			if sorgu.secenek_sec(i, baglam):
+			if sorgu.secenek_sec(i):
 				if sorgu.has_method("kacti") and sorgu.kacti():
 					kacis_istendi.emit()
 					return
@@ -119,7 +120,7 @@ func guncelle() -> void:
 		)
 		add_child(b)
 		if not String(secenek.get("beceri", "")).is_empty() and not b.disabled and sorgu.has_method("yaklasim_degistiricisi"):
-			var deg: Dictionary = sorgu.yaklasim_degistiricisi(secenek, baglam)
+			var deg: Dictionary = sorgu.yaklasim_degistiricisi(secenek)
 			var satirlar: Array = deg.get("satirlar", [])
 			if not satirlar.is_empty():
 				var liste := VBoxContainer.new()
