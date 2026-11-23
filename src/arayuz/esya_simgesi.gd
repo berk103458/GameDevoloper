@@ -17,13 +17,17 @@ const DEMIR := Color("#9aa3ad")
 const CAM := Color("#7fa3b8")
 const ALTIN_TAS := Color("#c4843a")
 const DOKULAR := {
+	"akce": "res://assets/art/icons/icon_esya_akce_64.png",
 	"arpa": "res://assets/art/icons/icon_esya_arpa_64.png",
 	"bakir": "res://assets/art/icons/icon_esya_bakir_64.png",
+	"ekmek": "res://assets/art/icons/icon_esya_ekmek_64.png",
 	"hancer": "res://assets/art/icons/icon_esya_hancer_64.png",
 	"ilac": "res://assets/art/icons/icon_esya_ilac_64.png",
 	"kumas": "res://assets/art/icons/icon_esya_kumas_64.png",
 	"ok": "res://assets/art/icons/icon_esya_ok_64.png",
 	"tohum": "res://assets/art/icons/icon_esya_tohum_64.png",
+	"tuz": "res://assets/art/icons/icon_esya_tuz_64.png",
+	"yuzuk": "res://assets/art/icons/icon_esya_yuzuk_64.png",
 }
 
 

@@ -2,6 +2,8 @@
 class_name HaberciAnlatiPaneli
 extends RefCounted
 
+const KART_GUVERCIN := "res://assets/art/cards/guvercin.png"
+const KART_ULAK := "res://assets/art/cards/ulak.png"
 const IKON_YOL := "res://assets/art/icons/icon_map_yol.png"
 
 ## Yeni HUD/varlık üretmez; gerçek model gelince tek helper değişir.
@@ -12,11 +14,12 @@ static func ekle(e: KoyEkrani,kok: VBoxContainer,olay: OlayVerisi) -> void:
  var satir:=HBoxContainer.new()
  kok.add_child(satir)
  var kutu := Kabuk.yer_tutucu("HaberciYerTutucu",String(a.renk),Vector2.ONE*int(HaberciAgi.AYAR.kutu_px))
- if ResourceLoader.exists(IKON_YOL):
+ var kart_yol := KART_GUVERCIN if String(kanal) == "guvercin" else KART_ULAK
+ var gorsel_yol := kart_yol if ResourceLoader.exists(kart_yol) else IKON_YOL
+ if ResourceLoader.exists(gorsel_yol):
   kutu.self_modulate.a = 0.0
   var tr := TextureRect.new()
-  tr.texture = load(IKON_YOL)
-  tr.modulate = kutu.color
+  tr.texture = load(gorsel_yol)
   tr.set_anchors_preset(Control.PRESET_FULL_RECT)
   tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED

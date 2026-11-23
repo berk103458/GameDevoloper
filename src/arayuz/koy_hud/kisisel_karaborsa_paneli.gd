@@ -19,6 +19,10 @@ static func ekle(e: KoyEkrani, ust: Control) -> void:
   var d := e._dugme("%s %d · %d kişisel akçe" % [u.ad, KaraborsaAdaptoru.kalan(e.oturum, t), u.fiyat], h)
   d.name = "kisisel_al_" + t
   d.tooltip_text = u.aciklama
+  var dugme_ikon := String(GezginStokIkonu.DOKU.get(t, MUHUR_IKON))
+  if not dugme_ikon.is_empty() and ResourceLoader.exists(dugme_ikon):
+   d.icon = load(dugme_ikon)
+   d.expand_icon = true
   d.disabled = not KaraborsaAdaptoru.alinabilir(e.oturum, t)
   d.pressed.connect(func() -> void:
    if KaraborsaAdaptoru.al(e.oturum, t):
@@ -39,7 +43,6 @@ static func ac(e: KoyEkrani) -> void:
    kutu.self_modulate.a = 0.0
    var tr := TextureRect.new()
    tr.texture = load(esya_ikon)
-   tr.modulate = Kabuk.BAR_DOLU
    tr.set_anchors_preset(Control.PRESET_FULL_RECT)
    tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
    tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED

@@ -2,6 +2,7 @@
 class_name TekfurHeyetiPaneli
 extends RefCounted
 
+const IKON_HEYET := "res://assets/art/icons/icon_stok_heyet.png"
 const IKON_HISAR := "res://assets/art/icons/icon_map_hisar.png"
 
 ## Köyün var olan bant yüzeyini genişletir; ikinci HUD/modal açmaz.
@@ -11,11 +12,11 @@ static func kur(e: Control, v: VBoxContainer) -> void:
 	v.add_child(h)
 	var boy := float(TekfurHaracHeyeti.AYAR.yer_tutucu_boyutu)
 	var kutu := Kabuk.yer_tutucu("TekfurHeyetiYerTutucu",String(TekfurHaracHeyeti.AYAR.yer_tutucu_renk),Vector2(boy,boy))
-	if ResourceLoader.exists(IKON_HISAR):
+	var yol := IKON_HEYET if ResourceLoader.exists(IKON_HEYET) else IKON_HISAR
+	if ResourceLoader.exists(yol):
 		kutu.self_modulate.a = 0.0
 		var tr := TextureRect.new()
-		tr.texture = load(IKON_HISAR)
-		tr.modulate = kutu.color
+		tr.texture = load(yol)
 		tr.set_anchors_preset(Control.PRESET_FULL_RECT)
 		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
