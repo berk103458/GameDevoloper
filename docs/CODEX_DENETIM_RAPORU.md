@@ -164,3 +164,17 @@ Tohum 76, üçüncü gece sonu gerçek kaydından başlatıldı. Zeynep'in incel
 CHR kapı adaptörü grup itibarını ziyaretçinin çözülmüş grup anahtarıyla okur. Paneldeki değiştirici satırı ve atış aynı sayısal zar bağlamını kullanır. Sohbet tepkileri ziyaretin anlatı bağlamını kullanmaya devam eder. Sorgu API'sine açıkça ek zar bağlamı verildiğinde tavan kontrolü ve atış aynı bağlamı okur.
 
 Godot importu, gerçek kapı düğmesine tıklayan zar bağlantı sahnesi ve değiştirici birim testi geçti. Asker grubu itibarı +8 iken panel −1 gösterdi ve atış aynı değeri kullandı. d6 tavanında ek itibar kilidi açtı ve gerekli değer 6 oldu. 30 CHR kaynak sayfası doğrulandı. Ek `chr_sorgu_test.gd` komut satırı koşusu `Ses` autoload bağlamı ve `GorselIz` düğüm yolu yüzünden tamamlanamadı. Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/12-zar-baglam/`. Asset gerekmedi.
+
+## Kapı diyalog motoru ve üç gecelik kabul
+
+Kapı sahnesi ilk aile, adsız figürler, sınıf şablonları, tüccar ve diğer özel ziyaretlerin girişini, sorgusunu ve kararlarını ziyaret başına Söz motorundan geçiriyor. Adlı CHR dalları kendi koşul ve ipucu verilerini kullanır. Seçim, devam ve kaçış sonucu aynı ziyaret motoruna bağlanır. Karar gerçek Oturum işlemini çağırır. Kabul edilen kişi köyün iş gücü havuzuna, ret ve rüşvet etkileri mevcut oyun akışına yazılır. Uygun ret ve tüccar rüşvetinde iş gücü tavanları `data/soz/kurallar.json` içinden okunur. Kuyruk kapanış ve sonraki ziyaret akışını sürdürür.
+
+Kapı ekranından eski Dialogue Manager karşılama ve karar çağrıları kaldırıldı. Düz Gemini replikleri yerine CSV anahtarları kullanılıyor. İlk aile, tüccar girişleri ve usta soruları CSV'de. Özel olayların hesaplanan satırları mevcut veri/adaptör kaynaklarını kullanır. Köyde kullanılan Dialogue Manager köprüsü ve yazım araçlarının kaynak JSON dosyaları yerinde duruyor. İlk aile kararı gerçek karar kimliğiyle yazılır. Önceki kayıtlardaki bool değer metne çevrilirken hata oluşturmaz.
+
+Yeni oyun, tohum 76, hikâye politikası, 312 adım, 3 gece. Dört gözlenen ziyaretin dördünde motor satırı ve kararı var. Kabul 2, ret 1, rüşvet 1. Oyun hatası 0, yer tutucu metin 0. Tohum 11 doğrulamasında ret iş gücünü 1,0'dan 0,7'ye indirdi. Bu ilk üç gece koşularında CHR kaynağına sahip ziyaretçi gelmedi. Statik veri kontrolü 30 CHR ve 30 figür kaynağında 1.685 görünür anahtarı doğruladı. Sessiz yönlendirme düğümleri metin sayımına katılmadı.
+
+Kanıtlar `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/13-kapi-soz/uc-gece-son.motor-denetimi.json`, `uc-gece-son.jsonl`, `uc-gece-son.godot.log`, `uc-gece-uyum-kopyasi.motor-denetimi.json` ve `metin-denetimi.json`. Asset gerekmedi.
+
+### Sonraya
+
+Zar denetimi, bağımsız CHR testi, testteki `Ses` autoload bağlamı ve `GorselIz` düğüm yolu sonraya bırakıldı. Bu çalışma kapıdaki konuşma ve karar bağlantısıyla sınırlı.

@@ -22,8 +22,8 @@ static func ekle(o: Oturum, liste: Array[Gelen]) -> void:
  g.ad_anahtari = d.tuccar.ad
  g.sinif = StringName(AYAR.sinif)
  g.portre = String({"celep_hamdullah": "celep", "nalbur": "nalbur", "kumasci_aktar": "kumasci", "silah_tuccari": "silah_tuccari"}.get(String(d.tuccar.id), AYAR.portre))
- g.giris_anahtari = "Gezgin tüccar pazar konaklaması için kapıya geldi."
- g.acilis = "Resmi geçiş bacını ödeyebilirim; hızlı giriş istersen kesene ayrıca akçe bırakırım."
+ g.giris_anahtari = "diyalog.kapi.tuccar.sahne"
+ g.acilis = "diyalog.kapi.tuccar.acilis"
  g.secenekler = PackedStringArray(["harc", "rusvet", "ret"])
  g.set_meta(&"gezgin_kapi_varis", int(d.gelis_gunu))
  g.set_meta(&"gezgin_kapi_id", String(d.tuccar.id))

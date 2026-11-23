@@ -2056,3 +2056,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - 23 Kasım 2026: Menü yaması D: festive klonunda güncel kaynakla doğrulandı. Son koşu medyanı 13,89 ms, Yeni Oyun açıldı. Asset gerekmedi. Kota görünmüyor.
 
 - 23 Kasım 2026: Kapı sorgusunda grup anahtarı çözüldü, sayısal itibar önizleme ve atışta birleştirildi. Godot importu ve iki hedefli zar testi geçti. Ek CHR komut satırı koşusu Ses/GorselIz nedeniyle tamamlanmadı. Asset gerekmedi. Kota görünmüyor.
+
+- Kapı diyalog akışı D: klonunda Söz motoruna bağlandı. İlk üç gece tohum 76 ile 312 adım, dört ziyaret, sıfır hata ve sıfır yer tutucu. Tohum 11 ret debuff'ını doğruladı. Zar, bağımsız CHR testi, Ses ve GorselIz sonraya. Asset gerekmedi. Kota görünmüyor.

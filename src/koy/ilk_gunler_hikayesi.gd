@@ -22,7 +22,7 @@ static func otomatik_kararlar(o: Oturum) -> Array:
 static func katilimci_basligi(o: Oturum, konu_id: String) -> String:
 	match konu_id:
 		"ilk_gece_ocak_ve_aile":
-			if o != null and String(o.bayraklar.get(&"acl04_aile_karari", "")) == "kabul":
+			if o != null and str(o.bayraklar.get(&"acl04_aile_karari", "")) == "kabul":
 				return "Katılanlar: Eşin ile Yeni Köylüler (Ali ve Zeynep)"
 			return "Katılanlar: Eşin"
 		"ikinci_gun_karaca_giris":

@@ -286,8 +286,10 @@ func _siradaki() -> void:
 	_kayit.clear()
 	KonusmaGecmisi.ziyaret_basi(_kayit)
 	_yaz("[color=#4A6B8A]%s[/color]" % (tr("arayuz.hud.gun") % oturum.gosterilen_gece()))
-	_yaz("[i]%s[/i]" % tr(_gelen.giris_anahtari))
 	oturum.ziyaret_basladi(_gelen)
+	var giris := _gelen.kapi_sozu().kapi_satir(_gelen.giris_anahtari)
+	if not giris.is_empty():
+		_yaz("[i]%s[/i]" % giris)
 	_adim_sesi(12)
 	await sahne.gelen_yaklas(_model_adi(_gelen))
 	preload("res://src/dunya/aile_kapi_gorunumu.gd").kur(sahne._gelen, _gelen)
@@ -295,13 +297,13 @@ func _siradaki() -> void:
 		_yaz(satir)
 	for satir in DonenSoylenti.satirlar(oturum, _gelen):
 		_yaz(satir)
-	if _gelen.acilis != "":
-		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), tr(_gelen.acilis)])
-	for satir in await DmKopru.kapi_satirlari(oturum, _gelen):
-		_yaz(satir)
+	if _gelen.chr_sorgusu() == null:
+		var acilis := _gelen.kapi_sozu().kapi_satir(_gelen.acilis)
+		if not acilis.is_empty():
+			_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), acilis])
 	for satir in IlkAileEsIpucu.satirlar(oturum, _gelen):
 		_yaz(satir)
-	if oturum.perde == 2 or _gelen.sorular.is_empty():
+	if oturum.perde == 2 or (_gelen.chr_sorgusu() == null and _gelen.sorular.is_empty()):
 		_karar_goster()
 	else:
 		_sohbet_goster()
@@ -324,16 +326,14 @@ func _sohbet_goster() -> void:
 	var dugmeler: Array[Button] = []
 	var konu_sayac := 0
 	for i in _gelen.sorular.size():
-		if i in _sorulan:
+		if not _gelen.kapi_sozu().kapi_soru_acik(_gelen, i, _sorulan, oturum.ayarlar.azami_soru):
 			continue
-		# Takip sorusu, üst sorusu sorulunca açılır (konuştukça yeni sorular).
 		var ust: int = _gelen.soru_ust[i] if i < _gelen.soru_ust.size() else -1
-		if ust >= 0 and not (ust in _sorulan):
-			continue
 		if not ortak_dil and not tercuman_aktif and konu_sayac >= 2:
 			continue
 		konu_sayac += 1
-		var b := _dugme(("↳ " if ust >= 0 else "— ") + tr(_gelen.sorular[i][0]))
+		var soru := _gelen.sorular[i][0]
+		var b := _dugme(("↳ " if ust >= 0 else "— ") + SozMotoru.kapi_metni(soru))
 		b.girinti = 30.0 if ust >= 0 else 0.0
 		b.pressed.connect(_soru_sor.bind(i))
 		dugmeler.append(b)
@@ -501,21 +501,21 @@ func _soru_sor(i: int) -> void:
 		return
 	var chr := _gelen.chr_sorgusu()
 	if chr != null:
-		if chr.secenek_sec(i):
+		if _gelen.kapi_sozu().kapi_chr_secim("chr_soru", str(i), Callable(chr, "secenek_sec").bind(i)):
 			_sohbet_goster()
 		return
-	if i < 0 or i >= _gelen.sorular.size() or i in _sorulan or _sorulan.size() >= _gelen.soru_siniri(oturum.ayarlar.azami_soru):
+	if not _gelen.kapi_sozu().kapi_soru_acik(_gelen, i, _sorulan, oturum.ayarlar.azami_soru):
 		return
 	_sorulan.append(i)
 	if ILK_GECE.etkin(oturum, _gelen) and i < 2:
 		preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "kapi_selam" if i == 0 else "kapi_konu")
 	var once := _gelen.acik_bayraklar.size()
-	_gelen.soru_soruldu(i)
 	var ortak_dil := DilEngeli.oturum_ortak_dil_var_mi(oturum, _gelen)
-	var soru_metni := tr(_gelen.sorular[i][0])
-	var cevap_tam := tr(_gelen.sorular[i][1])
+	var soz := _gelen.kapi_sozu()
+	var soru_metni := soz.kapi_satir(_gelen.sorular[i][0])
+	var cevap_tam := soz.kapi_soru(_gelen, i)
 	var diller := DilEngeli.gelen_dilleri(_gelen)
-	var kirik_yazi := "%s bir şeyler söylüyor..." % String(diller[0]).capitalize()
+	var kirik_yazi := tr("diyalog.kapi.tercumansiz") % String(diller[0]).capitalize()
 	var cozum := DilEngeli.satir_coz({"id": soru_metni, "tam": cevap_tam, "kirik": kirik_yazi}, ortak_dil, _tercuman_durumu)
 	var gosterilen := String(cozum.get("metin", cevap_tam))
 	var d_sorular: Dictionary = _gelen.get_meta(&"dunya_haberi_sorulari", {})
@@ -539,7 +539,7 @@ func _soru_sor(i: int) -> void:
 	if _sorulan.size() >= 3 and sahne.gelen_hareket_var("gergin"):
 		sahne.gelen_gergin()
 	else:
-		sahne.gelen_konus(clampf(tr(_gelen.sorular[i][1]).length() / 28.0, 1.5, 5.0))
+		sahne.gelen_konus(clampf(cevap_tam.length() / 28.0, 1.5, 5.0))
 	if _sorulan.size() >= _gelen.soru_siniri(oturum.ayarlar.azami_soru) or _sorulan.size() >= _gelen.sorular.size():
 		_karar_goster()
 	else:
@@ -702,8 +702,6 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	var dedikodu_once := oturum.dedikodu.yazma_sayisi() if oturum != null else 0
 	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").tanik_hazirla(oturum, _kuyruk)
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
-	if not sonuc.get("engellendi", false):
-		await DmKopru.kapi_uygula(oturum, _gelen, anahtar)
 	if sonuc.get("durum", "") == "kavga_acik":
 		await preload("res://src/kapi/kapi_kavgasi_paneli.gd").ac(self)
 		if not is_inside_tree(): return
@@ -731,7 +729,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	elif replik.ilgilendirir(anahtar):
 		_karar_replik_dusur(replik, anahtar)
 	else:
-		_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
+		_yaz(_gelen.kapi_sozu().kapi_satir("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
 	if sonuc["kaldi"] and not sonuc.get("tuccar", false):
 		_yaz("[i]%s[/i]" % (tr("anlati.koy.yazildi") % tr(_gelen.ad_anahtari)))
 	if sonuc.get("harc", false):
@@ -747,7 +745,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if sonuc.get("durust_arandi", false):
 		_yaz("[i][color=#C4843A]%s[/color][/i]" % tr("anlati.heybe.durust"))
 	if not replik.ilgilendirir(anahtar) and _gelen.yanitlar.has(anahtar):
-		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), str(_gelen.yanitlar[anahtar])])
+		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), _gelen.kapi_sozu().kapi_satir(String(_gelen.yanitlar[anahtar]))])
 	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").sonuc_yaz(self, sonuc)
 	hud.guncelle()
 	_daralt(false)

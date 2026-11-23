@@ -5,6 +5,10 @@
   "baslangic_guven": 3,
   "baslangic_sabir": 5,
   "itiraf_esigi": 7,
+  "kapi_karar_etkileri": {
+    "genel": {"ret": {"sinif": "ciftci", "is_gucu_tavan": 0.7}},
+    "tuccar": {"rusvet": {"sinif": "ciftci", "is_gucu_tavan": 0.85}}
+  },
   "sabit_konular": [
     "nereden",
     "neden_yola_dustun",

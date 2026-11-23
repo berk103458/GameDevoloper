@@ -137,6 +137,7 @@ func get_state() -> Dictionary:
 	var o := ana.oturum
 	if o == null: return r
 	var kanca = preload("res://src/debug/ilk_saat_kancasi.gd")
+	r["kapi_soz_izleri"] = o.kapi_soz_izleri.duplicate(true)
 	r["ILKSAAT"] = kanca.satirlar(o)
 	r["ILKSAAT_ARACLAR"] = kanca.araclar(o)
 	var barlar := {}

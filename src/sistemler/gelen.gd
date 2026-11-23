@@ -13,6 +13,13 @@ var aile_id: String = ""
 var kavga_tip: String = ""
 
 var adli: bool = false
+var _kapi_sozu: SozMotoru
+
+
+func kapi_sozu() -> SozMotoru:
+	if _kapi_sozu == null:
+		_kapi_sozu = SozMotoru.new()
+	return _kapi_sozu
 ## KAP adaptörü: yalnız CHR kaynağı olan adlı ziyaretçiye eklenir.
 var _chr_sorgusu: RefCounted
 var _chr_kontrol_edildi := false

@@ -35,6 +35,7 @@ static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContain
 		sorgu.replik_basladi.connect(konusma)
 	var panel := preload("res://src/arayuz/chr_diyalog_paneli.gd").new()
 	panel.sorgu = sorgu
+	panel.kapi_sozu = gelen.kapi_sozu()
 	panel.oturum = ekran.get("oturum") as Oturum
 	panel.ayarlar = ekran.get("ayarlar") as Ayarlar
 	panel.baglam = gelen.get_meta(&"zar06_baglam", {}).duplicate(true)

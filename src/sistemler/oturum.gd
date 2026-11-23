@@ -206,7 +206,16 @@ func heybe_uret(sinif: StringName) -> Heybe:
 
 
 ## Sohbet açıldı (adlı karakterde ziyaret sayılır).
+var kapi_soz_izleri: Array[Dictionary] = []
+
+
 func ziyaret_basladi(gelen: Gelen) -> void:
+	var iz := gelen.kapi_sozu().kapi_izi
+	iz["gece"] = gosterilen_gece()
+	iz["ziyaret"] = kapi_soz_izleri.size() + 1
+	iz["kisi"] = tr_gelen(gelen)
+	iz["kaynak"] = "chr" if gelen.chr_sorgusu() != null else "veri"
+	kapi_soz_izleri.append(iz)
 	preload("res://src/soz/yemin_adaptoru.gd").ziyaret(self, gelen)
 	GeceBilancosu.ilk_saat_ziyaret_yaz(self, gelen)
 	GeceBilancosu.gelen_yaz(self, gelen)
@@ -225,6 +234,13 @@ func _karar_sonucu(gelen: Gelen, res: Dictionary) -> Dictionary:
 
 
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
+	var etki_grubu := "tuccar" if TuccarKapiGecisi.ilgilenir(gelen) else ""
+	if etki_grubu.is_empty() and gelen.chr_sorgusu() == null and not DiplomatikHeyet.ilgilenir(gelen):
+		etki_grubu = "genel"
+	return gelen.kapi_sozu().kapi_karar(karar, _kapi_kararini_uygula.bind(gelen, karar, _is_yeri), yonetim, etki_grubu)
+
+
+func _kapi_kararini_uygula(gelen: Gelen, karar: StringName, _is_yeri: StringName) -> Dictionary:
 	if YetimBakimi.ilgilenir(gelen): return _karar_sonucu(gelen, YetimBakimi.karar(self, gelen, karar, _is_yeri))
 	if preload("res://src/kapi/usta_gelisi.gd").ilgilenir(gelen): return _karar_sonucu(gelen, preload("res://src/kapi/usta_gelisi.gd").karar(self, gelen, karar, _is_yeri))
 	if preload("res://src/kapi/aile_kafilesi.gd").ilgilenir(gelen): return _karar_sonucu(gelen, preload("res://src/kapi/aile_kafilesi.gd").karar(self, gelen, karar, _is_yeri))
@@ -764,9 +780,10 @@ func _figur_gelen() -> Gelen:
 	g.ad_anahtari = ornek["ad_anahtari"]
 	g.sinif = sablon.sinif
 	g.portre = String(d.get("portre", sablon.portreler[0]))
-	g.giris_anahtari = String(d["sahne"])
-	g.acilis = String(d.get("acilis", ""))
-	_json_sorular(g, d["sorular"], -1)
+	var kok := "diyalog.kapi." + String(d["id"])
+	g.giris_anahtari = kok + ".sahne"
+	g.acilis = kok + ".acilis" if not String(d.get("acilis", "")).is_empty() else ""
+	_json_sorular(g, d["sorular"], -1, kok)
 	var tum: Array = []
 	for i in d["secenekler"].size():
 		tum.append({"k": String(d["secenekler"][i]), "e": int(d["esik"][i])})
@@ -781,7 +798,8 @@ func _figur_gelen() -> Gelen:
 	for o in tum:
 		g.secenekler.append(o["k"])
 		g.esikler.append(int(o["e"]))
-	g.yanitlar = d["yanitlar"]
+	for karar in d["yanitlar"]:
+		g.yanitlar[karar] = kok + ".karar." + String(karar)
 	g.stat = _rng.randi_range(3, 7)
 	for karar in g.secenekler:
 		var etki := sablon.etki(karar).duplicate()
@@ -794,15 +812,16 @@ func _figur_gelen() -> Gelen:
 
 
 ## JSON diyalogdaki soru ağacını düzler: [soru, cevap, [takipler]].
-func _json_sorular(g: Gelen, liste: Array, ust: int) -> void:
+func _json_sorular(g: Gelen, liste: Array, ust: int, kok: String) -> void:
 	for cift in liste:
 		var i := g.sorular.size()
-		g.sorular.append(PackedStringArray([String(cift[0]), String(cift[1])]))
+		var soru := "%s.soru.%d" % [kok, i]
+		g.sorular.append(PackedStringArray([soru, soru + ".cevap"]))
 		g.soru_ust.append(ust)
 		var b: String = String(cift[3]) if cift.size() > 3 and cift[3] is String else ""
 		g.soru_bayraklari.append(b)
 		if cift.size() > 2 and cift[2] is Array:
-			_json_sorular(g, cift[2], i)
+			_json_sorular(g, cift[2], i, kok)
 
 
 

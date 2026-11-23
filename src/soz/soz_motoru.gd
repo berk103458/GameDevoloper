@@ -499,3 +499,87 @@ func _zar_oku(veri: Dictionary) -> void:
 	else:
 		_zar_kayitli = false
 		zar = -1
+
+# Kapıdaki her ziyaret kendi motorunu taşır. Soru yanıtı, seçenek ve karar aynı düğüm yürütücüsünden geçer.
+var kapi_izi: Dictionary = {"satirlar": [], "secimler": [], "karar": "", "sonuc": {}}
+
+
+func kapi_satir(anahtar: String) -> String:
+	if anahtar.is_empty():
+		return ""
+	var satir := kapi_metni(anahtar)
+	aktif_dugum = SozDugumu.new("kapi_satir", {"satir": satir})
+	_satiri_isle(aktif_dugum, {})
+	if anahtar not in kapi_izi.satirlar:
+		kapi_izi.satirlar.append(anahtar)
+	return mevcut_satir()
+
+
+func kapi_secim(tur: String, kimlik: String, cevap: String = "") -> String:
+	var hedef := "kapi_" + tur
+	dugumler[hedef] = SozDugumu.new(hedef, {"satir": kapi_metni(cevap)})
+	aktif_dugum = SozDugumu.new("kapi_secim", {"secenekler": [
+		{"id": kimlik, "hedef": hedef, "sabir_harca": false}
+	]})
+	var sonuc := sec(kimlik)
+	if bool(sonuc.get("basarili", false)):
+		kapi_izi.secimler.append({"tur": tur, "id": kimlik})
+	if not cevap.is_empty() and cevap not in kapi_izi.satirlar:
+		kapi_izi.satirlar.append(cevap)
+	return mevcut_satir()
+
+
+static func kapi_metni(anahtar: String) -> String:
+	if not GuvenliMetin.anahtar_gibi_mi(anahtar):
+		return anahtar
+	var ceviri := String(TranslationServer.translate(anahtar))
+	return GuvenliMetin.metin(anahtar) if ceviri == anahtar else ceviri
+
+
+func kapi_soru_acik(gelen: Object, indeks: int, sorulan: Array, azami: int) -> bool:
+	if indeks < 0 or indeks >= gelen.sorular.size() or indeks in sorulan or sorulan.size() >= gelen.soru_siniri(azami):
+		return false
+	var ust: int = gelen.soru_ust[indeks] if indeks < gelen.soru_ust.size() else -1
+	return ust < 0 or ust in sorulan
+
+
+func kapi_soru(gelen: Object, indeks: int) -> String:
+	gelen.soru_soruldu(indeks)
+	return kapi_secim("soru", str(indeks), gelen.sorular[indeks][1])
+
+
+func kapi_chr_secim(tur: String, kimlik: String, uygula: Callable) -> bool:
+	if not uygula.call():
+		return false
+	kapi_secim(tur, kimlik)
+	return true
+
+
+func kapi_karar(anahtar: StringName, uygula: Callable, yonetim: Object, etki_grubu: String) -> Dictionary:
+	kapi_secim("karar", String(anahtar))
+	var sonuc: Dictionary = uygula.call()
+	if not bool(sonuc.get("engellendi", false)):
+		kapi_izi.karar = String(anahtar)
+		kapi_izi.sonuc = {
+			"kaldi": bool(sonuc.get("kaldi", false)),
+			"koylu_id": int(sonuc.get("koylu_id", -1)),
+			"durum": String(sonuc.get("durum", "")),
+		}
+		if kapi_izi.has("ziyaret"):
+			kapi_izi.sonuc.merge(_kapi_etkisi(yonetim, etki_grubu, String(anahtar)))
+	return sonuc
+
+
+func _kapi_etkisi(yonetim: Object, grup: String, anahtar: String) -> Dictionary:
+	var kurallar: Dictionary = SozSemasi.kurallari_oku().get("kapi_karar_etkileri", {})
+	var etki: Dictionary = kurallar.get(grup, {}).get(anahtar, {})
+	if etki.is_empty() or yonetim.koylular.is_empty():
+		return {}
+	var kisi: Object = yonetim.koylular[0]
+	for koylu in yonetim.koylular:
+		if koylu.sinif == StringName(etki.sinif):
+			kisi = koylu
+			break
+	var once: float = kisi.is_gucu
+	kisi.is_gucu = minf(once, float(etki.is_gucu_tavan))
+	return {"debuff_koylu_id": kisi.id, "is_gucu_once": once, "is_gucu_sonra": kisi.is_gucu}

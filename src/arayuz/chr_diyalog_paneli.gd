@@ -5,6 +5,7 @@ signal karar_istendi
 ## ZAR-03: tansiyon eşiği aşıldı; kapı ziyareti "kaçtı" kararıyla kapatır.
 signal kacis_istendi
 var sorgu: RefCounted
+var kapi_sozu: SozMotoru
 var oturum: Oturum
 var ayarlar: Ayarlar
 # Konuşma tepkisi bağlamı. Zar için ChrSorgusu.zar_baglami kullanılır.
@@ -69,7 +70,10 @@ func guncelle() -> void:
 			ipucu_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			add_child(ipucu_lbl)
 	var replik := Label.new()
-	replik.text = sorgu.metin(StringName(dugum.get("replik_anahtari", "")))
+	var replik_anahtari := String(dugum.get("replik_anahtari", ""))
+	replik.text = sorgu.metin(StringName(replik_anahtari))
+	if kapi_sozu != null and not replik.text.is_empty():
+		replik.text = kapi_sozu.kapi_satir(replik_anahtari)
 	replik.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	replik.add_theme_font_size_override("font_size", Kabuk.GOVDE)
 	var replik_kaydir := ScrollContainer.new()
@@ -91,7 +95,8 @@ func guncelle() -> void:
 			continue
 		var b := Button.new()
 		b.name = "Secenek%d" % i
-		b.text = sorgu.metin(StringName(TON.anahtar(oturum, secenek)))
+		var secim_anahtari := TON.anahtar(oturum, secenek)
+		b.text = SozMotoru.kapi_metni(secim_anahtari) if kapi_sozu != null else sorgu.metin(StringName(secim_anahtari))
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		b.custom_minimum_size.y = 80
 		b.disabled = not sorgu.secenek_acik(secenek, i)
@@ -107,7 +112,9 @@ func guncelle() -> void:
 			if _heybe_acik_mi():
 				return
 			_zar_ipucu = ""
-			if sorgu.secenek_sec(i):
+			var sec := Callable(sorgu, "secenek_sec").bind(i)
+			var olustu: bool = kapi_sozu.kapi_chr_secim("chr_soru", secim_anahtari, sec) if kapi_sozu != null else sec.call()
+			if olustu:
 				if sorgu.has_method("kacti") and sorgu.kacti():
 					kacis_istendi.emit()
 					return
@@ -136,7 +143,7 @@ func guncelle() -> void:
 		# Tüm cevaplar denenmiş ya da ipucu kilitli: oyuncu sıkışmasın, kanıt aramadan karara geçebilsin.
 		var cikis := Button.new()
 		cikis.name = "KilitliKarar"
-		cikis.text = "Kararını ver"
+		cikis.text = tr("arayuz.sohbet.karar_ver")
 		cikis.tooltip_text = "Söylenecek söz kalmadı; ipucu bulursan yüzleşebilirsin."
 		cikis.custom_minimum_size.y = 70
 		cikis.pressed.connect(func() -> void:
@@ -147,13 +154,14 @@ func guncelle() -> void:
 	if secenekler.is_empty():
 		var karar := Button.new()
 		var gecis_var: bool = not dugum.get("gecisler", []).is_empty()
-		karar.text = "Devam et" if gecis_var else "Kararını ver"
+		karar.text = tr("arayuz.olay.devam") if gecis_var else tr("arayuz.sohbet.karar_ver")
 		karar.custom_minimum_size.y = 70
 		karar.pressed.connect(func() -> void:
 			if _heybe_acik_mi():
 				return
 			if gecis_var:
-				if sorgu.devam_et():
+				var devam := Callable(sorgu, "devam_et")
+				if kapi_sozu.kapi_chr_secim("chr_devam", "devam", devam) if kapi_sozu != null else devam.call():
 					guncelle()
 			else:
 				karar_istendi.emit()

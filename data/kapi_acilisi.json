@@ -3,24 +3,24 @@
   "bey_kaynagi": "data/sancak_asker_talebi.json",
   "ulak": "Sancak Beyi’nin ulağı",
   "aile_adi": "İlk aile · Ali ve Zeynep",
-  "es_sozu": "Önce selamlarını al; sonra neye ihtiyaçları olduğunu dinle.",
-  "acilis": "Kapınızın ışığını yoldan gördük muhafız. İzin verirseniz bir soluk alalım.",
+  "es_sozu": "diyalog.kapi.ilk_aile.es_sozu",
+  "acilis": "diyalog.kapi.ilk_aile.acilis",
   "selam": [
-    "Selamünaleyküm, nereden gelirsiniz?",
-    "Aleykümselam. İki kişiyiz; yoldaki yurdumuzu bıraktık."
+    "diyalog.kapi.ilk_aile.soru.0",
+    "diyalog.kapi.ilk_aile.soru.0.cevap"
   ],
   "konu": [
-    "Bu kapıdan ne umarsınız?",
-    "Bir çatı ve çalışacak iş isteriz. Birbirimizden ayrılmak istemeyiz."
+    "diyalog.kapi.ilk_aile.soru.1",
+    "diyalog.kapi.ilk_aile.soru.1.cevap"
   ],
   "ek_sorular": [
     [
-      "Yanındaki kim, ne iş bilirsiniz?",
-      "Zeynep, helalimdir. İkimiz de toprağı süreriz, ekini biçeriz."
+      "diyalog.kapi.ilk_aile.soru.2",
+      "diyalog.kapi.ilk_aile.soru.2.cevap"
     ],
     [
-      "Yolda başınıza ne geldi?",
-      "Moğol akını yurdumuzu yaktı. Üç gün yürüdük; geride kimsemiz kalmadı."
+      "diyalog.kapi.ilk_aile.soru.3",
+      "diyalog.kapi.ilk_aile.soru.3.cevap"
     ]
   ],
   "aile": [

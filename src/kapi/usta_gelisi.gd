@@ -274,14 +274,13 @@ static func gelen_olustur(o: Oturum, usta: Dictionary) -> Gelen:
 		g.acilis = ("%s\n%s" % [ikinci_satir, giris_soz]).strip_edges()
 	else:
 		g.acilis = giris_soz
-	var en_mi := TranslationServer.get_locale().begins_with("en")
 	var ev_cevap := TranslationServer.translate(String(anahtarlar.get("pazarlik_ev", "")))
 	if o != null and o.yonetim != null and not Barinak.yeter_mi(o.yonetim, 1 + (usta.get("pazarlik", {}) as Dictionary).get("aile_uyeleri", []).size()):
 		ev_cevap = "%s\n%s" % [ev_cevap, Barinak.metin(o.yonetim, 1 + (usta.get("pazarlik", {}) as Dictionary).get("aile_uyeleri", []).size())]
 	g.sorular = [
-		PackedStringArray(["What wage do you ask from the treasury?" if en_mi else "Köy kasasından ücret pazarlığın nedir?", String(anahtarlar.get("pazarlik_ucret", ""))]),
-		PackedStringArray(["What house and bed terms do you require?" if en_mi else "Ev ve yatak şartın nedir?", ev_cevap]),
-		PackedStringArray(["Who travels in your family?" if en_mi else "Yanındaki ailen kimlerdir?", String(anahtarlar.get("pazarlik_aile", ""))]),
+		PackedStringArray(["diyalog.kapi.usta.ucret", String(anahtarlar.get("pazarlik_ucret", ""))]),
+		PackedStringArray(["diyalog.kapi.usta.ev", ev_cevap]),
+		PackedStringArray(["diyalog.kapi.usta.aile", String(anahtarlar.get("pazarlik_aile", ""))]),
 	]
 	g.soru_ust = PackedInt32Array([-1, -1, -1])
 	g.secenekler = PackedStringArray(["kabul", "ret"])

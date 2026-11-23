@@ -34,7 +34,7 @@ static func kuyruk(o: Oturum) -> Array[Gelen]:
 	g.id = AILE
 	g.ad_anahtari = String(AYAR.aile_adi)
 	g.portre = String(AYAR.aile[0].portre)
-	g.giris_anahtari = "Kapıda iki yetişkin yan yana bekliyor."
+	g.giris_anahtari = "diyalog.kapi.ilk_aile.sahne"
 	g.acilis = String(AYAR.acilis)
 	g.sorular = [PackedStringArray(AYAR.selam), PackedStringArray(AYAR.konu)]
 	g.soru_ust = PackedInt32Array([-1, 0])
@@ -61,4 +61,4 @@ static func karar_sonrasi(o: Oturum, g: Gelen, sonuc: Dictionary) -> void:
 		if ilk != null: ilk.ad = String(AYAR.aile[0].ad)
 		if g.aile.size() < 2: o.yonetim.kabul(AYAR.aile[1].duplicate(true))
 		o._koy_esitle()
-	o.bayraklar[BITTI] = true
+	o.bayraklar[BITTI] = "kabul" if sonuc.get("kaldi", false) else "ret"

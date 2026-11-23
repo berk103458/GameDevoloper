@@ -40,7 +40,9 @@ static func ekranda(ekran: KapiEkrani) -> void:
 	ekran._temizle()
 	ekran._bolum.text = ""
 	var g := ekran._gelen
-	var sonuc := uygula(ekran.oturum, g, ekran._kuyruk[0] if not ekran._kuyruk.is_empty() else null)
+	var tanik: Gelen = ekran._kuyruk[0] if not ekran._kuyruk.is_empty() else null
+	var islem := func() -> Dictionary: return uygula(ekran.oturum, g, tanik)
+	var sonuc := g.kapi_sozu().kapi_karar(&"kacti", islem, ekran.oturum.yonetim, "")
 	var karar := ekran.tr(KARAR_ANAHTARI)
 	ekran._yaz("[b]%s:[/b] %s — %s" % [ekran.tr("arayuz.kapi.karar"), ekran.tr(g.ad_anahtari), SorguZari.KARAR_KACTI_TR if karar == KARAR_ANAHTARI else karar])
 	ekran.hatirlanma_notunu_bildir({"hafiza": false, "dedikodu": bool(sonuc.dedikodu_yazildi), "kacis_hafiza": bool(sonuc.kacis_hafiza)})
