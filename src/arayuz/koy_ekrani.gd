@@ -784,6 +784,8 @@ func _geceye_gec_rapor() -> void:
 	var r: Dictionary = sonuc["rapor"]
 	var rapor_baslik := tr("koy.rapor.baslik") % (int(r["gun"]) + 1)
 	await SabahDefteriAnimasyonu.oynat(self, rapor_baslik)
+	if CenazeYasi.bekliyor(_y):
+		await CenazeOrtusuAnimasyonu.oynat(self)
 	var v := _kart_ac(rapor_baslik)
 	_kart_arkasi_koy("gun_sonu")
 	if not preload("res://src/arayuz/gece_raporu_kisa.gd").ekle(self, v, sonuc["bilanco"]):

@@ -225,10 +225,12 @@ func _perde_gecisi() -> void:
 	if DemoKesiti.acik():
 		_son_goster(&"demo")
 		return
-	var e := _bilgi(tr("arayuz.perde.baslik"), tr("arayuz.perde.metin") + "\n\n" + "\n".join(PerdeOzeti.oturumdan(oturum)), [tr("arayuz.perde.devam")], -1, "3d_koy")
+	var ozet := PerdeOzeti.oturumdan(oturum)
+	var e := _bilgi(tr("arayuz.perde.baslik"), tr("arayuz.perde.metin") + "\n\n" + "\n".join(ozet), [tr("arayuz.perde.devam")], -1, "3d_koy")
 	e.oturum = oturum
 	e.secildi.connect(func(_i: int) -> void: _kapiya_git())
 	_goster(e)
+	await PerdeDefteriAnimasyonu.oynat(e, PackedStringArray(ozet))
 
 
 func _son_secimi(i: int) -> void:

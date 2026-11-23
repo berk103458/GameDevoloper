@@ -115,6 +115,7 @@ func _ready() -> void:
 	if daha_once.size() > 0:
 		var once := _etiket(kok, tr("arayuz.menu.daha_once") % ", ".join(daha_once), 22, Tema.font(400), Color(MenuSatiri.KREM, 0.7), 1024.0)
 		once.name = "daha_once"
+	KandilAleviAnimasyonu.yerlestir(self)
 	_sirayla_goster(liste)
 
 

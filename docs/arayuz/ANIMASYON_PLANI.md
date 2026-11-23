@@ -132,7 +132,11 @@ Lisans notu: `docs/arayuz/ANIMASYON_A1_A6_LISANS.md`. Birim testleri: `tests/uni
 
 ### B grubu (B1–B10)
 
-Hareket mümkün olduğunca kodda: plaka çözünmesi settle/ease ile, akçe sekişi, mühür basışı, terazi salınımı, çatlak sarsıntısı, harita rulo açılması. Ham kare en fazla 6 (çoğunda 1–4 destek). Origin `kese_sikkesi_01–04` ve `tansiyon_catlak_01–04` yeniden üretilmedi. B10 yalnız sınıf + test; `harita_ekrani.gd` kancasız. Metin ve pin kareye gömülmez.
+Hareket mümkün olduğunca kodda: plaka çözünmesi settle/ease ile, akçe sekişi, mühür basışı, terazi salınımı, çatlak sarsıntısı, harita rulo açılması. Ham kare en fazla 6 (çoğunda 1–4 destek). Origin `kese_sikkesi_01–04` ve `tansiyon_catlak_01–04` yeniden üretilmedi. B10 yalnız sınıf + test; `harita_ekrani.gd` kancasız. Metin ve pin kareye gömülmez. B1 kancası Alpha chr_inceleme işini commit edince eklenecek. Evrak sınıfı ve varlıkları durur; `chr_inceleme_paneli.gd` bu turda dokunulmadı.
+
+### C grubu (C1–C6)
+
+Hareket kodda; ham kare en fazla 6. C1/C2 origin `kandil_alev_01–04` karelerini paylaşır (yeniden üretilmedi): menü sağ-alt köşesinde ve yükleme çubuğunun yanında sürekli döngü (ping-pong, son ≈ ilk), ağır ölçek/parlaklık titreşmesi. C3 keten örtü (`katli` → `ortulu`) yavaş inerek örtülür; kanca rapor kartından önce (`koy_ekrani.gd`, `CenazeYasi.bekliyor`). C4 tek asılı bez işaret; kodla iner, salınır, oturur; HUD sayacı ilk belirmede bir salgında bir kez. C5 A6 defter plakalarının tersi (`acik` → `kapali` → yeni `muhurlu`) ve özet satırları Label; kanca yalnız `ana.gd` `_perde_gecisi` (`bilgi_ekrani.gd` menüyü de türettiği için genel `_ready` kancalanmadı). C6 boş berat muhafıza uzatılır (`yeni_oyun_ekrani.gd` `_baslat`, yüklemeden hemen önce); ulak 9 karesi kullanılmadı. `chr_inceleme_paneli.gd` ve `harita_ekrani.gd` dokunulmadı. Birim testi: `tests/unit/arayuz/c_grubu_animasyonlari_test.gd`.
 
 ## Bilinen kusurlar ve yeniden üretim
 

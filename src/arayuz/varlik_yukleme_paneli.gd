@@ -56,6 +56,7 @@ static func hazirla(kok: Node, yollar: Array[String]) -> VarlikOnbellek:
 	ipucu.offset_top = -80
 	ipucu.offset_bottom = -28
 	zemin.add_child(ipucu)
+	KandilAleviAnimasyonu.cubuk_yanina(zemin)
 	kok.add_child(katman)
 	var kaynak := VarlikOnbellek.new()
 	kaynak.akis_is = VarlikAkisDenetimi.basla()

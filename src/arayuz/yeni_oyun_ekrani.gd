@@ -242,4 +242,5 @@ func _baslat() -> void:
 			_uyari_etiketi.text = "Yuva %d dolu. Üzerine yazmak için tekrar bas." % _yuva
 		return
 	var tohum := tohum_coz(_tohum.text if _tohum != null else "")
+	await YeniOyunBeratiAnimasyonu.oynat(self)
 	baslatildi.emit(tohum, _gecmis)
