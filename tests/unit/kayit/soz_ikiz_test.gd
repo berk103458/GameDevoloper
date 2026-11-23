@@ -255,12 +255,16 @@ func _kapi_ikizi(kat: Katalog) -> void:
 	o.yonetim.kaynaklar.ekle("gida", 30)
 	o.yonetim.kaynaklar.ekle("su", 30)
 	o.gece_sonu()
+	# Serbest akış boş gece seçebilir. Fikstür bir sonraki ziyaretin etkisini taşır.
+	o.sonraki_gelen_ek += 1
 	var ham := JSON.stringify(o.kaydet())
 	var geri := Oturum.kayittan(kat, JSON.parse_string(ham))
 	var ikiz := Oturum.kayittan(kat, JSON.parse_string(ham))
 	dene(geri != null and ikiz != null, "KAY-19 yükleme açılır")
 	if geri == null or ikiz == null:
 		return
+	dene(geri.sonraki_gelen_ek == o.sonraki_gelen_ek and ikiz.sonraki_gelen_ek == o.sonraki_gelen_ek,
+		"KAY-19 sonraki ziyaretin etkisi iki yüklemede korunur")
 	var kuyruk_a := geri.gece_kuyrugu()
 	var kuyruk_b := ikiz.gece_kuyrugu()
 	dene(not kuyruk_a.is_empty() and not kuyruk_b.is_empty(), "KAY-19 gece sonu kuyruğu boş değil")

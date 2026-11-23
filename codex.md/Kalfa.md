@@ -2072,3 +2072,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - Test keşfi düğüm sahnesini, dosya yoluyla kalıtımı ve SceneTree tabanını ayırt ediyor. Şiddet Korkusu ekran sahnesi ve oyun testi geçti. Asset gerekmedi. Kota görünmüyor.
 
 - Godot'un beklediği Türkçe ve İngilizce çeviri kaynakları güncel CSV'den alındı. Beş gece ve 10 kapı karşılaşması sıfır Godot hatası ve uyarısıyla geçti. Asset gerekmedi. Kota görünmüyor.
+
+- Kayıt ikizi testi boş geceye denk gelen fikstüründe bir sonraki ziyaretin etkisini kullanıyor. İki yüklemede etki ve ilk ziyaretçi kimliği doğrulandı. Asset gerekmedi. Kota görünmüyor.
