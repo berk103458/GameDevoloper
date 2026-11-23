@@ -6,127 +6,130 @@ Bu dosya, ana liste (`GEMINI_SIRADAKI_URETIM_LISTESI.md`) ve ek liste (`GEMINI_E
 
 **Toplam aday:** 84 kalem (ana liste 48, ek liste 36).
 
+**Y1 (ilk 30, N062–N266):** 29 düzeldi ve `[x]` işaretlendi; N062 Y1 sonrası hâlâ kusurlu (2 deneme, v1 alındı). Zar ve sabah defteri kareleri bu pencerede yoktu, atlanan yok. Kalan aday: 54 denenmemiş + 1 hâlâ kusurlu.
+
 ---
 
 ## Ana liste (N)
 
 ### N062 — `assets/art/char/char_chr_001_neutral_card.png`
+- **Y1 sonrası hâlâ kusurlu:** İki deneme. v1'de doğal şakak izi var ama karakterin *sağ* şakağında (izleyicinin solu); v2 yıldız biçimli damga ve daha çok alın ortasında. Daha iyi olan v1 alındı; sol şakak hâlâ yanlış/eksik.
 - **Kusur:** Sol şakaktaki eski yara izi yok veya okunaksız; gergin, sert omuzlu adam duruşu duruyor ama tanımlayıcı iz eksik.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760, yeşil zemin. Güneş yanığı gergin yüz; **sol şakakta belirgin ama grafik olmayan eski yara izi**; sert omuzlar; yanmış deve yünü ceket ve çamurlu kaba giysi. İzi saç çizgisinin hemen yanında bırak, sakal onu örtmesin.
 
-### N086 — `assets/art/char/char_chr_009_neutral_card.png`
+### [x] N086 — `assets/art/char/char_chr_009_neutral_card.png`
 - **Kusur:** Çiçek bozuğu ve sağ kulak memesi hasarı zayıf; sarı eğri baş örtüsü ve yamalı yelek duruyor.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760. Kurnaz, çiçek bozuğu yüz; **sağ kulak memesi net biçimde çentikli/hasarlı** (baş örtüsünün altından görünsün); yamalı renkli yün yelek; eğri, soluk sarı baş örtüsü.
 
-### N091 — `assets/art/icons/icon_clue_chr_010_obje2.png`
+### [x] N091 — `assets/art/icons/icon_clue_chr_010_obje2.png`
 - **Kusur:** Kıl çuvalın yanındaki keçiler silüet değil, çantaya göre büyük tam figürler; yük ikonu değil mini sahne.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. Bir kıl yol çuvalı ve **yanında iki küçük keçi silüeti** (ayrıntılı hayvan değil, sade koyu leke/gölge, çuvaldan bariz küçük). İnsan yok.
 
-### N095 — `assets/art/char/char_chr_012_neutral_card.png`
+### [x] N095 — `assets/art/char/char_chr_012_neutral_card.png`
 - **Kusur:** Koruyucu, dik duruşlu kadın yerine daha çok yorgun yaşlı portre; “firm protective posture” zayıf.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760. Güneş yanığı, kederli ama **dik ve koruyucu duruşlu** orta yaşlı kadın; soluk pamuk entari, yıpranmış açık baş örtüsü. Çökmüş/çok yaşlı görünmesin.
 
-### N101 — `assets/art/char/char_chr_014_neutral_card.png`
+### [x] N101 — `assets/art/char/char_chr_014_neutral_card.png`
 - **Kusur:** Sade keçe çoban külahı yerine kabarık beyaz kürk/kalpak; koyun postu evet, başlık yanlış.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760. Uyanık, kalın kaşlı çoban; koyun postu pelerin; **sade, düşük keçe çoban külahı** (kabarık kürk kalpak değil).
 
-### N134 — `assets/art/char/char_chr_025_neutral_card.png`
+### [x] N134 — `assets/art/char/char_chr_025_neutral_card.png`
 - **Kusur:** Un izi gömlek ve omuzda değil, saçta yaşlanma/beyazlama gibi duruyor; terle ıslanmış gömlek zayıf.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760. Kuru dudaklı, düşük omuzlu yorgun değirmenci; **terle hafif ıslanmış gömlek** ve **omuz/göğüste ince un serpintisi** (saçı unla ağartma).
 
-### N145 — `assets/art/icons/icon_clue_chr_028_obje2.png`
+### [x] N145 — `assets/art/icons/icon_clue_chr_028_obje2.png`
 - **Kusur:** Yelek astarına sarılı iki top ucu yerine dört kumaş topu yığını.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Yalnız iki kumaş topunun uçları**, bir yelek astarına sarılı; dört top veya bağımsız yığın olmasın.
 
-### N155 — `assets/art/icons/icon_esya_ekmek_64.png`
+### [x] N155 — `assets/art/icons/icon_esya_ekmek_64.png`
 - **Kusur:** Yassı pide/ekmek değil, delikli küçük yuvarlak çörek/kurabiye.
 - **Düzeltilmiş prompt ipucu:** 64×64, 2px pay. **Tek yassı Anadolu pide/yufka ekmeği** (ızgara/waffle dokusu ve şişkin çörek yok), soluk altın-ocre, asla lime değil.
 
-### N173 — `assets/arayuz/ikonlar/uyari_isci_yok.png`
+### [x] N173 — `assets/arayuz/ikonlar/uyari_isci_yok.png`
 - **Kusur:** “İşçi yok” uyarı silüeti yerine dolu, ağır deri eldiven çifti; uyarı ikonu olarak zayıf.
 - **Düzeltilmiş prompt ipucu:** 256×256 (uyarı_* gibi). **Boş, yere bırakılmış sade iş eldivenleri** — giyilmemiş, içi boş; zırh/gauntlet değil. Yazı ve noktalama yok.
 
-### N176 — `assets/art/ui/ui_bar_segment_full.png`
+### [x] N176 — `assets/art/ui/ui_bar_segment_full.png`
 - **Kusur:** 22×30 tuvalde konu yalnızca ~7px eninde ince bir çubuk; dolu taş dilim tuvali doldurmuyor, neredeyse görünmez.
 - **Düzeltilmiş prompt ipucu:** **22×30, dilim tuvali neredeyse doldursun** (1px pay yeter). Dikey, sağlam, kırksız taş bar dilimi; şeffaf kenar minimum.
 
-### N177 — `assets/art/ui/ui_bar_segment_empty.png`
+### [x] N177 — `assets/art/ui/ui_bar_segment_empty.png`
 - **Kusur:** N176 ile aynı: boş yuva da ince bir çizgi; sığ taş oyuğu okunaksız.
 - **Düzeltilmiş prompt ipucu:** 22×30, tuvali dolduran **boş sığ taş yuva** (oyuk çerçeve, içi boş). İnce çubuk olmasın.
 
-### N178 — `assets/art/ui/ui_bar_segment_cracked_01.png`
+### [x] N178 — `assets/art/ui/ui_bar_segment_cracked_01.png`
 - **Kusur:** Aynı ince dilim; tek kılcal çatlak 22×30’da okunaksız.
 - **Düzeltilmiş prompt ipucu:** 22×30, tuvali dolduran dikey taş dilim, **ortada tek net kılcal çatlak**.
 
-### N179 — `assets/art/ui/ui_bar_segment_cracked_02.png`
+### [x] N179 — `assets/art/ui/ui_bar_segment_cracked_02.png`
 - **Kusur:** Aynı ince dilim; iki geniş çatlak seçilmiyor.
 - **Düzeltilmiş prompt ipucu:** 22×30, tuvali dolduran dikey taş dilim, **iki daha geniş çatlak** (N178’den bariz farklı).
 
-### N181 — `assets/art/fx/fx_torchlight_patch_village_01.png`
+### [x] N181 — `assets/art/fx/fx_torchlight_patch_village_01.png`
 - **Kusur:** Yumuşak amber ışık lekesi değil, opak altın yumurta/küre.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Yumuşak, yarı saydam amber ışık lekesi** (meşale izdüşümü); sert kenarlı, opak küre/yumurta olmasın. Alev lime değil.
 
-### N187 — `assets/art/fx/fx_smoke_01.png`
+### [x] N187 — `assets/art/fx/fx_smoke_01.png`
 - **Kusur:** Yumuşak duman püfü yerine sert konturlu, çizgi-roman bulutu.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Tek yumuşak gri duman püfü**, dağınık kenar, sert lop/bulut çizgisi yok.
 
-### N192 — `assets/art/icons/icon_trade_contract.png`
+### [x] N192 — `assets/art/icons/icon_trade_contract.png`
 - **Kusur:** Mühürde amblem/figür var; kurdeleli berat gibi, sade katlı boş sözleşme değil.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Katlı, boş, mühürlü sözleşme**; mühür düz balmumu (harf, arma, figür yok), gösterişli kurdele yok.
 
-### N196 — `assets/ui/koy/gece_kapisi/mevsim_yaz.png`
+### [x] N196 — `assets/ui/koy/gece_kapisi/mevsim_yaz.png`
 - **Kusur:** Sade “güneş + başak” ikonu değil, çitli küçük peyzaj.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Yalnız bir güneş ve birkaç buğday başağı**; çit, tarla, sahne yok. Başaklar tozlu altın, asla lime değil.
 
-### N198 — `assets/ui/koy/gece_kapisi/mevsim_kis.png`
+### [x] N198 — `assets/ui/koy/gece_kapisi/mevsim_kis.png`
 - **Kusur:** Sade kış ikonu yerine çok ayrıntılı, modern kristal kar tanesi.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Sade, az kollu kar tanesi** (aşırı simetrik modern kristal değil), 13. yy ikon sadeleştirmesi.
 
-### N216 — `assets/art/env/son_beyin_uc_koyu.png`
+### [x] N216 — `assets/art/env/son_beyin_uc_koyu.png`
 - **Kusur:** Korumalı uç köy çok karanlık/kalabalık; boş bez flamalar ve köy silüeti zor okunuyor.
 - **Düzeltilmiş prompt ipucu:** 1920×1080 opak. Muhafazalı uç köy, **düz boş bez flamalar** (işaret/yazı yok); okunaklı yapı silüetleri, figürleri seyrek tut.
 
-### N217 — `assets/art/env/son_ahi_kasabasi.png`
+### [x] N217 — `assets/art/env/son_ahi_kasabasi.png`
 - **Kusur:** Ön planda dev terazi ve figürler sahneyi dolduruyor; atölyeli çarşı geri planda kalıyor.
 - **Düzeltilmiş prompt ipucu:** 1920×1080 opak. Küçük, işlek zanaat çarşısı ve atölyeler; **sade, ölçülü bir terazi** (sahneyi yutmasın). Figürler az veya uzak. Yazı yok.
 
-### N220 — `assets/art/env/prolog_01.png`
+### [x] N220 — `assets/art/env/prolog_01.png`
 - **Kusur:** Bozulmuş ordu kampı neredeyse okunaksız; ön planda boş ahşap sehpa/darağacı hissi, çadırlar çok silik.
 - **Düzeltilmiş prompt ipucu:** 1920×1080 opak. Anadolu tepelerinde **uzakta bozulmuş ordu kampı** (çadır, sönük ocak, dağınık direkler) net seçilsin; grafik şiddet yok; ön planı boş sehpa kaplamasın.
 
-### N224 — `assets/art/textures/gece_kapisi/snow_ground_albedo.png`
+### [x] N224 — `assets/art/textures/gece_kapisi/snow_ground_albedo.png`
 - **Kusur:** Kar örtülü toprak değil, benekli sıva/granit gibi duruyor; kar birikimi hissi yok.
 - **Düzeltilmiş prompt ipucu:** 1024×1024 opak, **dikişsiz (seamless) full-bleed**. Kaba toprak üstünde ince, soluk kar örtüsü; sıva/granit dokusu olmasın. Kenarlar döşenirken süreksiz olmasın.
 
-### N226 — `assets/art/textures/gece_kapisi/flood_water_albedo.png`
+### [x] N226 — `assets/art/textures/gece_kapisi/flood_water_albedo.png`
 - **Kusur:** Çamurlu sel suyu yerine düzenli pul/pullu desen; döşeme tekrarı hissi var.
 - **Düzeltilmiş prompt ipucu:** 1024×1024 opak, **dikişsiz**. Sakin, çamurlu sel suyu dalgacıkları; pul pul balık pulu veya belirgin karo tekrarı olmasın.
 
-### N238 — `assets/art/inspect/yara.png`
+### [x] N238 — `assets/art/inspect/yara.png`
 - **Kusur:** Yaralı bir uzuv değil, tek başına sarılı sargı topu/boğum.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. **Bezle sarılmış bir yara close-up** (kol veya el üzerinde), grafik/kanlı değil; bağımsız sargı rulosu olmasın.
 
-### N245 — `assets/art/icons/icon_stok_sargi.png`
+### [x] N245 — `assets/art/icons/icon_stok_sargi.png`
 - **Kusur:** Sargı bezi rulosu yerine katlı çarşaf/havlu yığını.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Katlı veya rulo keten sargı bezi**, havlu/çarşaf yığını değil.
 
-### N249 — `assets/art/icons/icon_stok_kacak_iksir.png`
+### [x] N249 — `assets/art/icons/icon_stok_kacak_iksir.png`
 - **Kusur:** Küçük mühürlü seramik iksir şişesi yerine sıradan matara/şişe; mühür zayıf.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Küçük, ağızı mühürlü seramik iksir kabı**; yazı, etiket, arma yok.
 
-### N254 — `assets/art/icons/icon_stok_tirpan.png`
+### [x] N254 — `assets/art/icons/icon_stok_tirpan.png`
 - **Kusur:** Uzun saplı tırpan değil, daha kısa saplı orak gibi duruyor.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Uzun saplı Anadolu tırpanı** (kısa orak değil), sade demir ağız, yazısız.
 
-### N258 — `assets/art/icons/icon_stok_ilac_stok.png`
+### [x] N258 — `assets/art/icons/icon_stok_ilac_stok.png`
 - **Kusur:** Tek sade ilaç kabı yerine desenli iki şişe.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Tek sade seramik ilaç şişesi**; yazı, etiket, kalabalık desen ve ikinci şişe yok.
 
-### N259 — `assets/art/icons/icon_stok_heyet.png`
+### [x] N259 — `assets/art/icons/icon_stok_heyet.png`
 - **Kusur:** Kapalı mühürlü rulo değil, açık asılı ferman yaprağı.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Kapalı, mühürlü heyet/haraç rulosu**; açık yaprak değil. Mühür ve parşömende harf/rakam yok.
 
-### N266 — `assets/art/icons/icon_usta_defteri.png`
+### [x] N266 — `assets/art/icons/icon_usta_defteri.png`
 - **Kusur:** Kapak boş ama sol bağ uçları simetrik işaret gibi duruyor.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. Kapalı sade deri defter, **tamamen boş kapak**, bağcıklar yazı veya arma gibi hizalanmasın.
 
