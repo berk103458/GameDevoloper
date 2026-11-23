@@ -6,8 +6,8 @@ extends RefCounted
 const ADLAR := {"aclik": "koy.yasam.aclik", "yorgunluk": "koy.yasam.yorgunluk", "moral": "koy.yasam.moral"}
 const IKON_RENK := {"aclik": Renkler.MESALE, "yorgunluk": Kabuk.YORGUNLUK, "moral": Kabuk.MORAL}
 const IKON_DOKU := {
-	"aclik": "res://assets/ui/atmosfer/gece_kapisi/icon_erzak.png",
-	"yorgunluk": "res://assets/ui/atmosfer/gece_kapisi/icon_yatak.png",
+	"aclik": "res://assets/art/icons/icon_yasam_aclik.png",
+	"yorgunluk": "res://assets/art/icons/icon_yasam_yorgunluk.png",
 	"moral": "res://assets/art/icons/icon_yasam_moral.png",
 }
 
@@ -36,8 +36,7 @@ static func _satir(anahtar: String, d: Dictionary) -> Control:
 		ikon.self_modulate.a = 0.0
 		var tr := TextureRect.new()
 		tr.texture = load(yol)
-		tr.modulate = renk
-		tr.set_anchors_preset(Control.PRESET_FULL_RECT)
+		tr.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		tr.mouse_filter = Control.MOUSE_FILTER_IGNORE

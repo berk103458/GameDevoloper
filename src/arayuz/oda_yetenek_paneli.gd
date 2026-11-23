@@ -1,6 +1,7 @@
 ## ODA-05: aynı oda listesinde veri ayarlı iki bağlı yetenek; ikinci ekonomi/terazi yok.
 class_name OdaYetenekPaneli
 extends RefCounted
+const IKON_YETENEK := "res://assets/art/icons/icon_oda_yetenek.png"
 ## Tek satır ağacı tekrar çizilir; düğme işlem anında koşulları yeniden doğrular.
 static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
  var indeks:=v.get_child_count()
@@ -22,6 +23,9 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
   var b:=Button.new()
   b.name="yetenek_"+id
   b.text=String(a.ad)+(" · açıldı" if MuhafizYetenekleri.var_mi(e.oturum,id) else " · %d kişisel akçe"%int(a.bedel))
+  if ResourceLoader.exists(IKON_YETENEK):
+   b.icon = load(IKON_YETENEK)
+   b.expand_icon = true
   b.disabled=not MuhafizYetenekleri.alinabilir(e.oturum,id)
   b.add_theme_color_override("font_disabled_color",Renkler.KUL if MuhafizYetenekleri.var_mi(e.oturum,id) else Kabuk.SOLUK)
   b.custom_minimum_size.y=48
