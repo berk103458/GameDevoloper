@@ -6,14 +6,16 @@ Bu dosya, ana liste (`GEMINI_SIRADAKI_URETIM_LISTESI.md`) ve ek liste (`GEMINI_E
 
 **Toplam aday:** 84 kalem (ana liste 48, ek liste 36).
 
-**Y1 (ilk 30, N062–N266):** 29 düzeldi ve `[x]` işaretlendi; N062 Y1 sonrası hâlâ kusurlu (2 deneme, v1 alındı). Zar ve sabah defteri kareleri bu pencerede yoktu, atlanan yok. Kalan aday: 54 denenmemiş + 1 hâlâ kusurlu.
+**Y1 (ilk 30, N062–N266):** 29 düzeldi ve `[x]` işaretlendi; N062 o partide hâlâ kusurlu kaldı (sonra Y2'de düzeltildi).
+
+**Y2 (N267–E34 + N062 yeniden deneme):** 26 düzeldi (`[x]`, N062 dahil); N310 Y2 sonrası hâlâ kusurlu (2 deneme, v2 alındı). E30, E32, E33, E34 (zar_d6_roll_01/03/04 ve zar_d12_roll_01) atlandı — A1 zar animasyonu başka işte. Kalan aday: 24 denenmemiş + 4 atlanan zar + 1 hâlâ kusurlu.
 
 ---
 
 ## Ana liste (N)
 
-### N062 — `assets/art/char/char_chr_001_neutral_card.png`
-- **Y1 sonrası hâlâ kusurlu:** İki deneme. v1'de doğal şakak izi var ama karakterin *sağ* şakağında (izleyicinin solu); v2 yıldız biçimli damga ve daha çok alın ortasında. Daha iyi olan v1 alındı; sol şakak hâlâ yanlış/eksik.
+### [x] N062 — `assets/art/char/char_chr_001_neutral_card.png`
+- **Y2'de düzeltildi:** Sol profil; karakterin sol şakağında doğal, çizgisel eski yara izi (yıldız damga değil), alın yanına yakın ve sakalsız. Y1 v1 yedeklendi.
 - **Kusur:** Sol şakaktaki eski yara izi yok veya okunaksız; gergin, sert omuzlu adam duruşu duruyor ama tanımlayıcı iz eksik.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760, yeşil zemin. Güneş yanığı gergin yüz; **sol şakakta belirgin ama grafik olmayan eski yara izi**; sert omuzlar; yanmış deve yünü ceket ve çamurlu kaba giysi. İzi saç çizgisinin hemen yanında bırak, sakal onu örtmesin.
 
@@ -133,75 +135,76 @@ Bu dosya, ana liste (`GEMINI_SIRADAKI_URETIM_LISTESI.md`) ve ek liste (`GEMINI_E
 - **Kusur:** Kapak boş ama sol bağ uçları simetrik işaret gibi duruyor.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. Kapalı sade deri defter, **tamamen boş kapak**, bağcıklar yazı veya arma gibi hizalanmasın.
 
-### N267 — `assets/art/icons/icon_ozel_esya.png`
+### [x] N267 — `assets/art/icons/icon_ozel_esya.png`
 - **Kusur:** Küçük kumaş bağlı hatıra/bohça değil, kumaş bağlanmış demir kuşaklı sandık.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Küçük, kumaşa sarılı sade bir el işi hatıra** (bohça); sandık, kasa, kutu zırhı yok. Yazı yok.
 
-### N270 — `assets/art/icons/icon_yasam_moral.png`
+### [x] N270 — `assets/art/icons/icon_yasam_moral.png`
 - **Kusur:** Küçük ocak alevi ikonu değil, ayaklı mangal ve ateş yığını.
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. **Küçük, sıcak ocak alevi** (amber/fildişi, asla lime); ayaklı mangal, odun yığını ve demir sehpa olmasın veya çok sade tutulsun.
 
-### N273 — `assets/art/env/yukleme_01.png`
+### [x] N273 — `assets/art/env/yukleme_01.png`
 - **Kusur:** Gece yolu ve kapı duruyor; sağdaki bayrakta yazıya benzer işaretler var.
 - **Düzeltilmiş prompt ipucu:** 1920×1080 opak. Kapıya yaklaşan sakin gece yolu; **bayrak ve bezler tamamen boş**, harf/işaret yok.
 
-### N284 — `assets/art/inspect/chr_003_trace.png`
+### [x] N284 — `assets/art/inspect/chr_003_trace.png`
 - **Kusur:** Önkoldaki hilal yanık izi var ama başparmak-işaret parmağı perdesindeki derin nasır zayıf/okunaksız.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin, yalnız close-up. **Sağ başparmak-işaret perdesinde belirgin iş nasırı** ve önkolda eski hilal ocak yanığı. Figür/yüz yok.
 
-### N285 — `assets/art/inspect/chr_004_trace.png`
+### [x] N285 — `assets/art/inspect/chr_004_trace.png`
 - **Kusur:** Yay kirişi izleri zayıf; sağ avuçta kılıç kabzası nasırı yerine küçük bir nesne (pul/hap) var.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Sol işaret/orta parmaklarda **eski yay kirişi izleri**; sağ avuçta **kabza nasırı** (avuçta tutulan nesne yok).
 
-### N289 — `assets/art/inspect/chr_008_trace.png`
+### [x] N289 — `assets/art/inspect/chr_008_trace.png`
 - **Kusur:** Yalnız el close-up’ı değil; kapüşonlu yarı figür + kalkmış el. Konu kaymış.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. **Yalnız sağ avuç close-up**: eski, grafik olmayan dağlama izi ve ocak isi bulaşmış parmak uçları. Baş, gövde, kapüşon yok.
 
-### N290 — `assets/art/inspect/chr_009_trace.png`
+### [x] N290 — `assets/art/inspect/chr_009_trace.png`
 - **Kusur:** Sarı baş örtüsü altındaki kulak, yüzü kapatan elle kalabalık; çentik ve tırnak kalıntısı zayıf.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. **Sarı baş örtüsünün altından sağ kulak**, eski çentik izi net; tırnaklarda gri kalıntı. Eli yüzün üstüne kapatma.
 
-### N292 — `assets/art/inspect/chr_011_trace.png`
+### [x] N292 — `assets/art/inspect/chr_011_trace.png`
 - **Kusur:** Yaka morluğu duruyor; yenlerdeki sığ diken çizikleri yok veya çok zayıf.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Yırtık gömlek yakasından **hafif morluk** ve yenlerde **sığ, grafik olmayan diken çizikleri** (her iki iz de okunaklı).
 
-### N295 — `assets/art/inspect/chr_014_trace.png`
+### [x] N295 — `assets/art/inspect/chr_014_trace.png`
 - **Kusur:** Çizme, el ve omuz birbirinden kopuk üç parça; ıslak kil tırnak ve bası morluğu zayıf.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Tozlu bot, **tırnaklarda soluk ıslak kil** ve omuz bezinde **hafif bası morluğu**; parçaları aynı close-up’ta tutarlı bir kompozisyonda birleştir (dağınık uçuşan uzuvlar değil).
 
-### N296 — `assets/art/inspect/chr_015_trace.png`
+### [x] N296 — `assets/art/inspect/chr_015_trace.png`
 - **Kusur:** Tebeşirimsi harç lekesi ve kaldıraç sıyrığı belirsiz; iki kol daha çok manşet gibi duruyor.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Önkollarda **açık renk harç/kireç lekesi** ve sağ bilekte **eski, grafik olmayan kaldıraç sıyrığı**, ikisi de net.
 
-### N297 — `assets/art/inspect/chr_016_trace.png`
+### [x] N297 — `assets/art/inspect/chr_016_trace.png`
 - **Kusur:** Halat sürtünmesi yerine kesik gibi kırmızı çizgi; yen ucundaki kenevir lifi yok/zayıf.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Sol bilekte **sığ halat sürtünme izi** (kesik değil) ve yen ucunda **kopuk kenevir lifleri**.
 
-### N299 — `assets/art/inspect/chr_018_trace.png`
+### [x] N299 — `assets/art/inspect/chr_018_trace.png`
 - **Kusur:** Yen dikişinde iki küçük bamya tohumu yerine elde bütün bir kuru bakla/koçan var.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. **Yen dikişinde iki minik bamya tohumu** ve tırnaklarda kuru kabuk kırıntısı; elde bütün koçan olmasın.
 
-### N300 — `assets/art/inspect/chr_019_trace.png`
+### [x] N300 — `assets/art/inspect/chr_019_trace.png`
 - **Kusur:** İki parça da paça gibi; yendeki ıslak su çizgisi zayıf, çamur taze sulama çamuru gibi durmuyor.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. **Paçada taze sulama çamuru** ve yanında **ıslak su çizgili bir yen**, ikisi ayırt edilsin.
 
-### N302 — `assets/art/inspect/chr_021_trace.png`
+### [x] N302 — `assets/art/inspect/chr_021_trace.png`
 - **Kusur:** N297’ye çok benziyor; halat sıyrığı kesik gibi, kenevir lifi yok.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Sol bilekte **sığ halat sıyrığı** ve birkaç **takılı kenevir lifi**; kırmızı kesik çizgisi olmasın. N297’den kompozisyonca ayır (farklı açı/yen).
 
-### N303 — `assets/art/inspect/chr_022_trace.png`
+### [x] N303 — `assets/art/inspect/chr_022_trace.png`
 - **Kusur:** Davul askısı bası izi zayıf; kopuk toka deliği yerine sağlam metal plaka/toka var.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Sol omuz giysisinde **soluk askı bası izi** ve **kopuk/boş toka deliği** (sağlam takılı toka değil).
 
-### N306 — `assets/art/inspect/chr_025_trace.png`
+### [x] N306 — `assets/art/inspect/chr_025_trace.png`
 - **Kusur:** Koltuk altı yen dikişi yerine kapitone kol; un ve ekmek kırıntısı zayıf.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. **Sol koltuk altı giysi dikişinde kurumuş un** ve **küçük bir ekmek kırıntısı**; kapitone zırh kolu olmasın.
 
-### N307 — `assets/art/inspect/chr_026_trace.png`
+### [x] N307 — `assets/art/inspect/chr_026_trace.png`
 - **Kusur:** Halat sürtünme halkası yerine bilekte duran ip/bilezik gibi duruyor.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Sağ bilekte **ip olmayan, ciltte kalmış sürtünme halkası** (takılı ip veya bilezik değil).
 
 ### N310 — `assets/art/inspect/chr_029_trace.png`
+- **Y2 sonrası hâlâ kusurlu:** İki deneme. Kese ağzındaki isli dikiş iyileşti ama sağ başparmak çekiç ezikleri hâlâ zayıf/okunaksız. Daha iyi olan v2 alındı.
 - **Kusur:** Başparmakta çekiç ezikleri zayıf; kese ağzındaki isli dikiş belirsiz.
 - **Düzeltilmiş prompt ipucu:** 512×512, yeşil zemin. Sağ başparmakta **eski küçük çekiç ezikleri** ve yanında **ağız dikişi isli bir kese**, her iki iz de okunaklı.
 
@@ -209,51 +212,55 @@ Bu dosya, ana liste (`GEMINI_SIRADAKI_URETIM_LISTESI.md`) ve ek liste (`GEMINI_E
 
 ## Ek liste (E)
 
-### E04 — `assets/art/ui/icon_job_yol_hendek_48.png`
+### [x] E04 — `assets/art/ui/icon_job_yol_hendek_48.png`
 - **Kusur:** Çapraz kazma ve hendek küreği 48px’te birbirine karışıyor, silüetler ayırt zor.
 - **Düzeltilmiş prompt ipucu:** 48×48, 2px pay. **Ahşap saplı kazma × demir hendek küreği**, iki alet 48px’te ayrı okunaklı silüetler olsun, aşırı bindirme yok.
 
-### E06 — `assets/art/ui/icon_job_nobete_eslik_48.png`
+### [x] E06 — `assets/art/ui/icon_job_nobete_eslik_48.png`
 - **Kusur:** Kısa mızrak × yanık reçine meşale kalabalık; meşale alevi zayıf veya kaybolmuş (alevi asla lime yapma).
 - **Düzeltilmiş prompt ipucu:** 48×48, 2px pay. **Kısa saplı mızrak, yanmakta olan tahta/reçine meşale ile çapraz**; alev amber/fildişi, `#00FF00` değil ki anahtar yemesin.
 
-### E12 — `assets/art/icons/icon_ozel_turkmen_kecesi.png`
+### [x] E12 — `assets/art/icons/icon_ozel_turkmen_kecesi.png`
 - **Kusur:** Katlı Türkmen aba/keçe cüppe değil, küçük kitap veya keçe tabaka yığını; geometrik kenar bordürü zayıf.
 - **Düzeltilmiş prompt ipucu:** 64×64, 2px pay. **Düzgün katlanmış, deve tüyü kahverengi kalın Türkmen keçe aba**, ince fildişi geometrik kenar bordürü (yazı değil). Kitap olmasın.
 
-### E17 — `assets/art/icons/icon_ozel_celik_pul.png`
+### [x] E17 — `assets/art/icons/icon_ozel_celik_pul.png`
 - **Kusur:** Bağlanmış, perçinli lamel zırh pulu değil, üst üste dizilmiş pul/para silindiri.
 - **Düzeltilmiş prompt ipucu:** 64×64, 2px pay. **Deri şeritle bağlanmış, binen perçinli çelik lamel zırh pulu** (zırh parçası); madeni para rulosu olmasın.
 
-### E21 — `assets/art/char/char_zeynep_ilk_aile_neutral_card.png`
+### [x] E21 — `assets/art/char/char_zeynep_ilk_aile_neutral_card.png`
 - **Kusur:** 26 yaşında yorgun, yerinden edilmiş köylü karısı yerine daha bakımlı/genç portre; rüzgâr çatlamış yanak ve “tükenmiş ama kırılmamış” ifade zayıf.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760. **Yorgun ama kararlı 26 yaşında** yerinden edilmiş Anadolu köylü kadını (Zeynep): rüzgâr çatlamış yanaklar, sakin cesur bakış, yıpranmış fildişi baş örtüsü soluk kızıl şalın altında. Bakımlı/idealize yüz olmasın.
 
-### E22 — `assets/art/char/char_ayse_baci_neutral_card.png`
+### [x] E22 — `assets/art/char/char_ayse_baci_neutral_card.png`
 - **Kusur:** 45 yaş Bacıyan-ı Rum usta annesi duruşu zayıf; daha yumuşak, gülümseyen portre, otorite eksik.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760. **45 yaşında muhterem dokuma ustası** (Ayşe Bacı): sade bej baş örtüsü, işlemeli zanaatkâr yelek, **vakur, şefkatli ve otoriter lonca annesi ifadesi**.
 
-### E24 — `assets/art/char/char_nogay_neutral_card.png`
+### [x] E24 — `assets/art/char/char_nogay_neutral_card.png`
 - **Kusur:** Konik kürklü keçe kalpak var; göğüste yay askısı yok veya çok zayıf.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760. 32 yaş bozkır avcısı (Nogay): yüksek elmacık, seyrek bıyık, konik kürk kenarlı keçe kalpak, ham geyik derisi tunik, **göğsü çapraz kesen yay askısı net görünsün**; keskin, sessiz bakış.
 
-### E27 — `assets/art/char/char_nalbur_neutral_card.png`
+### [x] E27 — `assets/art/char/char_nalbur_neutral_card.png`
 - **Kusur:** Örgülü demir halka yaka yok; kurum lekesi ve nalbur/hırdavatçı kimliği zayıf.
 - **Düzeltilmiş prompt ipucu:** Shoulders-up, 600×760. Yapılı 44 yaş gezgin nalbur: şakaklarda is lekesi, **örgü demir halka yaka**, koyu keçe kalpak, yara izli ağır deri önlük, pratik kısık bakış.
 
 ### E30 — `assets/art/anim/zar_d6_roll_01.png`
+- **Y2'de atlandı:** A1 zar animasyonu başka işte yeniden yapılıyor; bu partide dokunulmadı.
 - **Kusur:** 35 derecelik fırlatma açısı yok; zar neredeyse oturmuş/az eğik. Yüzler boş (iyi).
 - **Düzeltilmiş prompt ipucu:** 256×256, yeşil zemin. Fildişi d6, **ortada 35 derece yukarı eğik fırlatma duruşu**, yüzler tamamen boş (pips/rakam yok).
 
 ### E32 — `assets/art/anim/zar_d6_roll_03.png`
+- **Y2'de atlandı:** A1 zar animasyonu başka işte yeniden yapılıyor; bu partide dokunulmadı.
 - **Kusur:** İstenen düşük ~12° yatış yerine E31’e çok yakın açı.
 - **Düzeltilmiş prompt ipucu:** Aynı zar kimliği, kare 3/4: **yalnızca yaklaşık 12° alçak yatış**, E31’den bariz daha yatık. Boş yüzler.
 
 ### E33 — `assets/art/anim/zar_d6_roll_04.png`
+- **Y2'de atlandı:** A1 zar animasyonu başka işte yeniden yapılıyor; bu partide dokunulmadı.
 - **Kusur:** Zar değil, düz levha/plaket gibi tek yüz.
 - **Düzeltilmiş prompt ipucu:** Aynı zar, kare 4/4: **hemen hemen durmuş küp**, üç boyutlu (tek düz kare plaka değil), boş yüzler.
 
 ### E34 — `assets/art/anim/zar_d12_roll_01.png`
+- **Y2'de atlandı:** A1 zar animasyonu başka işte yeniden yapılıyor; bu partide dokunulmadı.
 - **Kusur:** d12 çerçevesi sonraki karelere (E35–E37) göre küçük/ölçeksiz.
 - **Düzeltilmiş prompt ipucu:** 256×256. Boş yüzlü d12, **E35–E37 ile aynı nesne ölçeği ve çerçeve payı**; ilk kareyi küçük çizme.
 
