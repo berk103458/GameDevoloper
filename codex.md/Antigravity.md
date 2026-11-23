@@ -1847,3 +1847,26 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **İhtiyaç:** Yeni asset gerekmedi (`asset gerekmedi`).
 - kota görünmüyor
 
+
+### 24 Kasım (Tur 7) — Oyuncu Gözüyle Görsel, Animasyon (A1–A6, B1–B10, C1–C6), B1 Kancası ve Harita Doğrulaması + Kalan 2D Bağlantılar
+- **Pull & Import:** `0063f933` (`origin/claude/festive-volta-li1sfm`) fast-forward alındı ve `Godot.exe --headless --editor --import --quit` (`RC=0`) ile tüm yeni `class_name` ve dokular önbelleğe işlendi.
+- **Ne doğrulandı:**
+  - **B1 + Parti 3b (`f10860d2`):** `src/arayuz/chr_inceleme_paneli.gd` içinde 60 `icon_clue_chr_*_obje1/obje2.png` + Kalfa'nın `226673af` `gorsel_iz_dugmesi()`/`portre_yuvasi` birleştirildi ve `_nesne_incele` içine `add_child(kart)` öncesine `await EvrakAnimasyonu.oynat(self, String(kart.aciklama))` eklendi. `b_grubu_animasyonlari_test.gd`, `chr_kapi_kontrol.tscn` (`RC=0`), `chr_kadro_karar_kontrol.tscn` (`RC=0`) geçti.
+  - **Animasyonlar (`A1–A6`, `B1–B10`, `C1–C6`):** 22 animasyonun tamamının `src/` içindeki tetikleme kancaları ve 8 birim testi (`kare_animasyon_kabuk_test.gd`, `zar_atisi_animasyonu_test.gd`, `rusvet_kesesi_animasyonu_test.gd`, `yalan_muhur_animasyonu_test.gd`, `kapi_surgu_animasyonu_test.gd`, `sabah_defteri_animasyonu_test.gd`, `b_grubu_animasyonlari_test.gd`, `c_grubu_animasyonlari_test.gd`) `RC=0` ile geçti.
+  - **Harita + Kök Neden (`484c042f`, `99ab8127`):** `MogolOncusu.AYAR` ve `GozcuKulesi.AYAR` bazen `{}` gelmesinin kök nedeni (`-s` ile çalışan `SceneTree` testlerinde `Ses` autoload'u kurulmadan `kapi_ekrani.gd:535` yüzünden döngüsel `class_name` derleme zincirinin kırılması) bulundu ve her ikisine `_ayar()` tembel yükleyicisi eklendi. `cevre_haritasi_test.gd`, `cevre_haritasi_baglama_test.gd`, `harita_ekrani_baglama_test.gd` ve `harita_ekrani_kontrol.tscn` (`RC=0`, `0 SCRIPT ERROR`) geçti. Pencereli canlı akış (`köy -> harita -> bölge seçimsiz/hisar/tekfur olay/kış`) 4 ekran görüntüsüyle doğrulandı.
+  - **Hedefli UI testleri:** `grv_tema_baglari_kontrol.tscn` (`RC=0`, 46 dosya), `oda_terazisi_kontrol.tscn` (`RC=0`), `chr_kapi_kontrol.tscn` (`RC=0`) geçti.
+- **Ne bağlandı (`99ab8127`):**
+  - 5 stok ikonu (`kereste`, `kirec`, `harc`, `tomruk`, `un`) → `src/arayuz/koy_hud/gezgin_stok_ikonu.gd`
+  - 13 bina ikonu (`kulube`, `cadir`, `tas_ev`, `tarla`, `bostan`, `odunluk`, `hizarhane`, `tas_ocagi`, `kirec_kuyusu`, `avci`, `ambar`, `atolye`, `cozumleme_odasi`) → `src/arayuz/koy_hud/yapi_karti.gd`
+  - 8 hayvan ikonu (`okuz`, `inek`, `koc`, `beygir`/`at`, `koyun`, `keci`, `tavuk`, `esek`) → `src/arayuz/koy_hud/hayvan_takas_paneli.gd`, `src/arayuz/koy_hud/tuccar_alisveris_sekansi.gd` (+ güvenli `Ses` çağrısı)
+  - 4 muhafız geçmişi ikonu (`icon_gecmis_*.png`) → `src/arayuz/yeni_oyun_ekrani.gd`
+  - 3 oda geliştirme ikonu (`icon_oda_yatak/askilik/kutuphane.png`) + `icon_oda_yozlasma.png` + `usta_defteri_marangoz.png` → `oda_gelistirme_paneli.gd`, `oda_vicdan_paneli.gd`, `cozumleme_paneli.gd`
+  - 4 durum/söylenti ikonu (`icon_durum_cinar_meclisi.png`, `icon_soylenti_agi.png`, `icon_durum_karantina.png`, `icon_durum_harac.png`) → `cinar_meclis_paneli.gd`, `soylenti_hukmu.gd`, `karantina_paneli.gd`, `tekfur_heyeti_paneli.gd` (+ güvenli `Ses` çağrısı)
+  - 4 zar yaklaşımı ikonu (`icon_zar_ikna/blof/gozdagi/gonul_alma.png`) → `src/arayuz/chr_diyalog_paneli.gd`
+- **Ne hâlâ bağlanmadı / kapsam dışı:**
+  - `assets/art/events/event_*.png` (10 olay kartı illüstrasyonu; olay kartı metin/olay ID eşleme katmanı olmadığı için bağlanmadı), `icon_durum_isyan.png` (ayrı isyan banner'ı yok), `prolog_01..04.png` ve `son_*.png` / `son_epilog.png` / `oda_epilog.png` (`BilgiEkrani` / `Sanat.doku("env", ...)` üzerinden zaten mevcutlar; sahne içi tetiklenmeleri ayrıca kontrol edilmedi).
+  - Eskiyen 4 kalem (`E30/E32/E33/E34`) ve kusurlu 3 kalem (`E43` `heybe_ac_02.png` kapak kapalı, `E105` `ocak_ates_03.png` alev sola yatmıyor, `E135` `okculuk_ok_02.png` kısaltılmış uçuş yok) kural gereği elenmedi/değiştirilmedi.
+- **Kalan kusurlar ve test notları:**
+  - Harita bilinen 3 görsel kusur için mekanik değiştirmeyen öneriler: (1) Seçili manzara üzerinde pinlerin yerleşimi için bölge başına `manzara_pin_konumu` veya pin opaklık/çerçeve ayırıcı eklenmesi, (2) Sağ bilgi kartının metin boşken minimum yükseklik/boş durum metniyle dengelenmesi, (3) `kopru_saglam.png` / `kopru_yikik.png` görsellerinin üstten harita açısına hizalanması.
+  - Değişikliklerimizden bağımsız 3 mevcut test hatası gözlendi: `acilis_menu_kontrol.tscn` (C5 `YeniOyunBeratiAnimasyonu.oynat` 1.5s beklemesini test etmiyor, 1 kare sonra `BilgiEkrani` arıyor), `hayvan_takas_kontrol.tscn` (`CobanSurusu.koyunlar.size() == 5` assertion), `soylenti_meclis_kontrol.tscn` (`HafizaDefteri` satır içeriği kontrolü).
+- kota görünmüyor
