@@ -532,8 +532,9 @@ func kapi_secim(tur: String, kimlik: String, cevap: String = "") -> String:
 static func kapi_metni(anahtar: String) -> String:
 	if not GuvenliMetin.anahtar_gibi_mi(anahtar):
 		return anahtar
-	var ceviri := String(TranslationServer.translate(anahtar))
-	return GuvenliMetin.metin(anahtar) if ceviri == anahtar else ceviri
+	var csv_anahtari := "diyalog.chr." + anahtar.to_lower() if anahtar.begins_with("CHR_") else anahtar
+	var ceviri := String(TranslationServer.translate(csv_anahtari))
+	return GuvenliMetin.metin(csv_anahtari) if ceviri == csv_anahtari else ceviri
 
 
 func kapi_soru_acik(gelen: Object, indeks: int, sorulan: Array, azami: int) -> bool:
@@ -566,11 +567,11 @@ func kapi_karar(anahtar: StringName, uygula: Callable, yonetim: Object, etki_gru
 			"durum": String(sonuc.get("durum", "")),
 		}
 		if kapi_izi.has("ziyaret"):
-			kapi_izi.sonuc.merge(_kapi_etkisi(yonetim, etki_grubu, String(anahtar)))
+			kapi_izi.sonuc.merge(is_gucu_etkisi(yonetim, etki_grubu, String(anahtar)))
 	return sonuc
 
 
-func _kapi_etkisi(yonetim: Object, grup: String, anahtar: String) -> Dictionary:
+static func is_gucu_etkisi(yonetim: Object, grup: String, anahtar: String) -> Dictionary:
 	var kurallar: Dictionary = SozSemasi.kurallari_oku().get("kapi_karar_etkileri", {})
 	var etki: Dictionary = kurallar.get(grup, {}).get(anahtar, {})
 	if etki.is_empty() or yonetim.koylular.is_empty():

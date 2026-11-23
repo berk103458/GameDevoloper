@@ -1,9 +1,9 @@
 ## ZAR-03: tansiyon eşiği aşılınca kapı ziyaretini "kaçtı" kararıyla kapatır.
 ## Oturum.karar_ver çağrılmaz: kabul, ret, rüşvet ve kışla yazılmaz, ret sayacı ve kasa değişmez (DEN-19).
-## Tanık varsa kaçış dedikoduya yazılır; satır metni `dedikodu.kacis` anahtarıdır, tanımlı değilse yazılmaz.
+## Tanık varsa kaçış dedikoduya yazılır; satır metni `dedikodu.kapi.kacis` anahtarıdır, tanımlı değilse yazılmaz.
 extends RefCounted
 
-const METIN_ANAHTARI := "dedikodu.kacis"
+const METIN_ANAHTARI := "dedikodu.kapi.kacis"
 const KARAR_ANAHTARI := "arayuz.kapi.karar_kacti"
 
 

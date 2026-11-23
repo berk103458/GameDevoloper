@@ -4,6 +4,7 @@ class_name KoyDiyalogYoneticisi
 extends RefCounted
 
 const ParleyKoyAdaptoru = preload("res://src/diyalog/parley_koy_adaptoru.gd")
+const TUCCAR_SOZU := "res://data/soz/koy_tuccari.json"
 
 signal replik_geldi(konusan: String, metin: String, secenekler: Array)
 signal diyalog_sonlandi()
@@ -18,6 +19,7 @@ var son_secenekler: Array = []
 var calisiyor: bool = false
 var _bosta_soylendi := false
 var _soylenti_soylendi := false
+var _tuccar_sozu: SozMotoru
 
 
 ## Verilen .ds dosyasını yükler ve AST döner
@@ -51,9 +53,8 @@ func muhabbet_baslat(k: Koylu, y: KoyYonetimi = null) -> bool:
 	_bosta_soylendi = false
 	_soylenti_soylendi = false
 	yonetim = y
-	if DmKopru.tuccar_muhabbeti(koylu):
-		DmKopru.muhabbet_baslat(self, koylu, yonetim)
-		return true
+	if koylu != null and (koylu.sinif == &"esnaf" or "tüccar" in koylu.ad.to_lower() or "tuccar" in koylu.ad.to_lower()):
+		return _tuccar_baslat()
 	var ds_yolu := "res://data/parley/koy/koylu_muhabbet_genel.ds"
 	if koylu:
 		var ad_id := ""
@@ -126,9 +127,32 @@ func sekans_baslat(sekans_adi: String, y: KoyYonetimi = null) -> bool:
 	return true
 
 
-## Bir seçeneği tıklandığında akışı sürdürür
-func dm_secenek(id: String) -> void:
-	DmKopru.muhabbet_sec(self, id)
+func _tuccar_baslat() -> bool:
+	var dosya: Variant = JSON.parse_string(FileAccess.get_file_as_string(TUCCAR_SOZU))
+	_tuccar_sozu = SozMotoru.new()
+	if not _tuccar_sozu.yukle(dosya).get("basarili", false):
+		_tuccar_sozu = null
+		return false
+	calisiyor = true
+	aktif_yonetici = self
+	var secenekler: Array[Dictionary] = []
+	for secenek in _tuccar_sozu.mevcut_secenekler():
+		secenekler.append({"id": secenek.id, "metin": SozMotoru.kapi_metni(secenek.metin)})
+	replik_geldi.emit(koylu.ad, SozMotoru.kapi_metni(_tuccar_sozu.mevcut_satir()), secenekler)
+	return true
+
+
+func soz_secenek(id: String) -> void:
+	if not calisiyor or _tuccar_sozu == null:
+		return
+	var sonuc := _tuccar_sozu.sec(id)
+	if not sonuc.get("basarili", false):
+		return
+	if yonetim != null:
+		var etki := SozMotoru.is_gucu_etkisi(yonetim, "tuccar", id)
+		yonetim.set_meta(&"koy_tuccar_soz_karari", {"id": id, "etki": etki})
+	replik_geldi.emit(koylu.ad, SozMotoru.kapi_metni(String(sonuc.satir)), [])
+	bitir()
 
 
 func secenek_sec(secenek_d: ParleyNodeAst) -> void:
@@ -217,6 +241,7 @@ func bitir() -> void:
 		ctx = null
 	ast = null
 	son_secenekler.clear()
+	_tuccar_sozu = null
 	diyalog_sonlandi.emit()
 	if aktif_yonetici == self:
 		aktif_yonetici = null

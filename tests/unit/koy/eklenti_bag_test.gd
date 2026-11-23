@@ -97,8 +97,8 @@ func _kos() -> void:
 		if geldi.ok:
 			break
 	_kontrol(geldi.ok, "tüccar diyaloğu")
-	await DmKopru.muhabbet_sec(dy, "harc")
-	_kontrol(String(y.get_meta(&"dm_is", "")) == "harc", "tüccar bacı kararı")
+	dy.soz_secenek("harc")
+	_kontrol(y.get_meta(&"koy_tuccar_soz_karari", {}).get("id") == "harc" and not dy.calisiyor, "tüccar bacı sohbeti Söz ile tamamlandı")
 
 	var goruntu_yolu := OS.get_environment("EKLENTI_EKRAN_GORUNTUSU")
 	if DisplayServer.get_name() != "headless" and not goruntu_yolu.is_empty():

@@ -971,7 +971,7 @@ func _kart_arkasi_koy(ad: String) -> void:
 func _bayrak_etiketi(f: String) -> String:
 	if f == "kap17_aile":
 		return "Aile"
-	var anahtar := "koy.bayrak." + f
+	var anahtar := "koy.bayrak." + f.to_lower()
 	var yazi := tr(anahtar)
 	if yazi.is_empty() or yazi == anahtar or yazi.begins_with("[KEY_NOT_FOUND]"):
 		return ""

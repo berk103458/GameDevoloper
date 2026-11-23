@@ -55,8 +55,8 @@ func guncelle() -> void:
 			"gonul_alma": yak_ad = "Gönül alma"
 		var sozcuk := "başarılı" if sorgu.son_zar["basarili"] else "başarısız — tansiyon arttı"
 		var soz_anahtari := String(sorgu.son_zar.get("sozcuk", ""))
-		if not soz_anahtari.is_empty() and tr(soz_anahtari) != soz_anahtari:
-			sozcuk = tr(soz_anahtari)
+		if soz_anahtari.begins_with("ZAR_"):
+			sozcuk = tr("diyalog.zar." + soz_anahtari.trim_prefix("ZAR_").to_lower())
 		if sorgu.son_zar.has("gerekli"):
 			sonuc.name = "ZarSonucu"
 			sonuc.text = "%s — %s: %d, gereken %d+ · %s" % [yak_ad, String(sorgu.son_zar.get("tur", "d6")), int(sorgu.son_zar["zar"]), int(sorgu.son_zar["gerekli"]), sozcuk]
@@ -101,7 +101,7 @@ func guncelle() -> void:
 		b.custom_minimum_size.y = 80
 		b.disabled = not sorgu.secenek_acik(secenek, i)
 		if b.disabled and sorgu.has_method("zar_kilitli") and sorgu.zar_kilitli(secenek):
-			var kilit_sozu := tr("ZAR_KILITLI")
+			var kilit_sozu := tr("diyalog.zar.kilitli")
 			b.tooltip_text = kilit_sozu if b.tooltip_text.is_empty() else "%s — %s" % [b.tooltip_text, kilit_sozu]
 		acik_var = acik_var or not b.disabled
 		if not secenek.get("gerekli_ipuclari", []).is_empty():

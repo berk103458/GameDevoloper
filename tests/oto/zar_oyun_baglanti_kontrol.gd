@@ -107,7 +107,7 @@ func _ready() -> void:
 	s._denemeler.clear()
 	panel.guncelle()
 	var kilitli := panel.find_child("Secenek1", true, false) as Button
-	_kontrol(kilitli != null and kilitli.disabled and String(TranslationServer.translate("ZAR_KILITLI")) in kilitli.tooltip_text, "Kilitli seçenek ZAR_KILITLI sözünü gösteriyor")
+	_kontrol(kilitli != null and kilitli.disabled and String(TranslationServer.translate("diyalog.zar.kilitli")) in kilitli.tooltip_text, "Kilitli seçenek ZAR_KILITLI sözünü gösteriyor")
 	s.karakter.sorgu_degeri = eski_deger
 	s._denemeler.clear()
 

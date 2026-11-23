@@ -1,0 +1,35 @@
+{
+  "konusmaci": "chr_koy_tuccari",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "satir": "diyalog.koy.tuccar.giris",
+      "secenekler": [
+        {
+          "id": "harc",
+          "metin": "diyalog.koy.tuccar.harc.soru",
+          "hedef": "harc"
+        },
+        {
+          "id": "rusvet",
+          "metin": "diyalog.koy.tuccar.rusvet.soru",
+          "hedef": "rusvet"
+        },
+        {
+          "id": "ret",
+          "metin": "diyalog.koy.tuccar.ret.soru",
+          "hedef": "ret"
+        }
+      ]
+    },
+    "harc": {
+      "satir": "diyalog.koy.tuccar.harc.cevap"
+    },
+    "rusvet": {
+      "satir": "diyalog.koy.tuccar.rusvet.cevap"
+    },
+    "ret": {
+      "satir": "diyalog.koy.tuccar.ret.cevap"
+    }
+  }
+}

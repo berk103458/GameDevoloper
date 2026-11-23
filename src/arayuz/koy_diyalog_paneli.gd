@@ -99,7 +99,7 @@ func _replik_goster(konusan: String, metin: String, secenekler: Array) -> void:
 				var kimlik := String(opt.get("id", ""))
 				btn.pressed.connect(func() -> void:
 					if yonetici:
-						yonetici.dm_secenek(kimlik)
+						yonetici.soz_secenek(kimlik)
 				)
 				_secenekler_kutusu.add_child(btn)
 

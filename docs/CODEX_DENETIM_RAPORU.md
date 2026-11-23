@@ -197,3 +197,9 @@ Import, bağımsız CHR sorgusu ve iki ziyaretli canlı kapı denetimi geçti. T
 ## Bütün CHR kadrosu
 
 `docs/SOZ_KAPI_KADROSU.md` 30 CHR kaydını ve varış koşullarını listeler. 90 karar koşusunda gerçek gece kuyruğu kullanıldı. Yedi tehdit profili mevcut takvim nedeniyle 14. günden sonra denendi. Kabul, ret ve rüşvetin iş gücü, ret sayacı, gıda, kese ve kapı çıkışı doğrulandı. Sorgu replikleri ve takip seçimi Söz izinde. Sonuçsuz dal veya teklifsiz rüşvet yok. Asset gerekmedi. Log `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/kadro-son.log`.
+
+## Köy tüccarı ve CHR metin anahtarları
+
+Köy tüccar sohbeti Söz'ün veri düğümlerinden yürür. Eski oyun içi Dialogue Manager çağrısı kaldırıldı. Eklentinin çağrıları yalnız önceki bağımsız uyumluluk testinde bulunur. Parley'nin yazılmış köy sohbetleri kendi kaynaklarını kullanır. Tüccar sohbeti kapıda yapılmış ödeme veya rüşveti ikinci kez kasaya yazmaz. Mevcut rüşvet iş gücü etkisi korunur.
+
+900 CHR tablo anahtarı CSV anahtar standardına taşındı. Kaynak düğüm ve kayıt kimlikleri değişmedi. Zar ve kaçış etiketleri CSV biçimine uyar. Köye alınmış CHR'nin ismi sorulmadan görünen etiket eklendi. Metin kaynak doğrulaması, kadro, zar bağlantısı ve eklenti bağları testleri geçti. Asset gerekmedi.
