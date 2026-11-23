@@ -1,3 +1,7 @@
+## 23 Kasım 2026 — Gemini EK listesi parti 12 (Muharrir / Grok Bot)
+
+`GEMINI_EK_2D_URETIM_LISTESI.md` kalem 31–60 üretildi (hepsi eksikti, atlanan yok): 1D kalan zar / mühür / heybe animasyon kareleri 31–46 (256×256); 2A köy bina ikonları 47–59 (64×64, 2px dış pay); 2B stok ikonu `icon_stok_kereste` (64×64, 2px dış pay). E60 ilk üretim yuvarlak tomruk çıktığı için bariz bozukluk diye bir kez yeniden üretildi (yontulmuş kereste tahtaları). E31/E32/E35–E37 ham zemin chartreuse idi; işlemde köşe taşması ile anahtarlandı (üretim yeniden yapılmadı). Lisans notu: “Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026”. Kontak klon dışında `/workspace/gemini_onizleme/parti_12.png` (commit edilmedi). Sıradaki iş: EK liste kalem 61 (`icon_stok_tomruk`).
+
 ## 23 Kasım 2026 — Gemini EK listesi parti 11 (Muharrir / Grok Bot)
 
 `GEMINI_EK_2D_URETIM_LISTESI.md` ilk 30 kalemi üretildi (hepsi eksikti, atlanan yok): 1A geçici iş ikonları 1–9 (48×48, 2px dış pay), 1B özel zanaat 10–17 (64×64, 2px dış pay), 1C çekirdek hikâye / köylü / gezgin tüccar portreleri 18–29 (600×760), 1D ilk animasyon karesi `zar_d6_roll_01` (256×256, resmi durağan zar boyutu). Lisans notu: “Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026”. Kontak klon dışında `/workspace/gemini_onizleme/parti_11.png` (commit edilmedi). Sıradaki iş: EK liste kalem 31 (`zar_d6_roll_02`).
