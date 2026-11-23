@@ -4,12 +4,14 @@
 Gemini — planlama / analiz ajanı (ROADMAP, mimari not, doğrulama).
 
 ## Şu an üzerinde çalışılan
+- **Harita ekranı 2D asset hazırlığı (Alpha, 23 Kas 2026):** `docs/arayuz/HARITA_URETIM_LISTESI.md` oluşturuldu (`65` yeni kalem: `23` işaretçi, `9` rota/sınır/nehir/köprü, `22` katman, `11` harita arayüzü; `6` çekirdek + `13` paylaşılan mevcut dosya işaretlendi; `data/cevre_haritasi.json` eksik alan şeması ve kod/düğüm bağlama planı eklendi; görsel ve kod üretilmedi). kota görünmüyor.
 - **MESHY-27 (`klip_eksik:*` 44/44 karakter):** Tamamlandı (`0` atlanan karakter; pilot `34` + toplu `618` = **`652` kredi** harcandı, yedek anahtar `...AqQC` kalan bakiye: **`205` kredi**). `ciftci_bekle.res` `SAH-03` adım boyu aşımı nedeniyle reddedilip çıkarıldı; `ayak_zemini_kontrol.tscn` ve `chr_kapi_kontrol.tscn` `RC=0` ile geçti.
 
 ## Sonraki plan
 Ahmet'in yeni görev veya inceleme talimatı bekleniyor.
 
 ## Güncel durum
+- `docs/arayuz/HARITA_URETIM_LISTESI.md` `claude/festive-volta-li1sfm` dalına eklendi; üretim ve bağlama adımları beklemede. kota görünmüyor.
 - Tüm 142 Görev 25/26 Meshy 3B asset'i + tüm 44 MESHY-27 eski karakter iskelet ve klipleri `claude/festive-volta-li1sfm` dalında.
 - Kardeş günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `codex.md/Antigravity.md`, isteğe bağlı `codex.md/Muharrir.md`.
 
