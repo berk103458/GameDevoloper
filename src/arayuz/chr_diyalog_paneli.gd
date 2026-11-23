@@ -123,6 +123,11 @@ func guncelle() -> void:
 					var z_res := preload("res://src/kapi/zar_ipucu.gd").oturumda_goster(oturum, ayarlar)
 					if int(z_res.get("ipucu_sayisi", 0)) > 0:
 						_zar_ipucu = String(z_res.get("metin", ""))
+					var z_tur := StringName(sorgu.son_zar.get("tur", "d6"))
+					var kok: Node = self
+					while kok != null and not (kok is KapiEkrani):
+						kok = kok.get_parent()
+					await ZarAtisiAnimasyonu.oynat(kok if kok is Control else self, z_tur, ayarlar)
 				guncelle()
 		)
 		add_child(b)

@@ -225,8 +225,9 @@ func _astar_yokla() -> void:
 	_kartlar[_kartlar.size() - 1].grab_focus()
 
 
-## "Yalan yakalandı" mührü: büyükten küçülerek, hafif dönerek basılır.
+## "Yalan yakalandı" mührü: varsa kare dizisi, sonra kalıcı vektör mühür.
 func _muhur_bas() -> void:
+	await YalanMuhurAnimasyonu.oynat(self)
 	_muhur = Muhur.new()
 	_muhur.yazi = tr("heybe.yakalandi")
 	_muhur.font_ = Tema.font(700)

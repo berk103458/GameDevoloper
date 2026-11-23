@@ -719,7 +719,9 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	set_meta(&"sonuclanan_gelen", _gelen)
 	if anahtar == "rusvet" or anahtar == "elkoy":
 		Ses.cal(&"sfx_kese")
+		await RusvetKesesiAnimasyonu.oynat(self)
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
+	await KapiSurguAnimasyonu.oynat(self, bool(sonuc["kaldi"]))
 	var replik := preload("res://src/kapi/karar_replik_adaptoru.gd")
 	if preload("res://src/arayuz/aile_kapi_paneli.gd").sonuc(self, _gelen, sonuc): pass
 	elif HeyetKapiPaneli.sonuc(self, _gelen, sonuc): pass

@@ -61,6 +61,8 @@ func _sec(e: KapiEkrani, id: String) -> void:
 	_yenile(e)
 	e._yaz(TranslationServer.translate("anlati.kavga." + String(r.sonuc_kimligi)))
 	if r.has("zar"):
+		var z_tur := StringName(r.zar.get("tur", "d6")) if r.zar is Dictionary else &"d6"
+		await ZarAtisiAnimasyonu.oynat(e, z_tur, e.ayarlar if "ayarlar" in e else null)
 		e._yaz(TranslationServer.translate("anlati.kavga.zar") % [int(r.zar.zar), int(r.zar.gerekli)])
 	e.hud.guncelle()
 	tamamlandi.emit()
