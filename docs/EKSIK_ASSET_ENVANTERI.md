@@ -1,3 +1,7 @@
+## 23 Kasım 2026 — Gemini EK listesi parti 11 (Muharrir / Grok Bot)
+
+`GEMINI_EK_2D_URETIM_LISTESI.md` ilk 30 kalemi üretildi (hepsi eksikti, atlanan yok): 1A geçici iş ikonları 1–9 (48×48, 2px dış pay), 1B özel zanaat 10–17 (64×64, 2px dış pay), 1C çekirdek hikâye / köylü / gezgin tüccar portreleri 18–29 (600×760), 1D ilk animasyon karesi `zar_d6_roll_01` (256×256, resmi durağan zar boyutu). Lisans notu: “Grok Bot GenerateImage ile özgün üretildi, Ahmet onayladı 23 Kas 2026”. Kontak klon dışında `/workspace/gemini_onizleme/parti_11.png` (commit edilmedi). Sıradaki iş: EK liste kalem 31 (`zar_d6_roll_02`).
+
 ## 23 Kasım 2026 — Gemini listesi parti 10 (Muharrir / Grok Bot)
 
 Ana listedeki atlanan Cursor Agent ikonlarının kalan 30 kalemi kendi stilimizle yeniden üretildi ve üzerine yazıldı: 171–172, 175, 192–194, 196–198, 200, 205–206, 209–210 (64px, resmi 2px dış pay), 229–230 (opak albedo dokular), 245, 247–248, 250–256, 258, 260, 266, 270. Eski dosyalar `work/yedek/parti10/` altına kopyalandı (commit edilmedi). İlk 30’daki Alpha atlamalarına (2–3, 5–17) dokunulmadı. Cursor yeniden üretim geçişi böylece tamamlandı (45 + 270). Lisans notu: “… yeniden üretildi”. Kontak klon dışında `/workspace/gemini_onizleme/parti_10.png` (commit edilmedi). Sıradaki iş: `GEMINI_EK_2D_URETIM_LISTESI.md` (143). Bu partide EK listeye başlanmadı.
