@@ -211,3 +211,15 @@ Kaçış sinyali taşıdığı CHR sorgusunu artık kuvvetli bir başvuruyla tut
 ## Birim testi giriş noktaları
 
 İlk paket keşfi, betik yoluyla kalıtım kullanan Şiddet Korkusu ekran testini tek başına `godot -s` ile açtı. Godot autoload bağlamını kuramadı ve betiği SceneTree olarak çalıştıramadı. Keşif artık eşleşen test sahnesini açıyor. Gerekirse betiğin kalıtımını izliyor ve düğümü autoload'lar kurulduktan sonra SceneTree sarmalayıcısına ekliyor. Şiddet Korkusu ekran sahnesi ve SceneTree tabanlı oyun testi ayrı giriş noktalarında geçti.
+
+## Beş gece ve çeviri kaynakları
+
+Tohum 76, yeni oyun, hikâye politikası. Kaçış düzeltmesiyle beş gece 2.872 adımda tamamlandı. On kapı karşılaşmasının tamamı Söz izine karar ve sonuç yazdı. Yedi kabul, bir ret, bir rüşvet ve bir harç. Nevzat ve Zeynep doğal gece kuyruğundan geldi. Otomatik oyuncu hatası, Godot hatası, Godot uyarısı ve yer tutucu metin sayısı 0. Performans günlüğü ilk gecede bir kare süresi eşiği ihlali kaydetti. Denetim dosyası D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/bes-gece-kapanis.denetim.json. Aynı klasörde Godot günlüğü ve ham JSONL var. Koşu sonradan festive'e gelen kare animasyonu paketinden öncedir.
+
+Projenin depo içinde beklediği Türkçe ve İngilizce çeviri kaynakları güncel CSV ile eşitlendi. Soğuk ve sıcak importun ürettiği çeviri dosyaları birebir aynı. Asset gerekmedi.
+
+- 226673af — Ses ve GorselIz, bağımsız CHR doğrulaması.
+- 2233a400 — Otuz CHR ve 90 karar dalı.
+- 6fbdd216 — Köy tüccarı ve CSV anahtarları.
+- de1d292d — Kaçış sinyali referans döngüsü ve canlı regresyon testi.
+- 9b3ee4d8 — Birim testi sahnesi ve SceneTree kalıtımı. Üç Şiddet Korkusu testi geçti. Kanıt D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/siddet-korkusu-ozet.json.

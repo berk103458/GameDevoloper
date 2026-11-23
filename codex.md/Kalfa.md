@@ -2070,3 +2070,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - CHR kaçış sinyalinin referans döngüsü zayıf başvuruyla kapatıldı. Canlı kapı testi iki ziyareti ve geçici sorgunun serbest kalmasını doğruladı. Tam paket ve beş gece koşuyor. Asset gerekmedi. Kota görünmüyor.
 
 - Test keşfi düğüm sahnesini, dosya yoluyla kalıtımı ve SceneTree tabanını ayırt ediyor. Şiddet Korkusu ekran sahnesi ve oyun testi geçti. Asset gerekmedi. Kota görünmüyor.
+
+- Godot'un beklediği Türkçe ve İngilizce çeviri kaynakları güncel CSV'den alındı. Beş gece ve 10 kapı karşılaşması sıfır Godot hatası ve uyarısıyla geçti. Asset gerekmedi. Kota görünmüyor.
