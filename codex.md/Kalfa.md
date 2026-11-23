@@ -2066,3 +2066,5 @@ Tohum 76 devam koşusunda otomatik oyuncu Zeynep'in inceleme panelinde sohbet is
 - 30 CHR'nin doğal gece sırası ve 90 bağımsız karar dalı geçti. Kadro listesi ve test sanity paketine eklendi. Asset gerekmedi. Kota görünmüyor.
 
 - Oyun içindeki son Dialogue Manager kullanımı olan köy tüccarı Söz'e taşındı. CHR, zar ve kaçış metin anahtarları CSV kapısından geçti. Asset gerekmedi. Kota görünmüyor.
+
+- CHR kaçış sinyalinin referans döngüsü zayıf başvuruyla kapatıldı. Canlı kapı testi iki ziyareti ve geçici sorgunun serbest kalmasını doğruladı. Tam paket ve beş gece koşuyor. Asset gerekmedi. Kota görünmüyor.

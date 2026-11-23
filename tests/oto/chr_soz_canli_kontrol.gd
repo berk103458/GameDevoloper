@@ -42,6 +42,11 @@ func _ready() -> void:
 	_kopru.ana = _ana
 	_ana.add_child(_kopru)
 	await _ana._kapiya_git()
+	var gecici := ChrSorgusu.new(null)
+	var gecici_ref: WeakRef = weakref(gecici)
+	preload("res://src/kapi/tansiyon_kacis_akisi.gd").bagla(_ana._ekran, gecici)
+	gecici = null
+	_dene(gecici_ref.get_ref() == null, "Kapı kaçış sinyali biten sorguyu bellekte tutmadı.")
 	for i in ZIYARETCILER.size():
 		if not await _ziyaret(ZIYARETCILER[i], "kabul" if i == 0 else "ret"):
 			break

@@ -27,9 +27,18 @@ static func bagla(ekran: Control, sorgu: ChrSorgusu) -> void:
 	if sorgu.has_meta(&"kacis_bagli"):
 		return
 	sorgu.set_meta(&"kacis_bagli", true)
-	sorgu.tansiyon_degisti.connect(func(_t: int) -> void:
-		if sorgu.kacti() and is_instance_valid(ekran) and ekran.get("_gelen") != null and ekran.get("_gelen").chr_sorgusu() == sorgu:
-			(func() -> void: ekranda(ekran as KapiEkrani)).call_deferred())
+	# Sinyal ChrSorgusu'na ait. Bağlantı kendi göndericisini bellekte tutmamalı.
+	sorgu.tansiyon_degisti.connect(
+		_kacisi_kontrol_et.bind(weakref(ekran), weakref(sorgu)), CONNECT_DEFERRED)
+
+
+static func _kacisi_kontrol_et(_tansiyon: int, ekran_ref: WeakRef, sorgu_ref: WeakRef) -> void:
+	var ekran := ekran_ref.get_ref() as KapiEkrani
+	var sorgu := sorgu_ref.get_ref() as ChrSorgusu
+	if ekran == null or sorgu == null or not sorgu.kacti():
+		return
+	if ekran._gelen != null and ekran._gelen.chr_sorgusu() == sorgu:
+		ekranda(ekran)
 
 
 ## Kapı ekranında: karar satırı, hatırlanma notu ve gelenin uzaklaşması; ardından sıradaki.

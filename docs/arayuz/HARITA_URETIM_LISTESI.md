@@ -2,10 +2,11 @@
 
 Bu belge, **Kapı Muhafızı** çevre haritası ekranının (`HaritaEkrani` + `CevreHaritasi` + `data/cevre_haritasi.json`) oyunda görsel ve işlevsel açıdan eksiksiz çalışması için gereken **tüm 2D asset kalemlerini**, **eksik olay/bölge veri alanlarını** ve **kod/düğüm bağlama planını** içerir.
 
-- **Toplam Yeni Üretim Kalemi:** **65** (`23` işaretçi + `9` rota/sınır/nehir/köprü + `22` katman [3 savaş sisi, 5 mühür, 10 olay işareti, 4 mevsim] + `11` harita arayüzü parçası).
-- **Mevcut Korunan Dosyalar:** `6` çekirdek harita dosyası + `13` paylaşılan `gece_kapisi` / envanter dosyası aşağıda `mevcut` olarak işaretlenmiştir ve **tekrar üretilmez**.
-- **Ana Liste Uyum Notu:** Mevcut `docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md` (311 kalem) ve `docs/arayuz/GEMINI_EK_2D_URETIM_LISTESI.md` (143 kalem) ile çakışma yoktur; bu belgedeki tüm yeni parçalar `assets/art/map/` klasörüne yazılır.
-- **Bu turda kod veya görsel üretimi yapılmaz:** Aşağıdaki bağlama planı uygulanmaya hazır teknik şemadır.
+- **Toplam Yeni Üretim Kalemi:** **87** — Alpha'nın `65` harita parçası (`23` işaretçi + `9` rota/sınır/nehir/köprü + `22` katman [3 savaş sisi, 5 mühür, 10 olay işareti, 4 mevsim] + `11` harita arayüzü) + Muharrir'in `22` bölge manzarası (`4` P0 temel + `17` olay/mevsim varyantı + `1` P3 `oba` temeli).
+- **Mevcut Korunan Dosyalar:** `6` çekirdek harita dosyası + `13` paylaşılan `gece_kapisi` / envanter dosyası aşağıda `mevcut` olarak işaretlenmiştir ve **tekrar üretilmez**. `assets/art/env/harita_uc.png` genel bakış olarak kalır; Hisar temel manzarası yeniden çizilir.
+- **Yol ve adlandırma:** Çakışan veya çift kalemlerde Alpha'nın `assets/art/map/` yolları esastır (1–65 numaralı tablo aynen korunur). Bölge manzaraları Alpha listesinde yoktu; `harita_uc.png` ile aynı ailede oldukları için `assets/art/env/bolge/` altına eklenir. `olay_yangin.png` (128×128 harita rozeti) ile `bolge/hisar_yangin.png` (16:9 manzara) farklı işlerdir, teklenmez. İsteğe bağlı batı bölge kimliği Alpha'daki `oba` (Ertuğrul Obası, HAR-07) adını kullanır; ayrı `bati_uc` id'si açılmaz.
+- **Ana Liste Uyum Notu:** `docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md` ve `docs/arayuz/GEMINI_EK_2D_URETIM_LISTESI.md` ile dosya yolu çakışması yoktur.
+- **Bağlama bu partide yok.** Kod ve düğüm planı (Bölüm 6–7) uygulanmaz. Görsel üretim Parti 01 ile başlamıştır.
 
 ## Üretim Kuralları (Ana Liste ile Birebir)
 
@@ -14,6 +15,7 @@ Bu belge, **Kapı Muhafızı** çevre haritası ekranının (`HaritaEkrani` + `C
 3. **Saydam Parçalar (`60` kalem — RGBA, `#00FF00`):** Dış zemin tekdüze `#00FF00` yeşil istenir (`work/ui_yesil_ham/` → şeffaf PNG). İçi boş pencere/halka isteyen 3 kalemde (`ui_harita_kenarlik.png`, `ui_secili_halka.png`, `ui_tehlike_halka.png`) hem dış hem de içi boş orta açıklık `#00FF00` yeşil istenir.
 4. **Tam Ekran Katmanlar (`5` kalem — Opak RGB `16:9`):** `Continuous full-bleed image to all edges; no paper border, pasted UI rectangle or controls.` kuralı uygulanır (`savas_sisi_tam_katman.png` + 4 mevsim katmanı).
 5. **İnce Şerit Parçalar (`512×64`, `512×128`, `256×128`):** `GEMINI_TEKLI_URETIM_PROMPTLARI.md` uyarınca kaynak tuval `16:9` seçilir, şerit tuvalin ortasında yatay çizdirilir (`centered horizontally across a wide 16:9 source canvas with generous solid #00FF00 green margin above and below`), indirme sonrası hedef piksel boyutuna kırpılır.
+6. **Bölge Manzaraları (`22` kalem — Opak RGB `16:9`, `1920×1080`):** `Continuous full-bleed image to all edges; no paper border, pasted UI rectangle or controls.` Temel manzaralarda onaylı stil referansı `harita_uc.png` (yalnız palet ve fırça; boş vadi yerleşimi kopyalanmaz). Varyantlarda ilgili temel manzara referans verilir; aynı kadraj, dağ silüeti ve yol çizgisi korunur, yalnız olay/hava eklenir. Metin, pusula, yer adı, UI çerçevesi yok.
 
 ---
 
@@ -375,3 +377,68 @@ Aşağıdaki dosyalar repoda **hâlihazırda üretilmiş ve kullanılabilir duru
 | Satır Aralığı | Hedef Sabit / Yardımcı | Planlanan Genişletme |
 |---|---|---|
 | `L6–L46` & `L89–L121` | `DILIM` / `kutu()` | Harita 9-slice dokuları (`ui_bolge_kart_cerceve`: `96/96/96/96`, `ui_harita_tooltip`: `48/48/48/48`, `ui_harita_kenarlik`: `112/112/112/112`, `ui_lejant_cerceve`: `64/64/64/64`) için mutlak yol destekli `harita_kutusu(yol, pay)` yardımcısı eklenir veya doğrudan `HaritaEkrani` içinde `StyleBoxTexture` kurulur. |
+
+---
+
+## Bölüm 7 — Bölge Manzaraları (`22` kalem, Muharrir planı ile birleşik)
+
+Kaynak plan: çalışma kopyası `/workspace/BOLGE_OLAY_MANZARA_PLANI.md`. `harita_uc.png` bir harita değil, dağlık uç vadisi manzarasıdır; harita/bölge görünümü olarak bu üslupta bölge temelleri ve olay varyantları üretilir. Ahmet'in "orman yangını" örneği oyunda ayrı kart değildir; en yakını Hisar samanlık/yaz kıvılcımı / kundaktır (`hisar_yangin`). Alpha'nın `olay_*.png` rozetleri harita üstü işaret, bu bölümdeki dosyalar seçilen bölgenin tam kare manzarasıdır.
+
+`harita_uc.png` genel bakış arka planı olarak saklanır (Bölüm 0A, tekrar üretilmez). Alpha bağlama planındaki `DIS_MANZARA` sabiti bu dosyayı tutar.
+
+### 7A. Özet Tablo
+
+| No | Dosya Yolu | Öncelik | Nihai Boyut | Saydamlık | Bölge / Birleşen olaylar |
+|---:|---|---|---:|---|---|
+| 66 | `assets/art/env/bolge/hisar.png` | P0 | 1920×1080 | Opak RGB | Taşlık Hisar temeli (küçük taş hisar ve evler; `harita_uc` boş vadi olduğu için yeniden çizilir) |
+| 67 | `assets/art/env/bolge/karaboran.png` | P0 | 1920×1080 | Opak RGB | Karaboran / dağ geçidi temeli (`karaboran`, Alpha pin `yol`) |
+| 68 | `assets/art/env/bolge/tekfur.png` | P0 | 1920×1080 | Opak RGB | Tekfur Hisarı temeli |
+| 69 | `assets/art/env/bolge/goc_yolu.png` | P0 | 1920×1080 | Opak RGB | Göç yolları temeli (boş kervan yolu) |
+| 70 | `assets/art/env/bolge/hisar_yangin.png` | P1 | 1920×1080 | Opak RGB | `yangin`, `samanlik_yangini`, `yaz_su_yangin` (yanan yapı), `ambar_kundaklamasi` |
+| 71 | `assets/art/env/bolge/hisar_taskin.png` | P1 | 1920×1080 | Opak RGB | `ilkbahar_taskini` |
+| 72 | `assets/art/env/bolge/hisar_ufuk_duman.png` | P1 | 1920×1080 | Opak RGB | `mogol_duman`, `mogol_oncusu` (kalan ≤5 gün) |
+| 73 | `assets/art/env/bolge/hisar_saldiri.png` | P1 | 1920×1080 | Opak RGB | Tekfur saldırısı, `sinsi_gece` izi, Karaboran baskınının köye inmesi |
+| 74 | `assets/art/env/bolge/hisar_cekirge.png` | P1 | 1920×1080 | Opak RGB | `tarla_cekirge` |
+| 75 | `assets/art/env/bolge/hisar_kuraklik.png` | P1 | 1920×1080 | Opak RGB | `tarla_kuraklik`, `kitlik` |
+| 76 | `assets/art/env/bolge/karaboran_cete.png` | P1 | 1920×1080 | Opak RGB | `harami_elcisi`, `cete_anlasmasi`, `karaboran_intikami` (hazırlık) |
+| 77 | `assets/art/env/bolge/tekfur_ordu.png` | P1 | 1920×1080 | Opak RGB | `tekfur_elcisi`, `tekfur_harac_heyeti`, `anlati.baski.ordu`, yüksek `tekfur_baski` |
+| 78 | `assets/art/env/bolge/goc_yolu_pusu.png` | P1 | 1920×1080 | Opak RGB | `goc_yolu_guvenligi` tehdit/başarısızlık |
+| 79 | `assets/art/env/bolge/hisar_kurt.png` | P2 | 1920×1080 | Opak RGB | `kurt`, `kurt_baskini` |
+| 80 | `assets/art/env/bolge/hisar_don.png` | P2 | 1920×1080 | Opak RGB | `tarla_don`, `gece_donu` |
+| 81 | `assets/art/env/bolge/hisar_yagmur.png` | P2 | 1920×1080 | Opak RGB | `tarla_yagmur` |
+| 82 | `assets/art/env/bolge/hisar_hasat.png` | P2 | 1920×1080 | Opak RGB | `harman`, `hasat_senligi` |
+| 83 | `assets/art/env/bolge/hisar_salgin.png` | P2 | 1920×1080 | Opak RGB | `salgin`, `kis_hastaligi` |
+| 84 | `assets/art/env/bolge/hisar_kar.png` | P2 | 1920×1080 | Opak RGB | `kar_ortusu`, kış / `kapi_firtina_kuyrugu` |
+| 85 | `assets/art/env/bolge/hisar_sur.png` | P2 | 1920×1080 | Opak RGB | `sur_catlak` |
+| 86 | `assets/art/env/bolge/goc_yolu_kafile.png` | P2 | 1920×1080 | Opak RGB | `kervan`, `kervan_korumasi`, `aydogdu_oba`, başarılı yol |
+| 87 | `assets/art/env/bolge/oba.png` | P3 | 1920×1080 | Opak RGB | Ertuğrul / batı uç temeli (Alpha pin `oba`; JSON'a beşinci nokta sonra) |
+
+Kapı sıra olayları, diyalog/karakter kartları, söylenti kapanışları, hırsızlık, divan, teftiş ve düğün için manzara varyantı üretilmez. Diğer üç bölgeye kış örtüsü çoğaltması P3'tür. `sancak` ve `mogol` işaretçileri Alpha'dadır; ayrı temel manzara şimdilik açılmaz (`mogol` ufku `hisar_ufuk_duman` ile görülür).
+
+Aynı bölgede birden fazla olay varken gösterim önceliği (bağlama sırasında, bu partide kod yok): felaket/saldırı → ufuk tehdidi → mevsim/hava → bereket/kafile → temel.
+
+### 7B. Temel Manzara Promptları (P0)
+
+Ortak ön ek (her satırda vardır): `Create ONE actual image now, not a list, plan or filename response. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper. Painterly ink-and-gouache, matte surfaces, restrained brushwork, readable silhouettes, quiet space. Palette: charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43, ivory #E6DDC6; ochre-brown earth, cool grey sky. Wide 16:9 landscape, camera from a high hillside looking into a valley, same epoch and climate as a rugged Seljuk-Byzantine borderland: rocky slopes, sparse oak and juniper, no anachronism. Fill the entire canvas to all edges; no letterbox, paper border, frame, UI, compass, legend or inset. No text, no letters, no numbers, no pseudo-calligraphy, no logo, no palette swatches, no labels, no checkerboard, no contact sheet, no website mockup, no 3D render, no photoreal cinema still.`
+
+Varyant referans cümlesi: `A style-and-composition reference image is attached. Keep the identical camera, horizon, mountain silhouettes, road path and placement of every landmark already in that image. Do not restage the valley. Change only the weather and the event elements named below. Borrow palette and brushwork from the reference; do not copy objects from any other picture.`
+
+- `assets/art/env/bolge/hisar.png` — Create ONE actual image now, not a list, plan or filename response. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper. Painterly ink-and-gouache, matte surfaces, restrained brushwork, readable silhouettes, quiet space. Palette: charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43, ivory #E6DDC6; ochre-brown earth, cool grey sky. A high hillside view of an Anatolian frontier valley with a small stone watch-fort and a tight cluster of timber-and-mud houses on a rocky spur in the lower mid-ground, where the dirt road reaches a gate. Small terraced fields and a sheepfold sit on the skirts of the settlement. Distant mountains recede in cool haze. Overcast daylight, no smoke column, no fire, no army, no caravan, no snow, no flood. Use a 16:9 source canvas. Continuous full-bleed image to all edges; no paper border, pasted UI rectangle or controls. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. If a style reference is attached, borrow only its palette and brushwork; do not copy its empty-valley layout or add its objects.
+
+- `assets/art/env/bolge/karaboran.png` — Create ONE actual image now, not a list, plan or filename response. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper. Painterly ink-and-gouache, matte surfaces, restrained brushwork, readable silhouettes, quiet space. Palette: charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43, ivory #E6DDC6; ochre-brown earth, cool grey sky. Looking into a darker, steeper northern mountain pass. Sheer rock, a narrow dry stream bed, dense juniper and oak in the ravines, cave mouths in the cliffs, a thin goat path, no village and no fortress. Heavy cloud, cooler and more shadowed than an open valley. No campfires, no riders, no snow field. Use a 16:9 source canvas. Continuous full-bleed image to all edges; no paper border, pasted UI rectangle or controls. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. If a style reference is attached, borrow only palette and brushwork; do not copy its road-valley layout.
+
+- `assets/art/env/bolge/tekfur.png` — Create ONE actual image now, not a list, plan or filename response. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper. Painterly ink-and-gouache, matte surfaces, restrained brushwork, readable silhouettes, quiet space. Palette: charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43, ivory #E6DDC6; ochre-brown earth, cool grey sky. Looking east across frontier hills toward a distinct Byzantine stone fortress on a distant ridge: square towers, pale masonry, a maintained approach road on terraced slopes. The foreground stays wild and ochre, like the frontier. Daylight, clear enough to read the fortress silhouette, no military camp, no column of spearmen, no burning village. Use a 16:9 source canvas. Continuous full-bleed image to all edges; no paper border, pasted UI rectangle or controls. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. If a style reference is attached, borrow only palette and brushwork; do not copy its empty-valley layout.
+
+- `assets/art/env/bolge/goc_yolu.png` — Create ONE actual image now, not a list, plan or filename response. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper. Painterly ink-and-gouache, matte surfaces, restrained brushwork, readable silhouettes, quiet space. Palette: charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43, ivory #E6DDC6; ochre-brown earth, cool grey sky. A wider valley floor with a winding packed-earth caravan road leading toward a shallow ford or creek, then into hazy hills. The road is empty. Sparse scrub, a few trees by the water, no settlement, no wagons, no people, no ambush wreck. Use a 16:9 source canvas. Continuous full-bleed image to all edges; no paper border, pasted UI rectangle or controls. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. If a style reference is attached, borrow only palette and brushwork; the road may rhyme with the reference valley but must not paste that image.
+
+Varyant promptlarının olay cümleleri `/workspace/BOLGE_OLAY_MANZARA_PLANI.md` bölüm 6.3'te durur; üretim sırası gelince ilgili temel referans eklenerek kopyalanır.
+
+### 7C. Haritaya bağlama (bu partide uygulanmaz)
+
+Bölge seçilince sol alan, o bölgenin temel veya aktif olay manzarasına 0,45–0,6 sn çapraz solmayla geçer (`STRETCH_KEEP_ASPECT_COVERED`). Çözüm yolu: yeni `CevreHaritasi.manzara(oturum, id)` + `data/cevre_manzara.json`. Şematik pinler ve `assets/art/map/` katmanları manzaranın üstünde kalır. `kapi_ekrani.gd` ve diyalog motoruna dokunulmaz. Ayrıntı: `BOLGE_OLAY_MANZARA_PLANI.md` bölüm 7.
+
+### 7D. Parti 01 üretim kapsamı (en fazla 30 görsel)
+
+Parti 01 tamamlandı (30/87). Üretilenler: P0 dört temel manzara (66–69) + Alpha Bölüm 4'teki 11 öncelikli arayüz parçası (55–65) + mevcut dört bölgenin seçili/tehlike işaretçileri (4–11) + P1'e denk yedi olay rozeti (`olay_yangin`, `olay_baskin`, `olay_taskin`, `olay_pusu`, `olay_mogol_akin`, `olay_kitlik`, `olay_kervan`). Bağlama yok. Kontak sayfası `/workspace/harita_onizleme/parti_01.png` (repoya girmez).
+
+Sıradaki parti: P1 manzara varyantları (70–78), kalan pinler (`koy` / `oba` / `sancak` / `mogol` / `gozcu`), rota parçaları. Kalan yeni kalem: 57.

@@ -203,3 +203,7 @@ Import, bağımsız CHR sorgusu ve iki ziyaretli canlı kapı denetimi geçti. T
 Köy tüccar sohbeti Söz'ün veri düğümlerinden yürür. Eski oyun içi Dialogue Manager çağrısı kaldırıldı. Eklentinin çağrıları yalnız önceki bağımsız uyumluluk testinde bulunur. Parley'nin yazılmış köy sohbetleri kendi kaynaklarını kullanır. Tüccar sohbeti kapıda yapılmış ödeme veya rüşveti ikinci kez kasaya yazmaz. Mevcut rüşvet iş gücü etkisi korunur.
 
 900 CHR tablo anahtarı CSV anahtar standardına taşındı. Kaynak düğüm ve kayıt kimlikleri değişmedi. Zar ve kaçış etiketleri CSV biçimine uyar. Köye alınmış CHR'nin ismi sorulmadan görünen etiket eklendi. Metin kaynak doğrulaması, kadro, zar bağlantısı ve eklenti bağları testleri geçti. Asset gerekmedi.
+
+## CHR kaçış sinyali ve kapanış
+
+Kaçış sinyali taşıdığı CHR sorgusunu artık kuvvetli bir başvuruyla tutmaz. Ertelenen işlem sinyali gönderen sorgunun hâlâ kapıdaki ziyaretçiye ait olduğunu denetler. Canlı kapı testi geçici sorgunun serbest kaldığını, Meryem ve Haydar kararlarının uygulandığını doğruladı. Kayıt: `D:/Kapı_Muhafizi_Codex_Denetim_d0e3f89f/15-soz-kadro/chr-kacis-dogrulama.log`. Asset gerekmedi.
