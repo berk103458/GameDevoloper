@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b5jipir33evgv"
+path="res://.godot/imported/kapi_sorgu.dialogue-ef5c80b7efc306d1b2a4064f2cbd0d41.tres"
+
+[deps]
+
+source_file="res://data/diyalog/kapi_sorgu.dialogue"
+dest_files=["res://.godot/imported/kapi_sorgu.dialogue-ef5c80b7efc306d1b2a4064f2cbd0d41.tres"]
+
+[params]
+
+defaults=true

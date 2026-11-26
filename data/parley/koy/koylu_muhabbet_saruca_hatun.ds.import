@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://0330khququsw"
+path="res://.godot/imported/koylu_muhabbet_saruca_hatun.ds-b2ceefed470fdb9055421fee9491da42.tres"
+
+[deps]
+
+source_file="res://data/parley/koy/koylu_muhabbet_saruca_hatun.ds"
+dest_files=["res://.godot/imported/koylu_muhabbet_saruca_hatun.ds-b2ceefed470fdb9055421fee9491da42.tres"]
+
+[params]
+

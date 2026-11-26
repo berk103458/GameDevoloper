@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://0wtc2b2f44f"
+path="res://.godot/imported/koylu_muhabbet_yusuf.ds-41de4f0bc5f8d5d3b75cbd72e7c8f930.tres"
+
+[deps]
+
+source_file="res://data/parley/koy/koylu_muhabbet_yusuf.ds"
+dest_files=["res://.godot/imported/koylu_muhabbet_yusuf.ds-41de4f0bc5f8d5d3b75cbd72e7c8f930.tres"]
+
+[params]
+

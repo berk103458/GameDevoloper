@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://ik3txl4of1tj"
+path="res://.godot/imported/meclis_davalari.ds-13f05dd16a19c462ce43202197a21fd7.tres"
+
+[deps]
+
+source_file="res://data/parley/koy/meclis_davalari.ds"
+dest_files=["res://.godot/imported/meclis_davalari.ds-13f05dd16a19c462ce43202197a21fd7.tres"]
+
+[params]
+

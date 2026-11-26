@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://buf6s4iw787nu"
+path="res://.godot/imported/sekans_demirhane_pusat.ds-f80cd5c4b75decc5593cd7fb96d5f98c.tres"
+
+[deps]
+
+source_file="res://data/parley/koy/sekans_demirhane_pusat.ds"
+dest_files=["res://.godot/imported/sekans_demirhane_pusat.ds-f80cd5c4b75decc5593cd7fb96d5f98c.tres"]
+
+[params]
+

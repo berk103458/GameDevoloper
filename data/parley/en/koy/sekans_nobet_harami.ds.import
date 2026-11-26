@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://m4etde23o2oj"
+path="res://.godot/imported/sekans_nobet_harami.ds-f3a1f78051a7b1ddddc3ead17d975476.tres"
+
+[deps]
+
+source_file="res://data/parley/en/koy/sekans_nobet_harami.ds"
+dest_files=["res://.godot/imported/sekans_nobet_harami.ds-f3a1f78051a7b1ddddc3ead17d975476.tres"]
+
+[params]
+

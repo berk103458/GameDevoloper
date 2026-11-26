@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dxmcg4dsiqvoi"
+path="res://.godot/imported/tuccar.en.dialogue-eb0f551eeeb46db585d20a12b4128bb1.tres"
+
+[deps]
+
+source_file="res://data/diyalog/tuccar.en.dialogue"
+dest_files=["res://.godot/imported/tuccar.en.dialogue-eb0f551eeeb46db585d20a12b4128bb1.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://uhrmpsl3g5ga"
+path="res://.godot/imported/koylu_muhabbet_thessra.ds-262085a9688a50dd814ccb9af82f0fe7.tres"
+
+[deps]
+
+source_file="res://data/parley/en/koy/koylu_muhabbet_thessra.ds"
+dest_files=["res://.godot/imported/koylu_muhabbet_thessra.ds-262085a9688a50dd814ccb9af82f0fe7.tres"]
+
+[params]
+

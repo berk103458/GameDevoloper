@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://c2pkrye3mhq60"
+path="res://.godot/imported/sekans_degirmen_kitlik.ds-d0c12f63e9b39b58b049d7c5943895d4.tres"
+
+[deps]
+
+source_file="res://data/parley/koy/sekans_degirmen_kitlik.ds"
+dest_files=["res://.godot/imported/sekans_degirmen_kitlik.ds-d0c12f63e9b39b58b049d7c5943895d4.tres"]
+
+[params]
+

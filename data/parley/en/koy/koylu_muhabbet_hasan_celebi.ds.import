@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://dn0gpno6r7ryl"
+path="res://.godot/imported/koylu_muhabbet_hasan_celebi.ds-193527b2996d6c8bba65aee0a911adcb.tres"
+
+[deps]
+
+source_file="res://data/parley/en/koy/koylu_muhabbet_hasan_celebi.ds"
+dest_files=["res://.godot/imported/koylu_muhabbet_hasan_celebi.ds-193527b2996d6c8bba65aee0a911adcb.tres"]
+
+[params]
+

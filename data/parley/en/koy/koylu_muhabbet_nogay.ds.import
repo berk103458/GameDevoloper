@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://cjns47abyeo5p"
+path="res://.godot/imported/koylu_muhabbet_nogay.ds-fd5848481d347747c8f0e2b0c152c9eb.tres"
+
+[deps]
+
+source_file="res://data/parley/en/koy/koylu_muhabbet_nogay.ds"
+dest_files=["res://.godot/imported/koylu_muhabbet_nogay.ds-fd5848481d347747c8f0e2b0c152c9eb.tres"]
+
+[params]
+
