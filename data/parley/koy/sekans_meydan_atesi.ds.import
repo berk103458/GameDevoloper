@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://br06ojjkkmjpc"
+path="res://.godot/imported/sekans_meydan_atesi.ds-21e1680a95c162bd3471e1d5419a2061.tres"
+
+[deps]
+
+source_file="res://data/parley/koy/sekans_meydan_atesi.ds"
+dest_files=["res://.godot/imported/sekans_meydan_atesi.ds-21e1680a95c162bd3471e1d5419a2061.tres"]
+
+[params]
+

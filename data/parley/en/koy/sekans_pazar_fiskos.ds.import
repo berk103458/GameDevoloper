@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://5ksd1kn17rha"
+path="res://.godot/imported/sekans_pazar_fiskos.ds-d59d16b6d630a249af43e891b42c2c40.tres"
+
+[deps]
+
+source_file="res://data/parley/en/koy/sekans_pazar_fiskos.ds"
+dest_files=["res://.godot/imported/sekans_pazar_fiskos.ds-d59d16b6d630a249af43e891b42c2c40.tres"]
+
+[params]
+

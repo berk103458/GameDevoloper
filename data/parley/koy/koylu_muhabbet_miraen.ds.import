@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://b5en4sulpiw3g"
+path="res://.godot/imported/koylu_muhabbet_miraen.ds-d818d5af9e4ab79bfffd3393e0f8c2ee.tres"
+
+[deps]
+
+source_file="res://data/parley/koy/koylu_muhabbet_miraen.ds"
+dest_files=["res://.godot/imported/koylu_muhabbet_miraen.ds-d818d5af9e4ab79bfffd3393e0f8c2ee.tres"]
+
+[params]
+

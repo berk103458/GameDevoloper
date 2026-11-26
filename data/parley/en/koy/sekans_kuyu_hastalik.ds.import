@@ -1,0 +1,14 @@
+[remap]
+
+importer="parley_dialogue_sequence_ast_1.0.0"
+type="Resource"
+uid="uid://bse4hl001j0of"
+path="res://.godot/imported/sekans_kuyu_hastalik.ds-6d0b1474bb18d8df122d2f00eccc59bb.tres"
+
+[deps]
+
+source_file="res://data/parley/en/koy/sekans_kuyu_hastalik.ds"
+dest_files=["res://.godot/imported/sekans_kuyu_hastalik.ds-6d0b1474bb18d8df122d2f00eccc59bb.tres"]
+
+[params]
+
