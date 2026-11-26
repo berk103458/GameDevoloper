@@ -27,7 +27,7 @@ Bu not mevcut işleyişi bozmaz. Berk tarafında Claude ile Codex arasındaki i�
 - **Kalfa** (Ahmet’in Codex’i) Muharrir’in verdiği ayrı bloğu alır. İmzası `(Kalfa)` olur.
 - **Cursor ajanları** Muharrir’in verdiği düzeltme ve doğrulama işlerini alır.
 - **testx** (eski adı Tester; EVREN üzerindeki DeepSeek modeli, 11 Ekim 2026, Berk): ROADMAP 2'de Codex ile birlikte **kod yazar** (Claude madde verir, testx uygular ve test yazar, Claude inceleyip yayınlar; kod rehberi `docs/tester/TESTX_KOD_REHBERI.md`) ve tam zamanlı test ajanıdır: oyunu açar, sürekli test eder; bulgu (`docs/tester/BULGULAR.md`), değişiklik önerisi ve gelişim raporunu Claude’a verir. Kod değiştirmez. Eğitimi ve kuralları Claude yazar ve yönetir: `docs/tester/TESTER_REHBERI.md`, skill `.claude/skills/kapi-tester`, günlük `codex.md/Tester.md`.
-- **Usta · Kapı Muhafızı** (Berk'in Grok Bot asistanı, 15 Kasım 2026, Berk) Berk tarafının koordinatörüdür ve **Muharrir ile eş seviyededir**. ROADMAP_2 maddelerini takip eder, Berk tarafındaki ajanlara (Claude, Codex, testx, Cursor) görev yazar, commit ve kural uyumunu denetler, Berk'e Türkçe rapor verir. Ahmet tarafıyla ilgili çakışmalarda Berk üzerinden Muharrir'le konuşur. İmzası `(Usta)` olur, günlüğü `codex.md/Usta.md`.
+- **Claude alt ajanları** (Berk tarafı, 25 Kasım 2026, Berk): Claude odada lider olarak çalışır ve işi şu alt ajanlara dağıtır; hepsi Claude'un denetiminde, imzası `(Claude)` altında çalışır. **Cursor**: kod düzenleme, düzeltme ve doğrulama. **ChatGPT**: planlama, inceleme, dokümantasyon ve test yazımı. **Gemini**: görsel/asset üretimi ve araştırma (Antigravity hattı). **OpenCode**: terminal tabanlı derleme, test ve toplu kod işleri. Hepsi bu AGENTS.md ve Ajan Masası (issue #11) kurallarına uyar; blok sahipliği ROADMAP `[/]` ile durur.
 
 Başka ajanın `[/]` sahipliğine dokunulmaz. Bir blok değişikliği gerekirse not `docs/MUHARRIR_RAPORU.md` başına düşülür.
 
@@ -136,7 +136,7 @@ Bu kural bütün ajanlar için geçerlidir: Claude, Kalfa, Codex, testx ve sonra
 3. **Kota azalınca:** Kotan **%15'in altına** düştüğünde yeni işe başlama. Elindeki işi commit'le ve push et; bitiremediğin `[/]` maddelerini `[ ]` yap ve maddenin yanına ya da Ajan Masası'na `kota bitti, bırakıldı` notu düş.
 
 ## Madde sahipliği ve bölüşüm (Ahmet, 15 Kasım 2026)
-Bütün ajanlar için geçerlidir: Antigravity, Cursor, Cursor-Berk, Codex, Claude, Kalfa, Usta, testx ve sonradan katılanlar.
+Bütün ajanlar için geçerlidir: Antigravity, Cursor, Cursor-Berk, Codex, Claude, Kalfa, testx ve sonradan katılanlar.
 
 1. **Önce pull:** Madde almadan önce `claude/festive-volta-li1sfm` dalını tam pull et.
 2. **Alınmış maddeye dokunma:** ROADMAP'te maddenin başında `[/] (AjanAdı)` varsa o madde o ajanındır. Ona kod, test, `[x]` ya da not yazma. Başkasının `[x]` maddesine de iş eklenmez; ek iş gerekiyorsa yeni madde ya da Ajan Masası notu açılır.
@@ -147,8 +147,8 @@ Bütün ajanlar için geçerlidir: Antigravity, Cursor, Cursor-Berk, Codex, Clau
 7. **Bölüşüm:**
    - Antigravity `ROADMAP_2.md` başından ileri çalışır.
    - Cursor (Ahmet tarafı) sonundan geriye çalışır.
-   - Berk tarafı (Usta, Codex, Cursor-Berk) Usta'nın Ajan Masası'nda (issue #11) bildirdiği orta bölümlerde çalışır.
-   - Bölge dışına çıkmak için insan ya da koordinatör (Muharrir veya Usta) onayı gerekir.
+   - Berk tarafı (Claude ve alt ajanları, Codex, Cursor-Berk) Ajan Masası'nda (issue #11) bildirilen orta bölümlerde çalışır.
+   - Bölge dışına çıkmak için insan ya da koordinatör (Muharrir veya Claude) onayı gerekir.
 
 ### 15 Kas 2026 bölüşümü (Ahmet, 15 Kasım 2026 19:39)
 
@@ -156,12 +156,12 @@ Bu karar yukarıdaki 7. kuraldaki bölge bölüşümünün yerine geçer; 1–6.
 
 | Alan | Sahip | Kapsam | Öbür taraf |
 |---|---|---|---|
-| `ROADMAP_2.md`'de kalan bütün açık `[ ]` ve yarım `[/]` maddeler | **Berk tarafı** (Usta, Codex-Berk, Cursor-Berk, testx) | Cursor'un yarım bıraktığı 21 GRV maddesi; Antigravity'nin 8 açık maddesi (OGR-43, DYL-14, SEV-05, AYR-29, AYR-33, HAN-13, HAN-34, SOY-SON-01); Cursor'un bıraktığı KAP-18, YAP-03, KLT-47, SAH-55, YIL-09; sahipsiz bütün maddeler | Ahmet tarafı bu maddelere commit atmaz, işaretlerini değiştirmez |
+| `ROADMAP_2.md`'de kalan bütün açık `[ ]` ve yarım `[/]` maddeler | **Berk tarafı** (Claude ve alt ajanları, Codex-Berk, Cursor-Berk, testx) | Cursor'un yarım bıraktığı 21 GRV maddesi; Antigravity'nin 8 açık maddesi (OGR-43, DYL-14, SEV-05, AYR-29, AYR-33, HAN-13, HAN-34, SOY-SON-01); Cursor'un bıraktığı KAP-18, YAP-03, KLT-47, SAH-55, YIL-09; sahipsiz bütün maddeler | Ahmet tarafı bu maddelere commit atmaz, işaretlerini değiştirmez |
 | Meshy asset üretimi ve oyuna bağlanması | **Ahmet tarafı** — Antigravity | `tools/meshy/**`, `assets/meshy_manifest.json`, `assets/model/**` ve ilgili görsel bağlantı dosyaları | Berk tarafı dokunmaz |
 | Gemini metin işleri | **Ahmet tarafı** — metin Gemini (Antigravity), kod bağlantısı Cursor | `docs/GEMINI_METIN_ISLERI.md`'deki anahtarlar: `dedikodu.kacis`, `arayuz.kapi.karar_kacti`, `ZAR_BASARILI`, `ZAR_BASARISIZ`, `ZAR_KILITLI`, `zar.degistirici.*` ve bunların kod bağlantısı | Berk tarafı dokunmaz |
 | ROADMAP 3 savaş | **Ahmet tarafı** — Google ajanları ve Cursor | `docs/ROADMAP_3_SAVAS_ON_RAPOR.md`, ondan doğacak `ROADMAP_3` / `SVS-*` maddeleri ve savaş kodu | Berk tarafı dokunmaz |
 
-- **Ahmet tarafı:** Antigravity, Cursor, Codex, Claude. **Berk tarafı:** Usta, Codex-Berk, Cursor-Berk, testx.
+- **Ahmet tarafı:** Antigravity, Cursor, Codex, Claude. **Berk tarafı:** Claude ve alt ajanları, Codex-Berk, Cursor-Berk, testx.
 - **Ortak dosyalar** (`data/metin/metinler.csv`, `ROADMAP_2.md` gibi) iki tarafça da düzenlenebilir. Ancak yalnız kendi maddelerinin satırlarına dokunulur. Çakışma olursa Ajan Masası'na (issue #11) `[SORUN]` yazılır.
 - `ROADMAP_2.md`'deki madde satırlarında yazan eski sahip adları değiştirilmez; sahiplik bu tablodan okunur.
 
